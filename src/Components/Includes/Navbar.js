@@ -28,7 +28,7 @@ function Navbar({item, setItem}) {
           </SearchBox>
         </SearchDiv>
         <Menubar>
-          <Button to={"/cart"}>
+          <Button to="/cart">
             <FaShoppingCart />
             <Badge>
               <Priced>{item.length}</Priced>

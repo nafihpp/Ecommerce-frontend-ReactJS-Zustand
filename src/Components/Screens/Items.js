@@ -81,7 +81,7 @@ const Child = styled.li`
   justify-content: center;
   align-items: center;
   @media (max-width: 768px) {
-    width: 68%;
+    width: 46%;
     flex-wrap: wrap;
   }
 `;
