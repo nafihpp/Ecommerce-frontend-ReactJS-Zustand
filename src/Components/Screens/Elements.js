@@ -20,7 +20,7 @@ function Elements({ item, setItem }) {
         // handle error
         console.log(error);
       });
-  }, []);
+  },[id]);
 
   return (
     <Wrapper>
