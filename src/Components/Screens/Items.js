@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify'
 
 function Items({item , setItem}) {
   const [product, setProducts] = useState([]);

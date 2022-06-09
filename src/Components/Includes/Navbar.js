@@ -9,6 +9,7 @@ function Navbar({item, setItem}) {
   const handleFilter = (e) => {
     var searched = e.target.value.toLowerCase();
     setSearch(searched);
+    console.log(search)
   };
 
   return (
