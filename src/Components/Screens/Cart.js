@@ -32,7 +32,7 @@ function Cart({item, setItem}) {
             <title>My Cart</title>
           </Helmet>
           <Heading>Shopping Cart</Heading>
-          <Removeall onClick={setItem("")}>Remove all</Removeall>
+          <Removeall>Remove all</Removeall>
         </MainHead>
         {cartitems()}
         <HorizontalLine />
