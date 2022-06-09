@@ -2,7 +2,7 @@ import "./App.css";
 import MainPage from "./Components/Mainpage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "./Components/Screens/Cart";
-import Elements from "./Components/Screens/Elements";
+//import Elements from "./Components/Screens/Elements";
 import { React, useState } from "react";
 import Helmet from "react-helmet";
 import Items from "./Components/Screens/Items";
@@ -28,7 +28,7 @@ function App() {
             path="/items"
             element={<Items item={item} setItem={setItem} />}
           />
-          <Route path="/cart/:id" element={<Elements />} />
+          {/* <Route path="/cart/:id" element={<Elements />} /> */}
           <Route path="*" element={<h1>404 error the Page is not found!</h1>} />
         </Routes>
       </Router>
