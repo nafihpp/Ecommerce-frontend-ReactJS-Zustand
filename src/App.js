@@ -6,7 +6,7 @@ import Cart from "./Components/Screens/Cart";
 import Elements from "./Components/Screens/Elements";
 import { React, useState } from "react";
 import Helmet from "react-helmet";
-import Items from "../../client/src/Components/Screens/Items";
+import Items from "./Components/Screens/Items";
 
 function App() {
   const [item, setItem] = useState([]);
