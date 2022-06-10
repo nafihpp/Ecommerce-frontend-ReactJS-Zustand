@@ -6,6 +6,8 @@ import Elements from "./Components/Screens/Elements";
 import { React, useState } from "react";
 import Helmet from "react-helmet";
 import Items from "./Components/Screens/Items";
+import Login from "./Components/Includes/Login";
+import Signup from "./Components/Includes/Signup";
 
 function App() {
   const [item, setItem] = useState([]);
@@ -16,6 +18,8 @@ function App() {
       </Helmet>
       <Router>
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route
             path="/"
             element={<MainPage item={item} setItem={setItem} />}

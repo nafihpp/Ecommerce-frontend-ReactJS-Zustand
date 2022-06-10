@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-function Items({item , setItem}) {
+function Items({ item, setItem }) {
   const [product, setProducts] = useState([]);
   useEffect(() => {
     const axios = require("axios");
@@ -12,13 +12,12 @@ function Items({item , setItem}) {
       .then(function (response) {
         // handle success
         setProducts(response.data);
-      }) 
+      })
       .catch(function (error) {
         // handle error
         console.log(error);
       });
   }, []);
-
   function buy(bought) {
     const newItem = [...item, bought];
     setItem(newItem);
@@ -106,7 +105,7 @@ const PriceProduct = styled.p`
   margin-top: -9px;
 `;
 const Buttoncart = styled.a`
-  background: brown;
+  background: green;
   color: white;
   border-radius: 4px;
   padding: 4px;
@@ -116,18 +115,18 @@ const Buttoncart = styled.a`
   }
 `;
 const Links = styled(Link)`
-    margin-top: 8px;
-    text-decoration: none;
-    display: flex;
-    background: black;
-    padding: 5px;
-    border-radius: 4px;
-    color: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  :hover{
-      color: aquamarine;
+  margin-top: 8px;
+  text-decoration: none;
+  display: flex;
+  background: black;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  :hover {
+    color: aquamarine;
   }
 `;
 export default Items;

@@ -8,7 +8,6 @@ import styled from "styled-components";
 function Elements({ item, setItem }) {
   const { id } = useParams();
   const [page, setPage] = useState([]);
-
   useEffect(() => {
     axios
       .get(`https://fakestoreapi.com/products/${id}`)
@@ -20,8 +19,12 @@ function Elements({ item, setItem }) {
         // handle error
         console.log(error);
       });
-  },[id]);
+  }, [id]);
 
+  function buyed(boughted) {
+    const now = [...item, boughted];
+    console.log(now)
+  }
   return (
     <Wrapper>
       <Helmet>
@@ -40,7 +43,7 @@ function Elements({ item, setItem }) {
         </LeftContainer>
       </AllPlacesImageContainer>
       <PlaceHeading>Proudct Details</PlaceHeading>
-      <Buttoncart>Add to Cart</Buttoncart>
+      <Buttoncart onClick={() => buyed(page)}>Add to Cart</Buttoncart>
       <PlaceDetailsContainer>
         <PlaceDetails>{page.description}</PlaceDetails>
       </PlaceDetailsContainer>

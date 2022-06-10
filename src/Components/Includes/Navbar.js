@@ -1,71 +1,51 @@
 import React from "react";
-import styled from "styled-components";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-
-function Navbar({item, setItem}) {
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
+function Navbar({ item, setItem }) {
   const [search, setSearch] = useState([]);
   const handleFilter = (e) => {
     var searched = e.target.value.toLowerCase();
     setSearch(searched);
-    console.log(search)
+    console.log(search);
   };
-
   return (
-    <Nav>
+    <NavbarMain>
       <Wrapper>
-        <LogoContainer>
-          <Image src={require("../../assets/images.jpg")} />
-        </LogoContainer>
-        <SearchDiv>
-          <InputBox
-            placeholder="Search for Products "
-            onChange={handleFilter}
-          />
-          <SearchBox>
-            <FaSearch />
-          </SearchBox>
-        </SearchDiv>
-        <Menubar>
-          <Button to="/cart">
-            <FaShoppingCart />
-            <Badge>
-              <Priced>{item.length}</Priced>
-            </Badge>
-          </Button>
-        </Menubar>
+        <MainList>
+          <Childone>
+            <HeadDiv>
+              <LogoImg src={require("../../assets/images.jpg")} />
+            </HeadDiv>
+          </Childone>
+          <Childtwo>
+            <DashboardLink to="/signup" className="Margin">Signup</DashboardLink>
+            <DashboardLink to="/login">Login</DashboardLink>
+            <Button to="/cart">
+              <FaShoppingCart />
+              <Badge>
+                <Priced>{item.length}</Priced>
+              </Badge>
+            </Button>
+          </Childtwo>
+        </MainList>
       </Wrapper>
-      <Outlet />
-    </Nav>
+    </NavbarMain>
   );
 }
-const SearchBox = styled.span`
-  position: absolute;
-  left: 91%;
-  bottom: 16%;
-`;
 const Priced = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-const Wrapper = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-const SearchDiv = styled.div`
-  display: flex;
-  align-items: center;
+const Button = styled(Link)`
+  color: white;
+  cursor: pointer;
   position: relative;
-`;
-const InputBox = styled.input`
-  padding: 5px;
-  margin-right: 5px;
-  padding-right: 160px;
+  :hover {
+    color: white;
+  }
 `;
 const Badge = styled.div`
   background: green;
@@ -79,29 +59,58 @@ const Badge = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Button = styled(Link)`
-  color: white;
+const NavbarMain = styled.section`
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 300;
+  background: #000;
+`;
+const Wrapper = styled.section`
+  width: 90%;
+  margin: 0 auto;
+`;
+const MainList = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Childone = styled.div``;
+const HeadDiv = styled.div`
+  width: 100px;
   cursor: pointer;
-  position: relative;
-  :hover {
-    color: white;
+  overflow: hidden;
+  border-radius: 3px;
+  @media all and (max-width: 768px) {
+    width: 100px;
   }
 `;
-const Nav = styled.div`
-  padding: 6px;
-  background: black;
-  z-index: 100;
-  width: 100%;
-`;
-const LogoContainer = styled.a`
-  width: 7%;
-  cursor: pointer;
-`;
-const Menubar = styled.div``;
-const Image = styled.img`
+const LogoImg = styled.img`
   display: block;
   width: 100%;
-  border-radius: 8px;
+`;
+const Childtwo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const DashboardLink = styled(Link)`
+  text-decoration: none;
+  font-size: 16px;
+  border: 2px solid rgb(78, 175, 124);
+  border-radius: 5px;
+  color: rgb(78, 175, 124);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  margin-right: 10px;
+  &.Margin{
+    margin-right: 10px;
+  }
 `;
 
 export default Navbar;
