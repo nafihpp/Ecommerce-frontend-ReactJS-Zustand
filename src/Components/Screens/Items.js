@@ -2,8 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Items({ item, setItem }) {
+  const notify = () => toast("Added to Cart");
   const [product, setProducts] = useState([]);
   useEffect(() => {
     const axios = require("axios");
@@ -19,6 +22,7 @@ function Items({ item, setItem }) {
       });
   }, []);
   function buy(bought) {
+    notify()
     const newItem = [...item, bought];
     setItem(newItem);
   }
@@ -33,6 +37,7 @@ function Items({ item, setItem }) {
             <HeadProduct>{produc.title}</HeadProduct>
             <PriceProduct>${produc.price}</PriceProduct>
             <Buttoncart onClick={() => buy(produc)}>Add to Cart</Buttoncart>
+            <ToastContainer />
             <Links to={`cart/${produc.id}`}>View Product</Links>
           </Empdiv>
         </Child>
@@ -49,6 +54,11 @@ function Items({ item, setItem }) {
     </>
   );
 }
+const Buts = styled.a`
+  cursor: pointer;
+  background: green;
+  border-radius: 10px;
+`
 const Empdiv = styled.div`
   display: flex;
   flex-direction: column;
