@@ -89,7 +89,6 @@ const ImageContainer = styled.div`
   max-width: 68%;
   /* max-height: 64%; */
   /* max-height: 42%; */
-  height: 12.5rem;
   overflow: hidden;
 `;
 const ProductImg = styled.img`

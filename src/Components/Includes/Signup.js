@@ -44,11 +44,13 @@ const Container = styled.div`
   display: flex;
   padding: 15px;
 `;
-const LeftContainer = styled.div``;
+const LeftContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
 const MainHeading = styled.h1`
   font-size: 80px;
   color: #090e5e;
-  margin-top: 300px;
   line-height: 1.4em;
 `;
 const RightContainer = styled.div`

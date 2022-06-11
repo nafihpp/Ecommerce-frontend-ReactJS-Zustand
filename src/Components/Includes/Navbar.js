@@ -111,6 +111,9 @@ const DashboardLink = styled(Link)`
   &.Margin{
     margin-right: 10px;
   }
+  @media all and (max-width: 640px) {
+    display: none;
+  }
 `;
 
 export default Navbar;
