@@ -30,6 +30,7 @@ function Items({ item, setItem }) {
     return product.map((produc) => (
       <>
         <Child key={produc.id}>
+        <ToastContainer />
           <ImageContainer>
             <ProductImg src={produc.image} alt={produc.title} />
           </ImageContainer>
@@ -37,7 +38,6 @@ function Items({ item, setItem }) {
             <HeadProduct>{produc.title}</HeadProduct>
             <PriceProduct>${produc.price}</PriceProduct>
             <Buttoncart onClick={() => buy(produc)}>Add to Cart</Buttoncart>
-            <ToastContainer />
             <Links to={`cart/${produc.id}`}>View Product</Links>
           </Empdiv>
         </Child>
