@@ -20,7 +20,9 @@ function Navbar({ item, setItem }) {
             </HeadDiv>
           </Childone>
           <Childtwo>
-            <DashboardLink to="/signup" className="Margin">Signup</DashboardLink>
+            <DashboardLink to="/signup" className="Margin">
+              Signup
+            </DashboardLink>
             <DashboardLink to="/login">Login</DashboardLink>
             <Button to="/cart">
               <FaShoppingCart />
@@ -48,7 +50,7 @@ const Button = styled(Link)`
   }
 `;
 const Badge = styled.div`
-  background: green;
+  background: #ff3e6c;
   border-radius: 84px;
   position: absolute;
   top: 10px;
@@ -99,16 +101,16 @@ const Childtwo = styled.div`
 const DashboardLink = styled(Link)`
   text-decoration: none;
   font-size: 16px;
-  border: 2px solid rgb(78, 175, 124);
+  border: 2px solid #ff3e6c;
   border-radius: 5px;
-  color: rgb(78, 175, 124);
+  color: #ff3e6c;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 200px;
   margin-right: 10px;
-  &.Margin{
+  &.Margin {
     margin-right: 10px;
   }
   @media all and (max-width: 640px) {

@@ -30,7 +30,6 @@ function Items({ item, setItem }) {
     return product.map((produc) => (
       <>
         <Child key={produc.id}>
-        <ToastContainer />
           <ImageContainer>
             <ProductImg src={produc.image} alt={produc.title} />
           </ImageContainer>
@@ -39,6 +38,7 @@ function Items({ item, setItem }) {
             <PriceProduct>${produc.price}</PriceProduct>
             <Buttoncart onClick={() => buy(produc)}>Add to Cart</Buttoncart>
             <Links to={`cart/${produc.id}`}>View Product</Links>
+            <ToastContainer />
           </Empdiv>
         </Child>
       </>
@@ -70,7 +70,7 @@ const Wrapperlist = styled.div`
   margin: 0 auto;
 `;
 const MainContainer = styled.section`
-  background: #242222;
+  background: grey;
 `;
 const ParentList = styled.ul`
   display: flex;
@@ -82,12 +82,12 @@ const ParentList = styled.ul`
 const Child = styled.li`
   width: 23%;
   margin-bottom: 46px;
-  border-radius: 18px;
+  border-radius: 4px;
   padding: 4px;
   background: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   @media (max-width: 768px) {
     width: 46%;
@@ -114,9 +114,9 @@ const PriceProduct = styled.p`
   margin-top: -9px;
 `;
 const Buttoncart = styled.a`
-  background: green;
+  background:#ff3e6c;;
   color: white;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 4px;
   cursor: pointer;
   :hover {
@@ -135,7 +135,7 @@ const Links = styled(Link)`
   justify-content: center;
   align-items: center;
   :hover {
-    color: aquamarine;
+    color: white;
   }
 `;
 export default Items;

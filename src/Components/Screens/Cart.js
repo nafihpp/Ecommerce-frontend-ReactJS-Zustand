@@ -130,6 +130,9 @@ const HeadDivision = styled.div`
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0px 10px 20px #1687d933;
+  @media all and (max-width: 768px) {
+    width: 95px;
+  }
 `;
 
 export default Cart;

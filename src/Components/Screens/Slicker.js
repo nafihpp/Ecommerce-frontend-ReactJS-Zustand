@@ -38,8 +38,7 @@ function Slicker() {
     </>
   );
 }
-const ImageContainer = styled.div`
-`;
+const ImageContainer = styled.div``;
 const Img = styled.img`
   display: block;
   width: 100%;
