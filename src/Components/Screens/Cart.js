@@ -131,7 +131,7 @@ const HeadDivision = styled.div`
   border-radius: 20px;
   box-shadow: 0px 10px 20px #1687d933;
   @media all and (max-width: 768px) {
-    width: 95px;
+    width: 95%;
   }
 `;
 
