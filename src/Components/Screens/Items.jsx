@@ -20,7 +20,7 @@ function Items({ item, setItem }) {
         // handle error
         console.log(error);
       });
-  }, []);
+  }, []); 
   function buy(bought) {
     notify()
     const newItem = [...item, bought];
