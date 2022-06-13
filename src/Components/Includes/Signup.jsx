@@ -42,14 +42,19 @@ export default function Signup() {
 const Container = styled.div`
   min-height: 100vh;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 15px;
 `;
 const LeftContainer = styled.div`
   display: flex;
   align-items: center;
+  @media all and (max-width: 480px) {
+    display: none;
+  }
 `;
 const MainHeading = styled.h1`
-  font-size: 80px;
+  font-size: 36px;
   color: #090e5e;
   line-height: 1.4em;
 `;
@@ -61,6 +66,10 @@ const RightContainer = styled.div`
   justify-content: center;
   border-radius: 20px;
   padding: 0 70px 70px;
+  @media all and (max-width: 640px) {
+    width: 100%;
+    padding: 0 55px 55px;
+  }
 `;
 const LoginContainer = styled.div`
   padding-bottom: 70px;

@@ -40,13 +40,15 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 const LeftContainer = styled.div`
-  width: 55%;
   padding: 40px 70px 70px;
   display: flex;
   align-items: center;
+  @media all and (max-width: 640px) {
+    display: none;
+  }
 `;
 const MainHeading = styled.h1`
-  font-size: 36px;
+  font-size: 38px;
   color: #090e5e;
   line-height: 1.4em;
 `;
@@ -59,7 +61,8 @@ const RightContainer = styled.div`
   border-radius: 20px;
   padding: 0 70px 70px;
   @media all and (max-width: 640px) {
-    width: 90%;
+    width: 100%;
+    padding: 0 55px 55px;
   }
 `;
 const LoginContainer = styled.div`
