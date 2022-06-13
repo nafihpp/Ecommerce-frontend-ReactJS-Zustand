@@ -21,19 +21,19 @@ function Items({ item, setItem }) {
     {
       id: 2,
       title: "Apricot",
-      price: 109.95,
+      price: 20.85,
       image: `${Banana}`,
     },
     {
       id: 3,
       title: "Cherry",
-      price: 109.95,
+      price: 90.95,
       image: `${Cherry}`,
     },
     {
       id: 4,
       title: "Apricot",
-      price: 109.95,
+      price: 98.99,
       image: `${Apricot}`,
     },
   ]);
