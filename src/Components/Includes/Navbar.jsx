@@ -50,7 +50,7 @@ const Button = styled(Link)`
   }
 `;
 const Badge = styled.div`
-  background: #ff3e6c;
+  background: green;
   border-radius: 84px;
   position: absolute;
   top: 10px;
@@ -101,9 +101,9 @@ const Childtwo = styled.div`
 const DashboardLink = styled(Link)`
   text-decoration: none;
   font-size: 16px;
-  border: 2px solid #ff3e6c;
+  border: 2px solid #fff;
   border-radius: 5px;
-  color: #ff3e6c;
+  color: #fff;
   height: 40px;
   display: flex;
   align-items: center;

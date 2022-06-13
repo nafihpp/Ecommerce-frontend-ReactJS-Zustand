@@ -5,23 +5,52 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Apple from "../../assets/apple.jpg";
+import Apricot from "../../assets/apricot.jpg";
+import Banana from "../../assets/banana.jpg";
+import Cherry from "../../assets/cherry.jpg";
 function Items({ item, setItem }) {
   const notify = () => toast("Added to Cart");
-  const [product, setProducts] = useState([]);
+  const [product, setProducts] = useState([
+    {
+      id: 1,
+      title: "Apple",
+      price: 10.95,
+      image: `${Apple}`,
+    },
+    {
+      id: 2,
+      title: "Apricot",
+      price: 109.95,
+      image: `${Banana}`,
+    },
+    {
+      id: 3,
+      title: "Cherry",
+      price: 109.95,
+      image: `${Cherry}`,
+    },
+    {
+      id: 4,
+      title: "Apricot",
+      price: 109.95,
+      image: `${Apricot}`,
+    },
+  ]);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    const axios = require("axios");
-    axios
-      .get("https://fakestoreapi.com/products/")
-      .then(function (response) {
-        // handle success
-        setProducts(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   const axios = require("axios");
+  //   axios
+  //     .get("https://fakestoreapi.com/products/")
+  //     .then(function (response) {
+  //       // handle success
+  //       setProducts(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       // handle error
+  //       console.log(error);
+  //     });
+  // }, []);
   function buy(bought) {
     notify();
     const newItem = [...item, bought];
@@ -39,7 +68,7 @@ function Items({ item, setItem }) {
             <PriceProduct>${produc.price}</PriceProduct>
             <Buttoncart onClick={() => buy(produc)}>Add to Cart</Buttoncart>
             <Links to={`cart/${produc.id}`}>View Product</Links>
-            <ToastContainer />
+            <ToastContainer autoClose={300}/>
           </Empdiv>
         </Child>
       </>
@@ -71,7 +100,7 @@ const Wrapperlist = styled.div`
   margin: 0 auto;
 `;
 const MainContainer = styled.section`
-  background: grey;
+  background: aliceblue;
 `;
 const ParentList = styled.ul`
   display: flex;
@@ -98,8 +127,6 @@ const Child = styled.li`
 const ImageContainer = styled.div`
   width: 80%;
   max-width: 68%;
-  /* max-height: 64%; */
-  /* max-height: 42%; */
   overflow: hidden;
 `;
 const ProductImg = styled.img`
@@ -115,7 +142,7 @@ const PriceProduct = styled.p`
   margin-top: -9px;
 `;
 const Buttoncart = styled.a`
-  background: #ff3e6c;
+  background: #0fa675;
   color: white;
   border-radius: 2px;
   padding: 4px;
@@ -125,7 +152,7 @@ const Buttoncart = styled.a`
   }
 `;
 const Links = styled(Link)`
-  margin-top: 8px;
+  margin: 8px 0;
   text-decoration: none;
   display: flex;
   background: black;

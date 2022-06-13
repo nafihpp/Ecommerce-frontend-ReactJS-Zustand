@@ -2,8 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Fashion from "../../assets/fashion.jpg";
-import Orange from "../../assets/Oranges.jpg";
+import Fashion from "../../assets/fruitsbanner.jpg";
+import Orange from "../../assets/fruit.webp";
 import styled from "styled-components";
 function Slicker() {
   const settings = {
@@ -18,7 +18,7 @@ function Slicker() {
   };
   return (
     <>
-      <Slider {...settings}>
+      <Sliders {...settings}>
         <div>
           <ImageContainer>
             <Img src={Fashion} />
@@ -29,15 +29,13 @@ function Slicker() {
             <Img src={Orange} />
           </ImageContainer>
         </div>
-        <div>
-          <ImageContainer>
-            <Img src={Fashion} />
-          </ImageContainer>
-        </div>
-      </Slider>
+      </Sliders>
     </>
   );
 }
+const Sliders =styled(Slider)`
+  width: 100%!important;
+`;
 const ImageContainer = styled.div``;
 const Img = styled.img`
   display: block;

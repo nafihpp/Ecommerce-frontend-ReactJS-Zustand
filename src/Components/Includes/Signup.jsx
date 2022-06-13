@@ -49,7 +49,7 @@ const Container = styled.div`
 const LeftContainer = styled.div`
   display: flex;
   align-items: center;
-  @media all and (max-width: 480px) {
+  @media all and (max-width: 680px) {
     display: none;
   }
 `;
