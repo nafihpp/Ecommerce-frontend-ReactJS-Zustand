@@ -37,6 +37,7 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   padding: 15px;
+  flex-wrap: wrap;
 `;
 const LeftContainer = styled.div`
   width: 55%;
@@ -45,7 +46,7 @@ const LeftContainer = styled.div`
   align-items: center;
 `;
 const MainHeading = styled.h1`
-  font-size: 80px;
+  font-size: 36px;
   color: #090e5e;
   line-height: 1.4em;
 `;
@@ -57,6 +58,9 @@ const RightContainer = styled.div`
   justify-content: center;
   border-radius: 20px;
   padding: 0 70px 70px;
+  @media all and (max-width: 640px) {
+    width: 90%;
+  }
 `;
 const LoginContainer = styled.div`
   padding-bottom: 70px;

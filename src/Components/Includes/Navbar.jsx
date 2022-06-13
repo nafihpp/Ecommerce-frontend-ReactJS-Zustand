@@ -114,7 +114,7 @@ const DashboardLink = styled(Link)`
     margin-right: 10px;
   }
   @media all and (max-width: 640px) {
-    display: none;
+    width: 100px;
   }
 `;
 

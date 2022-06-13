@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 function Items({ item, setItem }) {
   const notify = () => toast("Added to Cart");
   const [product, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const axios = require("axios");
     axios
@@ -20,9 +21,9 @@ function Items({ item, setItem }) {
         // handle error
         console.log(error);
       });
-  }, []); 
+  }, []);
   function buy(bought) {
-    notify()
+    notify();
     const newItem = [...item, bought];
     setItem(newItem);
   }
@@ -58,7 +59,7 @@ const Buts = styled.a`
   cursor: pointer;
   background: green;
   border-radius: 10px;
-`
+`;
 const Empdiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -114,7 +115,7 @@ const PriceProduct = styled.p`
   margin-top: -9px;
 `;
 const Buttoncart = styled.a`
-  background:#ff3e6c;;
+  background: #ff3e6c;
   color: white;
   border-radius: 2px;
   padding: 4px;
