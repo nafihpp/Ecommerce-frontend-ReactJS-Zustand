@@ -10,7 +10,16 @@ import Apricot from "../../assets/apricot.jpg";
 import Banana from "../../assets/banana.jpg";
 import Cherry from "../../assets/cherry.jpg";
 function Items({ item, setItem }) {
-    const notify = () => toast("Added to Cart");
+    const notify = () =>
+        toast.success("Added to Cart", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     const [product, setProducts] = useState([
         {
             id: 1,
