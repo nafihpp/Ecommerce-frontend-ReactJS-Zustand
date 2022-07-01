@@ -13,7 +13,7 @@ function Items({ item, setItem }) {
     const notify = () =>
         toast.success("Added to Cart", {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 400,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
