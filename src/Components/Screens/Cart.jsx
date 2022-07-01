@@ -3,6 +3,10 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 
 function Cart({ item, setItem }) {
+    let sum = 0;
+    item.map((mapped) => {
+        sum += mapped.price;
+    });
     let cartitems = () => {
         return item.map((cartss) => (
             <>
@@ -36,14 +40,19 @@ function Cart({ item, setItem }) {
                 </MainHead>
                 {cartitems()}
                 <HorizontalLine />
-                <Head>Total:</Head>
+                <DivTotal>
+                    <Head>Total:$ {sum}</Head>
+                </DivTotal>
             </HeadDivision>
         </Mainof>
     );
 }
-const Head = styled.h1`
-    width: 0%;
+const DivTotal = styled.div`
+    width: 50%;
     margin: 0 auto;
+`;
+const Head = styled.h1`
+    text-align: end;
 `;
 const DivAmount = styled.div`
     font-size: 26px;
