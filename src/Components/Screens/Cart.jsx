@@ -36,11 +36,15 @@ function Cart({ item, setItem }) {
                 </MainHead>
                 {cartitems()}
                 <HorizontalLine />
-                <h1>Total:</h1>
+                <Head>Total:</Head>
             </HeadDivision>
         </Mainof>
     );
 }
+const Head = styled.h1`
+    width: 0%;
+    margin: 0 auto;
+`;
 const DivAmount = styled.div`
     font-size: 26px;
     font-family: "Open Sans";
