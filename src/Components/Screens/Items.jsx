@@ -9,6 +9,7 @@ import Apple from "../../assets/apple.jpg";
 import Apricot from "../../assets/apricot.jpg";
 import Banana from "../../assets/banana.jpg";
 import Cherry from "../../assets/cherry.jpg";
+import ButtonNavbar from "../Includes/BottomNavBar";
 function Items({ item, setItem }) {
     const notify = () =>
         toast.success("Added to Cart", {
@@ -44,6 +45,30 @@ function Items({ item, setItem }) {
             title: "Apricot",
             price: 98.99,
             image: `${Apricot}`,
+        },
+        {
+            id: 5,
+            title: "Apricot",
+            price: 98.99,
+            image: `${Apricot}`,
+        },
+        {
+            id: 6,
+            title: "Cherry",
+            price: 90.95,
+            image: `${Cherry}`,
+        },
+        {
+            id: 7,
+            title: "Apricot",
+            price: 20.85,
+            image: `${Banana}`,
+        },
+        {
+            id: 8,
+            title: "Apple",
+            price: 10.95,
+            image: `${Apple}`,
         },
     ]);
     const [loading, setLoading] = useState(false);
@@ -92,6 +117,7 @@ function Items({ item, setItem }) {
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
             </MainContainer>
+            <ButtonNavbar />
         </>
     );
 }
