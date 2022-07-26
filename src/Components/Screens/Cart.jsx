@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import styled from "styled-components";
+import ButtonNavbar from "../Includes/BottomNavBar";
 
 function Cart({ item, setItem }) {
     let sum = 0;
@@ -29,22 +30,24 @@ function Cart({ item, setItem }) {
         ));
     };
     return (
-        <Mainof>
-            <HeadDivision>
-                <MainHead>
-                    <Helmet>
-                        <title>My Cart</title>
-                    </Helmet>
-                    <Heading>Shopping Cart</Heading>
-                    <Removeall>Remove all</Removeall>
-                </MainHead>
-                {cartitems()}
-                <HorizontalLine />
-                <DivTotal>
-                    <Head>Total:$ {sum}</Head>
-                </DivTotal>
-            </HeadDivision>
-        </Mainof>
+        <>
+            <Mainof>
+                <HeadDivision>
+                    <MainHead>
+                        <Helmet>
+                            <title>My Cart</title>
+                        </Helmet>
+                        <Heading>Shopping Cart</Heading>
+                        <Removeall>Remove all</Removeall>
+                    </MainHead>
+                    {cartitems()}
+                    <HorizontalLine />
+                    <DivTotal>
+                        <Head>Total:$ {sum}</Head>
+                    </DivTotal>
+                </HeadDivision>
+            </Mainof>
+        </>
     );
 }
 const DivTotal = styled.div`

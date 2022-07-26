@@ -69,6 +69,9 @@ const NavbarMain = styled.section`
     position: fixed;
     z-index: 300;
     background: #000;
+    @media all and (max-width: 480px) {
+        height: 45px;
+    }
 `;
 const Wrapper = styled.section`
     width: 90%;
@@ -115,6 +118,9 @@ const DashboardLink = styled(Link)`
     }
     @media all and (max-width: 640px) {
         width: 100px;
+    }
+    @media all and (max-width: 480px) {
+        display: none;
     }
 `;
 
