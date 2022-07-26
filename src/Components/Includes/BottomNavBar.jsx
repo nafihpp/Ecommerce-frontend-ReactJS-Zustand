@@ -107,12 +107,9 @@ const Main = styled.div`
         position: fixed;
         bottom: 0;
         border-top: 1px solid rgb(230, 230, 230);
-        background-color: grey;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-    }
-    &last-child {
-        border-right: none;
+        background-color: slategray;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 `;
 const Botton = styled.a`
@@ -122,7 +119,6 @@ const Botton = styled.a`
         display: flex;
         justify-content: center;
         align-items: center;
-        border-right: 1px solid black;
         cursor: pointer;
     }
     &.bn-tab-last {

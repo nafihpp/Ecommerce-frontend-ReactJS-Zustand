@@ -70,7 +70,7 @@ const NavbarMain = styled.section`
     z-index: 300;
     background: #000;
     @media all and (max-width: 480px) {
-        height: 45px;
+        height: 55px;
     }
 `;
 const Wrapper = styled.section`
