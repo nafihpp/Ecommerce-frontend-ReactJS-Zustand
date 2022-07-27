@@ -143,7 +143,7 @@ const ParentList = styled.ul`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-top: 97px;
+    padding-top: 23px;
     margin-top: -1px;
 `;
 const Child = styled.li`

@@ -108,8 +108,8 @@ const Main = styled.div`
         bottom: 0;
         border-top: 1px solid rgb(230, 230, 230);
         background-color: slategray;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        @media all and (max-width: 480px) {
+        }
     }
 `;
 const Botton = styled.a`
