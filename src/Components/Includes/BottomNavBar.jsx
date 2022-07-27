@@ -108,6 +108,7 @@ const Main = styled.div`
         bottom: 0;
         border-top: 1px solid rgb(230, 230, 230);
         background-color: slategray;
+        border-top: 7px solid grey;
         @media all and (max-width: 480px) {
         }
     }
