@@ -1,16 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import {
-    RiHomeSmile2Line,
-    RiHomeSmile2Fill,
-    RiUser5Fill,
-    RiSearchEyeFill,
-} from "react-icons/ri";
+import { RiHomeSmile2Fill, RiUser5Fill } from "react-icons/ri";
 import { BiSearchAlt } from "react-icons/bi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { RiUser5Line } from "react-icons/ri";
-import { BsChatRightDots } from "react-icons/bs";
 import { BsChatRightDotsFill } from "react-icons/bs";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -19,7 +12,7 @@ import { CgProfile } from "react-icons/cg";
 const BottomNavBar = () => {
     const navigate = useNavigate();
     const [isModal, setModal] = useState(false);
-    const [activeTabs, setActiveTabs] = useState("home");
+    const [activeTabs, setActiveTabs] = useState("");
     useEffect(() => {
         switch (activeTabs) {
             case "home":
@@ -44,7 +37,9 @@ const BottomNavBar = () => {
         <Main className="bottom-nav">
             <Botton className="bn-tab" onClick={() => setActiveTabs("home")}>
                 {activeTabs === "home" ? (
-                    <RiHomeSmile2Fill size="35" color="#000" />
+                    <>
+                        <RiHomeSmile2Fill size="35" color="#000" />
+                    </>
                 ) : (
                     <AiOutlineHome
                         size="35"
@@ -106,11 +101,7 @@ const Main = styled.div`
         align-items: center;
         position: fixed;
         bottom: 0;
-        border-top: 1px solid rgb(230, 230, 230);
-        background-color: slategray;
-        border-top: 7px solid grey;
-        @media all and (max-width: 480px) {
-        }
+        background-color: #fff;
     }
 `;
 const Botton = styled.a`

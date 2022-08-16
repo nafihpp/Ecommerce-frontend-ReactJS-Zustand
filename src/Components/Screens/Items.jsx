@@ -10,6 +10,7 @@ import Apricot from "../../assets/apricot.jpg";
 import Banana from "../../assets/banana.jpg";
 import Cherry from "../../assets/cherry.jpg";
 import ButtonNavbar from "../Includes/BottomNavBar";
+
 function Items({ item, setItem }) {
     const notify = () =>
         toast.success("Added to Cart", {
@@ -66,6 +67,30 @@ function Items({ item, setItem }) {
         },
         {
             id: 8,
+            title: "Apple",
+            price: 10.95,
+            image: `${Apple}`,
+        },
+        {
+            id: 9,
+            title: "Apricot",
+            price: 98.99,
+            image: `${Apricot}`,
+        },
+        {
+            id: 10,
+            title: "Cherry",
+            price: 90.95,
+            image: `${Cherry}`,
+        },
+        {
+            id: 11,
+            title: "Apricot",
+            price: 20.85,
+            image: `${Banana}`,
+        },
+        {
+            id: 12,
             title: "Apple",
             price: 10.95,
             image: `${Apple}`,
@@ -138,6 +163,7 @@ const Wrapperlist = styled.div`
 `;
 const MainContainer = styled.section`
     background: aliceblue;
+    padding-top: 95px;
 `;
 const ParentList = styled.ul`
     display: flex;
@@ -175,9 +201,7 @@ const HeadProduct = styled.h4`
     height: 1.5rem;
     overflow: hidden;
 `;
-const PriceProduct = styled.p`
-    margin-top: -9px;
-`;
+const PriceProduct = styled.p``;
 const Buttoncart = styled.a`
     background: #0fa675;
     color: white;

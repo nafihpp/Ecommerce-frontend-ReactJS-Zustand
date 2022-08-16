@@ -10,7 +10,7 @@ function Mainpage({ item, setItem }) {
                 <title>Buy now Shopping</title>
             </Helmet>
             <Navbar item={item} setItem={setItem} />
-            <Slicker />
+
             <Items item={item} setItem={setItem} />
         </>
     );

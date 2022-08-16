@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import styled from "styled-components";
-import ButtonNavbar from "../Includes/BottomNavBar";
+import BottomNavBar from "../Includes/BottomNavBar";
 
 function Cart({ item, setItem }) {
     let sum = 0;
@@ -43,7 +43,7 @@ function Cart({ item, setItem }) {
                     {cartitems()}
                     <HorizontalLine />
                     <DivTotal>
-                        <Head>Total:$ {sum}</Head>
+                        <Head>Total:$ {sum.toFixed(2)}</Head>
                     </DivTotal>
                 </HeadDivision>
             </Mainof>
