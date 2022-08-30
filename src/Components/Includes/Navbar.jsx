@@ -3,6 +3,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { CgSearch } from "react-icons/cg";
+
 function Navbar({ item, setItem }) {
     const [search, setSearch] = useState([]);
     const handleFilter = (e) => {
@@ -16,16 +19,25 @@ function Navbar({ item, setItem }) {
                 <MainList>
                     <Childone>
                         <HeadDiv>
-                            <LogoImg src={require("../../assets/images.jpg")} />
+                            <LogoImg src={require("../../assets/LOGO.png")} />
                         </HeadDiv>
                     </Childone>
+                    <Bar>
+                        <ChildMiddle>
+                            <SearchBar placeholder="What are you looking for?" />
+                        </ChildMiddle>
+                        <SearchIcon>
+                            <CgSearch />
+                        </SearchIcon>
+                    </Bar>
                     <Childtwo>
-                        <DashboardLink to="/signup" className="Margin">
-                            Signup
+                        <DashboardLink to="/login">
+                            <CgProfile />
                         </DashboardLink>
-                        <DashboardLink to="/login">Login</DashboardLink>
                         <Button to="/cart">
-                            <FaShoppingCart />
+                            <CartDiv>
+                                <FaShoppingCart />
+                            </CartDiv>
                             <Badge>
                                 <Priced>{item.length}</Priced>
                             </Badge>
@@ -36,39 +48,60 @@ function Navbar({ item, setItem }) {
         </NavbarMain>
     );
 }
+const SearchIcon = styled.div`
+    position: absolute;
+    right: 9px;
+    top: 11px;
+`;
+const SearchBar = styled.input`
+    padding: 13px;
+    border: none;
+    outline: none;
+`;
+const Bar = styled.div`
+    border-right: 2px solid #dddddd;
+    border-left: 2px solid #dddddd;
+    display: flex;
+    position: relative;
+`;
+const ChildMiddle = styled.div`
+    padding: 0 10px 0 0;
+`;
+const CartDiv = styled.div`
+    font-size: 24px;
+`;
 const Priced = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 const Button = styled(Link)`
-    color: white;
+    color: #8d8d8d;
     cursor: pointer;
     position: relative;
-    :hover {
-        color: white;
-    }
 `;
 const Badge = styled.div`
     background: green;
-    border-radius: 84px;
+    border-radius: 131px;
     position: absolute;
     top: 10px;
-    left: 11px;
-    width: 130%;
-    height: 21px;
+    left: 14px;
+    width: 92%;
+    height: 23px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
 `;
 const NavbarMain = styled.section`
     width: 100%;
-    height: 70px;
+    height: 63px;
     display: flex;
     align-items: center;
     position: fixed;
     z-index: 300;
-    background: #000;
+    background: #fff;
+    box-shadow: 0px 15px 10px -15px #111;
     @media all and (max-width: 480px) {
         height: 55px;
     }
@@ -103,15 +136,12 @@ const Childtwo = styled.div`
 `;
 const DashboardLink = styled(Link)`
     text-decoration: none;
-    font-size: 16px;
-    border: 2px solid #fff;
+    font-size: 30px;
     border-radius: 5px;
-    color: #fff;
-    height: 40px;
+    color: #8d8d8d;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
     margin-right: 10px;
     &.Margin {
         margin-right: 10px;

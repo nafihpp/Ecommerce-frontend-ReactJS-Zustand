@@ -44,6 +44,7 @@ function Cart({ item, setItem }) {
                     <HorizontalLine />
                     <DivTotal>
                         <Head>Total:$ {sum.toFixed(2)}</Head>
+                        <a>CheckOut</a>
                     </DivTotal>
                 </HeadDivision>
             </Mainof>
