@@ -24,7 +24,10 @@ function Navbar({ item, setItem }) {
                     </Childone>
                     <Bar>
                         <ChildMiddle>
-                            <SearchBar placeholder="What are you looking for?" />
+                            <SearchBar
+                                placeholder="What are you looking for?"
+                                onChange={handleFilter}
+                            />
                         </ChildMiddle>
                         <SearchIcon>
                             <CgSearch />
@@ -57,6 +60,7 @@ const SearchBar = styled.input`
     padding: 13px;
     border: none;
     outline: none;
+    padding-right: 42px;
 `;
 const Bar = styled.div`
     border-right: 2px solid #dddddd;

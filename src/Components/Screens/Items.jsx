@@ -10,6 +10,8 @@ import Apricot from "../../assets/apricot.jpg";
 import Banana from "../../assets/banana.jpg";
 import Cherry from "../../assets/cherry.jpg";
 import ButtonNavbar from "../Includes/BottomNavBar";
+import { isMobile } from "react-device-detect";
+import BottomNavBar from "../Includes/BottomNavBar";
 
 function Items({ item, setItem }) {
     const notify = () =>
@@ -22,94 +24,22 @@ function Items({ item, setItem }) {
             draggable: true,
             progress: undefined,
         });
-    const [product, setProducts] = useState([
-        {
-            id: 1,
-            title: "Apple",
-            price: 10.95,
-            image: `${Apple}`,
-        },
-        {
-            id: 2,
-            title: "Apricot",
-            price: 20.85,
-            image: `${Banana}`,
-        },
-        {
-            id: 3,
-            title: "Cherry",
-            price: 90.95,
-            image: `${Cherry}`,
-        },
-        {
-            id: 4,
-            title: "Apricot",
-            price: 98.99,
-            image: `${Apricot}`,
-        },
-        {
-            id: 5,
-            title: "Apricot",
-            price: 98.99,
-            image: `${Apricot}`,
-        },
-        {
-            id: 6,
-            title: "Cherry",
-            price: 90.95,
-            image: `${Cherry}`,
-        },
-        {
-            id: 7,
-            title: "Apricot",
-            price: 20.85,
-            image: `${Banana}`,
-        },
-        {
-            id: 8,
-            title: "Apple",
-            price: 10.95,
-            image: `${Apple}`,
-        },
-        {
-            id: 9,
-            title: "Apricot",
-            price: 98.99,
-            image: `${Apricot}`,
-        },
-        {
-            id: 10,
-            title: "Cherry",
-            price: 90.95,
-            image: `${Cherry}`,
-        },
-        {
-            id: 11,
-            title: "Apricot",
-            price: 20.85,
-            image: `${Banana}`,
-        },
-        {
-            id: 12,
-            title: "Apple",
-            price: 10.95,
-            image: `${Apple}`,
-        },
-    ]);
+    const [product, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    // useEffect(() => {
-    //   const axios = require("axios");
-    //   axios
-    //     .get("https://fakestoreapi.com/products/")
-    //     .then(function (response) {
-    //       // handle success
-    //       setProducts(response.data);
-    //     })
-    //     .catch(function (error) {
-    //       // handle error
-    //       console.log(error);
-    //     });
-    // }, []);
+    useEffect(() => {
+        const axios = require("axios");
+        axios
+            .get("https://fakestoreapi.com/products/")
+            .then(function (response) {
+                // handle success
+                setProducts(response.data);
+                console.log(product);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+    }, []);
     function buy(bought) {
         notify();
         const newItem = [...item, bought];
@@ -142,7 +72,11 @@ function Items({ item, setItem }) {
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
             </MainContainer>
-            <ButtonNavbar />
+            {isMobile && (
+                <>
+                    <BottomNavBar />
+                </>
+            )}
         </>
     );
 }
