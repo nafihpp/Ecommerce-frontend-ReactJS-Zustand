@@ -10,6 +10,8 @@ import Apricot from "../../assets/apricot.jpg";
 import Banana from "../../assets/banana.jpg";
 import Cherry from "../../assets/cherry.jpg";
 import ButtonNavbar from "../Includes/BottomNavBar";
+import { GrView } from "react-icons/gr";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { isMobile } from "react-device-detect";
 import BottomNavBar from "../Includes/BottomNavBar";
 
@@ -55,10 +57,14 @@ function Items({ item, setItem }) {
                     <Empdiv>
                         <HeadProduct>{produc.title}</HeadProduct>
                         <PriceProduct>${produc.price}</PriceProduct>
-                        <Buttoncart onClick={() => buy(produc)}>
-                            Add to Cart
-                        </Buttoncart>
-                        <Links to={`cart/${produc.id}`}>View Product</Links>
+                        <MainCartContainer>
+                            <Buttoncart onClick={() => buy(produc)}>
+                                <AiOutlineShoppingCart />
+                            </Buttoncart>
+                            <Links to={`cart/${produc.id}`}>
+                                <GrView />
+                            </Links>
+                        </MainCartContainer>
                         <ToastContainer autoClose={300} />
                     </Empdiv>
                 </Child>
@@ -80,6 +86,11 @@ function Items({ item, setItem }) {
         </>
     );
 }
+const MainCartContainer = styled.div`
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+`;
 const Buts = styled.a`
     cursor: pointer;
     background: green;
@@ -137,8 +148,6 @@ const HeadProduct = styled.h4`
 `;
 const PriceProduct = styled.p``;
 const Buttoncart = styled.a`
-    background: #0fa675;
-    color: white;
     border-radius: 2px;
     padding: 4px;
     cursor: pointer;
@@ -150,10 +159,9 @@ const Links = styled(Link)`
     margin: 8px 0;
     text-decoration: none;
     display: flex;
-    background: black;
     padding: 5px;
     border-radius: 4px;
-    color: white;
+    color: grey;
     flex-direction: column;
     justify-content: center;
     align-items: center;
