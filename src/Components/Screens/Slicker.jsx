@@ -13,8 +13,7 @@ function Slicker() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
-        speed: 2000,
+        speed: true,
         autoplaySpeed: 2000,
     };
     return (
@@ -37,9 +36,8 @@ function Slicker() {
 const Sliders = styled(Slider)`
     width: 100% !important;
     overflow: hidden;
-
     @media all and (max-width: 680px) {
-        padding-top: 50px !important;
+        padding-top: 60px !important;
     }
 `;
 const ImageContainer = styled.div``;
