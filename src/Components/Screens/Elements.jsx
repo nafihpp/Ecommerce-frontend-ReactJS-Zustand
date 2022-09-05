@@ -26,103 +26,58 @@ function Elements({ item, setItem }) {
         console.log(now);
     }
     return (
-        <Wrapper>
+        <>
             <Helmet>
                 <title>{`${page.id} | Shopping`}</title>
             </Helmet>
-            <MainHeading>{page.title}</MainHeading>
-            <LocationContainer>
-                <Category>{page.category}</Category>
-                <LocationDetails>
-                    <PlaceName>{page.title}</PlaceName>
-                </LocationDetails>
-            </LocationContainer>
-            <AllPlacesImageContainer>
-                <LeftContainer>
-                    <Image
-                        className="main-image"
-                        src={page.image}
-                        alt="Place"
-                    />
-                </LeftContainer>
-            </AllPlacesImageContainer>
-            <PlaceHeading>Proudct Details</PlaceHeading>
-            <Buttoncart onClick={() => buyed(page)}>Add to Cart</Buttoncart>
-            <PlaceDetailsContainer>
-                <PlaceDetails>{page.description}</PlaceDetails>
-            </PlaceDetailsContainer>
-        </Wrapper>
+            <MainContainer>
+                <Wrapper>
+                    <ImageContainer>
+                        <img src={page.image} alt="" />
+                    </ImageContainer>
+                    <ul class="bottom">
+                        <li>
+                            <div class="thumbnail">
+                                <img
+                                    src="static/images/image-product-1-thumbnail.jpg"
+                                    alt="thumbnail"
+                                />
+                            </div>
+                            <div class="filter"></div>
+                        </li>
+                    </ul>
+                    <div class="right">
+                        <p class="company">{page.title}</p>
+                        <h1>{page.category}</h1>
+                        <p>{page.description}</p>
+                        <div class="prices">
+                            <h1 class="new">$125.00</h1>
+                            <span>50%</span>
+                            <h3 class="old">$250.00</h3>
+                        </div>
+                        <div class="cart-items">
+                            <div class="left">
+                                <a href="" class="operator">
+                                    -
+                                </a>
+                                <h5>0</h5>
+                                <a href="" class="operator">
+                                    +
+                                </a>
+                            </div>
+                            <div class="right" onClick={() => buyed(page)}>
+                                <a href="#">
+                                    <div class="cartimage"></div>
+                                    <h4 class="white">Add to cart</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </Wrapper>
+            </MainContainer>
+        </>
     );
 }
-const Wrapper = styled.div`
-    width: 70%;
-    margin: 0 auto;
-    max-width: 1200px;
-`;
-const MainHeading = styled.h1`
-    font-size: 45px;
-    font-weight: bolder;
-`;
-const Category = styled.span`
-    padding: 4px 8px;
-    border: 1px solid #b1adad;
-    display: inline-block;
-    border-radius: 30px;
-    color: #b1adad;
-`;
-const LocationContainer = styled.div`
-    display: flex;
-    margin-top: 10px;
-`;
-const LocationDetails = styled.div`
-    display: flex;
-    align-items: center;
-    margin-left: 12px;
-`;
-const PlaceName = styled.small`
-    margin-left: 5px;
-    font-weight: bolder;
-    color: #969292;
-`;
-const AllPlacesImageContainer = styled.div`
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-`;
-const LeftContainer = styled.div`
-    width: 28%;
-    height: 313px;
-    border: 4px solid;
-    border-radius: 62px;
-    overflow: hidden;
-`;
-const Image = styled.img`
-    width: 100%;
-    display: block;
-    border-top-left-radius: 10px;
-    height: 100%;
-`;
-const PlaceDetailsContainer = styled.div`
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-`;
-const PlaceHeading = styled.h3`
-    font-size: 24px;
-    margin-top: 56px;
-`;
-const PlaceDetails = styled.p`
-    margin-top: 15px;
-`;
-const Buttoncart = styled.button`
-    background: brown;
-    color: white;
-    border-radius: 4px;
-    padding: 4px;
-    cursor: pointer;
-    :hover {
-        color: black;
-    }
-`;
+const MainContainer = styled.div``;
+const ImageContainer = styled.div``;
 export default Elements;

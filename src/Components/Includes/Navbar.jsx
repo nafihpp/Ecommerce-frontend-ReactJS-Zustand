@@ -7,15 +7,23 @@ import { CgProfile } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
 import Cart from "../Screens/Cart";
 import LoginModal from "../Includes/LoginModal";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function Navbar({ item, setItem }) {
-    const [search, setSearch] = useState([]);
+    const [search, setSearch] = useState("");
     const [modal, setModal] = useState(false);
+    const products = useSelector((state) => state.allProducts.products);
+    const [current, setCurrent] = useState([]);
+
     const handleFilter = (e) => {
-        var searched = e.target.value.toLowerCase();
-        setSearch(searched);
-        console.log(search);
+        setSearch(e.target.value.toLowerCase());
+        let searched = products.filter((item) =>
+            item.title.toLowerCase().includes(search)
+        );
+        setCurrent(searched);
     };
+
     return (
         <NavbarMain>
             <Wrapper>
@@ -32,6 +40,26 @@ function Navbar({ item, setItem }) {
                                 onChange={handleFilter}
                             />
                         </ChildMiddle>
+                        <SearchContainer>
+                            {current.map((item) => (
+                                <div
+                                    style={{
+                                        color: "green",
+                                        display: "flex",
+                                        width: "75%",
+                                    }}
+                                >
+                                    <p>{item.title}</p>
+                                    <ImageContainer>
+                                        <img
+                                            src={item.image}
+                                            alt=""
+                                            width={50}
+                                        />
+                                    </ImageContainer>
+                                </div>
+                            ))}
+                        </SearchContainer>
                         <SearchIcon>
                             <CgSearch />
                         </SearchIcon>
@@ -68,6 +96,14 @@ function Navbar({ item, setItem }) {
         </NavbarMain>
     );
 }
+const ImageContainer = styled.span`
+    width: 1%;
+`;
+const SearchContainer = styled.div`
+    position: absolute;
+    top: 50px;
+    background: #fff;
+`;
 const SearchIcon = styled.div`
     position: absolute;
     right: 9px;

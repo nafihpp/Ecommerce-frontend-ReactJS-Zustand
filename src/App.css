@@ -14,3 +14,11 @@
 ::-webkit-scrollbar-thumb {
     background: red;
 }
+.slick-prev {
+    left: 3% !important;
+    z-index: 1;
+}
+.slick-next {
+    right: 3% !important;
+    z-index: 1;
+}

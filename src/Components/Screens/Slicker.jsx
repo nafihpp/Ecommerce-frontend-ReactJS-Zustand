@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 function Slicker() {
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -25,14 +25,21 @@ function Slicker() {
                         <Img src={Orange} />
                     </ImageContainer>
                 </div>
+                <div>
+                    <ImageContainer>
+                        <Img src={Orange} />
+                    </ImageContainer>
+                </div>
             </Sliders>
         </>
     );
 }
 const Sliders = styled(Slider)`
     width: 100% !important;
+    overflow: hidden;
+
     @media all and (max-width: 680px) {
-        padding-top: 60px !important;
+        padding-top: 50px !important;
     }
 `;
 const ImageContainer = styled.div``;
