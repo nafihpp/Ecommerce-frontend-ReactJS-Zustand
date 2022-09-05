@@ -47,7 +47,6 @@ function LoginModal({ item, setItem, modal, setModal }) {
                                 <HorizontalLine />
                                 <DivTotal>
                                     <Head>Total:$ {sum.toFixed(2)}</Head>
-                                    <a>CheckOut</a>
                                 </DivTotal>
                             </MiddleContainer>
                         </Content>
@@ -67,15 +66,10 @@ const HorizontalLine = styled.hr`
     float: right;
     margin-right: 5%;
 `;
-const DivTotal = styled.div`
-    width: 50%;
-    margin: 0 auto;
-`;
-const Head = styled.h1`
-    text-align: end;
-`;
+const DivTotal = styled.div``;
+const Head = styled.h1``;
 const DivAmount = styled.div`
-    font-size: 26px;
+    font-size: 20px;
     font-family: "Open Sans";
     font-weight: 800;
     color: #202020;
@@ -91,10 +85,6 @@ const DivRemove = styled.div`
 const PricesDiv = styled.div`
     height: 100%;
 `;
-const AboutDiv = styled.div`
-    height: 100%;
-    width: 24%;
-`;
 const Image = styled.img`
     display: block;
     width: 100%;
@@ -103,7 +93,11 @@ const ImageBox = styled.div`
     width: 15%;
     text-align: center;
 `;
-const CartItems = styled.div``;
+const CartItems = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+`;
 
 const Container = styled.div`
     position: fixed;
@@ -156,7 +150,7 @@ const JoinNow = styled.div`
         width: 359px;
     }
     @media (max-width: 400px) {
-        width: 100%;
+        width: 300px;
     }
 `;
 const ItemContainer = styled.div`
@@ -169,11 +163,9 @@ const ItemContainer = styled.div`
     justify-content: space-between;
     overflow-y: scroll;
     @media (max-width: 980px) {
-        background-position-y: -106px;
     }
     @media (max-width: 640px) {
         padding: 0 29px;
-        background-position-y: -79px;
     }
     @media (max-width: 380px) {
         padding: 0 22px;
@@ -184,27 +176,7 @@ const Content = styled.div`
     @media (max-width: 640px) {
     }
 `;
-const Title = styled.h4`
-    font-size: 25px;
-    line-height: 1.4em;
-    margin-top: 14px;
-    @media (max-width: 640px) {
-        font-size: 23px;
-        margin-top: 0;
-    }
-    @media (max-width: 480px) {
-        font-size: 20px;
-    }
-`;
-const Description = styled.p`
-    margin: 18px 0 40px;
-    width: 94%;
-    font-size: 14px;
-    @media (max-width: 480px) {
-        width: 100%;
-        font-size: 13px;
-    }
-`;
+
 const InputContainer = styled.div`
     font-family: "gordita_medium";
     position: relative;
