@@ -31,6 +31,9 @@ function Slicker() {
 }
 const Sliders = styled(Slider)`
     width: 100% !important;
+    @media all and (max-width: 680px) {
+        padding-top: 60px !important;
+    }
 `;
 const ImageContainer = styled.div``;
 const Img = styled.img`
