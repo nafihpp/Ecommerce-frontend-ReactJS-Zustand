@@ -54,11 +54,12 @@ const LeftContainer = styled.div`
 `;
 const MainHeading = styled.h1`
     font-size: 38px;
-    color: #090e5e;
+    color: #8d1818;
     line-height: 1.4em;
 `;
 const RightContainer = styled.div`
-    background: #efefef;
+    background: #000;
+    color: #fff;
     width: 45%;
     display: flex;
     align-items: flex-end;
@@ -71,8 +72,8 @@ const RightContainer = styled.div`
     }
 `;
 const LoginContainer = styled.div`
-    padding-bottom: 70px;
-    border-bottom: 1px solid #fff;
+    padding-top: 10px;
+    border-bottom: 1px solid #ab1414;
     width: 100%;
 `;
 const LoginHeading = styled.h3`
@@ -107,7 +108,7 @@ const LoginButton = styled(Link)`
     display: flex;
     justify-content: flex-end;
     margin-bottom: 25px;
-    color: #046bf6;
+    color: #f60404;
     font-size: 20px;
     text-decoration: none;
 `;

@@ -2,9 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Fashion from "../../assets/fruitsbanner.jpg";
 import Orange from "../../assets/fruit.webp";
 import styled from "styled-components";
+
 function Slicker() {
     const settings = {
         dots: false,
@@ -13,17 +13,13 @@ function Slicker() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        autoplaySpeed: 2000,
         speed: 2000,
         autoplaySpeed: 2000,
     };
     return (
         <>
             <Sliders {...settings}>
-                <div>
-                    <ImageContainer>
-                        <Img src={Fashion} />
-                    </ImageContainer>
-                </div>
                 <div>
                     <ImageContainer>
                         <Img src={Orange} />

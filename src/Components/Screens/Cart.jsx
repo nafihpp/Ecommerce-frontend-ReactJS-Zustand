@@ -30,7 +30,7 @@ function Cart({ item, setItem }) {
     };
     return (
         <>
-            <Mainof>
+            <Main>
                 <HeadDivision>
                     <MainHead>
                         <Helmet>
@@ -46,7 +46,7 @@ function Cart({ item, setItem }) {
                         <a>CheckOut</a>
                     </DivTotal>
                 </HeadDivision>
-            </Mainof>
+            </Main>
         </>
     );
 }
@@ -129,14 +129,15 @@ const MainHead = styled.div`
     align-items: center;
     padding-top: 20px;
 `;
-const Mainof = styled.section`
-    margin: 0;
-    padding: 0;
+const Main = styled.section`
+    margin-top: 600px;
+    width: 50%;
     background: linear-gradient(to bottom right, #e3f0ff, #fafcff);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px 0;
+    height: 90vh;
 `;
 const HeadDivision = styled.div`
     width: 70%;

@@ -50,7 +50,7 @@ const BottomNavBar = () => {
             </Botton>
             <Botton className="bn-tab" onClick={() => setActiveTabs("cart")}>
                 {activeTabs === "cart" ? (
-                    <BsChatRightDotsFill size="35" color="#000" />
+                    <AiOutlineShoppingCart size="35" color="#000" />
                 ) : (
                     <AiOutlineShoppingCart
                         size="35"

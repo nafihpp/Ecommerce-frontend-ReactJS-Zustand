@@ -13,9 +13,6 @@ function App() {
     const [item, setItem] = useState([]);
     return (
         <>
-            <Helmet>
-                <title>Buy now Shopping</title>
-            </Helmet>
             <Router>
                 <Routes>
                     <Route path="/login" element={<Login />} />
@@ -32,7 +29,7 @@ function App() {
                         path="/items"
                         element={<Items item={item} setItem={setItem} />}
                     />
-                    <Route path="/cart/:id" element={<Elements />} />
+                    <Route path="/:id" element={<Elements />} />
                     <Route
                         path="*"
                         element={<h1>404 error the Page is not found!</h1>}

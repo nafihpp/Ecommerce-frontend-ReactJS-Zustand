@@ -7,7 +7,7 @@ export default function Signup() {
     return (
         <>
             <Helmet>
-                <title>Login Now</title>
+                <title>Register Now</title>
             </Helmet>
             <Container>
                 <LeftContainer>
@@ -60,11 +60,12 @@ const LeftContainer = styled.div`
 `;
 const MainHeading = styled.h1`
     font-size: 36px;
-    color: #090e5e;
+    color: #cf1030;
     line-height: 1.4em;
 `;
 const RightContainer = styled.div`
-    background: #efefef;
+    background: #000;
+    color: #fff;
     width: 45%;
     display: flex;
     align-items: flex-end;
@@ -77,8 +78,8 @@ const RightContainer = styled.div`
     }
 `;
 const LoginContainer = styled.div`
-    padding-bottom: 70px;
-    border-bottom: 1px solid #fff;
+    padding-top: 20px;
+    border-bottom: 1px solid #8d1010;
     width: 100%;
 `;
 const LoginHeading = styled.h3`
@@ -111,7 +112,7 @@ const LoginButton = styled(Link)`
     display: flex;
     justify-content: flex-end;
     margin-bottom: 25px;
-    color: #046bf6;
+    color: #f60455;
     font-size: 20px;
     text-decoration: none;
 `;

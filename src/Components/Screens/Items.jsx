@@ -4,16 +4,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Apple from "../../assets/apple.jpg";
-import Apricot from "../../assets/apricot.jpg";
-import Banana from "../../assets/banana.jpg";
-import Cherry from "../../assets/cherry.jpg";
-import ButtonNavbar from "../Includes/BottomNavBar";
 import { GrView } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { isMobile } from "react-device-detect";
 import BottomNavBar from "../Includes/BottomNavBar";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "../Includes/redux/actions/productActions";
 
 function Items({ item, setItem }) {
     const notify = () =>
@@ -26,16 +22,17 @@ function Items({ item, setItem }) {
             draggable: true,
             progress: undefined,
         });
-    const [product, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const dispatch = useDispatch();
+    const products = useSelector((state) => state.allProducts.products);
+
     useEffect(() => {
         const axios = require("axios");
         axios
             .get("https://fakestoreapi.com/products/")
             .then(function (response) {
                 // handle success
-                setProducts(response.data);
-                console.log(product);
+                dispatch(setProducts(response.data));
             })
             .catch(function (error) {
                 // handle error
@@ -47,8 +44,9 @@ function Items({ item, setItem }) {
         const newItem = [...item, bought];
         setItem(newItem);
     }
+    console.log(products);
     let listProducts = () => {
-        return product.map((produc) => (
+        return products.map((produc) => (
             <>
                 <Child key={produc.id}>
                     <ImageContainer>
@@ -61,7 +59,7 @@ function Items({ item, setItem }) {
                             <Buttoncart onClick={() => buy(produc)}>
                                 <AiOutlineShoppingCart />
                             </Buttoncart>
-                            <Links to={`cart/${produc.id}`}>
+                            <Links to={`/${produc.id}`}>
                                 <GrView />
                             </Links>
                         </MainCartContainer>
@@ -91,11 +89,6 @@ const MainCartContainer = styled.div`
     align-items: center;
     font-size: 25px;
 `;
-const Buts = styled.a`
-    cursor: pointer;
-    background: green;
-    border-radius: 10px;
-`;
 const Empdiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -108,7 +101,7 @@ const Wrapperlist = styled.div`
 `;
 const MainContainer = styled.section`
     background: aliceblue;
-    padding-top: 95px;
+    padding-top: 10px;
 `;
 const ParentList = styled.ul`
     display: flex;
@@ -121,7 +114,7 @@ const Child = styled.li`
     width: 23%;
     margin-bottom: 46px;
     border-radius: 4px;
-    padding: 4px;
+    padding: 16px;
     background: #fff;
     display: flex;
     flex-direction: column;

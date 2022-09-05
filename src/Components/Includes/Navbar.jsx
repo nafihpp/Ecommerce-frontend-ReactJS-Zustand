@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
+import Cart from "../Screens/Cart";
+import LoginModal from "../Includes/LoginModal";
 
 function Navbar({ item, setItem }) {
     const [search, setSearch] = useState([]);
+    const [modal, setModal] = useState(false);
     const handleFilter = (e) => {
         var searched = e.target.value.toLowerCase();
         setSearch(searched);
@@ -37,7 +40,12 @@ function Navbar({ item, setItem }) {
                         <DashboardLink to="/login">
                             <CgProfile />
                         </DashboardLink>
-                        <Button to="/cart">
+                        <Button
+                            onClick={() => {
+                                setModal(!modal);
+                                console.log(modal);
+                            }}
+                        >
                             <CartDiv>
                                 <FaShoppingCart />
                             </CartDiv>
@@ -48,6 +56,15 @@ function Navbar({ item, setItem }) {
                     </Childtwo>
                 </MainList>
             </Wrapper>
+            {modal && (
+                <LoginModal
+                    item={item}
+                    setItem={setItem}
+                    modal={modal}
+                    setModal={setModal}
+                />
+            )}
+            {/* <Cart item={item} setItem={setItem} /> */}
         </NavbarMain>
     );
 }
@@ -79,7 +96,7 @@ const Priced = styled.span`
     justify-content: center;
     align-items: center;
 `;
-const Button = styled(Link)`
+const Button = styled.a`
     color: #8d8d8d;
     cursor: pointer;
     position: relative;
