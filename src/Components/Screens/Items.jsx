@@ -72,6 +72,7 @@ function Items({ item, setItem }) {
                             toastStyle={{
                                 position: "absolute",
                                 bottom: "90px",
+                                left: "40px",
                                 width: "80%",
                             }}
                             autoClose={300}
