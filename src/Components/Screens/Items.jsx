@@ -69,7 +69,11 @@ function Items({ item, setItem }) {
                             </Links>
                         </MainCartContainer>
                         <ToastContainer
-                            toastStyle={{ backgroundColor: "black" }}
+                            toastStyle={{
+                                position: "absolute",
+                                bottom: "90px",
+                                width: "80%",
+                            }}
                             autoClose={300}
                         />
                     </Empdiv>
