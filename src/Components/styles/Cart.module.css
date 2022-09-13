@@ -36,7 +36,7 @@
 
 .wrapper {
     max-height: 300px;
-    background-color: #333;
+    background-color: #fe6b01;
     padding: 10px 50px 50px 50px;
     display: flex;
     flex-direction: column;
@@ -54,6 +54,7 @@
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+    border: none;
 }
 
 @media screen and (max-width: 480px) {
