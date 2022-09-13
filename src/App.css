@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+.image {
+    width: 100%;
+    display: block;
+}
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -14,6 +18,22 @@
 ::-webkit-scrollbar-thumb {
     background: red;
 }
+.Toastify__toast--success {
+    border: 1px solid #fff !important;
+    border-radius: 50px !important;
+    background: #000 !important;
+    color: #fff;
+}
+
+.Toastify__toast-body {
+    color: #fff;
+    font-weight: 400;
+    margin-left: 25px !important;
+}
+.Toastify__toast > button > svg {
+    display: none;
+}
+
 .slick-prev {
     left: 3% !important;
     z-index: 1;
@@ -21,4 +41,127 @@
 .slick-next {
     right: 3% !important;
     z-index: 1;
+}
+div.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    letter-spacing: 0.2em;
+}
+
+div.right p {
+    font-size: 15px;
+    font-weight: 900;
+    color: hsl(220, 14%, 75%);
+    text-align: justify;
+    width: 100%;
+    line-height: 1.5em;
+    margin-bottom: 30px;
+}
+
+div.right p.company {
+    color: hsl(26, 100%, 55%);
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+div.right h1 {
+    font-size: 40px;
+    font-weight: 900;
+    width: 450px;
+    margin-bottom: 40px;
+}
+
+div.right div.prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 170px;
+    height: 60px;
+    margin-bottom: 30px;
+}
+
+div.right div.prices h1.new {
+    width: 70%;
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+
+div.right div.prices span {
+    width: 30%;
+    height: 20px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(26, 100%, 55%);
+    background: hsl(25, 100%, 94%);
+    border-radius: 5px;
+}
+
+div.right div.prices h3.old {
+    width: 40%;
+    text-decoration: line-through;
+    color: hsl(220, 14%, 75%);
+    font-size: 16px;
+}
+
+div.right div.cart-items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+div.right div.cart-items div.left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    width: 150px;
+    background: hsl(223, 64%, 98%);
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+div.right div.cart-items div.left a.operator {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsl(26, 100%, 55%);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+div.right div.cart-items div.left h5 {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+div.right div.cart-items div.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: hsl(26, 100%, 55%);
+    width: 350px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+div.right div.cart-items div.right h4.white {
+    color: #fff;
 }

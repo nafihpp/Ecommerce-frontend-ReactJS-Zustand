@@ -15,8 +15,7 @@ function Items({ item, setItem }) {
     let navigate = useNavigate();
     const notify = () =>
         toast.success("Added to Cart", {
-            position: "top-center",
-            autoClose: 400,
+            position: "bottom-center",
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
@@ -69,7 +68,10 @@ function Items({ item, setItem }) {
                                 <GrView />
                             </Links>
                         </MainCartContainer>
-                        <ToastContainer autoClose={300} />
+                        <ToastContainer
+                            toastStyle={{ backgroundColor: "black" }}
+                            autoClose={300}
+                        />
                     </Empdiv>
                 </Child>
             </>

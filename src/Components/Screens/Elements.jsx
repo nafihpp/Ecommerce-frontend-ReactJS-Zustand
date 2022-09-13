@@ -32,52 +32,76 @@ function Elements({ item, setItem }) {
             </Helmet>
             <MainContainer>
                 <Wrapper>
-                    <ImageContainer>
-                        <img src={page.image} alt="" />
-                    </ImageContainer>
-                    <ul class="bottom">
-                        <li>
-                            <div class="thumbnail">
-                                <img
-                                    src="static/images/image-product-1-thumbnail.jpg"
-                                    alt="thumbnail"
-                                />
+                    <MainDiv>
+                        <ImageContainer>
+                            <img src={page.image} alt="" className="image" />
+                        </ImageContainer>
+                        <div class="right">
+                            <p class="company">{page.title}</p>
+                            <h1>{page.category}</h1>
+                            <p>{page.description}</p>
+                            <div class="prices">
+                                <h1 class="new">$125.00</h1>
+                                <span>50%</span>
+                                <h3 class="old">$250.00</h3>
                             </div>
-                            <div class="filter"></div>
-                        </li>
-                    </ul>
-                    <div class="right">
-                        <p class="company">{page.title}</p>
-                        <h1>{page.category}</h1>
-                        <p>{page.description}</p>
-                        <div class="prices">
-                            <h1 class="new">$125.00</h1>
-                            <span>50%</span>
-                            <h3 class="old">$250.00</h3>
+                            <div class="cart-items">
+                                <div class="left">
+                                    <a
+                                        href=""
+                                        class="operator"
+                                        style={{ textDecoration: "none" }}
+                                    >
+                                        -
+                                    </a>
+                                    <h5>0</h5>
+                                    <a
+                                        href=""
+                                        class="operator"
+                                        style={{ textDecoration: "none" }}
+                                    >
+                                        +
+                                    </a>
+                                </div>
+                                <div class="right" onClick={() => buyed(page)}>
+                                    <a href="#">
+                                        <div class="cartimage"></div>
+                                        <h4 class="white">Add to cart</h4>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="cart-items">
-                            <div class="left">
-                                <a href="" class="operator">
-                                    -
-                                </a>
-                                <h5>0</h5>
-                                <a href="" class="operator">
-                                    +
-                                </a>
-                            </div>
-                            <div class="right" onClick={() => buyed(page)}>
-                                <a href="#">
-                                    <div class="cartimage"></div>
-                                    <h4 class="white">Add to cart</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </MainDiv>
                 </Wrapper>
             </MainContainer>
         </>
     );
 }
-const MainContainer = styled.div``;
-const ImageContainer = styled.div``;
+const MainDiv = styled.div`
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+`;
+const Wrapper = styled.div`
+    width: 75%;
+    margin: 0 auto;
+`;
+const MainContainer = styled.div`
+    height: 100vh;
+`;
+const ImageContainer = styled.div`
+    width: 28%;
+    @media all and (max-width: 640px) {
+        width: 70%;
+        padding: 0 55px 55px;
+    }
+    @media all and (max-width: 480px) {
+        width: 90%;
+    }
+    @media all and (max-width: 320px) {
+        width: 100%;
+    }
+`;
 export default Elements;
