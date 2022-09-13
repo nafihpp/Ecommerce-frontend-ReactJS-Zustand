@@ -60,9 +60,7 @@ function Items({ item, setItem }) {
                         <HeadProduct onClick={() => Pagepush(produc)}>
                             {produc.title}
                         </HeadProduct>
-                        <PriceProduct onClick={() => Pagepush(produc)}>
-                            ${produc.price}
-                        </PriceProduct>
+                        <PriceProduct>${produc.price}</PriceProduct>
                         <MainCartContainer>
                             <Buttoncart onClick={() => buy(produc)}>
                                 <AiOutlineShoppingCart />
@@ -135,6 +133,7 @@ const ImageContainer = styled.div`
     width: 80%;
     max-width: 68%;
     overflow: hidden;
+    cursor: pointer;
 `;
 const ProductImg = styled.img`
     display: block;
@@ -144,6 +143,7 @@ const ProductImg = styled.img`
 const HeadProduct = styled.h4`
     height: 1.5rem;
     overflow: hidden;
+    cursor: pointer;
 `;
 const PriceProduct = styled.p``;
 const Buttoncart = styled.a`

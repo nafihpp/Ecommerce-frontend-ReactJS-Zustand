@@ -92,8 +92,6 @@ const AllPlacesImageContainer = styled.div`
 const LeftContainer = styled.div`
     width: 28%;
     height: 313px;
-    border: 4px solid;
-    border-radius: 62px;
     overflow: hidden;
 `;
 const Image = styled.img`
@@ -117,9 +115,10 @@ const PlaceDetails = styled.p`
 `;
 const Buttoncart = styled.button`
     background: brown;
-    color: white;
+    color: #fff;
+    padding: 11px;
     border-radius: 4px;
-    padding: 4px;
+    border: none;
     cursor: pointer;
     :hover {
         color: black;
