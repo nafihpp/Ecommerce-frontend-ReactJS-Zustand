@@ -23,7 +23,6 @@ function Elements({ item, setItem }) {
 
     function buyed(boughted) {
         const now = [...item, boughted];
-        console.log(now);
     }
     return (
         <>

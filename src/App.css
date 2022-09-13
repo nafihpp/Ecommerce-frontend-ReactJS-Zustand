@@ -23,12 +23,18 @@
     border-radius: 50px !important;
     background: #000 !important;
     color: #fff;
+    @media all and (max-width: 480px) {
+        width: 30% !important;
+    }
 }
 
 .Toastify__toast-body {
     color: #fff;
     font-weight: 400;
     margin-left: 25px !important;
+    @media all and (max-width: 480px) {
+        width: 30% !important;
+    }
 }
 .Toastify__toast > button > svg {
     display: none;
