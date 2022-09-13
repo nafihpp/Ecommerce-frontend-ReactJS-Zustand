@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import styles from "../styles/Cart.module.css";
 
 function LoginModal({ item, setItem, modal, setModal }) {
     const location = useLocation();
@@ -10,6 +11,7 @@ function LoginModal({ item, setItem, modal, setModal }) {
     item.map((mapped) => {
         sum += mapped.price;
     });
+    let discounted = (sum / 100) * 10;
     let cartitems = () => {
         return item.map((cartss) => (
             <>
@@ -17,7 +19,6 @@ function LoginModal({ item, setItem, modal, setModal }) {
                     <ImageBox>
                         <Image src={cartss.image} />
                     </ImageBox>
-
                     <PricesDiv>
                         <DivAmount>${cartss.price}</DivAmount>
                         <DivRemove>
@@ -28,7 +29,6 @@ function LoginModal({ item, setItem, modal, setModal }) {
             </>
         ));
     };
-
     return (
         <Container>
             <JoinNow>
@@ -44,10 +44,53 @@ function LoginModal({ item, setItem, modal, setModal }) {
                         <Content>
                             <MiddleContainer>
                                 <>{cartitems()}</>
-                                <HorizontalLine />
-                                <DivTotal>
-                                    <Head>Total:$ {sum.toFixed(2)}</Head>
-                                </DivTotal>
+                                {item.length > 1 ? (
+                                    <div className={styles.right}>
+                                        <div className={styles.wrapper}>
+                                            <h2 className={styles.title}>
+                                                CART TOTAL
+                                            </h2>
+                                            <div className={styles.totalText}>
+                                                <b
+                                                    className={
+                                                        styles.totalTextTitle
+                                                    }
+                                                >
+                                                    Subtotal:
+                                                </b>
+                                                ${sum.toFixed(2)}
+                                            </div>
+                                            <div className={styles.totalText}>
+                                                <b
+                                                    className={
+                                                        styles.totalTextTitle
+                                                    }
+                                                >
+                                                    Discount:
+                                                </b>
+                                                ${discounted.toFixed(2)}
+                                            </div>
+                                            <div className={styles.totalText}>
+                                                <b
+                                                    className={
+                                                        styles.totalTextTitle
+                                                    }
+                                                >
+                                                    Total:{" "}
+                                                    {sum.toFixed(2) -
+                                                        discounted.toFixed(2)}
+                                                </b>
+                                            </div>
+                                            <button className={styles.button}>
+                                                CHECKOUT NOW!
+                                            </button>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <h1 style={{ textAlign: "center" }}>
+                                        Cart is Empty
+                                    </h1>
+                                )}
                             </MiddleContainer>
                         </Content>
                     </>
@@ -58,16 +101,6 @@ function LoginModal({ item, setItem, modal, setModal }) {
 }
 export default LoginModal;
 
-const CloseContainer = styled.div`
-    font-size: 35px;
-`;
-const HorizontalLine = styled.hr`
-    width: 66%;
-    float: right;
-    margin-right: 5%;
-`;
-const DivTotal = styled.div``;
-const Head = styled.h1``;
 const DivAmount = styled.div`
     font-size: 20px;
     font-family: "Open Sans";
@@ -109,11 +142,11 @@ const Container = styled.div`
     z-index: 500;
 `;
 const CloseIcon = styled.span`
-    font-size: 34px;
+    font-size: 40px;
     color: #000;
     position: absolute;
-    left: -42px;
-    top: 11px;
+    left: -43px;
+    top: 4px;
     cursor: pointer;
     @media (max-width: 480px) {
         font-size: 30px;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GrView } from "react-icons/gr";
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../Includes/redux/actions/productActions";
 
 function Items({ item, setItem }) {
+    let navigate = useNavigate();
     const notify = () =>
         toast.success("Added to Cart", {
             position: "top-center",
@@ -44,17 +45,24 @@ function Items({ item, setItem }) {
         const newItem = [...item, bought];
         setItem(newItem);
     }
-    console.log(products);
+    const Pagepush = (produce) => {
+        console.log(produce.id);
+        navigate(`${produce.id}`);
+    };
     let listProducts = () => {
         return products.map((produc) => (
             <>
                 <Child key={produc.id}>
-                    <ImageContainer>
+                    <ImageContainer onClick={() => Pagepush(produc)}>
                         <ProductImg src={produc.image} alt={produc.title} />
                     </ImageContainer>
                     <Empdiv>
-                        <HeadProduct>{produc.title}</HeadProduct>
-                        <PriceProduct>${produc.price}</PriceProduct>
+                        <HeadProduct onClick={() => Pagepush(produc)}>
+                            {produc.title}
+                        </HeadProduct>
+                        <PriceProduct onClick={() => Pagepush(produc)}>
+                            ${produc.price}
+                        </PriceProduct>
                         <MainCartContainer>
                             <Buttoncart onClick={() => buy(produc)}>
                                 <AiOutlineShoppingCart />
