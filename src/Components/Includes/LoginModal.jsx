@@ -45,7 +45,7 @@ function LoginModal({ item, setItem, modal, setModal }) {
                         <Content>
                             <MiddleContainer>
                                 <>{cartitems()}</>
-                                {item.length > 1 ? (
+                                {item.length > 0 ? (
                                     <div className={styles.right}>
                                         <div className={styles.wrapper}>
                                             <h2 className={styles.title}>
@@ -129,6 +129,7 @@ const CartItems = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    padding-top: 18px;
 `;
 
 const Container = styled.div`
