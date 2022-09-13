@@ -17,6 +17,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-select": "^5.4.0",
+    "react-simple-star-rating": "^4.0.5",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.0.4",
     "redux": "^4.2.0",

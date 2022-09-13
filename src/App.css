@@ -32,9 +32,6 @@
     color: #fff;
     font-weight: 400;
     margin-left: 25px !important;
-    @media all and (max-width: 480px) {
-        width: 30% !important;
-    }
 }
 .Toastify__toast > button > svg {
     display: none;
@@ -43,10 +40,12 @@
 .slick-prev {
     left: 3% !important;
     z-index: 1;
+    margin-top: 8% !important;
 }
 .slick-next {
     right: 3% !important;
     z-index: 1;
+    margin-top: 8% !important;
 }
 div.right {
     width: 50%;

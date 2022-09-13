@@ -10,6 +10,22 @@ import { isMobile } from "react-device-detect";
 import BottomNavBar from "../Includes/BottomNavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../Includes/redux/actions/productActions";
+import { Rating } from "react-simple-star-rating";
+import {
+    MdOutlineSentimentDissatisfied,
+    MdOutlineSentimentNeutral,
+    MdOutlineSentimentSatisfied,
+    MdOutlineSentimentVeryDissatisfied,
+    MdOutlineSentimentVerySatisfied,
+} from "react-icons/md";
+
+const customIcons = [
+    { icon: <MdOutlineSentimentDissatisfied size={30} /> },
+    { icon: <MdOutlineSentimentNeutral size={30} /> },
+    { icon: <MdOutlineSentimentSatisfied size={30} /> },
+    { icon: <MdOutlineSentimentVeryDissatisfied size={30} /> },
+    { icon: <MdOutlineSentimentVerySatisfied size={30} /> },
+];
 
 function Items({ item, setItem }) {
     let navigate = useNavigate();
@@ -60,6 +76,13 @@ function Items({ item, setItem }) {
                             {produc.title}
                         </HeadProduct>
                         <PriceProduct>${produc.price}</PriceProduct>
+                        <Rating
+                            initialValue={produc.rating.rate}
+                            allowHover={false}
+                            readonly={true}
+                            customIcons={customIcons}
+                            size={8}
+                        />
                         <MainCartContainer>
                             <Buttoncart onClick={() => buy(produc)}>
                                 <AiOutlineShoppingCart />
