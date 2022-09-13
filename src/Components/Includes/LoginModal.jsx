@@ -13,6 +13,12 @@ function LoginModal({ item, setItem, modal, setModal }) {
     });
     let discounted = (sum / 100) * 10;
     let final = sum.toFixed(2) - discounted.toFixed(2);
+
+    let formatted = new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+    }).format(final);
+
     let cartitems = () => {
         return item.map((cartss) => (
             <>
@@ -77,7 +83,7 @@ function LoginModal({ item, setItem, modal, setModal }) {
                                                         styles.totalTextTitle
                                                     }
                                                 >
-                                                    Total: {final.toFixed(2)}
+                                                    Total: {formatted}
                                                 </b>
                                             </div>
                                             <button className={styles.button}>

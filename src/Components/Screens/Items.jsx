@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -28,6 +28,7 @@ const customIcons = [
 ];
 
 function Items({ item, setItem }) {
+    console.log(item, "--------item-----------");
     let navigate = useNavigate();
     const notify = () =>
         toast.success("Added to Cart", {
@@ -55,10 +56,18 @@ function Items({ item, setItem }) {
                 console.log(error);
             });
     }, []);
+
+    const optimize = useCallback(
+        (bought) => {
+            buy(bought);
+            console.log("worked");
+        },
+        [item]
+    );
+
     function buy(bought) {
         notify();
-        const newItem = [...item, bought];
-        setItem(newItem);
+        setItem((prev) => [...prev, bought]);
     }
     const Pagepush = (produce) => {
         console.log(produce.id);
@@ -84,7 +93,7 @@ function Items({ item, setItem }) {
                             size={8}
                         />
                         <MainCartContainer>
-                            <Buttoncart onClick={() => buy(produc)}>
+                            <Buttoncart onClick={() => optimize(produc)}>
                                 <AiOutlineShoppingCart />
                             </Buttoncart>
                             <Links to={`/${produc.id}`}>
