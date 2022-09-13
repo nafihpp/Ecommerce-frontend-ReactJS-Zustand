@@ -9,10 +9,10 @@ import Cart from "../Screens/Cart";
 import LoginModal from "../Includes/LoginModal";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import BottomNavBar from "../Includes/BottomNavBar";
 
-function Navbar({ item, setItem }) {
+function Navbar({ item, setItem, modal, setModal }) {
     const [search, setSearch] = useState("");
-    const [modal, setModal] = useState(false);
     const products = useSelector((state) => state.allProducts.products);
     const [current, setCurrent] = useState([]);
 
@@ -25,75 +25,79 @@ function Navbar({ item, setItem }) {
     };
 
     return (
-        <NavbarMain>
-            <Wrapper>
-                <MainList>
-                    <Childone>
-                        <HeadDiv>
-                            <LogoImg src={require("../../assets/LOGO.png")} />
-                        </HeadDiv>
-                    </Childone>
-                    <Bar>
-                        <ChildMiddle>
-                            <SearchBar
-                                placeholder="What are you looking for?"
-                                onChange={handleFilter}
-                            />
-                        </ChildMiddle>
-                        <SearchContainer>
-                            {current.map((item) => (
-                                <div
-                                    style={{
-                                        color: "green",
-                                        display: "flex",
-                                        width: "75%",
-                                    }}
-                                >
-                                    <p>{item.title}</p>
-                                    <ImageContainer>
-                                        <img
-                                            src={item.image}
-                                            alt=""
-                                            width={50}
-                                        />
-                                    </ImageContainer>
-                                </div>
-                            ))}
-                        </SearchContainer>
-                        <SearchIcon>
-                            <CgSearch />
-                        </SearchIcon>
-                    </Bar>
-                    <Childtwo>
-                        <DashboardLink to="/login">
-                            <CgProfile />
-                        </DashboardLink>
-                        <Button
-                            onClick={() => {
-                                setModal(!modal);
-                                console.log(modal);
-                            }}
-                        >
-                            <CartDiv>
-                                <FaShoppingCart />
-                            </CartDiv>
-                            <Badge>
-                                <Priced>{item.length}</Priced>
-                            </Badge>
-                        </Button>
-                    </Childtwo>
-                </MainList>
-            </Wrapper>
-            {modal && (
-                <LoginModal
-                    item={item}
-                    setItem={setItem}
-                    modal={modal}
-                    setModal={setModal}
-                />
-            )}
-            {/* <Cart item={item} setItem={setItem} /> */}
-        </NavbarMain>
+        <>
+            <NavbarMain>
+                <Wrapper>
+                    <MainList>
+                        <Childone>
+                            <HeadDiv>
+                                <LogoImg
+                                    src={require("../../assets/LOGO.png")}
+                                />
+                            </HeadDiv>
+                        </Childone>
+                        <Bar>
+                            <ChildMiddle>
+                                <SearchBar
+                                    placeholder="What are you looking for?"
+                                    onChange={handleFilter}
+                                />
+                            </ChildMiddle>
+                            <SearchContainer>
+                                {current.map((item) => (
+                                    <div
+                                        style={{
+                                            color: "green",
+                                            display: "flex",
+                                            width: "75%",
+                                        }}
+                                    >
+                                        <p>{item.title}</p>
+                                        <ImageContainer>
+                                            <img
+                                                src={item.image}
+                                                alt=""
+                                                width={50}
+                                            />
+                                        </ImageContainer>
+                                    </div>
+                                ))}
+                            </SearchContainer>
+                            <SearchIcon>
+                                <CgSearch />
+                            </SearchIcon>
+                        </Bar>
+                        <Childtwo>
+                            <DashboardLink to="/login">
+                                <CgProfile />
+                            </DashboardLink>
+                            <Button
+                                onClick={() => {
+                                    setModal(!modal);
+                                }}
+                            >
+                                <CartDiv>
+                                    <FaShoppingCart />
+                                </CartDiv>
+                                <Badge>
+                                    <Priced>{item.length}</Priced>
+                                </Badge>
+                            </Button>
+                        </Childtwo>
+                    </MainList>
+                </Wrapper>
+                {modal && (
+                    <LoginModal
+                        item={item}
+                        setItem={setItem}
+                        modal={modal}
+                        setModal={setModal}
+                    />
+                )}
+                {/* <Cart item={item} setItem={setItem} /> */}
+            </NavbarMain>
+            <BottomNavBar modal={modal} setModal={setModal} />
+        </>
     );
 }
 const ImageContainer = styled.span`

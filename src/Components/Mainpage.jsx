@@ -5,10 +5,15 @@ import Helmet from "react-helmet";
 import Slicker from "./Screens/Slicker";
 import { useSelector } from "react-redux";
 
-function Mainpage({ item, setItem }) {
+function Mainpage({ item, setItem, modal, setModal }) {
     return (
         <>
-            <Navbar item={item} setItem={setItem} />
+            <Navbar
+                item={item}
+                setItem={setItem}
+                modal={modal}
+                setModal={setModal}
+            />
             <Slicker />
             <Items item={item} setItem={setItem} />
         </>

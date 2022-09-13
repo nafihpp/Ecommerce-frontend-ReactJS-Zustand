@@ -11,6 +11,7 @@ import Signup from "./Components/Includes/Signup";
 
 function App() {
     const [item, setItem] = useState([]);
+    const [modal, setModal] = useState(false);
     return (
         <>
             <Router>
@@ -19,7 +20,14 @@ function App() {
                     <Route path="/signup" element={<Signup />} />
                     <Route
                         path="/"
-                        element={<MainPage item={item} setItem={setItem} />}
+                        element={
+                            <MainPage
+                                item={item}
+                                setItem={setItem}
+                                modal={modal}
+                                setModal={setModal}
+                            />
+                        }
                     />
                     <Route
                         path="/cart"

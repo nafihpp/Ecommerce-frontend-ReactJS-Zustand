@@ -84,11 +84,9 @@ function Items({ item, setItem }) {
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
             </MainContainer>
-            {isMobile && (
-                <>
-                    <BottomNavBar />
-                </>
-            )}
+            {/* {isMobile && ( */}
+            <></>
+            {/* )} */}
         </>
     );
 }

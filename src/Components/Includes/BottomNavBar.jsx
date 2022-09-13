@@ -9,9 +9,8 @@ import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 
-const BottomNavBar = () => {
+const BottomNavBar = ({ modal, setModal }) => {
     const navigate = useNavigate();
-    const [isModal, setModal] = useState(false);
     const [activeTabs, setActiveTabs] = useState("");
     useEffect(() => {
         switch (activeTabs) {
@@ -19,13 +18,12 @@ const BottomNavBar = () => {
                 navigate("/");
                 break;
             case "cart":
-                navigate("/cart");
+                setModal(!modal);
                 break;
             case "favourites":
-                setModal(true);
                 break;
             case "account":
-                navigate("/account");
+                navigate("/login");
                 break;
             default:
                 navigate("/");
