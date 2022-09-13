@@ -20,11 +20,11 @@ import {
 } from "react-icons/md";
 
 const customIcons = [
-    { icon: <MdOutlineSentimentDissatisfied size={30} /> },
-    { icon: <MdOutlineSentimentNeutral size={30} /> },
-    { icon: <MdOutlineSentimentSatisfied size={30} /> },
-    { icon: <MdOutlineSentimentVeryDissatisfied size={30} /> },
-    { icon: <MdOutlineSentimentVerySatisfied size={30} /> },
+    { icon: <MdOutlineSentimentDissatisfied size={27} /> },
+    { icon: <MdOutlineSentimentNeutral size={27} /> },
+    { icon: <MdOutlineSentimentSatisfied size={27} /> },
+    { icon: <MdOutlineSentimentVeryDissatisfied size={27} /> },
+    { icon: <MdOutlineSentimentVerySatisfied size={27} /> },
 ];
 
 function Items({ item, setItem }) {
