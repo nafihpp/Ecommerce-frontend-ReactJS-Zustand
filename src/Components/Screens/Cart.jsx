@@ -46,13 +46,7 @@ function Cart({ item, setItem }) {
         </>
     );
 }
-const DivTotal = styled.div`
-    width: 50%;
-    margin: 0 auto;
-`;
-const Head = styled.h1`
-    text-align: end;
-`;
+
 const DivAmount = styled.div`
     font-size: 26px;
     font-family: "Open Sans";

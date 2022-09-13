@@ -152,9 +152,9 @@ const CloseIcon = styled.span`
         font-size: 30px;
         left: -38px;
     }
-    @media (max-width: 400px) {
-        left: 9px;
-        top: 11px;
+    @media (max-width: 380px) {
+        font-size: 30px;
+        left: -30px;
         z-index: 500;
     }
 `;
