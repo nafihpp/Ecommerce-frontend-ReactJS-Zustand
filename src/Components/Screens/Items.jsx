@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GrView } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { isMobile } from "react-device-detect";
 import BottomNavBar from "../Includes/BottomNavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../Includes/redux/actions/productActions";
@@ -121,9 +120,6 @@ function Items({ item, setItem }) {
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
             </MainContainer>
-            {/* {isMobile && ( */}
-            <></>
-            {/* )} */}
         </>
     );
 }

@@ -10,6 +10,7 @@ import LoginModal from "../Includes/LoginModal";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import BottomNavBar from "../Includes/BottomNavBar";
+import { isMobile } from "react-device-detect";
 
 function Navbar({ item, setItem, modal, setModal }) {
     const [search, setSearch] = useState("");
@@ -96,7 +97,7 @@ function Navbar({ item, setItem, modal, setModal }) {
                 )}
                 {/* <Cart item={item} setItem={setItem} /> */}
             </NavbarMain>
-            <BottomNavBar modal={modal} setModal={setModal} />
+            {isMobile && <BottomNavBar modal={modal} setModal={setModal} />}
         </>
     );
 }
