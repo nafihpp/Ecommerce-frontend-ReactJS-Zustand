@@ -57,12 +57,8 @@ div.right {
 }
 
 div.right p {
-    font-size: 15px;
+    font-size: 19px;
     font-weight: 900;
-    color: hsl(220, 14%, 75%);
-    text-align: justify;
-    width: 100%;
-    line-height: 1.5em;
     margin-bottom: 30px;
 }
 
@@ -136,7 +132,7 @@ div.right div.cart-items div.left {
     margin-right: 50px;
 }
 
-div.right div.cart-items div.left a.operator {
+div.right div.cart-items div.left div.operator {
     width: 40px;
     height: 100%;
     display: flex;
@@ -145,6 +141,7 @@ div.right div.cart-items div.left a.operator {
     color: hsl(26, 100%, 55%);
     font-size: 25px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 div.right div.cart-items div.left h5 {
@@ -162,11 +159,12 @@ div.right div.cart-items div.right {
     align-items: center;
     flex-direction: row;
     background: hsl(26, 100%, 55%);
-    width: 350px;
+    width: 179px;
     height: 100%;
     border-radius: 10px;
 }
 
-div.right div.cart-items div.right h4.white {
+div.right div.cart-items div.right a {
+    text-decoration: none;
     color: #fff;
 }
