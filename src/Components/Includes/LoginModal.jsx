@@ -12,6 +12,7 @@ function LoginModal({ item, setItem, modal, setModal }) {
         sum += mapped.price;
     });
     let discounted = (sum / 100) * 10;
+    let final = sum.toFixed(2) - discounted.toFixed(2);
     let cartitems = () => {
         return item.map((cartss) => (
             <>
@@ -76,9 +77,7 @@ function LoginModal({ item, setItem, modal, setModal }) {
                                                         styles.totalTextTitle
                                                     }
                                                 >
-                                                    Total:{" "}
-                                                    {sum.toFixed(2) -
-                                                        discounted.toFixed(2)}
+                                                    Total: {final.toFixed(2)}
                                                 </b>
                                             </div>
                                             <button className={styles.button}>
@@ -154,7 +153,7 @@ const CloseIcon = styled.span`
     }
     @media (max-width: 380px) {
         font-size: 30px;
-        left: -80px;
+        left: -48px;
         z-index: 500;
     }
 `;
