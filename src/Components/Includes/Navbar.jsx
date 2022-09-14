@@ -17,12 +17,10 @@ function Navbar({ item, setItem, modal, setModal }) {
     const [current, setCurrent] = useState([]);
     const [search, setSearch] = useState([]);
 
-    const handleFilter = (e) => {
-        setSearch(e.target.value.toLowerCase());
-        let searched = products.filter((item) =>
-            item.title.toLowerCase().includes(search)
+    const handleFilter = (search) => {
+        setCurrent(
+            products.filter((item) => item.title.toLowerCase().includes(search))
         );
-        setCurrent(searched);
     };
 
     return (
@@ -41,7 +39,10 @@ function Navbar({ item, setItem, modal, setModal }) {
                             <ChildMiddle>
                                 <SearchBar
                                     placeholder="What are you looking for?"
-                                    onChange={handleFilter}
+                                    onChange={(e) => {
+                                        setSearch(e.target.value.toLowerCase());
+                                        handleFilter(search);
+                                    }}
                                 />
                             </ChildMiddle>
                             <SearchContainer>
