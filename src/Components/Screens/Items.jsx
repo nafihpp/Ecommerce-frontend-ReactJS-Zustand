@@ -26,15 +26,19 @@ function Items({ item, setItem }) {
 
     const products = useSelector((state) => state.allProducts.products);
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        setAll(products);
+    }, []);
 
     useEffect(() => {
         filtering();
     }, [isCategory]);
 
     function filtering() {
-        let final = products.filter((fil) => fil.category === isCategory);
-        setAll(final);
+        if (isCategory) {
+            let final = products.filter((fil) => fil.category === isCategory);
+            setAll(final);
+        }
         if (!isCategory) {
             setAll(products);
         }

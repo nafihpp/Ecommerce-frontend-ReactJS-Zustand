@@ -18,7 +18,7 @@ function Navbar({ item, setItem, modal, setModal }) {
     const [search, setSearch] = useState([]);
 
     const handleFilter = (e) => {
-        setSearch();
+        setSearch(e.target.value.toLowerCase());
         let searched = products.filter((item) =>
             item.title.toLowerCase().includes(search)
         );
@@ -46,11 +46,13 @@ function Navbar({ item, setItem, modal, setModal }) {
                             </ChildMiddle>
                             <SearchContainer>
                                 {current.map((item) => (
-                                    <div
+                                    <Link
+                                        to={`/${item.id}`}
                                         style={{
                                             color: "green",
                                             display: "flex",
                                             width: "75%",
+                                            textDecoration: "none",
                                         }}
                                     >
                                         <p>{item.title}</p>
@@ -61,7 +63,7 @@ function Navbar({ item, setItem, modal, setModal }) {
                                                 width={50}
                                             />
                                         </ImageContainer>
-                                    </div>
+                                    </Link>
                                 ))}
                             </SearchContainer>
                             <SearchIcon>
