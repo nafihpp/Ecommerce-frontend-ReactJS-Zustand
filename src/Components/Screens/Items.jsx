@@ -185,7 +185,7 @@ const MainSpan = styled.span`
         color: #fff;
     }
     @media (max-width: 480px) {
-        font-size: 12px;
+        font-size: 10px;
     }
 `;
 const MainCartContainer = styled.div`
