@@ -17,7 +17,11 @@ function Navbar({ item, setItem, modal, setModal }) {
     const [current, setCurrent] = useState([]);
     const [search, setSearch] = useState([]);
 
-    const handleFilter = (search) => {
+    useEffect(() => {
+        handleFilter();
+    }, [search]);
+
+    const handleFilter = () => {
         setCurrent(
             products.filter((item) => item.title.toLowerCase().includes(search))
         );
@@ -41,31 +45,31 @@ function Navbar({ item, setItem, modal, setModal }) {
                                     placeholder="What are you looking for?"
                                     onChange={(e) => {
                                         setSearch(e.target.value.toLowerCase());
-                                        handleFilter(search);
                                     }}
                                 />
                             </ChildMiddle>
                             <SearchContainer>
-                                {current.map((item) => (
-                                    <Link
-                                        to={`/${item.id}`}
-                                        style={{
-                                            color: "green",
-                                            display: "flex",
-                                            width: "75%",
-                                            textDecoration: "none",
-                                        }}
-                                    >
-                                        <p>{item.title}</p>
-                                        <ImageContainer>
-                                            <img
-                                                src={item.image}
-                                                alt=""
-                                                width={50}
-                                            />
-                                        </ImageContainer>
-                                    </Link>
-                                ))}
+                                {search &&
+                                    current.map((item) => (
+                                        <Link
+                                            to={`/${item.id}`}
+                                            style={{
+                                                color: "green",
+                                                display: "flex",
+                                                width: "75%",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            <p>{item.title}</p>
+                                            <ImageContainer>
+                                                <img
+                                                    src={item.image}
+                                                    alt=""
+                                                    width={50}
+                                                />
+                                            </ImageContainer>
+                                        </Link>
+                                    ))}
                             </SearchContainer>
                             <SearchIcon>
                                 <CgSearch />

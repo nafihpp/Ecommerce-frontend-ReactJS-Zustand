@@ -36,7 +36,7 @@ const BottomNavBar = ({ modal, setModal }) => {
             <Botton className="bn-tab" onClick={() => setActiveTabs("home")}>
                 {activeTabs === "home" ? (
                     <>
-                        <RiHomeSmile2Fill size="35" color="#000" />
+                        <AiOutlineHome size="35" color="#000" />
                     </>
                 ) : (
                     <AiOutlineHome
