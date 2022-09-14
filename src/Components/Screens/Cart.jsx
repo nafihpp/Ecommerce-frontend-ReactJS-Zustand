@@ -7,6 +7,9 @@ function Cart({ item, setItem }) {
     item.map((mapped) => {
         sum += mapped.price;
     });
+    function remove(carted) {
+        console.log(carted);
+    }
     let cartitems = () => {
         return item.map((cartss) => (
             <>
@@ -20,9 +23,7 @@ function Cart({ item, setItem }) {
                     </AboutDiv>
                     <PricesDiv>
                         <DivAmount>${cartss.price}</DivAmount>
-                        <DivRemove>
-                            <u>Remove</u>
-                        </DivRemove>
+                        <DivRemove onClick={remove(cartss)}>Remove</DivRemove>
                     </PricesDiv>
                 </CartItems>
             </>

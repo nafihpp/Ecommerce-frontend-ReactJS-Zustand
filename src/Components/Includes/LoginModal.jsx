@@ -19,6 +19,10 @@ function LoginModal({ item, setItem, modal, setModal }) {
         currency: "INR",
     }).format(final);
 
+    const remove = (carted) => {
+        console.log(carted);
+    };
+
     let cartitems = () => {
         return item.map((cartss) => (
             <>
@@ -28,9 +32,7 @@ function LoginModal({ item, setItem, modal, setModal }) {
                     </ImageBox>
                     <PricesDiv>
                         <DivAmount>${cartss.price}</DivAmount>
-                        <DivRemove>
-                            <u>Remove</u>
-                        </DivRemove>
+                        <DivRemove onClick={remove(cartss)}>Remove</DivRemove>
                     </PricesDiv>
                 </CartItems>
             </>

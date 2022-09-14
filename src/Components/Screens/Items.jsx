@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GrView } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import BottomNavBar from "../Includes/BottomNavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../Includes/redux/actions/productActions";
 import { Rating } from "react-simple-star-rating";
@@ -27,7 +26,6 @@ const customIcons = [
 ];
 
 function Items({ item, setItem }) {
-    console.log(item, "--------item-----------");
     let navigate = useNavigate();
     const notify = () =>
         toast.success("Added to Cart", {
@@ -38,7 +36,6 @@ function Items({ item, setItem }) {
             draggable: true,
             progress: undefined,
         });
-    const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
 
@@ -59,7 +56,6 @@ function Items({ item, setItem }) {
     const optimize = useCallback(
         (bought) => {
             buy(bought);
-            console.log("worked");
         },
         [item]
     );
@@ -68,10 +64,12 @@ function Items({ item, setItem }) {
         notify();
         setItem((prev) => [...prev, bought]);
     }
+
     const Pagepush = (produce) => {
         console.log(produce.id);
         navigate(`${produce.id}`);
     };
+
     let listProducts = () => {
         return products.map((produc) => (
             <>

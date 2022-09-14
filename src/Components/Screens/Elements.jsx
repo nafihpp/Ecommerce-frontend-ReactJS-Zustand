@@ -83,7 +83,10 @@ function Elements({ item, setItem }) {
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <a href="#">Add to cart</a>
+                                    <a href="#">
+                                        {" "}
+                                        <AiOutlineShoppingCart /> Add to cart
+                                    </a>
                                 </div>
                             </div>
                         </div>

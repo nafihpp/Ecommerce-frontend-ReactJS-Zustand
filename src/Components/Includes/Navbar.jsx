@@ -95,7 +95,6 @@ function Navbar({ item, setItem, modal, setModal }) {
                         setModal={setModal}
                     />
                 )}
-                {/* <Cart item={item} setItem={setItem} /> */}
             </NavbarMain>
             {isMobile && <BottomNavBar modal={modal} setModal={setModal} />}
         </>

@@ -167,4 +167,6 @@ div.right div.cart-items div.right {
 div.right div.cart-items div.right a {
     text-decoration: none;
     color: #fff;
+    display: flex;
+    align-items: center;
 }
