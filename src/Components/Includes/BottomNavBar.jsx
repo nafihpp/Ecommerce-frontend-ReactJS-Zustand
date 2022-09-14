@@ -9,9 +9,9 @@ import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 
-const BottomNavBar = ({ modal, setModal }) => {
+const BottomNavBar = ({ activeTabs, setActiveTabs, modal, setModal }) => {
     const navigate = useNavigate();
-    const [activeTabs, setActiveTabs] = useState("");
+
     useEffect(() => {
         switch (activeTabs) {
             case "home":

@@ -18,14 +18,9 @@ function App() {
     const [item, setItem] = useState([]);
     const [modal, setModal] = useState(false);
     const [isLoading, setLoading] = useState(false);
+    const [activeTabs, setActiveTabs] = useState("");
+
     const dispatch = useDispatch();
-
-    const options = {
-        animationData: AnimtedData,
-        loop: true,
-    };
-
-    const { View } = useLottie(options);
 
     useEffect(() => {
         setLoading(true);
@@ -45,7 +40,7 @@ function App() {
 
     return (
         <>
-            {isLoading ? <div>{View} </div> : null}
+            {isLoading ? <div>Loading </div> : null}
             <Router>
                 <Routes>
                     <Route path="/login" element={<Login />} />
@@ -58,6 +53,8 @@ function App() {
                                 setItem={setItem}
                                 modal={modal}
                                 setModal={setModal}
+                                activeTabs={activeTabs}
+                                setActiveTabs={setActiveTabs}
                             />
                         }
                     />

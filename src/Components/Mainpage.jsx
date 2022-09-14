@@ -5,7 +5,14 @@ import Helmet from "react-helmet";
 import Slicker from "./Screens/Slicker";
 import { useSelector } from "react-redux";
 
-function Mainpage({ item, setItem, modal, setModal }) {
+function Mainpage({
+    item,
+    setItem,
+    modal,
+    setModal,
+    activeTabs,
+    setActiveTabs,
+}) {
     return (
         <>
             <Navbar
@@ -13,6 +20,8 @@ function Mainpage({ item, setItem, modal, setModal }) {
                 setItem={setItem}
                 modal={modal}
                 setModal={setModal}
+                activeTabs={activeTabs}
+                setActiveTabs={setActiveTabs}
             />
             <Slicker />
             <Items item={item} setItem={setItem} />

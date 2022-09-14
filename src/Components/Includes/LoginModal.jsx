@@ -4,7 +4,14 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import styles from "../styles/Cart.module.css";
 
-function LoginModal({ item, setItem, modal, setModal }) {
+function LoginModal({
+    item,
+    setItem,
+    modal,
+    setModal,
+    activeTabs,
+    setActiveTabs,
+}) {
     const location = useLocation();
     const [error, setError] = useState("");
     let sum = 0;
@@ -44,6 +51,7 @@ function LoginModal({ item, setItem, modal, setModal }) {
                 <CloseIcon
                     onClick={() => {
                         setModal(!modal);
+                        setActiveTabs("");
                     }}
                 >
                     <AiOutlineCloseCircle />
