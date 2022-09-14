@@ -18,7 +18,7 @@ const BottomNavBar = ({ activeTabs, setActiveTabs, modal, setModal }) => {
                 navigate("/");
                 break;
             case "cart":
-                setModal(!modal);
+                setModal(true);
                 break;
             case "favourites":
                 break;
