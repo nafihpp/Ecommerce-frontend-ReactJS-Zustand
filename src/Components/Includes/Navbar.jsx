@@ -124,6 +124,7 @@ const Bar = styled.div`
     border-left: 2px solid #dddddd;
     display: flex;
     position: relative;
+    width: 15%;
 `;
 const ChildMiddle = styled.div`
     padding: 0 10px 0 0;
