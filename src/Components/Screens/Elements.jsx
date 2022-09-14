@@ -1,15 +1,17 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoArrowBackOutline } from "react-icons/io5";
 
 function Elements({ item, setItem }) {
     const { id } = useParams();
     const [page, setPage] = useState([]);
     const [count, setCount] = useState(0);
+    let navigate = useNavigate();
     useEffect(() => {
         axios
             .get(`https://fakestoreapi.com/products/${id}`)
@@ -29,13 +31,18 @@ function Elements({ item, setItem }) {
     function decrement() {
         setCount((prev) => prev - 1);
     }
-
+    function back() {
+        navigate("/");
+    }
     return (
         <>
             <Helmet>
                 <title>{`${page.id} | Shopping`}</title>
             </Helmet>
             <MainContainer>
+                <BackButton onClick={back}>
+                    <IoArrowBackOutline />
+                </BackButton>
                 <Wrapper>
                     <MainDiv>
                         <ImageContainer>
@@ -96,6 +103,18 @@ function Elements({ item, setItem }) {
         </>
     );
 }
+const BackButton = styled.div`
+    border: 1px solid #000;
+    padding: 5px;
+    cursor: pointer;
+    width: 5%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 10px;
+`;
 const MainDiv = styled.div`
     height: 100vh;
     display: flex;
