@@ -26,6 +26,8 @@ const customIcons = [
 ];
 
 function Items({ item, setItem }) {
+    const [isCategory, setCategory] = useState("");
+    useEffect(() => {}, [isCategory]);
     let navigate = useNavigate();
     const notify = () =>
         toast.success("Added to Cart", {
@@ -114,10 +116,42 @@ function Items({ item, setItem }) {
             <MainContainer>
                 <Wrapperlist>
                     <MainCont>
-                        <MainSpan>Men's</MainSpan>
-                        <MainSpan>Jewellery</MainSpan>
-                        <MainSpan>Women's</MainSpan>
-                        <MainSpan>electronics</MainSpan>
+                        <MainSpan
+                            className={isCategory == "men" ? "active" : "null"}
+                            onClick={() => setCategory("men")}
+                        >
+                            Men's
+                        </MainSpan>
+                        <MainSpan
+                            className={
+                                isCategory == "jewellery" ? "active" : "null"
+                            }
+                            onClick={() => setCategory("jewellery")}
+                        >
+                            Jewellery
+                        </MainSpan>
+                        <MainSpan
+                            className={
+                                isCategory == "womens" ? "active" : "null"
+                            }
+                            onClick={() => setCategory("womens")}
+                        >
+                            Women's
+                        </MainSpan>
+                        <MainSpan
+                            className={
+                                isCategory == "electronics" ? "active" : "null"
+                            }
+                            onClick={() => setCategory("electronics")}
+                        >
+                            electronics
+                        </MainSpan>
+                        <MainSpan
+                            className="reset"
+                            onClick={() => setCategory("")}
+                        >
+                            Reset
+                        </MainSpan>
                     </MainCont>
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
@@ -133,7 +167,7 @@ const MainSpan = styled.span`
     border: 2px solid black;
     margin-right: 10px;
     padding: 5px;
-    width: 20%;
+    width: 25%;
     max-height: 70px;
     cursor: pointer;
     border-radius: 6px;
@@ -141,6 +175,15 @@ const MainSpan = styled.span`
     font-size: 15px;
     font-weight: 600;
     overflow: hidden;
+    &.reset {
+        background-color: red;
+        border: none;
+        color: #fff;
+    }
+    &.active {
+        background-color: #000;
+        color: #fff;
+    }
     @media (max-width: 480px) {
         font-size: 12px;
     }
