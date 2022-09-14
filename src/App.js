@@ -4,14 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "./Components/Screens/Cart";
 import Elements from "./Components/Screens/Elements";
 import { React, useState } from "react";
-import Helmet from "react-helmet";
 import Items from "./Components/Screens/Items";
 import Login from "./Components/Includes/Login";
 import Signup from "./Components/Includes/Signup";
 import { useDispatch } from "react-redux";
 import { setProducts } from "./Components/Includes/redux/actions/productActions";
 import { useEffect } from "react";
-import Lottie from "react-lottie";
 import animationData from "./Components/loader/75400-shopping-bag.json";
 
 function App() {
@@ -57,7 +55,8 @@ function App() {
                         alignItems: "center",
                     }}
                 >
-                    <Lottie options={defaultOptions} height={400} width={400} />
+                    {/* <Lottie options={defaultOptions} height={400} width={400} /> */}
+                    <h1> loading </h1>
                 </div>
             ) : null}
             <Router>
