@@ -109,6 +109,7 @@ const Wrapper = styled.div`
 `;
 const MainContainer = styled.div`
     height: 100vh;
+    overflow-x: hidden;
 `;
 const ImageContainer = styled.div`
     width: 28%;

@@ -114,9 +114,9 @@ function Items({ item, setItem }) {
             <MainContainer>
                 <Wrapperlist>
                     <MainCont>
-                        <MainSpan>Mens Wear</MainSpan>
+                        <MainSpan>Men's</MainSpan>
                         <MainSpan>Jewellery</MainSpan>
-                        <MainSpan>Women's Wear</MainSpan>
+                        <MainSpan>Women's</MainSpan>
                         <MainSpan>electronics</MainSpan>
                     </MainCont>
                     <ParentList>{listProducts()}</ParentList>
@@ -133,8 +133,13 @@ const MainSpan = styled.span`
     border: 2px solid black;
     margin-right: 10px;
     padding: 5px;
+    width: 20%;
+    max-height: 70px;
     cursor: pointer;
     border-radius: 6px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
 `;
 const MainCartContainer = styled.div`
     display: flex;
