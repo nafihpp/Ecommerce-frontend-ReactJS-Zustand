@@ -16,6 +16,7 @@ import {
     MdOutlineSentimentVeryDissatisfied,
     MdOutlineSentimentVerySatisfied,
 } from "react-icons/md";
+import Fade from "react-reveal/Fade";
 
 const customIcons = [
     { icon: <MdOutlineSentimentDissatisfied size={27} /> },
@@ -73,7 +74,9 @@ function Items({ item, setItem }) {
             <>
                 <Child key={produc.id}>
                     <ImageContainer onClick={() => Pagepush(produc)}>
-                        <ProductImg src={produc.image} alt={produc.title} />
+                        <Fade>
+                            <ProductImg src={produc.image} alt={produc.title} />
+                        </Fade>
                     </ImageContainer>
                     <Empdiv>
                         <HeadProduct onClick={() => Pagepush(produc)}>
