@@ -140,6 +140,10 @@ const MainSpan = styled.span`
     text-align: center;
     font-size: 15px;
     font-weight: 600;
+    overflow: hidden;
+    @media (max-width: 480px) {
+        font-size: 9px;
+    }
 `;
 const MainCartContainer = styled.div`
     display: flex;
