@@ -6,28 +6,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GrView } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../Includes/redux/actions/productActions";
+import { useSelector } from "react-redux";
 import { Rating } from "react-simple-star-rating";
-import {
-    MdOutlineSentimentDissatisfied,
-    MdOutlineSentimentNeutral,
-    MdOutlineSentimentSatisfied,
-    MdOutlineSentimentVeryDissatisfied,
-    MdOutlineSentimentVerySatisfied,
-} from "react-icons/md";
-
-const customIcons = [
-    { icon: <MdOutlineSentimentDissatisfied size={27} /> },
-    { icon: <MdOutlineSentimentNeutral size={27} /> },
-    { icon: <MdOutlineSentimentSatisfied size={27} /> },
-    { icon: <MdOutlineSentimentVeryDissatisfied size={27} /> },
-    { icon: <MdOutlineSentimentVerySatisfied size={27} /> },
-];
 
 function Items({ item, setItem }) {
     const [isCategory, setCategory] = useState("");
-    useEffect(() => {}, [isCategory]);
+    const [isAll, setAll] = useState([]);
+
     let navigate = useNavigate();
     const notify = () =>
         toast.success("Added to Cart", {
@@ -38,32 +23,31 @@ function Items({ item, setItem }) {
             draggable: true,
             progress: undefined,
         });
-    const dispatch = useDispatch();
+
     const products = useSelector((state) => state.allProducts.products);
 
-    useEffect(() => {
-        const axios = require("axios");
-        axios
-            .get("https://fakestoreapi.com/products/")
-            .then(function (response) {
-                // handle success
-                dispatch(setProducts(response.data));
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, []);
+    useEffect(() => {}, []);
 
-    const optimize = useCallback((bought) => {
-        buy(bought);
-        console.log("worked");
-    }, []);
+    useEffect(() => {
+        filtering();
+    }, [isCategory]);
+
+    function filtering() {
+        let final = products.filter((fil) => fil.category === isCategory);
+        setAll(final);
+        if (!isCategory) {
+            setAll(products);
+        }
+    }
 
     function buy(bought) {
         notify();
         setItem((prev) => [...prev, bought]);
     }
+
+    const optimize = useCallback((bought) => {
+        buy(bought);
+    }, []);
 
     const Pagepush = (produce) => {
         console.log(produce.id);
@@ -71,7 +55,7 @@ function Items({ item, setItem }) {
     };
 
     let listProducts = () => {
-        return products.map((produc) => (
+        return isAll.map((produc) => (
             <>
                 <Child key={produc.id}>
                     <ImageContainer onClick={() => Pagepush(produc)}>
@@ -86,8 +70,7 @@ function Items({ item, setItem }) {
                             initialValue={produc.rating.rate}
                             allowHover={false}
                             readonly={true}
-                            customIcons={customIcons}
-                            size={8}
+                            size={22}
                         />
                         <MainCartContainer>
                             <Buttoncart onClick={() => optimize(produc)}>
@@ -117,24 +100,30 @@ function Items({ item, setItem }) {
                 <Wrapperlist>
                     <MainCont>
                         <MainSpan
-                            className={isCategory == "men" ? "active" : "null"}
-                            onClick={() => setCategory("men")}
+                            className={
+                                isCategory == "men's clothing"
+                                    ? "active"
+                                    : "null"
+                            }
+                            onClick={() => setCategory("men's clothing")}
                         >
                             Men's
                         </MainSpan>
                         <MainSpan
                             className={
-                                isCategory == "jewellery" ? "active" : "null"
+                                isCategory == "jewelery" ? "active" : "null"
                             }
-                            onClick={() => setCategory("jewellery")}
+                            onClick={() => setCategory("jewelery")}
                         >
                             Jewellery
                         </MainSpan>
                         <MainSpan
                             className={
-                                isCategory == "womens" ? "active" : "null"
+                                isCategory == "women's clothing"
+                                    ? "active"
+                                    : "null"
                             }
-                            onClick={() => setCategory("womens")}
+                            onClick={() => setCategory("women's clothing")}
                         >
                             Women's
                         </MainSpan>
