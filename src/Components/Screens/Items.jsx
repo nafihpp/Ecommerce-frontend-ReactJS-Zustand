@@ -142,7 +142,7 @@ const MainSpan = styled.span`
     font-weight: 600;
     overflow: hidden;
     @media (max-width: 480px) {
-        font-size: 9px;
+        font-size: 12px;
     }
 `;
 const MainCartContainer = styled.div`
