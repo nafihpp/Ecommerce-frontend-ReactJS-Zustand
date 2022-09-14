@@ -133,6 +133,9 @@ const ChildMiddle = styled.div`
 `;
 const CartDiv = styled.div`
     font-size: 24px;
+    @media (max-width: 480px) {
+        font-size: 21px;
+    }
 `;
 const Priced = styled.span`
     display: flex;
@@ -156,6 +159,10 @@ const Badge = styled.div`
     justify-content: center;
     align-items: center;
     color: #fff;
+    @media (max-width: 480px) {
+        width: 89%;
+        height: 18px;
+    }
 `;
 const NavbarMain = styled.section`
     width: 100%;
