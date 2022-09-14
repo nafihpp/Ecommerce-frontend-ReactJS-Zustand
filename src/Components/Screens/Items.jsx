@@ -53,12 +53,10 @@ function Items({ item, setItem }) {
             });
     }, []);
 
-    const optimize = useCallback(
-        (bought) => {
-            buy(bought);
-        },
-        [item]
-    );
+    const optimize = useCallback((bought) => {
+        buy(bought);
+        console.log("worked");
+    }, []);
 
     function buy(bought) {
         notify();
@@ -115,12 +113,29 @@ function Items({ item, setItem }) {
         <>
             <MainContainer>
                 <Wrapperlist>
+                    <MainCont>
+                        <MainSpan>Mens Wear</MainSpan>
+                        <MainSpan>Jewellery</MainSpan>
+                        <MainSpan>Women's Wear</MainSpan>
+                        <MainSpan>electronics</MainSpan>
+                    </MainCont>
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
             </MainContainer>
         </>
     );
 }
+const MainCont = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+const MainSpan = styled.span`
+    border: 2px solid black;
+    margin-right: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+`;
 const MainCartContainer = styled.div`
     display: flex;
     align-items: center;

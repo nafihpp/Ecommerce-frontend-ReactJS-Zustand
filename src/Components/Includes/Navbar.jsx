@@ -13,12 +13,11 @@ import BottomNavBar from "../Includes/BottomNavBar";
 import { isMobile } from "react-device-detect";
 
 function Navbar({ item, setItem, modal, setModal }) {
-    const [search, setSearch] = useState("");
     const products = useSelector((state) => state.allProducts.products);
     const [current, setCurrent] = useState([]);
 
     const handleFilter = (e) => {
-        setSearch(e.target.value.toLowerCase());
+        setSearch();
         let searched = products.filter((item) =>
             item.title.toLowerCase().includes(search)
         );
