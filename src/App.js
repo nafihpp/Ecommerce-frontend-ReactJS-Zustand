@@ -11,14 +11,23 @@ import Signup from "./Components/Includes/Signup";
 import { useDispatch } from "react-redux";
 import { setProducts } from "./Components/Includes/redux/actions/productActions";
 import { useEffect } from "react";
-import { useLottie } from "lottie-react";
-import AnimtedData from "./Components/loader/75400-shopping-bag.json";
+import Lottie from "react-lottie";
+import animationData from "./Components/loader/75400-shopping-bag.json";
 
 function App() {
     const [item, setItem] = useState([]);
     const [modal, setModal] = useState(false);
     const [isLoading, setLoading] = useState(false);
     const [activeTabs, setActiveTabs] = useState("");
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
 
     const dispatch = useDispatch();
 
@@ -40,7 +49,17 @@ function App() {
 
     return (
         <>
-            {isLoading ? <div>Loading </div> : null}
+            {isLoading ? (
+                <div
+                    style={{
+                        height: "100vh",
+                        display: "flex",
+                        alignItems: "center",
+                    }}
+                >
+                    <Lottie options={defaultOptions} height={400} width={400} />
+                </div>
+            ) : null}
             <Router>
                 <Routes>
                     <Route path="/login" element={<Login />} />
