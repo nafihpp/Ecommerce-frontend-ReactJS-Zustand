@@ -196,7 +196,7 @@ const HeadDiv = styled.div`
         width: 100px;
     }
     @media all and (max-width: 380px) {
-        width: 63px;
+        width: 72px;
     }
 `;
 const LogoImg = styled.img`
