@@ -118,16 +118,18 @@ const SearchBar = styled.input`
     border: none;
     outline: none;
     padding-right: 42px;
+    @media (max-width: 480px) {
+        padding-right: 10px;
+    }
 `;
 const Bar = styled.div`
-    border-right: 2px solid #dddddd;
-    border-left: 2px solid #dddddd;
     display: flex;
     position: relative;
-    width: 15%;
 `;
 const ChildMiddle = styled.div`
     padding: 0 10px 0 0;
+    border-right: 2px solid #dddddd;
+    border-left: 2px solid #dddddd;
 `;
 const CartDiv = styled.div`
     font-size: 24px;
@@ -185,6 +187,9 @@ const HeadDiv = styled.div`
     border-radius: 3px;
     @media all and (max-width: 768px) {
         width: 100px;
+    }
+    @media all and (max-width: 380px) {
+        width: 63px;
     }
 `;
 const LogoImg = styled.img`
