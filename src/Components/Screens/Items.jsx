@@ -15,8 +15,7 @@ function Items({ item, setItem }) {
     const [isCategory, setCategory] = useState("");
     const [isAll, setAll] = useState([]);
     const [others, setOthers] = useState([]);
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(4);
 
@@ -54,9 +53,11 @@ function Items({ item, setItem }) {
     function filtering() {
         if (isCategory == "") {
             setAll(others);
+            setCurrentPage(1);
         } else {
             const final = isAll.filter((fil) => fil.category == isCategory);
             setAll(final);
+            setCurrentPage(1);
         }
     }
 
