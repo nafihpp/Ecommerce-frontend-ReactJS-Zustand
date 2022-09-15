@@ -215,9 +215,11 @@ const Input = styled.input`
         font-size: 13px;
     }
     &.zoom {
-        font-size: 16px;
-        transform-origin: top left;
-        transform: scale(0.75);
+        @media all and (max-width: 768px) {
+            font-size: 16px;
+            transform-origin: top left;
+            transform: scale(0.75);
+        }
     }
 `;
 const CartContainer = styled.div`
