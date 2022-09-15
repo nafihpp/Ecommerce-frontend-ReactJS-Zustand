@@ -24,17 +24,6 @@ function Items({ item, setItem }) {
         console.log("already exist");
     };
 
-    function alreadycart() {
-        toast.warn("Already in Cart", {
-            position: "bottom-center",
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
-    }
-
     const notify = () =>
         toast.success("Added to Cart", {
             position: "bottom-center",
@@ -66,7 +55,7 @@ function Items({ item, setItem }) {
             notify();
             setItem((prev) => [...prev, bought]);
         } else {
-            alreadycart();
+            alert("already in cart");
         }
     }
 
@@ -236,7 +225,7 @@ const Wrapperlist = styled.div`
 `;
 const MainContainer = styled.section`
     background: aliceblue;
-    padding-top: 10px;
+    padding-top: 100px;
 `;
 const ParentList = styled.ul`
     display: flex;

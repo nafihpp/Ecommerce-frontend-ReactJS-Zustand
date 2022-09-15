@@ -40,12 +40,13 @@
 .slick-prev {
     left: 3% !important;
     z-index: 1;
-    margin-top: 8% !important;
+}
+.slick-prev:before {
+    color: #000;
 }
 .slick-next {
     right: 3% !important;
     z-index: 1;
-    margin-top: 8% !important;
 }
 div.right {
     width: 50%;

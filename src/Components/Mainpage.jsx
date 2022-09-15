@@ -23,8 +23,8 @@ function Mainpage({
                 activeTabs={activeTabs}
                 setActiveTabs={setActiveTabs}
             />
-            <Slicker />
             <Items item={item} setItem={setItem} />
+            <Slicker />
         </>
     );
 }
