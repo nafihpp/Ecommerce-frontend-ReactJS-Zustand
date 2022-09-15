@@ -14,6 +14,7 @@ import { isMobile } from "react-device-detect";
 
 function Navbar({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
     const products = useSelector((state) => state.allProducts.products);
+
     const [current, setCurrent] = useState([]);
     const [search, setSearch] = useState("");
 
