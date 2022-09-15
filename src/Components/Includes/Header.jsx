@@ -38,6 +38,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                                 type="text"
                                 class="search-box"
                                 placeholder="Search What You Need."
+                                className="zoom"
                                 onChange={(e) => {
                                     setSearch(e.target.value.toLowerCase());
                                 }}
@@ -212,6 +213,11 @@ const Input = styled.input`
     border: none;
     ::placeholder {
         font-size: 13px;
+    }
+    &.zoom {
+        font-size: 16px;
+        transform-origin: top left;
+        transform: scale(0.75);
     }
 `;
 const CartContainer = styled.div`
