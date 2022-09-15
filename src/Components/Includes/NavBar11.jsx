@@ -104,13 +104,13 @@ const CallImgContainer = styled.img`
 `;
 const CallHeading = styled.p`
     color: #11142d;
+    @media all and (max-width: 320px) {
+        display: none;
+    }
 `;
 const ShippingContainer = styled.div`
     display: flex;
     align-items: center;
-    @media all and (max-width: 980px) {
-        display: none;
-    }
 `;
 const ShippingImgContainer = styled.div`
     width: 20px;
@@ -122,7 +122,7 @@ const ShipImg = styled.img`
 `;
 const ShippingHeading = styled.p`
     color: #11142d;
-    @media all and (max-width: 480px) {
+    @media all and (max-width: 320px) {
         display: none;
     }
 `;
