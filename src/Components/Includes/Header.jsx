@@ -143,8 +143,12 @@ const ImageContainer = styled.span`
 
 const SearchContainer = styled.div`
     position: absolute;
+    top: 47px;
     background: #fff;
     z-index: 10000;
+    width: 80%;
+    @media all and (max-width: 480px) {
+    }
 `;
 
 const MainContainer = styled.div`
@@ -154,9 +158,6 @@ const MainContainer = styled.div`
     width: 100%;
     z-index: 100000;
     background-color: #e5e5e5;
-    &.navbarscroll {
-        top: 0px;
-    }
 `;
 const WrapperContainer = styled.div`
     width: 90%;
@@ -189,6 +190,7 @@ const MiddleContainer = styled.div`
     display: flex;
     justify-content: space-between;
     border-radius: 4px;
+    position: relative;
     @media all and (max-width: 980px) {
         padding: 5px 12px;
         width: 314px;
