@@ -187,12 +187,12 @@ const MiddleContainer = styled.div`
         width: 314px;
     }
     @media all and (max-width: 768px) {
-        padding: 5px 8px;
+        padding: 9px 6px;
         width: 296px;
         margin-right: 50px;
     }
     @media all and (max-width: 640px) {
-        padding: 4px 4px;
+        padding: 9px 6px;
         width: 210px;
         margin-right: 10px;
     }
@@ -223,7 +223,7 @@ const RightContainer = styled.div`
     }
 `;
 const ImageBoxOne = styled.div`
-    width: 15px;
+    width: 21px;
     margin-right: 14px;
     @media all and (max-width: 480px) {
         width: 24px;
@@ -234,7 +234,7 @@ const ImgOne = styled.img`
     width: 100%;
 `;
 const ImageBoxTwo = styled.div`
-    width: 15px;
+    width: 21px;
     margin-right: 14px;
     position: relative;
     @media all and (max-width: 480px) {
@@ -265,10 +265,10 @@ const RoundBox = styled.span`
     }
 `;
 const ImageBoxThree = styled.div`
-    width: 24px;
+    width: 21px;
     margin-right: 12px;
     @media all and (max-width: 480px) {
-        width: 20px;
+        width: 24px;
     }
 `;
 const ImgThree = styled.img`
@@ -276,7 +276,7 @@ const ImgThree = styled.img`
     width: 100%;
 `;
 const ImageBoxFour = styled.div`
-    width: 15px;
+    width: 21px;
     @media all and (max-width: 480px) {
         display: none;
     }

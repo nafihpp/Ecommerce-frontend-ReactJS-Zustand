@@ -104,7 +104,7 @@ const CallImgContainer = styled.img`
 `;
 const CallHeading = styled.p`
     color: #11142d;
-    @media all and (max-width: 320px) {
+    @media all and (max-width: 480px) {
         display: none;
     }
 `;
@@ -122,7 +122,7 @@ const ShipImg = styled.img`
 `;
 const ShippingHeading = styled.p`
     color: #11142d;
-    @media all and (max-width: 320px) {
+    @media all and (max-width: 480px) {
         display: none;
     }
 `;
