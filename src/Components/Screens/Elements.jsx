@@ -49,11 +49,11 @@ function Elements({ item, setItem }) {
                             <img src={page.image} alt="" className="image" />
                         </ImageContainer>
                         <div class="right">
-                            <h1>{page.title}</h1>
+                            <Headline>{page.title}</Headline>
                             <p
                                 style={{
-                                    border: "1px solid black",
-                                    width: "40%",
+                                    border: "2px solid black",
+                                    width: "100%",
                                     fontSize: "13px",
                                     minHeight: "30px",
                                     display: "flex",
@@ -64,7 +64,7 @@ function Elements({ item, setItem }) {
                             >
                                 {page.category}
                             </p>
-                            {page.description}
+                            <p>{page.description}</p>
                             <div class="prices">
                                 <h1 class="new">${page.price}</h1>
                                 <span>10%</span>
@@ -103,11 +103,17 @@ function Elements({ item, setItem }) {
         </>
     );
 }
+const Headline = styled.h1`
+    @media all and (max-width: 480px) {
+        font-size: 20px;
+        width: 241%;
+    }
+`;
 const BackButton = styled.div`
     border: 1px solid #000;
     padding: 5px;
     cursor: pointer;
-    width: 5%;
+    width: 21%;
     border-radius: 4px;
     display: flex;
     align-items: center;

@@ -70,13 +70,6 @@ div.right p.company {
     margin-bottom: 20px;
 }
 
-div.right h1 {
-    font-size: 40px;
-    font-weight: 900;
-    width: 450px;
-    margin-bottom: 40px;
-}
-
 div.right div.prices {
     display: flex;
     justify-content: space-between;

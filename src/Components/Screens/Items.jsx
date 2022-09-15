@@ -233,7 +233,7 @@ const Wrapperlist = styled.div`
 `;
 const MainContainer = styled.section`
     background: aliceblue;
-    padding-top: 100px;
+    padding-top: 57px;
 `;
 const ParentList = styled.ul`
     display: flex;
