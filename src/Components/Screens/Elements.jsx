@@ -6,6 +6,7 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { Rating } from "react-simple-star-rating";
 
 function Elements({ item, setItem }) {
     const { id } = useParams();
@@ -60,11 +61,17 @@ function Elements({ item, setItem }) {
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: "8px",
+                                    marginTop: "10px",
                                 }}
                             >
                                 {page.category}
                             </p>
-
+                            <Rating
+                                initialValue={page.rating.rate}
+                                allowHover={false}
+                                readonly={true}
+                                size={22}
+                            />
                             <div class="prices">
                                 <h1 class="new">${page.price}</h1>
                                 <span>10%</span>
@@ -113,14 +120,14 @@ const BackButton = styled.div`
     border: 1px solid #000;
     padding: 5px;
     cursor: pointer;
-    width: 21%;
+    width: 10%;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     margin-top: 10px;
-    margin-right: 20px;
+    margin-left: 30px;
 `;
 const MainDiv = styled.div`
     height: 100vh;
@@ -135,7 +142,7 @@ const Wrapper = styled.div`
 `;
 const MainContainer = styled.div`
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
 `;
 const ImageContainer = styled.div`
     width: 28%;
