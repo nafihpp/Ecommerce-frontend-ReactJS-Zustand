@@ -149,13 +149,13 @@ const CartItems = styled.div`
 `;
 
 const Container = styled.div`
+    margin-top: 100px;
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
-    z-index: 500;
 `;
 const CloseIcon = styled.span`
     font-size: 40px;

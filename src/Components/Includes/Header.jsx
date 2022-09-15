@@ -44,9 +44,9 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                             />
                             <SearchContainer>
                                 {search &&
-                                    current.map((item) => (
+                                    current.map((items) => (
                                         <Link
-                                            to={`/${item.id}`}
+                                            to={`/${items.id}`}
                                             style={{
                                                 color: "green",
                                                 display: "flex",
@@ -54,10 +54,10 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                                                 textDecoration: "none",
                                             }}
                                         >
-                                            <p>{item.title}</p>
+                                            <p>{items.title}</p>
                                             <ImageContainer>
                                                 <img
-                                                    src={item.image}
+                                                    src={items.image}
                                                     alt=""
                                                     width={50}
                                                 />
@@ -90,7 +90,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                                     setModal(true);
                                 }}
                             >
-                                <RoundBox>{2}</RoundBox>
+                                <RoundBox>{item.length}</RoundBox>
                                 <ImgTwo
                                     src={
                                         require("../../assets/cart.icon.svg")
