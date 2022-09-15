@@ -64,7 +64,7 @@ function Elements({ item, setItem }) {
                             >
                                 {page.category}
                             </p>
-                            <p>{page.description}</p>
+
                             <div class="prices">
                                 <h1 class="new">${page.price}</h1>
                                 <span>10%</span>
