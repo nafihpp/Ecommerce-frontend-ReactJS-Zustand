@@ -42,6 +42,7 @@ function Spotlight() {
                                 Lorem ipsum dolor sit amet consectetur sit amet
                                 adipisicing sit amet elit. sit amet Eligendi
                             </ParaHeading>
+                            <Button>Find Out More</Button>
                             <RightImgOne>
                                 <ImgOne
                                     src={require("../../assets/Ellipse 155.png")}
@@ -69,7 +70,28 @@ function Spotlight() {
 }
 
 export default Spotlight;
-
+const Button = styled.a`
+    background-color: #f86338;
+    padding: 5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 18px 0;
+    width: 40%;
+    @media all and (max-width: 980px) {
+        width: 65%;
+        height: 10px;
+        font-size: 15px;
+    }
+    @media all and (max-width: 480px) {
+        width: 65%;
+        height: 10px;
+        font-size: 15px;
+    }
+`;
 const MainContainer = styled.div`
     padding: 204px 0 151px 0;
 `;
@@ -161,7 +183,7 @@ const MainHeading = styled.h3`
 `;
 const ParaHeading = styled.h4`
     font-size: 15px;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
     width: 75%;
     @media all and (max-width: 980px) {
         font-size: 13px;
@@ -208,6 +230,10 @@ const RightImgThree = styled.div`
     right: 193px;
     @media all and (max-width: 980px) {
         top: 199px;
+    }
+    @media all and (max-width: 480px) {
+        top: 192px;
+        left: -57px;
     }
 `;
 const ImgThree = styled.img`
