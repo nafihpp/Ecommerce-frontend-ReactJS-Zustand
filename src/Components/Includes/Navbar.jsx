@@ -105,7 +105,7 @@ function Navbar({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                     />
                 )}
             </NavbarMain>
-            {isMobile && <BottomNavBar modal={modal} setModal={setModal} />}
+            {/* {isMobile && <BottomNavBar modal={modal} setModal={setModal} />} */}
         </>
     );
 }
