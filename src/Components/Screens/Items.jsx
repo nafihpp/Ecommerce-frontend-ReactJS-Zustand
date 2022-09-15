@@ -9,11 +9,17 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Rating } from "react-simple-star-rating";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../Includes/redux/actions/productActions";
+import Pagination from "../Includes/Pagination";
 
 function Items({ item, setItem }) {
     const [isCategory, setCategory] = useState("");
     const [isAll, setAll] = useState([]);
     const [others, setOthers] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(4);
+
     const dispatch = useDispatch();
     useEffect(() => {
         const axios = require("axios");
@@ -49,7 +55,6 @@ function Items({ item, setItem }) {
         if (isCategory == "") {
             setAll(others);
         } else {
-            console.log(isCategory, "current");
             const final = isAll.filter((fil) => fil.category == isCategory);
             setAll(final);
         }
@@ -81,8 +86,16 @@ function Items({ item, setItem }) {
         navigate(`${produce.id}`);
     };
 
+    // Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentList = isAll.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     let listProducts = () => {
-        return isAll.map((produc) => (
+        return currentList.map((produc) => (
             <>
                 <Child key={produc.id}>
                     <ImageContainer onClick={() => Pagepush(produc)}>
@@ -182,6 +195,11 @@ function Items({ item, setItem }) {
                         </MainSpan>
                     </MainCont>
                     <ParentList>{listProducts()}</ParentList>
+                    <Pagination
+                        postsPerPage={postsPerPage}
+                        totalPosts={isAll.length}
+                        paginate={paginate}
+                    />
                 </Wrapperlist>
             </MainContainer>
         </>
