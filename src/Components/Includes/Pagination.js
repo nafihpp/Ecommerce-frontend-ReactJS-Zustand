@@ -35,15 +35,17 @@ const Parent = styled.ul`
     list-style: none;
     justify-content: center;
     margin-top: -28px;
+    padding-bottom: 20px;
 `;
 const Child = styled.li`
     margin-right: 20px;
-    border: 3px solid #000;
-    padding: 2px;
+    border: 2px solid #000;
+    padding: 1px;
     width: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-weight: 600;
 `;
 export default Pagination;

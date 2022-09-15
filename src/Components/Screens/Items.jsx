@@ -20,6 +20,21 @@ function Items({ item, setItem }) {
     const [postsPerPage] = useState(4);
 
     let navigate = useNavigate();
+    const already = () => {
+        console.log("already exist");
+    };
+
+    function alreadycart() {
+        toast.warn("Already in Cart", {
+            position: "bottom-center",
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
+
     const notify = () =>
         toast.success("Added to Cart", {
             position: "bottom-center",
@@ -46,9 +61,15 @@ function Items({ item, setItem }) {
     }
 
     function buy(bought) {
-        notify();
-        setItem((prev) => [...prev, bought]);
+        let already = item.filter((im) => bought.id == im.id);
+        if (already.length < 1) {
+            notify();
+            setItem((prev) => [...prev, bought]);
+        } else {
+            alreadycart();
+        }
     }
+
     // useCallback to optimize cart performance
     const optimize = useCallback(
         (bought) => {
