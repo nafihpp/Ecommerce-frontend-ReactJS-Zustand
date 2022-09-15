@@ -114,6 +114,7 @@ const BackButton = styled.div`
     justify-content: center;
     font-size: 20px;
     margin-top: 10px;
+    margin-right: 20px;
 `;
 const MainDiv = styled.div`
     height: 100vh;

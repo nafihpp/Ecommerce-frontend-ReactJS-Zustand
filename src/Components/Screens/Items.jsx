@@ -8,10 +8,16 @@ import { GrView } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { Rating } from "react-simple-star-rating";
+import Pagination from "../Includes/Pagination";
 
 function Items({ item, setItem }) {
+    //category filtering
     const [isCategory, setCategory] = useState("");
+    //All Products froms Store
     const [isAll, setAll] = useState([]);
+    //pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(4);
 
     let navigate = useNavigate();
     const notify = () =>
@@ -28,6 +34,7 @@ function Items({ item, setItem }) {
 
     useEffect(() => {
         filtering();
+        setCurrentPage(1);
     }, [isCategory]);
 
     function filtering() {
@@ -42,18 +49,29 @@ function Items({ item, setItem }) {
         notify();
         setItem((prev) => [...prev, bought]);
     }
+    // useCallback to optimize cart performance
+    const optimize = useCallback(
+        (bought) => {
+            buy(bought);
+        },
+        [item]
+    );
 
-    const optimize = useCallback((bought) => {
-        buy(bought);
-    }, []);
-
+    // Routing to the Description Page
     const Pagepush = (produce) => {
-        console.log(produce.id);
         navigate(`${produce.id}`);
     };
 
+    // Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentList = isAll.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     let listProducts = () => {
-        return isAll.map((produc) => (
+        return currentList.map((produc) => (
             <>
                 <Child key={produc.id}>
                     <ImageContainer onClick={() => Pagepush(produc)}>
@@ -142,6 +160,11 @@ function Items({ item, setItem }) {
                     </MainCont>
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
+                <Pagination
+                    postsPerPage={postsPerPage}
+                    totalPosts={isAll.length}
+                    paginate={paginate}
+                />
             </MainContainer>
         </>
     );
