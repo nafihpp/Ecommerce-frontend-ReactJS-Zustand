@@ -27,24 +27,6 @@ function App() {
         },
     };
 
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        setLoading(true);
-        const axios = require("axios");
-        axios
-            .get("https://fakestoreapi.com/products/")
-            .then(function (response) {
-                // handle success
-                dispatch(setProducts(response.data));
-                setLoading(false);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, []);
-
     return (
         <>
             {isLoading ? (

@@ -24,7 +24,6 @@ function Mainpage({
                 setActiveTabs={setActiveTabs}
             />
             <Items item={item} setItem={setItem} />
-            <Slicker />
         </>
     );
 }

@@ -12,32 +12,6 @@ function Slicker() {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 3,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
     };
     return (
         <>
@@ -113,19 +87,15 @@ function Slicker() {
 const MainContainer = styled.div`
     background: #e2e2ea;
     height: 250px;
-    width: 80% !important;
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex !important;
     justify-content: center !important;
     @media (max-width: 480px) {
-        height: 150px;
     }
 `;
 
 const TopContainer = styled.div`
     text-align: center;
     width: 70%;
+    margin: 0 auto;
 `;
 const TopHead = styled.h2``;
 const TopPara = styled.p``;

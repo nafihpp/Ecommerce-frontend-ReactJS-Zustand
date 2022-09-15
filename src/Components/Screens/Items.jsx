@@ -6,24 +6,33 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GrView } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useSelector } from "react-redux";
 import { Rating } from "react-simple-star-rating";
-import Pagination from "../Includes/Pagination";
+import { useDispatch } from "react-redux";
+import { setProducts } from "../Includes/redux/actions/productActions";
 
 function Items({ item, setItem }) {
-    //category filtering
     const [isCategory, setCategory] = useState("");
-    //All Products froms Store
     const [isAll, setAll] = useState([]);
-    //pagination
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(4);
+    const [others, setOthers] = useState([]);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const axios = require("axios");
+        axios
+            .get("https://fakestoreapi.com/products/")
+            .then(function (response) {
+                dispatch(setProducts(response.data));
+                setAll(response.data);
+                setOthers(response.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+    }, []);
 
+    //Navigate Defined
     let navigate = useNavigate();
-    const already = () => {
-        console.log("already exist");
-    };
-
+    //Notify On Cart Success
     const notify = () =>
         toast.success("Added to Cart", {
             position: "bottom-center",
@@ -33,24 +42,26 @@ function Items({ item, setItem }) {
             draggable: true,
             progress: undefined,
         });
+    //Filtering with dependency Category
 
-    const products = useSelector((state) => state.allProducts.products);
-
-    useEffect(() => {
-        filtering();
-        setCurrentPage(1);
-    }, [isCategory]);
-
+    //Filtering Function for Category
     function filtering() {
-        let final = products.filter((fil) => fil.category === isCategory);
-        setAll(final);
-        if (!isCategory) {
-            setAll(products);
+        if (isCategory == "") {
+            setAll(others);
+        } else {
+            console.log(isCategory, "current");
+            const final = isAll.filter((fil) => fil.category == isCategory);
+            setAll(final);
         }
     }
 
+    useEffect(() => {
+        filtering();
+    }, [isCategory]);
+
+    //Buy Function with one Already exist warn
     function buy(bought) {
-        let already = item.filter((im) => bought.id == im.id);
+        let already = item.filter((im) => bought.id === im.id);
         if (already.length < 1) {
             notify();
             setItem((prev) => [...prev, bought]);
@@ -58,7 +69,6 @@ function Items({ item, setItem }) {
             alert("already in cart");
         }
     }
-
     // useCallback to optimize cart performance
     const optimize = useCallback(
         (bought) => {
@@ -66,22 +76,13 @@ function Items({ item, setItem }) {
         },
         [item]
     );
-
     // Routing to the Description Page
     const Pagepush = (produce) => {
         navigate(`${produce.id}`);
     };
 
-    // Get current posts
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentList = isAll.slice(indexOfFirstPost, indexOfLastPost);
-
-    // Change page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
     let listProducts = () => {
-        return currentList.map((produc) => (
+        return isAll.map((produc) => (
             <>
                 <Child key={produc.id}>
                     <ImageContainer onClick={() => Pagepush(produc)}>
@@ -127,37 +128,49 @@ function Items({ item, setItem }) {
                     <MainCont>
                         <MainSpan
                             className={
-                                isCategory == "men's clothing"
+                                isCategory === "men's clothing"
                                     ? "active"
                                     : "null"
                             }
-                            onClick={() => setCategory("men's clothing")}
+                            onClick={() => {
+                                setAll(others);
+                                setCategory("men's clothing");
+                            }}
                         >
                             Men's
                         </MainSpan>
                         <MainSpan
                             className={
-                                isCategory == "jewelery" ? "active" : "null"
+                                isCategory === "jewelery" ? "active" : "null"
                             }
-                            onClick={() => setCategory("jewelery")}
+                            onClick={() => {
+                                setAll(others);
+                                setCategory("jewelery");
+                            }}
                         >
                             Jewellery
                         </MainSpan>
                         <MainSpan
                             className={
-                                isCategory == "women's clothing"
+                                isCategory === "women's clothing"
                                     ? "active"
                                     : "null"
                             }
-                            onClick={() => setCategory("women's clothing")}
+                            onClick={() => {
+                                setAll(others);
+                                setCategory("women's clothing");
+                            }}
                         >
                             Women's
                         </MainSpan>
                         <MainSpan
                             className={
-                                isCategory == "electronics" ? "active" : "null"
+                                isCategory === "electronics" ? "active" : "null"
                             }
-                            onClick={() => setCategory("electronics")}
+                            onClick={() => {
+                                setAll(others);
+                                setCategory("electronics");
+                            }}
                         >
                             electronics
                         </MainSpan>
@@ -170,11 +183,6 @@ function Items({ item, setItem }) {
                     </MainCont>
                     <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
-                <Pagination
-                    postsPerPage={postsPerPage}
-                    totalPosts={isAll.length}
-                    paginate={paginate}
-                />
             </MainContainer>
         </>
     );
