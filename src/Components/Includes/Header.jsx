@@ -148,8 +148,15 @@ const SearchContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-    padding: 12px 10px;
-    background-color: #e5e5e5; ;
+    padding: 12px 0px;
+    position: fixed;
+    top: 53px;
+    width: 100%;
+    z-index: 100000;
+    background-color: #e5e5e5;
+    &.navbarscroll {
+        top: 0px;
+    }
 `;
 const WrapperContainer = styled.div`
     width: 90%;

@@ -52,6 +52,11 @@ export default NavBar;
 
 const MainContainer = styled.div`
     padding: 15px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100000000;
     @media all and (max-width: 1280px) {
     }
     @media all and (max-width: 1080px) {

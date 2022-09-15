@@ -71,7 +71,7 @@ function Spotlight() {
 export default Spotlight;
 
 const MainContainer = styled.div`
-    padding: 90px 10px;
+    padding: 270px 0 160px 0;
 `;
 const WrapperContainer = styled.div``;
 const SubContainer = styled.div`
