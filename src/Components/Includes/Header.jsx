@@ -280,6 +280,14 @@ const RoundBox = styled.span`
         color: white;
         top: -13px;
     }
+    @media all and (max-width: 480px) {
+        width: 15px;
+        height: 14px;
+        font-size: 12px;
+        border-radius: 50%;
+        color: white;
+        top: -6px;
+    }
 `;
 const ImageBoxThree = styled.div`
     width: 21px;
