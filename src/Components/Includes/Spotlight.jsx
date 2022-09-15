@@ -71,11 +71,13 @@ function Spotlight() {
 export default Spotlight;
 
 const MainContainer = styled.div`
-    padding: 270px 0 160px 0;
+    padding: 204px 0 151px 0;
 `;
 const WrapperContainer = styled.div``;
 const SubContainer = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 const LeftContainer = styled.div`
     width: 45%;

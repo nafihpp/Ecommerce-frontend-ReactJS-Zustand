@@ -235,7 +235,7 @@ const ImageBoxOne = styled.div`
     width: 21px;
     margin-right: 14px;
     @media all and (max-width: 480px) {
-        width: 24px;
+        width: 26px;
     }
 `;
 const ImgOne = styled.img`
@@ -247,7 +247,7 @@ const ImageBoxTwo = styled.div`
     margin-right: 14px;
     position: relative;
     @media all and (max-width: 480px) {
-        width: 24px;
+        width: 26px;
     }
 `;
 const ImgTwo = styled.img`
@@ -258,11 +258,11 @@ const RoundBox = styled.span`
     display: inline-block;
     position: absolute;
     text-align: center;
-    width: 19px;
+    width: 21px;
     border-radius: 50%;
     color: white;
-    top: -16px;
-    left: 7px;
+    top: -14px;
+    left: 9px;
     background-color: red;
     @media all and (max-width: 980px) {
         width: 15px;
@@ -277,7 +277,7 @@ const ImageBoxThree = styled.div`
     width: 21px;
     margin-right: 12px;
     @media all and (max-width: 480px) {
-        width: 24px;
+        width: 26px;
     }
 `;
 const ImgThree = styled.img`
