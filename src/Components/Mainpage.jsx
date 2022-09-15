@@ -17,13 +17,13 @@ function Mainpage({
 }) {
     return (
         <>
-            <Navbar
+            <Navbar />
+            <Header
                 item={item}
                 setItem={setItem}
                 modal={modal}
                 setModal={setModal}
             />
-            <Header />
             <Spotlight />
             <Items item={item} setItem={setItem} />
         </>

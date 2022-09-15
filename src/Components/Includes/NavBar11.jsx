@@ -4,7 +4,7 @@ import styled from "styled-components";
 function NavBar(item, setItem, modal, setModal) {
     return (
         <MainContainer>
-            <WrapperContainer className="wrapper">
+            <WrapperContainer>
                 <SubContainer>
                     <LogoBox>
                         <LogoContainer>
@@ -65,7 +65,10 @@ const MainContainer = styled.div`
     @media all and (max-width: 360px) {
     }
 `;
-const WrapperContainer = styled.div``;
+const WrapperContainer = styled.div`
+    width: 90%;
+    margin: 0 auto;
+`;
 const SubContainer = styled.div`
     display: flex;
     justify-content: space-between;
@@ -90,9 +93,6 @@ const ContactBox = styled.div`
     display: flex;
     align-items: center;
     margin-right: 25px;
-    @media all and (max-width: 768px) {
-        display: none;
-    }
 `;
 const ContactImg = styled.div`
     width: 20px;
@@ -122,4 +122,7 @@ const ShipImg = styled.img`
 `;
 const ShippingHeading = styled.p`
     color: #11142d;
+    @media all and (max-width: 480px) {
+        display: none;
+    }
 `;

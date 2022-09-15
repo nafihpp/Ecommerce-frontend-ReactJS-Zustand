@@ -23,7 +23,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
     return (
         <>
             <MainContainer>
-                <WrapperContainer className="wrapper">
+                <WrapperContainer>
                     <SubContainer>
                         <LeftContainer>
                             <MainList>
@@ -151,7 +151,10 @@ const MainContainer = styled.div`
     padding: 12px 10px;
     background-color: #e5e5e5; ;
 `;
-const WrapperContainer = styled.div``;
+const WrapperContainer = styled.div`
+    width: 90%;
+    margin: 0 auto;
+`;
 const SubContainer = styled.div`
     display: flex;
     align-items: center;
@@ -222,6 +225,9 @@ const RightContainer = styled.div`
 const ImageBoxOne = styled.div`
     width: 15px;
     margin-right: 14px;
+    @media all and (max-width: 480px) {
+        width: 20px;
+    }
 `;
 const ImgOne = styled.img`
     display: block;
@@ -231,6 +237,9 @@ const ImageBoxTwo = styled.div`
     width: 15px;
     margin-right: 14px;
     position: relative;
+    @media all and (max-width: 480px) {
+        width: 20px;
+    }
 `;
 const ImgTwo = styled.img`
     display: block;
@@ -258,6 +267,9 @@ const RoundBox = styled.span`
 const ImageBoxThree = styled.div`
     width: 15px;
     margin-right: 12px;
+    @media all and (max-width: 480px) {
+        width: 20px;
+    }
 `;
 const ImgThree = styled.img`
     display: block;
@@ -265,6 +277,9 @@ const ImgThree = styled.img`
 `;
 const ImageBoxFour = styled.div`
     width: 15px;
+    @media all and (max-width: 480px) {
+        display: none;
+    }
 `;
 const ImgFour = styled.img`
     display: block;
