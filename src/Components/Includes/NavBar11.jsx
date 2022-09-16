@@ -92,6 +92,7 @@ const MiddleLocation = styled.div`
     font-size: 12px;
     @media all and (max-width: 640px) {
         font-size: 6px;
+        margin-left: 70px;
     }
 `;
 const MainContainer = styled.div`
