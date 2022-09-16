@@ -146,6 +146,9 @@ const ContactBox = styled.div`
 const ContactImg = styled.div`
     width: 20px;
     margin-right: 10px;
+    @media all and (max-width: 680px) {
+        display: none;
+    }
 `;
 const CallImgContainer = styled.img`
     display: block;
@@ -164,6 +167,9 @@ const ShippingContainer = styled.div`
 const ShippingImgContainer = styled.div`
     width: 20px;
     margin-right: 10px;
+    @media all and (max-width: 480px) {
+        display: none;
+    }
 `;
 const ShipImg = styled.img`
     display: block;
