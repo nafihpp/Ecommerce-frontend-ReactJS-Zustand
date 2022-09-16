@@ -160,10 +160,9 @@ const ImageContainer = styled.div`
         width: 70%;
     }
     @media all and (max-width: 480px) {
-        width: 90%;
+        width: 80%;
     }
     @media all and (max-width: 320px) {
-        width: 100%;
     }
 `;
 export default Elements;
