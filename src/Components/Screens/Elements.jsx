@@ -71,6 +71,7 @@ function Elements({ item, setItem }) {
                                 <span>10%</span>
                             </div>
                             <div class="cart-items">
+                                <Quantity>Quantity</Quantity>
                                 <div class="left">
                                     <div
                                         href=""
@@ -90,13 +91,19 @@ function Elements({ item, setItem }) {
                                         +
                                     </div>
                                 </div>
-                                <div class="right">
-                                    <a href="#">
-                                        {" "}
-                                        <AiOutlineShoppingCart /> Add to cart
-                                    </a>
-                                </div>
                             </div>
+                            <DivCart>
+                                <a
+                                    style={{
+                                        color: "#fff",
+                                        textDecoration: "none",
+                                    }}
+                                    href="#"
+                                >
+                                    {" "}
+                                    <AiOutlineShoppingCart /> Add to cart
+                                </a>
+                            </DivCart>
                         </div>
                     </MainDiv>
                 </Wrapper>
@@ -104,6 +111,13 @@ function Elements({ item, setItem }) {
         </>
     );
 }
+const Quantity = styled.p``;
+const DivCart = styled.div`
+    margin-top: 10px;
+    background-color: #f86338;
+    padding: 10px;
+    border-radius: 8px;
+`;
 const Headline = styled.h1`
     @media all and (max-width: 480px) {
         font-size: 20px;
@@ -129,6 +143,7 @@ const MainDiv = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    background-color: #e5e5e5;
 `;
 const Wrapper = styled.div`
     width: 75%;
