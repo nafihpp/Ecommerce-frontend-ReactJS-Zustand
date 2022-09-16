@@ -91,7 +91,7 @@ const MiddleLocation = styled.div`
     justify-content: center;
     font-size: 12px;
     @media all and (max-width: 640px) {
-        font-size: 7px;
+        font-size: 6px;
     }
 `;
 const MainContainer = styled.div`
