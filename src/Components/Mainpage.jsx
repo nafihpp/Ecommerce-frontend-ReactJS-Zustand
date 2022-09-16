@@ -14,7 +14,12 @@ function Mainpage({
 }) {
     return (
         <>
-            <Navbar />
+            <Navbar
+                item={item}
+                setItem={setItem}
+                modal={modal}
+                setModal={setModal}
+            />
             <Header
                 item={item}
                 setItem={setItem}

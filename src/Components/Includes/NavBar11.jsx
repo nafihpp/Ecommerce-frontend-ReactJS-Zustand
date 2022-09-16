@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Geocode from "react-geocode";
 
-function NavBar() {
+function NavBar({ modal, setModal }) {
     const [lat, setLatitude] = useState("");
     const [lng, setLongitude] = useState("");
     Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
@@ -102,6 +102,7 @@ const MainContainer = styled.div`
     width: 100%;
     background-color: #fff;
     z-index: 100000000;
+
     @media all and (max-width: 1280px) {
     }
     @media all and (max-width: 1080px) {

@@ -22,7 +22,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
     };
     return (
         <>
-            <MainContainer>
+            <MainContainer className={modal ? "hide" : null}>
                 <WrapperContainer>
                     <SubContainer>
                         <LeftContainer>
@@ -121,17 +121,17 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                         </RightContainer>
                     </SubContainer>
                 </WrapperContainer>
-                {modal && (
-                    <LoginModal
-                        item={item}
-                        setItem={setItem}
-                        modal={modal}
-                        setModal={setModal}
-                        activeTabs={activeTabs}
-                        setActiveTabs={setActiveTabs}
-                    />
-                )}
             </MainContainer>
+            {modal && (
+                <LoginModal
+                    item={item}
+                    setItem={setItem}
+                    modal={modal}
+                    setModal={setModal}
+                    activeTabs={activeTabs}
+                    setActiveTabs={setActiveTabs}
+                />
+            )}
         </>
     );
 }
@@ -159,6 +159,9 @@ const MainContainer = styled.div`
     width: 100%;
     z-index: 100000;
     background-color: #e5e5e5;
+    &.hide {
+        display: none;
+    }
     @media all and (max-width: 980px) {
         padding: 21px 0px 12px 0;
     }

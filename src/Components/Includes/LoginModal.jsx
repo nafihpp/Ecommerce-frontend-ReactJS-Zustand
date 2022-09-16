@@ -96,9 +96,13 @@ function LoginModal({
                                                     Total: {formatted}
                                                 </b>
                                             </div>
-                                            <button className={styles.button}>
-                                                CHECKOUT NOW!
-                                            </button>
+                                            <Link to="/login">
+                                                <button
+                                                    className={styles.button}
+                                                >
+                                                    CHECKOUT NOW!
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 ) : (
@@ -149,12 +153,12 @@ const CartItems = styled.div`
 `;
 
 const Container = styled.div`
-    margin-top: 100px;
     position: fixed;
     top: 0px;
     left: 0;
     height: 100%;
     width: 100%;
+    z-index: 100000000000000000;
     background: rgba(0, 0, 0, 0.6);
 `;
 const CloseIcon = styled.span`
