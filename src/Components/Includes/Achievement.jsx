@@ -65,8 +65,7 @@ function Achievement() {
                                 <FirstPara>
                                     Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Animi officia doloremque
-                                    saepe. Facere possimus corrupti iusto
-                                    voluptatem natus in necessitatibus.
+                                    saepe.
                                 </FirstPara>
                                 <NameHead>Anna Saraspova</NameHead>
                                 <PositionPara>Your Beloved Buyer</PositionPara>
@@ -78,7 +77,9 @@ function Achievement() {
         </MainContainer>
     );
 }
-const MainHead = styled.h1``;
+const MainHead = styled.h1`
+    color: #f86338;
+`;
 const FirstPara = styled.p``;
 const NameHead = styled.h2``;
 const PositionPara = styled.p``;
@@ -86,12 +87,19 @@ const ImageContainer = styled.div``;
 const LeftContainer = styled.div`
     background-color: grey;
     border-radius: 6px;
+    width: 40%;
+    height: 200px;
 `;
-const RightContainer = styled.div``;
+const RightContainer = styled.div`
+    width: 40%;
+`;
 const MainSliderContainer = styled.div`
     display: flex !important;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 350px;
+    margin-top: 40px;
+    padding: 0px 30px;
 `;
 const BottomContainer = styled.div`
     margin-top: 60px;
@@ -101,7 +109,7 @@ const BottomContainer = styled.div`
 `;
 const BottomDiv = styled.div`
     background-color: #fff;
-    width: 50%;
+    width: 80%;
     min-height: 300px;
 `;
 const Heading = styled.h4`
