@@ -153,12 +153,15 @@ const SearchContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-    padding: 12px 0px;
+    padding: 18px 0px;
     position: fixed;
     top: 53px;
     width: 100%;
     z-index: 100000;
     background-color: #e5e5e5;
+    @media all and (max-width: 980px) {
+        padding: 21px 0px 12px 0;
+    }
 `;
 const WrapperContainer = styled.div`
     width: 90%;
@@ -224,6 +227,10 @@ const Input = styled.input`
 `;
 const CartContainer = styled.div`
     width: 7%;
+    @media all and (max-width: 680px) {
+        position: absolute;
+        left: 189px;
+    }
 `;
 const CartImg = styled.img`
     display: block;

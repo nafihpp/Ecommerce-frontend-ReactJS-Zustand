@@ -94,7 +94,7 @@ const Button = styled.a`
     }
 `;
 const MainContainer = styled.div`
-    padding: 204px 0 151px 0;
+    padding: 204px 0 172px 0;
 `;
 const WrapperContainer = styled.div``;
 const SubContainer = styled.div`
