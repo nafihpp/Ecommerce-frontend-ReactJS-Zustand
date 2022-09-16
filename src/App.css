@@ -60,14 +60,12 @@ div.right {
 div.right p {
     font-size: 19px;
     font-weight: 900;
-    margin-bottom: 30px;
 }
 
 div.right p.company {
     color: hsl(26, 100%, 55%);
     font-size: 15px;
     font-weight: 900;
-    margin-bottom: 20px;
 }
 
 div.right div.prices {

@@ -52,7 +52,7 @@ function Elements({ item, setItem }) {
                         </ImageContainer>
                         <div class="right">
                             <Headline>{page.title}</Headline>
-                            <p
+                            <Paragra
                                 style={{
                                     border: "2px solid black",
                                     width: "100%",
@@ -65,8 +65,8 @@ function Elements({ item, setItem }) {
                                     marginTop: "10px",
                                 }}
                             >
-                                {page.category}
-                            </p>
+                                <Par>{page.category}</Par>
+                            </Paragra>
 
                             <div class="prices">
                                 <h1 class="new">${page.price}</h1>
@@ -113,6 +113,12 @@ function Elements({ item, setItem }) {
         </>
     );
 }
+const Paragra = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const Par = styled.p``;
 const Quantity = styled.p`
     margin-bottom: 0px !important;
 `;
@@ -122,8 +128,9 @@ const DivCart = styled.div`
     padding: 10px;
     border-radius: 8px;
     width: 35%;
-    @media all and (max-width: 480px) {
+    @media all and (max-width: 680px) {
         width: 100%;
+        font-size: 12px;
     }
 `;
 const Headline = styled.h1`
