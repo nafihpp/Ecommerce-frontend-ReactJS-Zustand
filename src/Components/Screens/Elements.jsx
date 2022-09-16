@@ -113,12 +113,18 @@ function Elements({ item, setItem }) {
         </>
     );
 }
-const Quantity = styled.p``;
+const Quantity = styled.p`
+    margin-bottom: 0px !important;
+`;
 const DivCart = styled.div`
     margin-top: 10px;
     background-color: #f86338;
     padding: 10px;
     border-radius: 8px;
+    width: 35%;
+    @media all and (max-width: 480px) {
+        width: 100%;
+    }
 `;
 const Headline = styled.h1`
     @media all and (max-width: 480px) {
@@ -152,7 +158,6 @@ const Wrapper = styled.div`
 `;
 const MainContainer = styled.div`
     height: 100vh;
-    overflow: hidden;
 `;
 const ImageContainer = styled.div`
     width: 28%;
