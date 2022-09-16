@@ -1,7 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
+import { useEffect } from "react";
+import Geocode from "react-geocode";
 
-function NavBar(item, setItem, modal, setModal) {
+function NavBar() {
+    const [lat, setLatitude] = useState("");
+    const [lng, setLongitude] = useState("");
+    Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
+    Geocode.setLanguage("en");
+    const [data, setData] = useState("");
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+        });
+    }, []);
+
+    Geocode.fromLatLng(lat, lng).then(
+        (response) => {
+            const address = response.results[1].formatted_address;
+            setData(address);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
     return (
         <MainContainer>
             <WrapperContainer>
@@ -14,6 +39,16 @@ function NavBar(item, setItem, modal, setModal) {
                             />
                         </LogoContainer>
                     </LogoBox>
+                    <MiddleLocation>
+                        <LocationContainer>
+                            <img
+                                src={require("../../assets/location.jpg")}
+                                alt="location"
+                                width={30}
+                            />
+                        </LocationContainer>
+                        <h4 style={{ display: "inline-block" }}>{data}</h4>
+                    </MiddleLocation>
                     <InfoContainer>
                         <ContactBox>
                             <ContactImg>
@@ -49,7 +84,16 @@ function NavBar(item, setItem, modal, setModal) {
 }
 
 export default NavBar;
-
+const LocationContainer = styled.span``;
+const MiddleLocation = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    @media all and (max-width: 640px) {
+        font-size: 7px;
+    }
+`;
 const MainContainer = styled.div`
     padding: 15px;
     position: fixed;

@@ -139,6 +139,15 @@ function Items({ item, setItem }) {
         <>
             <MainContainer>
                 <Wrapperlist>
+                    <h1
+                        style={{
+                            textAlign: "center",
+                            marginBottom: "20px",
+                            fontSize: "40px",
+                        }}
+                    >
+                        Our Premium Collection
+                    </h1>
                     <MainCont>
                         <MainSpan
                             className={
