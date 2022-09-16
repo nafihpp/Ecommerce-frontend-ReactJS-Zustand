@@ -10,7 +10,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 function Elements({ item, setItem }) {
     const { id } = useParams();
     const [page, setPage] = useState([]);
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     let navigate = useNavigate();
     useEffect(() => {
         axios
@@ -29,7 +29,9 @@ function Elements({ item, setItem }) {
         setCount((prev) => prev + 1);
     }
     function decrement() {
-        setCount((prev) => prev - 1);
+        if (count > 1) {
+            setCount((prev) => prev - 1);
+        }
     }
     function back() {
         navigate("/");
@@ -143,7 +145,6 @@ const MainDiv = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-color: #e5e5e5;
 `;
 const Wrapper = styled.div`
     width: 75%;
@@ -157,7 +158,6 @@ const ImageContainer = styled.div`
     width: 28%;
     @media all and (max-width: 640px) {
         width: 70%;
-        padding: 0 55px 55px;
     }
     @media all and (max-width: 480px) {
         width: 90%;

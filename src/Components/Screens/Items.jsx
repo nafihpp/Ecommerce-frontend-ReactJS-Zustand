@@ -232,7 +232,7 @@ const MainSpan = styled.span`
     font-weight: 600;
     overflow: hidden;
     &.reset {
-        background-color: red;
+        background-color: #f86338;
         border: none;
         color: #fff;
     }

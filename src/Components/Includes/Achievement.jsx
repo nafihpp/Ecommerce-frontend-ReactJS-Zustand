@@ -97,6 +97,7 @@ const MainSliderContainer = styled.div`
     display: flex !important;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     height: 350px;
     margin-top: 40px;
     padding: 0px 30px;
