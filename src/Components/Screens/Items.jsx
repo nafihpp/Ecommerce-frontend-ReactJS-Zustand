@@ -139,15 +139,7 @@ function Items({ item, setItem }) {
         <>
             <MainContainer>
                 <Wrapperlist>
-                    <h1
-                        style={{
-                            textAlign: "center",
-                            marginBottom: "20px",
-                            fontSize: "40px",
-                        }}
-                    >
-                        Our Premium Collection
-                    </h1>
+                    <HeadingMain>Our Premium Collection</HeadingMain>
                     <MainCont>
                         <MainSpan
                             className={
@@ -215,6 +207,14 @@ function Items({ item, setItem }) {
         </>
     );
 }
+const HeadingMain = styled.h2`
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    @media (max-width: 680px) {
+        font-size: 23px;
+    }
+`;
 const MainCont = styled.div`
     display: flex;
     justify-content: center;
