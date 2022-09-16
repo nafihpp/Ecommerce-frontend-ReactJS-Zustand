@@ -30,8 +30,8 @@ function Mainpage({
             />
             <Spotlight />
             <Items item={item} setItem={setItem} />
-            <Achievement />
             <Story />
+            <Achievement />
         </>
     );
 }

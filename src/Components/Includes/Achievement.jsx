@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import Slider from "react-slick";
 
 function Achievement() {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
     return (
         <MainContainer>
             <Wrapper>
@@ -41,10 +49,61 @@ function Achievement() {
                         />
                     </Child>
                 </Parent>
+                <BottomContainer>
+                    <BottomDiv>
+                        <MainSliderContainer>
+                            <LeftContainer>
+                                <ImageContainer>
+                                    <img
+                                        src={require("../../assets/Combined Shape.png")}
+                                        alt="Side-Image"
+                                    />
+                                </ImageContainer>
+                            </LeftContainer>
+                            <RightContainer>
+                                <MainHead>Good Seller!</MainHead>
+                                <FirstPara>
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Animi officia doloremque
+                                    saepe. Facere possimus corrupti iusto
+                                    voluptatem natus in necessitatibus.
+                                </FirstPara>
+                                <NameHead>Anna Saraspova</NameHead>
+                                <PositionPara>Your Beloved Buyer</PositionPara>
+                            </RightContainer>
+                        </MainSliderContainer>
+                    </BottomDiv>
+                </BottomContainer>
             </Wrapper>
         </MainContainer>
     );
 }
+const MainHead = styled.h1``;
+const FirstPara = styled.p``;
+const NameHead = styled.h2``;
+const PositionPara = styled.p``;
+const ImageContainer = styled.div``;
+const LeftContainer = styled.div`
+    background-color: grey;
+    border-radius: 6px;
+`;
+const RightContainer = styled.div``;
+const MainSliderContainer = styled.div`
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+`;
+const BottomContainer = styled.div`
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const BottomDiv = styled.div`
+    background-color: #fff;
+    width: 50%;
+    min-height: 300px;
+`;
 const Heading = styled.h4`
     text-align: center;
     font-size: 40px;
@@ -54,6 +113,7 @@ const Heading = styled.h4`
 `;
 const MainContainer = styled.div`
     padding: 20px 0 20px 0;
+    background-color: #f4f7f8;
 `;
 const Wrapper = styled.div`
     width: 90%;

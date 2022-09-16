@@ -8,7 +8,7 @@ function Story() {
                 <MainDiv>
                     <LeftContainer>
                         <ImageContainer>
-                            <img src={Orange} alt="storyimg" width={100} />
+                            <img src={Orange} alt="storyimg" width={130} />
                         </ImageContainer>
                     </LeftContainer>
                     <RightContainer>
@@ -29,7 +29,8 @@ function Story() {
 }
 const ImageContainer = styled.div``;
 const MainContainer = styled.div`
-    padding: 30px 0;
+    background-color: #f4f7f8;
+    padding: 80px 0;
 `;
 const Wrapper = styled.div`
     width: 90%;
@@ -42,15 +43,22 @@ const MainDiv = styled.div`
 `;
 const LeftContainer = styled.div`
     background-color: #e5e5e5;
-    width: 40%;
+    width: 30%;
     border-radius: 8px;
     height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 const RightContainer = styled.div`
-    width: 45%;
+    width: 49%;
 `;
-const Headline = styled.h5``;
-const Para = styled.p``;
+const Headline = styled.h1`
+    margin-bottom: 20px;
+`;
+const Para = styled.p`
+    margin-bottom: 10px;
+`;
 const Button = styled.a`
     color: #f86338;
 `;
