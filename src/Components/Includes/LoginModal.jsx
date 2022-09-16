@@ -96,13 +96,9 @@ function LoginModal({
                                                     Total: {formatted}
                                                 </b>
                                             </div>
-                                            <Link to="/login">
-                                                <button
-                                                    className={styles.button}
-                                                >
-                                                    CHECKOUT NOW!
-                                                </button>
-                                            </Link>
+                                            <Links to="/login">
+                                                CHECKOUT NOW!
+                                            </Links>
                                         </div>
                                     </div>
                                 ) : (
@@ -119,7 +115,19 @@ function LoginModal({
     );
 }
 export default LoginModal;
-
+const Links = styled(Link)`
+    height: 30px;
+    color: #000;
+    background-color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 const DivAmount = styled.div`
     font-size: 20px;
     font-family: "Open Sans";

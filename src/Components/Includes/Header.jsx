@@ -100,7 +100,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                                     alt="Image"
                                 />
                             </ImageBoxTwo>
-                            <ImageBoxThree>
+                            <ImageBoxThree to="/login">
                                 <ImgThree
                                     src={
                                         require("../../assets/avatar.icon.svg")
@@ -254,6 +254,7 @@ const ImageBoxOne = styled.div`
     margin-right: 14px;
     @media all and (max-width: 480px) {
         width: 26px;
+        display: none;
     }
 `;
 const ImgOne = styled.img`
@@ -265,7 +266,7 @@ const ImageBoxTwo = styled.div`
     margin-right: 14px;
     position: relative;
     @media all and (max-width: 480px) {
-        width: 26px;
+        width: 29px;
     }
 `;
 const ImgTwo = styled.img`
@@ -291,19 +292,20 @@ const RoundBox = styled.span`
         top: -13px;
     }
     @media all and (max-width: 480px) {
-        width: 15px;
-        height: 14px;
+        width: 19px;
+        height: 18px;
         font-size: 12px;
         border-radius: 50%;
         color: white;
-        top: -6px;
+        left: 16px;
+        top: -7px;
     }
 `;
-const ImageBoxThree = styled.div`
+const ImageBoxThree = styled(Link)`
     width: 21px;
     margin-right: 12px;
     @media all and (max-width: 480px) {
-        width: 26px;
+        width: 29px;
     }
 `;
 const ImgThree = styled.img`

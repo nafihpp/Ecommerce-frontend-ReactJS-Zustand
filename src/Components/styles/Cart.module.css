@@ -49,12 +49,6 @@
 }
 
 .button {
-    height: 30px;
-    color: #d1411e;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-    border: none;
 }
 
 @media screen and (max-width: 480px) {
