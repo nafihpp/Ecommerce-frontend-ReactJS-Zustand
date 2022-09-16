@@ -167,6 +167,7 @@ const CloseIcon = styled.span`
     position: absolute;
     left: -43px;
     top: 4px;
+    color: #fff;
     cursor: pointer;
     @media (max-width: 480px) {
         font-size: 30px;
