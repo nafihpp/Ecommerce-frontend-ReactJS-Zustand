@@ -41,10 +41,10 @@ function Elements({ item, setItem }) {
             <Helmet>
                 <title>{`${page.id} | Shopping`}</title>
             </Helmet>
+            <BackButton onClick={back}>
+                <IoArrowBackOutline />
+            </BackButton>
             <MainContainer>
-                <BackButton onClick={back}>
-                    <IoArrowBackOutline />
-                </BackButton>
                 <Wrapper>
                     <MainDiv>
                         <ImageContainer>
@@ -157,7 +157,6 @@ const MainDiv = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center;
 `;
 const Wrapper = styled.div`
     width: 75%;

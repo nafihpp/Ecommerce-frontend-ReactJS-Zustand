@@ -5,6 +5,7 @@ import Header from "./Includes/Header";
 import Spotlight from "./Includes/Spotlight";
 import Achievement from "./Includes/Achievement";
 import Story from "./Includes/Story";
+import Slicker from "./Screens/Slicker";
 
 function Mainpage({
     item,
@@ -30,6 +31,7 @@ function Mainpage({
             />
             <Spotlight />
             <Items item={item} setItem={setItem} />
+            <Slicker />
             <Story />
             <Achievement />
         </>

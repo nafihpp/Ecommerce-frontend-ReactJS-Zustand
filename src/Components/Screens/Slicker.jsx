@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Orange from "../../assets/fruit.webp";
+import Orange from "../../assets/LOGO.png";
 import styled from "styled-components";
 
 function Slicker() {
@@ -32,6 +32,9 @@ function Slicker() {
                             <ImageContainer>
                                 <Img src={Orange} />
                             </ImageContainer>
+                            <SaleContainer>
+                                <SalePara>Sale</SalePara>
+                            </SaleContainer>
                         </MainContainer>
                         <MainContainer>
                             <ImageContainer>
@@ -84,10 +87,19 @@ function Slicker() {
         </>
     );
 }
+const SaleContainer = styled.div`
+    background-color: grey;
+    width: 15%;
+    position: absolute;
+    top: 0px;
+`;
+const SalePara = styled.p``;
 const MainContainer = styled.div`
-    background: #e2e2ea;
+    position: relative !important;
+    background: black;
     height: 250px;
-    justify-content: center !important;
+    width: 70% !important;
+    border-radius: 5px !important;
     @media (max-width: 480px) {
     }
 `;
@@ -96,14 +108,19 @@ const TopContainer = styled.div`
     text-align: center;
     width: 70%;
     margin: 0 auto;
+    margin-bottom: 30px;
 `;
-const TopHead = styled.h2``;
+const TopHead = styled.h2`
+    margin-bottom: 20px;
+`;
 const TopPara = styled.p``;
 const MainDiv = styled.div`
+    padding: 30px 0;
+`;
+const Wrapper = styled.div`
     width: 95%;
     margin: 0 auto;
 `;
-const Wrapper = styled.div``;
 const Sliders = styled(Slider)`
     display: flex !important;
     justify-content: space-between !important;

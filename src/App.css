@@ -39,20 +39,25 @@
 
 .slick-prev {
     left: 3% !important;
-    z-index: 1;
+    z-index: 10000000000000000;
+    color: #000 !important;
 }
 .slick-prev:before {
-    color: #000;
+    color: #000 !important;
+    left: 40px !important;
+}
+.slick-next:before {
+    color: #000 !important;
 }
 .slick-next {
     right: 3% !important;
     z-index: 1;
+    color: #000 !important;
 }
 div.right {
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     letter-spacing: 0.2em;
 }

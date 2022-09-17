@@ -53,12 +53,12 @@ function Achievement() {
                     <BottomDiv>
                         <MainSliderContainer>
                             <LeftContainer>
-                                <ImageContainer>
+                                {/* <ImageContainer>
                                     <img
                                         src={require("../../assets/Combined Shape.png")}
                                         alt="Side-Image"
                                     />
-                                </ImageContainer>
+                                </ImageContainer> */}
                             </LeftContainer>
                             <RightContainer>
                                 <MainHead>Good Seller!</MainHead>
