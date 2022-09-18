@@ -6,19 +6,13 @@ function Story() {
         <MainContainer>
             <Wrapper>
                 <MainDiv>
-                    <LeftContainer>
-                        <ImageContainer>
-                            <img src={Orange} alt="storyimg" width={130} />
-                        </ImageContainer>
-                    </LeftContainer>
+                    <LeftContainer></LeftContainer>
                     <RightContainer>
                         <Headline>Story About Our Brand</Headline>
                         <Para>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Sapiente enim animi beatae neque quam saepe
-                            aut aliquam architecto ducimus minima officiis
-                            possimus aliquid dignissimos, velit rerum
-                            praesentium id adipisci magni!
+                            aut aliquam architecto ducimus!
                         </Para>
                         <Button>Read Full Story</Button>
                     </RightContainer>
