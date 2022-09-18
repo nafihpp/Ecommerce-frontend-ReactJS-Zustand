@@ -18,7 +18,7 @@ function Slicker() {
             <MainDiv>
                 <Wrapper>
                     <TopContainer>
-                        <TopHead>Top Items</TopHead>
+                        <TopHead>Top Items!</TopHead>
                         <TopPara>
                             Lorem ipsum dolor sit amet consectetur, adipisicing
                             elit. Illo eveniet quae, ipsa sequi doloribus
