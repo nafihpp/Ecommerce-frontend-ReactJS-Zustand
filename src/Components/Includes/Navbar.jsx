@@ -6,7 +6,7 @@ import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
 import Cart from "../Screens/Cart";
-import LoginModal from "../Includes/LoginModal";
+import CartModal from "../Includes/CartModal";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import BottomNavBar from "../Includes/BottomNavBar";
@@ -96,7 +96,7 @@ function Navbar({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                     </MainList>
                 </Wrapper>
                 {modal && (
-                    <LoginModal
+                    <CartModal
                         item={item}
                         setItem={setItem}
                         modal={modal}

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import LoginModal from "./LoginModal";
+import CartModal from "./CartModal";
 
 function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
     const products = useSelector((state) => state.allProducts.products);
@@ -123,7 +123,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                 </WrapperContainer>
             </MainContainer>
             {modal && (
-                <LoginModal
+                <CartModal
                     item={item}
                     setItem={setItem}
                     modal={modal}
