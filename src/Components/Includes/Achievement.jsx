@@ -49,30 +49,6 @@ function Achievement() {
                         />
                     </Child>
                 </Parent>
-                <BottomContainer>
-                    <BottomDiv>
-                        <MainSliderContainer>
-                            <LeftContainer>
-                                {/* <ImageContainer>
-                                    <img
-                                        src={require("../../assets/Combined Shape.png")}
-                                        alt="Side-Image"
-                                    />
-                                </ImageContainer> */}
-                            </LeftContainer>
-                            <RightContainer>
-                                <MainHead>Good Seller!</MainHead>
-                                <FirstPara>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Animi officia doloremque
-                                    saepe.
-                                </FirstPara>
-                                <NameHead>Anna Saraspova</NameHead>
-                                <PositionPara>Your Beloved Buyer</PositionPara>
-                            </RightContainer>
-                        </MainSliderContainer>
-                    </BottomDiv>
-                </BottomContainer>
             </Wrapper>
         </MainContainer>
     );
