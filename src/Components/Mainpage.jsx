@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Items from "./Screens/Items";
 import Navbar from "./Includes/NavBar";
-import Header from "./Includes/Header";
+// import Header from "./Includes/Header";
 import Spotlight from "./Includes/Spotlight";
 import Achievement from "./Includes/Achievement";
 import Story from "./Includes/Story";
@@ -24,14 +24,14 @@ function Mainpage({
                 modal={modal}
                 setModal={setModal}
             />
-            <Header
+            {/* <Header
                 item={item}
                 setItem={setItem}
                 modal={modal}
                 setModal={setModal}
                 count={count}
                 setCount={setCount}
-            />
+            /> */}
             <Spotlight />
             <Items
                 item={item}
