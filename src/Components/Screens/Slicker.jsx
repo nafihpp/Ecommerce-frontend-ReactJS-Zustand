@@ -4,15 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Orange from "../../assets/LOGO.png";
 import styled from "styled-components";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import SwiperCore, { Autoplay } from "swiper";
+import banana from "../../assets/banana.jpg";
+import apricot from "../../assets/apricot.jpg";
+import apple from "../../assets/apple.jpg";
 
 function Slicker() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 3,
-    };
+    SwiperCore.use([Autoplay]);
     return (
         <>
             <MainDiv>
@@ -27,61 +29,48 @@ function Slicker() {
                             sit officiis vitae!
                         </TopPara>
                     </TopContainer>
-                    <Sliders {...settings}>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                            <SaleContainer>
-                                <SalePara>Sale</SalePara>
-                            </SaleContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                        <MainContainer>
-                            <ImageContainer>
-                                <Img src={Orange} />
-                            </ImageContainer>
-                        </MainContainer>
-                    </Sliders>
+                    <Swiper
+                        spaceBetween={50}
+                        slidesPerView={3}
+                        onSlideChange={() => console.log("slide change")}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        autoplay={{
+                            delay: 500,
+                        }}
+                    >
+                        <SwiperSlide>
+                            {" "}
+                            <MainContainer>
+                                <ImageContainer>
+                                    <Img src={banana} />
+                                </ImageContainer>
+                            </MainContainer>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            {" "}
+                            <MainContainer>
+                                <ImageContainer>
+                                    <Img src={apricot} />
+                                </ImageContainer>
+                            </MainContainer>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            {" "}
+                            <MainContainer>
+                                <ImageContainer>
+                                    <Img src={apple} />
+                                </ImageContainer>
+                            </MainContainer>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            {" "}
+                            <MainContainer>
+                                <ImageContainer>
+                                    <Img src={Orange} />
+                                </ImageContainer>
+                            </MainContainer>
+                        </SwiperSlide>
+                    </Swiper>
                 </Wrapper>
             </MainDiv>
         </>
@@ -96,8 +85,6 @@ const SaleContainer = styled.div`
 const SalePara = styled.p``;
 const MainContainer = styled.div`
     position: relative !important;
-    background: black;
-    height: 250px;
     width: 70% !important;
     border-radius: 5px !important;
     @media (max-width: 480px) {

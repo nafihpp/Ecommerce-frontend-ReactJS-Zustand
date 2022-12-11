@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 
-function Cart({ item, setItem }) {
+function Cart({ item, setItem, setModal, modal }) {
     let sum = 0;
     item.map((mapped) => {
         sum += mapped.price;
@@ -23,7 +23,13 @@ function Cart({ item, setItem }) {
                     </AboutDiv>
                     <PricesDiv>
                         <DivAmount>${cartss.price}</DivAmount>
-                        <DivRemove onClick={remove(cartss)}>Remove</DivRemove>
+                        <DivRemove
+                            onClick={(e) => {
+                                console.log("it is removed");
+                            }}
+                        >
+                            Remove it
+                        </DivRemove>
                     </PricesDiv>
                 </CartItems>
             </>

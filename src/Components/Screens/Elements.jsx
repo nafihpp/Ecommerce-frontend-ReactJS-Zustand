@@ -6,6 +6,7 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoArrowBackOutline } from "react-icons/io5";
+import Header from "../Includes/Header";
 
 function Elements({ item, setItem }) {
     const { id } = useParams();
@@ -41,6 +42,7 @@ function Elements({ item, setItem }) {
             <Helmet>
                 <title>{`${page.id} | Shopping`}</title>
             </Helmet>
+            <Header />
             <BackButton onClick={back}>
                 <IoArrowBackOutline />
             </BackButton>

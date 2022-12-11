@@ -15,6 +15,13 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
         handleFilter();
     }, [search]);
 
+    useEffect(() => {
+        if (item.length >= 1) {
+            let checking = item.filter((check) => check.id == current.id);
+            setModal(!modal);
+        }
+    }, [item.length]);
+
     const handleFilter = () => {
         setCurrent(
             products.filter((item) => item.title.toLowerCase().includes(search))
@@ -92,13 +99,32 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                                 }}
                             >
                                 <RoundBox>{item.length}</RoundBox>
-                                <ImgTwo
-                                    src={
-                                        require("../../assets/cart.icon.svg")
-                                            .default
-                                    }
-                                    alt="Image"
-                                />
+                                <svg
+                                    width="20"
+                                    height="22"
+                                    viewBox="0 0 20 22"
+                                    fill="none"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        d="M4 1L1 5V19C1 19.5304 1.21071 20.0391 1.58579 20.4142C1.96086 20.7893 2.46957 21 3 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V5L16 1H4Z"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                    <path
+                                        d="M1 5H19"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                    <path
+                                        d="M14 9C14 10.0609 13.5786 11.0783 12.8284 11.8284C12.0783 12.5786 11.0609 13 10 13C8.93913 13 7.92172 12.5786 7.17157 11.8284C6.42143 11.0783 6 10.0609 6 9"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                </svg>
                             </ImageBoxTwo>
                             <ImageBoxThree to="/login">
                                 <ImgThree
@@ -109,15 +135,6 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
                                     alt="Image"
                                 />
                             </ImageBoxThree>
-                            <ImageBoxFour>
-                                <ImgFour
-                                    src={
-                                        require("../../assets/bell.icon.svg")
-                                            .default
-                                    }
-                                    alt="Image"
-                                />
-                            </ImageBoxFour>
                         </RightContainer>
                     </SubContainer>
                 </WrapperContainer>
@@ -280,9 +297,9 @@ const RoundBox = styled.span`
     width: 21px;
     border-radius: 50%;
     color: white;
-    top: -14px;
-    left: 9px;
-    background-color: red;
+    top: 15px;
+    left: -10px;
+    background-color: #000;
     @media all and (max-width: 980px) {
         width: 15px;
         height: 14px;

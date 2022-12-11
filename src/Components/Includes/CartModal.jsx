@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -14,6 +14,16 @@ function LoginModal({
 }) {
     const location = useLocation();
     const [error, setError] = useState("");
+    const [count, setCount] = useState(1);
+    function increment() {
+        setCount((prev) => prev + 1);
+    }
+    function decrement() {
+        if (count > 1) {
+            setCount((prev) => prev - 1);
+        }
+    }
+
     let sum = 0;
     item.map((mapped) => {
         sum += mapped.price;
@@ -29,7 +39,6 @@ function LoginModal({
     const remove = (carted) => {
         console.log(carted);
     };
-
     let cartitems = () => {
         return item.map((cartss) => (
             <>
@@ -37,6 +46,28 @@ function LoginModal({
                     <ImageBox>
                         <Image src={cartss.image} />
                     </ImageBox>
+                    <div class="cart-items">
+                        <Quantity>Quantity</Quantity>
+                        <div class="left">
+                            <div
+                                href=""
+                                class="operator"
+                                style={{ textDecoration: "none" }}
+                                onClick={() => decrement()}
+                            >
+                                -
+                            </div>
+                            <h5>{1}</h5>
+                            <div
+                                href=""
+                                class="operator"
+                                style={{ textDecoration: "none" }}
+                                onClick={() => increment()}
+                            >
+                                +
+                            </div>
+                        </div>
+                    </div>
                     <PricesDiv>
                         <DivAmount>${cartss.price}</DivAmount>
                         <DivRemove onClick={remove(cartss)}>Remove</DivRemove>
@@ -115,6 +146,9 @@ function LoginModal({
     );
 }
 export default LoginModal;
+const Quantity = styled.p`
+    margin-bottom: 0px !important;
+`;
 const Links = styled(Link)`
     height: 30px;
     color: #000;

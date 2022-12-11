@@ -5,7 +5,7 @@ import styled from "styled-components";
 function Spotlight() {
     return (
         <>
-            <MainContainer>
+            <MainContainer id="Items">
                 <WrapperContainer className="wrapper">
                     <SubContainer>
                         <LeftContainer>
@@ -36,14 +36,14 @@ function Spotlight() {
                         </LeftContainer>
                         <RightContainer>
                             <MainHeading>
-                                Our Gallery, <br />
-                                Your Dreams!
+                                Shop Your Favuorite Gadgets, <br />
+                                in One Click!
                             </MainHeading>
                             <ParaHeading>
                                 Lorem ipsum dolor sit amet consectetur sit amet
                                 adipisicing sit amet elit. sit amet Eligendi
                             </ParaHeading>
-                            <Button>Find Out More</Button>
+                            <Button href="#Items">Start Shopping</Button>
                             <RightImgOne>
                                 <ImgOne
                                     src={require("../../assets/Ellipse 155.png")}

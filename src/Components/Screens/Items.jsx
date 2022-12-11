@@ -54,7 +54,6 @@ function Items({ item, setItem }) {
             setAll(final);
         }
     }
-
     useEffect(() => {
         filtering();
     }, [isCategory]);
@@ -65,8 +64,6 @@ function Items({ item, setItem }) {
         if (already.length < 1) {
             notify();
             setItem((prev) => [...prev, bought]);
-        } else {
-            alert("already in cart");
         }
     }
     // useCallback to optimize cart performance
@@ -201,7 +198,6 @@ const MainCont = styled.div`
     justify-content: center;
 `;
 const MainSpan = styled.span`
-    border: 2px solid black;
     margin-right: 10px;
     padding: 5px;
     width: 25%;

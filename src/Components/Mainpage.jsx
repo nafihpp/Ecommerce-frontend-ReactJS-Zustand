@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Items from "./Screens/Items";
-import Navbar from "./Includes/NavBar11";
+import Navbar from "./Includes/NavBar";
 import Header from "./Includes/Header";
 import Spotlight from "./Includes/Spotlight";
 import Achievement from "./Includes/Achievement";
@@ -15,6 +15,7 @@ function Mainpage({
     activeTabs,
     setActiveTabs,
 }) {
+    const [count, setCount] = useState(0);
     return (
         <>
             <Navbar
@@ -28,9 +29,16 @@ function Mainpage({
                 setItem={setItem}
                 modal={modal}
                 setModal={setModal}
+                count={count}
+                setCount={setCount}
             />
             <Spotlight />
-            <Items item={item} setItem={setItem} />
+            <Items
+                item={item}
+                setItem={setItem}
+                count={count}
+                setCount={setCount}
+            />
             <Slicker />
             <Story />
             <Achievement />

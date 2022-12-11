@@ -6,7 +6,9 @@ function Story() {
         <MainContainer>
             <Wrapper>
                 <MainDiv>
-                    <LeftContainer></LeftContainer>
+                    <LeftContainer>
+                        <img src={Orange} className="image" />
+                    </LeftContainer>
                     <RightContainer>
                         <Headline>Story About Our Brand</Headline>
                         <Para>
@@ -36,10 +38,9 @@ const MainDiv = styled.div`
     align-items: center;
 `;
 const LeftContainer = styled.div`
-    background-color: #e5e5e5;
-    width: 30%;
+    width: 16%;
     border-radius: 8px;
-    height: 300px;
+    height: 136px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,241 +1,185 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
-import { CgSearch } from "react-icons/cg";
-import Cart from "../Screens/Cart";
-import CartModal from "../Includes/CartModal";
-import { useSelector } from "react-redux";
+import { useState } from "react";
 import { useEffect } from "react";
-import BottomNavBar from "../Includes/BottomNavBar";
-import { isMobile } from "react-device-detect";
+import Geocode from "react-geocode";
 
-function Navbar({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
-    const products = useSelector((state) => state.allProducts.products);
-
-    const [current, setCurrent] = useState([]);
-    const [search, setSearch] = useState("");
+function NavBar({ modal, setModal }) {
+    const [lat, setLatitude] = useState("");
+    const [lng, setLongitude] = useState("");
+    Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
+    Geocode.setLanguage("en");
+    const [data, setData] = useState("");
 
     useEffect(() => {
-        handleFilter();
-    }, [search]);
+        navigator.geolocation.getCurrentPosition(function (position) {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+        });
+    }, []);
 
-    const handleFilter = () => {
-        setCurrent(
-            products.filter((item) => item.title.toLowerCase().includes(search))
-        );
-    };
-
+    Geocode.fromLatLng(lat, lng).then(
+        (response) => {
+            const address = response.results[1].formatted_address;
+            setData(address);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
     return (
-        <>
-            <NavbarMain>
-                <Wrapper>
-                    <MainList>
-                        <Childone>
-                            <HeadDiv>
-                                <LogoImg
-                                    src={require("../../assets/LOGO.png")}
+        <MainContainer>
+            <WrapperContainer>
+                <SubContainer>
+                    <LogoBox>
+                        <LogoContainer>
+                            <LogoImg
+                                src={require("../../assets/Dealerz.png")}
+                                alt="Image"
+                            />
+                        </LogoContainer>
+                    </LogoBox>
+                    <MiddleLocation>
+                        <LocationContainer>
+                            <img
+                                src={require("../../assets/location.jpg")}
+                                alt="location"
+                                width={30}
+                            />
+                        </LocationContainer>
+                        <h4 style={{ display: "inline-block" }}>{data}</h4>
+                    </MiddleLocation>
+                    <InfoContainer>
+                        <ContactBox>
+                            <ContactImg>
+                                <CallImgContainer
+                                    src={
+                                        require("../../assets/call.icon.svg")
+                                            .default
+                                    }
+                                    alt="Image"
                                 />
-                            </HeadDiv>
-                        </Childone>
-                        <Bar>
-                            <ChildMiddle>
-                                <SearchBar
-                                    placeholder="What are you looking for?"
-                                    onChange={(e) => {
-                                        setSearch(e.target.value.toLowerCase());
-                                    }}
+                            </ContactImg>
+                            <CallHeading>Call Center</CallHeading>
+                        </ContactBox>
+                        <ShippingContainer>
+                            <ShippingImgContainer>
+                                <ShipImg
+                                    src={
+                                        require("../../assets/truck.icon.svg")
+                                            .default
+                                    }
+                                    alt="Image"
                                 />
-                            </ChildMiddle>
-                            <SearchContainer>
-                                {search &&
-                                    current.map((item) => (
-                                        <Link
-                                            to={`/${item.id}`}
-                                            style={{
-                                                color: "green",
-                                                display: "flex",
-                                                width: "75%",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            <p>{item.title}</p>
-                                            <ImageContainer>
-                                                <img
-                                                    src={item.image}
-                                                    alt=""
-                                                    width={50}
-                                                />
-                                            </ImageContainer>
-                                        </Link>
-                                    ))}
-                            </SearchContainer>
-                            <SearchIcon>
-                                <CgSearch />
-                            </SearchIcon>
-                        </Bar>
-                        <Childtwo>
-                            <DashboardLink to="/login">
-                                <CgProfile />
-                            </DashboardLink>
-                            <Button
-                                onClick={() => {
-                                    setModal(!modal);
-                                }}
-                            >
-                                <CartDiv>
-                                    <FaShoppingCart />
-                                </CartDiv>
-                                <Badge>
-                                    <Priced>{item.length}</Priced>
-                                </Badge>
-                            </Button>
-                        </Childtwo>
-                    </MainList>
-                </Wrapper>
-                {modal && (
-                    <CartModal
-                        item={item}
-                        setItem={setItem}
-                        modal={modal}
-                        setModal={setModal}
-                        activeTabs={activeTabs}
-                        setActiveTabs={setActiveTabs}
-                    />
-                )}
-            </NavbarMain>
-            {/* {isMobile && <BottomNavBar modal={modal} setModal={setModal} />} */}
-        </>
+                            </ShippingImgContainer>
+                            <ShippingHeading>
+                                Shipping {"&"} Returns
+                            </ShippingHeading>
+                        </ShippingContainer>
+                    </InfoContainer>
+                </SubContainer>
+            </WrapperContainer>
+        </MainContainer>
     );
 }
-const ImageContainer = styled.span`
-    width: 1%;
-`;
-const SearchContainer = styled.div`
-    position: absolute;
-    top: 50px;
-    background: #fff;
-`;
-const SearchIcon = styled.div`
-    position: absolute;
-    right: 9px;
-    top: 11px;
-`;
-const SearchBar = styled.input`
-    padding: 13px;
-    border: none;
-    outline: none;
-    padding-right: 42px;
-    @media (max-width: 480px) {
-        padding-right: 10px;
-    }
-`;
-const Bar = styled.div`
+
+export default NavBar;
+const LocationContainer = styled.span``;
+const MiddleLocation = styled.div`
     display: flex;
-    position: relative;
-`;
-const ChildMiddle = styled.div`
-    padding: 0 10px 0 0;
-    border-right: 2px solid #dddddd;
-    border-left: 2px solid #dddddd;
-`;
-const CartDiv = styled.div`
-    font-size: 24px;
-    @media (max-width: 480px) {
-        font-size: 21px;
-    }
-`;
-const Priced = styled.span`
-    display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-`;
-const Button = styled.a`
-    color: #8d8d8d;
-    cursor: pointer;
-    position: relative;
-`;
-const Badge = styled.div`
-    background: green;
-    border-radius: 131px;
-    position: absolute;
-    top: 10px;
-    left: 14px;
-    width: 92%;
-    height: 23px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    @media (max-width: 480px) {
-        width: 89%;
-        height: 18px;
+    font-size: 12px;
+    @media all and (max-width: 640px) {
+        font-size: 6px;
+        margin-left: 70px;
     }
 `;
-const NavbarMain = styled.section`
-    width: 100%;
-    height: 63px;
-    display: flex;
-    align-items: center;
+const MainContainer = styled.div`
+    padding: 15px;
     position: fixed;
-    z-index: 300;
-    background: #fff;
-    box-shadow: 0px 15px 10px -15px #111;
-    @media all and (max-width: 480px) {
-        height: 55px;
+    top: 0px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100000000;
+
+    @media all and (max-width: 1280px) {
+    }
+    @media all and (max-width: 1080px) {
+    }
+    @media all and (max-width: 980px) {
+    }
+    @media all and (max-width: 768px) {
+    }
+    @media all and (max-width: 640px) {
+    }
+    @media all and (max-width: 360px) {
     }
 `;
-const Wrapper = styled.section`
+const WrapperContainer = styled.div`
     width: 90%;
     margin: 0 auto;
 `;
-const MainList = styled.div`
+const SubContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
-const Childone = styled.div``;
-const HeadDiv = styled.div`
-    width: 100px;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 3px;
+const LogoBox = styled.div``;
+const LogoContainer = styled.div`
+    width: 150px;
     @media all and (max-width: 768px) {
-        width: 100px;
-    }
-    @media all and (max-width: 380px) {
-        width: 72px;
+        width: 115px;
     }
 `;
 const LogoImg = styled.img`
     display: block;
     width: 100%;
 `;
-const Childtwo = styled.div`
+const InfoContainer = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
 `;
-const DashboardLink = styled(Link)`
-    text-decoration: none;
-    font-size: 30px;
-    border-radius: 5px;
-    color: #8d8d8d;
+const ContactBox = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-right: 25px;
+`;
+const ContactImg = styled.div`
+    width: 20px;
     margin-right: 10px;
-    &.Margin {
-        margin-right: 10px;
+    @media all and (max-width: 680px) {
+        display: none;
     }
-    @media all and (max-width: 640px) {
-        width: 100px;
-    }
+`;
+const CallImgContainer = styled.img`
+    display: block;
+    width: 100%;
+`;
+const CallHeading = styled.p`
+    color: #11142d;
     @media all and (max-width: 480px) {
         display: none;
     }
 `;
-
-export default Navbar;
+const ShippingContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+const ShippingImgContainer = styled.div`
+    width: 20px;
+    margin-right: 10px;
+    @media all and (max-width: 480px) {
+        display: none;
+    }
+`;
+const ShipImg = styled.img`
+    display: block;
+    width: 100%;
+`;
+const ShippingHeading = styled.p`
+    color: #11142d;
+    @media all and (max-width: 480px) {
+        display: none;
+    }
+`;
