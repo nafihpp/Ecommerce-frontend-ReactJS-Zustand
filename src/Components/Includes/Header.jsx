@@ -5,8 +5,32 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartModal from "./CartModal";
+import Geocode from "react-geocode";
 
 function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
+    const [lat, setLatitude] = useState("");
+    const [lng, setLongitude] = useState("");
+    Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
+    Geocode.setLanguage("en");
+    const [data, setData] = useState("");
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+        });
+    }, []);
+
+    Geocode.fromLatLng(lat, lng).then(
+        (response) => {
+            const address = response.results[1].formatted_address;
+            setData(address);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
+
     const products = useSelector((state) => state.allProducts.products);
     const [current, setCurrent] = useState([]);
     const [search, setSearch] = useState("");
@@ -30,6 +54,20 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
     return (
         <>
             <MainContainer className={modal ? "hide" : null}>
+                <LocationContainer>
+                    <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z"></path>
+                    </svg>
+                    <span>{data}</span>
+                </LocationContainer>
                 <WrapperContainer>
                     <SubContainer>
                         <LeftContainer>
@@ -154,6 +192,11 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
 }
 
 export default Header;
+const LocationContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+`;
 
 const ImageContainer = styled.span`
     width: 1%;
@@ -170,9 +213,9 @@ const SearchContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-    padding: 18px 0px;
+    padding: 13px 0px 18px 0px;
     position: fixed;
-    top: 53px;
+    top: 0px;
     width: 100%;
     z-index: 100000;
     background-color: #e5e5e5;

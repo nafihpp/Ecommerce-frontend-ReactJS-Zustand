@@ -84,7 +84,6 @@ function NavBar({ modal, setModal }) {
 }
 
 export default NavBar;
-const LocationContainer = styled.span``;
 const MiddleLocation = styled.div`
     display: flex;
     align-items: center;
