@@ -39,10 +39,6 @@ function Spotlight() {
                                 Shop Your Favuorite Gadgets, <br />
                                 in One Click!
                             </MainHeading>
-                            <ParaHeading>
-                                Lorem ipsum dolor sit amet consectetur sit amet
-                                adipisicing sit amet elit. sit amet Eligendi
-                            </ParaHeading>
                             <Button href="#Items">Start Shopping</Button>
                             <RightImgOne>
                                 <ImgOne
@@ -82,6 +78,7 @@ const Button = styled.a`
     color: #fff;
     padding: 18px 0;
     width: 40%;
+    text-decoration: none;
     @media all and (max-width: 980px) {
         width: 65%;
         height: 10px;
