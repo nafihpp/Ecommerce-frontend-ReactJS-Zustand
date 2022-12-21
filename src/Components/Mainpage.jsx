@@ -10,6 +10,7 @@ import BottomNavigation from "reactjs-bottom-navigation";
 import { IoHomeOutline } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import "reactjs-bottom-navigation/dist/index.css";
+import { isMobile } from "mobile-device-detect";
 
 function Mainpage({
     item,
@@ -23,7 +24,6 @@ function Mainpage({
     const bottomNavItems = [
         {
             title: "Home",
-            noActiveBg: true,
             icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
 
             activeIcon: (
@@ -57,6 +57,9 @@ function Mainpage({
                     }}
                 />
             ),
+            onClick: () => {
+                setModal(true);
+            },
         },
 
         {
@@ -99,11 +102,13 @@ function Mainpage({
             <Slicker />
             <Story />
             <Achievement />
-            <BottomNavigation
-                items={bottomNavItems}
-                defaultSelected={0}
-                onItemClick={(item) => console.log(item)}
-            />
+            {isMobile && (
+                <BottomNavigation
+                    items={bottomNavItems}
+                    defaultSelected={0}
+                    onItemClick={(item) => console.log(item)}
+                />
+            )}
         </>
     );
 }
