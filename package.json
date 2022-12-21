@@ -20,6 +20,7 @@
     "react-simple-star-rating": "^4.0.5",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.0.4",
+    "reactjs-bottom-navigation": "^1.0.4",
     "redux": "^4.2.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",

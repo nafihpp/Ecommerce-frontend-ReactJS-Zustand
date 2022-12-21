@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 
-function Cart({ item, setItem, setModal, modal }) {
+function Cart({ item }) {
     let sum = 0;
     item.map((mapped) => {
         sum += mapped.price;

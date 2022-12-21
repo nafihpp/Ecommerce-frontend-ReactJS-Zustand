@@ -6,6 +6,10 @@ import Spotlight from "./Includes/Spotlight";
 import Achievement from "./Includes/Achievement";
 import Story from "./Includes/Story";
 import Slicker from "./Screens/Slicker";
+import BottomNavigation from "reactjs-bottom-navigation";
+import { IoHomeOutline } from "react-icons/io5";
+import { AiFillHome } from "react-icons/ai";
+import "reactjs-bottom-navigation/dist/index.css";
 
 function Mainpage({
     item,
@@ -16,6 +20,59 @@ function Mainpage({
     setActiveTabs,
 }) {
     const [count, setCount] = useState(0);
+    const bottomNavItems = [
+        {
+            title: "Home",
+            noActiveBg: true,
+            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
+
+            activeIcon: (
+                <AiFillHome style={{ fontSize: "18px", background: "fff" }} />
+            ),
+        },
+
+        {
+            title: "Search",
+
+            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
+
+            activeIcon: (
+                <IoHomeOutline
+                    style={{ fontSize: "18px", background: "fff" }}
+                />
+            ),
+        },
+
+        {
+            title: "Notifications",
+
+            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
+
+            activeIcon: (
+                <IoHomeOutline
+                    style={{
+                        fontSize: "18px",
+                        color: "#fff",
+                        background: "fff",
+                    }}
+                />
+            ),
+        },
+
+        {
+            title: "Menu",
+
+            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
+
+            activeIcon: (
+                <IoHomeOutline
+                    style={{ fontSize: "18px", background: "fff" }}
+                />
+            ),
+
+            onClick: () => alert("menu clicked"),
+        },
+    ];
     return (
         <>
             {/* <Navbar
@@ -42,6 +99,11 @@ function Mainpage({
             <Slicker />
             <Story />
             <Achievement />
+            <BottomNavigation
+                items={bottomNavItems}
+                defaultSelected={0}
+                onItemClick={(item) => console.log(item)}
+            />
         </>
     );
 }

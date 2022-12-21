@@ -1,90 +1,137 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Helmet from "react-helmet";
 
 export default function Login() {
     return (
         <>
-            <Helmet>
-                <title>Login Now</title>
-            </Helmet>
-            <Container>
-                <LeftContainer>
-                    <MainHeading>Your Favourite Ecommerce Shopping</MainHeading>
-                </LeftContainer>
-                <RightContainer>
-                    <LoginContainer>
-                        <LoginHeading>Login to your Account</LoginHeading>
-                        <LoginInfo>Enter email and password to login</LoginInfo>
-                        <Form>
-                            <InputContainer>
-                                <TextInput type="email" placeholder="Email" />
-                            </InputContainer>
-                            <InputContainer>
-                                <TextInput
-                                    type="password"
-                                    placeholder="Password"
-                                />
-                            </InputContainer>
-                            <LoginButton to="/signup">Signup Now</LoginButton>
-                            <ButtonContainer>
-                                <SubmitButton to="/login">Login</SubmitButton>
-                            </ButtonContainer>
-                        </Form>
-                    </LoginContainer>
-                </RightContainer>
-            </Container>
+            <MainContainer>
+                <Wrapper>
+                    <Container>
+                        <RightContainer>
+                            <LoginContainer>
+                                <LoginHead>
+                                    <LoginHeading>Login</LoginHeading>
+                                    <CrossDiv
+                                        onClick={(e) => {
+                                            console.log("close");
+                                        }}
+                                    >
+                                        <CrossImg
+                                            src="none"
+                                            alt="Cross"
+                                        ></CrossImg>
+                                    </CrossDiv>
+                                </LoginHead>
+                                <LoginInfo>Enter Phone to Verify OTP</LoginInfo>
+                                <Form>
+                                    <InputContainer>
+                                        <TextInput
+                                            type="phone"
+                                            placeholder="Phone Number"
+                                            onChange={(e) =>
+                                                console.log("none")
+                                            }
+                                        />
+                                    </InputContainer>
+                                    <p></p>
+                                    <MainButtonContainer>
+                                        <SignupButton
+                                            onClick={(e) => {
+                                                console.log("nothing");
+                                            }}
+                                        ></SignupButton>
+                                        <ForgotButton>
+                                            Create an Account?
+                                        </ForgotButton>
+                                    </MainButtonContainer>
+                                    <ButtonContainer>
+                                        <SubmitButton>Login</SubmitButton>
+                                    </ButtonContainer>
+                                </Form>
+                            </LoginContainer>
+                        </RightContainer>
+                    </Container>
+                </Wrapper>
+            </MainContainer>
         </>
     );
 }
-
-const Container = styled.div`
-    min-height: 100vh;
-    display: flex;
-    padding: 15px;
-    flex-wrap: wrap;
+const CrossDiv = styled.a`
+    width: 7%;
+    cursor: pointer;
 `;
-const LeftContainer = styled.div`
-    padding: 40px 70px 70px;
+const CrossImg = styled.img`
+    display: block;
+    width: 100%;
+`;
+const LoginHead = styled.div`
     display: flex;
     align-items: center;
-    @media all and (max-width: 640px) {
-        display: none;
-    }
+    justify-content: space-between;
+    margin-bottom: 21px;
 `;
-const MainHeading = styled.h1`
-    font-size: 38px;
-    color: #8d1818;
-    line-height: 1.4em;
-`;
-const RightContainer = styled.div`
-    background: #000;
-    color: #fff;
-    width: 45%;
+const MainButtonContainer = styled.div`
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    justify-content: space-between;
+`;
+const SignupButton = styled.a`
+    font-size: 14px;
+    font-weight: 550;
+    cursor: pointer;
+`;
+const MainContainer = styled.section`
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(2px);
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+`;
+const Wrapper = styled.div`
+    width: 90%;
+    margin: 0 auto;
+`;
+const Container = styled.div``;
+const RightContainer = styled.div`
     border-radius: 20px;
-    padding: 0 70px 70px;
-    @media all and (max-width: 640px) {
-        width: 100%;
+    padding: 30px;
+    color: #000;
+    width: 27%;
+    height: 369px;
+    margin: 0 auto;
+    background: #fff;
+    @media all and (max-width: 1080px) {
+        width: 80%;
         padding: 0 55px 55px;
+    }
+    @media all and (max-width: 780px) {
+        width: 90%;
+        padding: 0 19px 38px;
+    }
+    @media all and (max-width: 360px) {
+        width: 96%;
+        padding: 0 12px 22px;
     }
 `;
 const LoginContainer = styled.div`
-    padding-top: 10px;
-    border-bottom: 1px solid #ab1414;
+    border-bottom: 1px solid #fff;
     width: 100%;
 `;
 const LoginHeading = styled.h3`
-    font-size: 32px;
+    font-size: 27px;
     font-weight: bold;
-    margin-bottom: 20px;
+    @media all and (max-width: 640px) {
+        font-size: 22px;
+    }
 `;
 const LoginInfo = styled.p`
     font-size: 18px;
     margin-bottom: 35px;
+    @media all and (max-width: 640px) {
+        font-size: 14px;
+    }
 `;
 const Form = styled.form`
     width: 100%;
@@ -92,37 +139,45 @@ const Form = styled.form`
 `;
 const InputContainer = styled.div`
     margin-bottom: 15px;
-    position: relative;
     &:before {
     }
 `;
 const TextInput = styled.input`
     padding: 20px 25px 20px 30px;
-    width: 100%;
+    width: 93%;
     display: block;
     border: none;
     border-radius: 10px;
     font-size: 18px;
+    border: 1px solid black;
     outline: none;
+    @media all and (max-width: 640px) {
+        width: 100%;
+    }
 `;
-const LoginButton = styled(Link)`
-    display: flex;
-    justify-content: flex-end;
+const ForgotButton = styled.a`
     margin-bottom: 25px;
-    color: #f60404;
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: none;
+    color: red;
+    cursor: pointer;
+    font-weight: 550;
 `;
-const SubmitButton = styled(Link)`
+const SubmitButton = styled.a`
     background: #000;
     border: 0;
     outline: 0;
     color: #fff;
-    padding: 25px 40px;
+    padding: 15px 30px;
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
     text-decoration: none;
+    border: 1px solid;
+    @media all and (max-width: 640px) {
+        padding: 6px 24px;
+        font-size: 13px;
+    }
 `;
 const ButtonContainer = styled.div`
     display: flex;

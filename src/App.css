@@ -166,3 +166,8 @@ div.right div.cart-items div.right a {
     display: flex;
     align-items: center;
 }
+
+.bottom-nav-item.active {
+    background-color: #fff !important;
+    color: #000 !important;
+}
