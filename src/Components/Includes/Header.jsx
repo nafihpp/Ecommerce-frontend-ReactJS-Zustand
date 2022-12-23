@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartModal from "./CartModal";
@@ -13,6 +12,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
     Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
     Geocode.setLanguage("en");
     const [data, setData] = useState("");
+    const products = item;
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -31,7 +31,6 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
         }
     );
 
-    const products = useSelector((state) => state.allProducts.products);
     const [current, setCurrent] = useState([]);
     const [search, setSearch] = useState("");
 
@@ -55,17 +54,19 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
         <>
             <MainContainer className={modal ? "hide" : null}>
                 <LocationContainer>
-                    <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 512 512"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z"></path>
-                    </svg>
+                    <LocationIcon>
+                        <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 512 512"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z"></path>
+                        </svg>
+                    </LocationIcon>
                     <span>{data}</span>
                 </LocationContainer>
                 <WrapperContainer>
@@ -192,6 +193,10 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
 }
 
 export default Header;
+const LocationIcon = styled.span`
+    margin-right: 10px;
+    font-size: 20px;
+`;
 const LocationContainer = styled.div`
     display: flex;
     justify-content: center;

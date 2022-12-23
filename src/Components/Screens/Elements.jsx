@@ -42,105 +42,17 @@ function Elements({ item, setItem }) {
             <Helmet>
                 <title>{`${page.id} | Shopping`}</title>
             </Helmet>
-            <Header />
-            <BackButton onClick={back}>
-                <IoArrowBackOutline />
-            </BackButton>
             <MainContainer>
                 <Wrapper>
-                    <MainDiv>
-                        <ImageContainer>
-                            <img src={page.image} alt="" className="image" />
-                        </ImageContainer>
-                        <div class="right">
-                            <Headline>{page.title}</Headline>
-                            <Paragra
-                                style={{
-                                    border: "2px solid black",
-                                    width: "100%",
-                                    fontSize: "13px",
-                                    minHeight: "30px",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    borderRadius: "8px",
-                                    marginTop: "10px",
-                                }}
-                            >
-                                <Par>{page.category}</Par>
-                            </Paragra>
-
-                            <div class="prices">
-                                <h1 class="new">${page.price}</h1>
-                                <span>10%</span>
-                            </div>
-                            <div class="cart-items">
-                                <Quantity>Quantity</Quantity>
-                                <div class="left">
-                                    <div
-                                        href=""
-                                        class="operator"
-                                        style={{ textDecoration: "none" }}
-                                        onClick={() => decrement()}
-                                    >
-                                        -
-                                    </div>
-                                    <h5>{count}</h5>
-                                    <div
-                                        href=""
-                                        class="operator"
-                                        style={{ textDecoration: "none" }}
-                                        onClick={() => increment()}
-                                    >
-                                        +
-                                    </div>
-                                </div>
-                            </div>
-                            <DivCart>
-                                <a
-                                    style={{
-                                        color: "#fff",
-                                        textDecoration: "none",
-                                    }}
-                                    href="#"
-                                >
-                                    {" "}
-                                    <AiOutlineShoppingCart /> Add to cart
-                                </a>
-                            </DivCart>
-                        </div>
-                    </MainDiv>
+                    <BackButton onClick={back}>
+                        <IoArrowBackOutline />
+                    </BackButton>
                 </Wrapper>
             </MainContainer>
         </>
     );
 }
-const Paragra = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-const Par = styled.p``;
-const Quantity = styled.p`
-    margin-bottom: 0px !important;
-`;
-const DivCart = styled.div`
-    margin-top: 10px;
-    background-color: #f86338;
-    padding: 10px;
-    border-radius: 8px;
-    width: 35%;
-    @media all and (max-width: 680px) {
-        width: 100%;
-        font-size: 12px;
-    }
-`;
-const Headline = styled.h1`
-    @media all and (max-width: 480px) {
-        font-size: 20px;
-        width: 241%;
-    }
-`;
+const MainContainer = styled.div``;
 const BackButton = styled.div`
     border: 1px solid #000;
     padding: 5px;
@@ -154,28 +66,74 @@ const BackButton = styled.div`
     margin-top: 10px;
     margin-left: 20px;
 `;
-const MainDiv = styled.div`
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-`;
 const Wrapper = styled.div`
-    width: 75%;
+    width: 90%;
     margin: 0 auto;
 `;
-const MainContainer = styled.div`
-    height: 100vh;
-`;
-const ImageContainer = styled.div`
-    width: 28%;
-    @media all and (max-width: 640px) {
-        width: 70%;
-    }
-    @media all and (max-width: 480px) {
-        width: 80%;
-    }
-    @media all and (max-width: 320px) {
-    }
-`;
+
 export default Elements;
+
+{
+    /* <MainDiv>
+<ImageContainer>
+    <img src={page.image} alt="" className="image" />
+</ImageContainer>
+<div class="right">
+    <Headline>{page.title}</Headline>
+    <Paragra
+        style={{
+            border: "2px solid black",
+            width: "100%",
+            fontSize: "13px",
+            minHeight: "30px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "8px",
+            marginTop: "10px",
+        }}
+    >
+        <Par>{page.category}</Par>
+    </Paragra>
+
+    <div class="prices">
+        <h1 class="new">${page.price}</h1>
+        <span>10%</span>
+    </div>
+    <div class="cart-items">
+        <Quantity>Quantity</Quantity>
+        <div class="left">
+            <div
+                href=""
+                class="operator"
+                style={{ textDecoration: "none" }}
+                onClick={() => decrement()}
+            >
+                -
+            </div>
+            <h5>{count}</h5>
+            <div
+                href=""
+                class="operator"
+                style={{ textDecoration: "none" }}
+                onClick={() => increment()}
+            >
+                +
+            </div>
+        </div>
+    </div>
+    <DivCart>
+        <a
+            style={{
+                color: "#fff",
+                textDecoration: "none",
+            }}
+            href="#"
+        >
+            {" "}
+            <AiOutlineShoppingCart /> Add to cart
+        </a>
+    </DivCart>
+</div>
+</MainDiv> */
+}

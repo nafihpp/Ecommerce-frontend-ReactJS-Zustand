@@ -15,6 +15,7 @@ function LoginModal({
     const location = useLocation();
     const [error, setError] = useState("");
     const [count, setCount] = useState(1);
+
     function increment() {
         setCount((prev) => prev + 1);
     }

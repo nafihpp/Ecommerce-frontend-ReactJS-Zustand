@@ -44,7 +44,7 @@ function NavBar({ modal, setModal }) {
                             <img
                                 src={require("../../assets/location.jpg")}
                                 alt="location"
-                                width={30}
+                                width={100}
                             />
                         </LocationContainer>
                         <h4 style={{ display: "inline-block" }}>{data}</h4>
@@ -84,6 +84,10 @@ function NavBar({ modal, setModal }) {
 }
 
 export default NavBar;
+const LocationContainer = styled.div`
+    font-size: 24px;
+    margin-right: 14px;
+`;
 const MiddleLocation = styled.div`
     display: flex;
     align-items: center;

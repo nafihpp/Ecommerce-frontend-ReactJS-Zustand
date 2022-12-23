@@ -7,10 +7,7 @@ import { React, useState } from "react";
 import Items from "./Components/Screens/Items";
 import Login from "./Components/Includes/Login";
 import Signup from "./Components/Includes/Signup";
-import { useDispatch } from "react-redux";
-import { setProducts } from "./Components/Includes/redux/actions/productActions";
-import { useEffect } from "react";
-import animationData from "./Components/loader/75400-shopping-bag.json";
+import animationData from "./loader/75400-shopping-bag.json";
 
 function App() {
     const [item, setItem] = useState([]);

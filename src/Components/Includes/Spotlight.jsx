@@ -38,7 +38,7 @@ function Spotlight() {
                                 Shop Your Favuorite Gadgets, <br />
                                 in One Click!
                             </MainHeading>
-                            <Button href="#Items">Start Shopping</Button>
+
                             <RightImgOne>
                                 <ImgOne
                                     src={require("../../assets/Ellipse 155.png")}

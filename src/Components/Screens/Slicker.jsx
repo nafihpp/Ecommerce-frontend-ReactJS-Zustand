@@ -4,16 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Orange from "../../assets/LOGO.png";
 import styled from "styled-components";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import SwiperCore, { Autoplay } from "swiper";
 import banana from "../../assets/banana.jpg";
 import apricot from "../../assets/apricot.jpg";
 import apple from "../../assets/apple.jpg";
 
-function Slicker() {
+function Slicker({ item }) {
+    console.log(item, "slickitem");
     SwiperCore.use([Autoplay]);
     return (
         <>
@@ -39,36 +38,13 @@ function Slicker() {
                         }}
                     >
                         <SwiperSlide>
-                            {" "}
-                            <MainContainer>
-                                <ImageContainer>
-                                    <Img src={banana} />
-                                </ImageContainer>
-                            </MainContainer>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            {" "}
-                            <MainContainer>
-                                <ImageContainer>
-                                    <Img src={apricot} />
-                                </ImageContainer>
-                            </MainContainer>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            {" "}
-                            <MainContainer>
-                                <ImageContainer>
-                                    <Img src={apple} />
-                                </ImageContainer>
-                            </MainContainer>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            {" "}
-                            <MainContainer>
-                                <ImageContainer>
-                                    <Img src={Orange} />
-                                </ImageContainer>
-                            </MainContainer>
+                            {item.map((ite) => {
+                                <MainContainer>
+                                    <ImageContainer>
+                                        <Img src={banana} />
+                                    </ImageContainer>
+                                </MainContainer>;
+                            })}
                         </SwiperSlide>
                     </Swiper>
                 </Wrapper>

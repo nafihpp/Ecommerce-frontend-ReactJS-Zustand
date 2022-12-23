@@ -4,24 +4,18 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { GrView } from "react-icons/gr";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Rating } from "react-simple-star-rating";
-import { useDispatch } from "react-redux";
-import { setProducts } from "../Includes/redux/actions/productActions";
 
 function Items({ item, setItem }) {
     const [isCategory, setCategory] = useState("");
     const [isAll, setAll] = useState([]);
     const [others, setOthers] = useState([]);
 
-    const dispatch = useDispatch();
     useEffect(() => {
         const axios = require("axios");
         axios
             .get("https://fakestoreapi.com/products/")
             .then(function (response) {
-                dispatch(setProducts(response.data));
                 setAll(response.data);
                 setOthers(response.data);
             })
@@ -77,7 +71,6 @@ function Items({ item, setItem }) {
     const Pagepush = (produce) => {
         navigate(`${produce.id}`);
     };
-
     let listProducts = () => {
         return isAll.map((produc) => (
             <>
@@ -89,20 +82,28 @@ function Items({ item, setItem }) {
                         <HeadProduct onClick={() => Pagepush(produc)}>
                             {produc.title}
                         </HeadProduct>
-                        <PriceProduct>${produc.price}</PriceProduct>
                         <Rating
                             initialValue={produc.rating.rate}
                             allowHover={false}
                             readonly={true}
                             size={22}
                         />
+                        <PriceProduct
+                            style={{
+                                color: "red",
+                                textDecoration: "line-through",
+                            }}
+                        >
+                            $ {(produc.price - produc.price / 10).toFixed(2)}
+                        </PriceProduct>
+                        <PriceProduct>${produc.price}</PriceProduct>
                         <MainCartContainer>
-                            <Buttoncart onClick={() => optimize(produc)}>
+                            {/* <Buttoncart onClick={() => optimize(produc)}>
                                 <AiOutlineShoppingCart />
-                            </Buttoncart>
-                            <Links to={`/${produc.id}`}>
+                            </Buttoncart> */}
+                            {/* <Links to={`/${produc.id}`}>
                                 <GrView />
-                            </Links>
+                            </Links> */}
                         </MainCartContainer>
                         <ToastContainer
                             toastStyle={{

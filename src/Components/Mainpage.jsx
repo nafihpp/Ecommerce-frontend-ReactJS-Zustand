@@ -11,6 +11,8 @@ import { IoHomeOutline } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import "reactjs-bottom-navigation/dist/index.css";
 import { isMobile } from "mobile-device-detect";
+import SpotLightCarousal from "./Includes/SpotLightCarousal";
+import CategoryBar from "./Includes/CategoryBar";
 
 function Mainpage({
     item,
@@ -93,13 +95,15 @@ function Mainpage({
                 setCount={setCount}
             />
             <Spotlight />
+            <SpotLightCarousal />
+            <CategoryBar />
             <Items
                 item={item}
                 setItem={setItem}
                 count={count}
                 setCount={setCount}
             />
-            <Slicker />
+            <Slicker item={item} />
             <Story />
             <Achievement />
             {isMobile && (
