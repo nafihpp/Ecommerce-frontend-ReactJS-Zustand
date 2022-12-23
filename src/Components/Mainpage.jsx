@@ -13,6 +13,8 @@ import "reactjs-bottom-navigation/dist/index.css";
 import { isMobile } from "mobile-device-detect";
 import SpotLightCarousal from "./Includes/SpotLightCarousal";
 import CategoryBar from "./Includes/CategoryBar";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { FaShoppingCart } from "react-icons/fa";
 
 function Mainpage({
     item,
@@ -46,15 +48,14 @@ function Mainpage({
         },
 
         {
-            title: "Notifications",
+            title: "Cart",
 
-            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
+            icon: <AiOutlineShoppingCart style={{ fontSize: "18px" }} />,
 
             activeIcon: (
-                <IoHomeOutline
+                <FaShoppingCart
                     style={{
                         fontSize: "18px",
-                        color: "#fff",
                         background: "fff",
                     }}
                 />
