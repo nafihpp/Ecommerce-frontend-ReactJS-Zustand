@@ -12,6 +12,10 @@ function SpotLightCarousal() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        autoplay: true,
+        speed: 2900,
+        autoplaySpeed: 3900,
+        cssEase: "linear",
         responsive: [
             {
                 breakpoint: 1024,
