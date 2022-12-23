@@ -94,7 +94,7 @@ function Mainpage({
                 count={count}
                 setCount={setCount}
             />
-            <Spotlight />
+            {/* <Spotlight /> */}
             <SpotLightCarousal />
             <CategoryBar />
             <Items

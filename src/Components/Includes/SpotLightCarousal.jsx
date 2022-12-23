@@ -3,10 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Orange from "../../assets/WebHomeBannerSlider.png";
+import Jumka from "../../assets/JumkaSlider.jpg";
 
 function SpotLightCarousal() {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -24,9 +25,9 @@ function SpotLightCarousal() {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1,
                 },
             },
             {
@@ -39,7 +40,7 @@ function SpotLightCarousal() {
         ],
     };
     return (
-        <Slider {...settings}>
+        <Slider {...settings} style={{ padding: "124px 0 0 0" }}>
             <div>
                 <img
                     src={Orange}
@@ -49,35 +50,7 @@ function SpotLightCarousal() {
             </div>
             <div>
                 <img
-                    src={Orange}
-                    alt="orange"
-                    style={{ display: "block", width: "100%" }}
-                />
-            </div>
-            <div>
-                <img
-                    src={Orange}
-                    alt="orange"
-                    style={{ display: "block", width: "100%" }}
-                />
-            </div>
-            <div>
-                <img
-                    src={Orange}
-                    alt="orange"
-                    style={{ display: "block", width: "100%" }}
-                />
-            </div>
-            <div>
-                <img
-                    src={Orange}
-                    alt="orange"
-                    style={{ display: "block", width: "100%" }}
-                />
-            </div>
-            <div>
-                <img
-                    src={Orange}
+                    src={Jumka}
                     alt="orange"
                     style={{ display: "block", width: "100%" }}
                 />
