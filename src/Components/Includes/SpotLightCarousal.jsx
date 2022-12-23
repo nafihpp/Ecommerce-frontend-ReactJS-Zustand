@@ -41,22 +41,46 @@ function SpotLightCarousal() {
     return (
         <Slider {...settings}>
             <div>
-                <img src={Orange} alt="orange" />
+                <img
+                    src={Orange}
+                    alt="orange"
+                    style={{ display: "block", width: "100%" }}
+                />
             </div>
             <div>
-                <img src={Orange} alt="orange" />
+                <img
+                    src={Orange}
+                    alt="orange"
+                    style={{ display: "block", width: "100%" }}
+                />
             </div>
             <div>
-                <img src={Orange} alt="orange" />
+                <img
+                    src={Orange}
+                    alt="orange"
+                    style={{ display: "block", width: "100%" }}
+                />
             </div>
             <div>
-                <img src={Orange} alt="orange" />
+                <img
+                    src={Orange}
+                    alt="orange"
+                    style={{ display: "block", width: "100%" }}
+                />
             </div>
             <div>
-                <img src={Orange} alt="orange" />
+                <img
+                    src={Orange}
+                    alt="orange"
+                    style={{ display: "block", width: "100%" }}
+                />
             </div>
             <div>
-                <img src={Orange} alt="orange" />
+                <img
+                    src={Orange}
+                    alt="orange"
+                    style={{ display: "block", width: "100%" }}
+                />
             </div>
         </Slider>
     );
