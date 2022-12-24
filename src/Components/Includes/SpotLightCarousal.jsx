@@ -1,7 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Orange from "../../assets/WebHomeBannerSlider.png";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -53,11 +50,8 @@ function SpotLightCarousal() {
     );
 }
 const MainDiv = styled.div`
-    padding: 140px 0 0 0;
+    padding: 120px 0 0 0;
 `;
-const Wrapper = styled.div`
-    width: 95%;
-    margin: 0 auto;
-`;
+const Wrapper = styled.div``;
 
 export default SpotLightCarousal;

@@ -5,6 +5,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Rating } from "react-simple-star-rating";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import SwiperCore, { Autoplay } from "swiper";
+import Apple from "../../assets/JumkaSlider.jpg";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
 
 function Items({ item, setItem }) {
     const [isCategory, setCategory] = useState("");

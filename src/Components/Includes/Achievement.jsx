@@ -56,16 +56,7 @@ function Achievement() {
 const MainHead = styled.h1`
     color: #f86338;
 `;
-const FirstPara = styled.p``;
-const NameHead = styled.h2``;
-const PositionPara = styled.p``;
-const ImageContainer = styled.div``;
-const LeftContainer = styled.div`
-    background-color: grey;
-    border-radius: 6px;
-    width: 40%;
-    height: 200px;
-`;
+
 const RightContainer = styled.div`
     width: 40%;
 `;
@@ -118,7 +109,7 @@ const Child = styled.li`
     width: 100%;
     margin-top: 20px;
     @media all and (max-width: 680px) {
-        width: 50%;
+        width: 20%;
     }
 `;
 
