@@ -244,12 +244,13 @@ const MainContainer = styled.section`
 const ParentList = styled.ul`
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     padding-top: 23px;
     margin-top: -1px;
+    overflow-x: scroll;
 `;
 const Child = styled.li`
     width: 23%;
+    margin-right: 20px;
     margin-bottom: 46px;
     border-radius: 4px;
     padding: 16px;

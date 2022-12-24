@@ -3,64 +3,61 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Orange from "../../assets/WebHomeBannerSlider.png";
-import Jumka from "../../assets/JumkaSlider.jpg";
+import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import SwiperCore, { Autoplay } from "swiper";
+import Apple from "../../assets/JumkaSlider.jpg";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
 
 function SpotLightCarousal() {
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 2900,
-        autoplaySpeed: 3900,
-        cssEase: "linear",
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 1,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+    SwiperCore.use([Autoplay]);
     return (
-        <Slider {...settings} style={{ padding: "124px 0 0 0" }}>
-            <div>
-                <img
-                    src={Orange}
-                    alt="orange"
-                    style={{ display: "block", width: "100%" }}
-                />
-            </div>
-            <div>
-                <img
-                    src={Jumka}
-                    alt="orange"
-                    style={{ display: "block", width: "100%" }}
-                />
-            </div>
-        </Slider>
+        <>
+            <MainDiv>
+                <Wrapper>
+                    <Swiper
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        onSlideChange={() => console.log("slide change")}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        autoplay={{
+                            delay: 1500,
+                        }}
+                        modules={[Navigation]}
+                        navigation={true}
+                    >
+                        <SwiperSlide>
+                            <div>
+                                <img
+                                    src={Orange}
+                                    alt="orange"
+                                    style={{ display: "block", width: "100%" }}
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div>
+                                <img
+                                    src={Apple}
+                                    alt="orange"
+                                    style={{ display: "block", width: "100%" }}
+                                />
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
+                </Wrapper>
+            </MainDiv>
+        </>
     );
 }
+const MainDiv = styled.div`
+    padding: 140px 0 0 0;
+`;
+const Wrapper = styled.div`
+    width: 95%;
+    margin: 0 auto;
+`;
 
 export default SpotLightCarousal;

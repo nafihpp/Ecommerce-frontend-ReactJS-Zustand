@@ -6,22 +6,24 @@ function CategoryBar() {
         <MainContainer>
             <Wrapper>
                 <Container>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
-                    <Box></Box>
+                    <div>
+                        <Box></Box>
+                    </div>
+                    <div>
+                        <Box></Box>
+                    </div>
+                    <div>
+                        <Box></Box>
+                    </div>
+                    <div>
+                        <Box></Box>
+                    </div>
+                    <div>
+                        <Box></Box>
+                    </div>
+                    <div>
+                        <Box></Box>
+                    </div>
                 </Container>
             </Wrapper>
         </MainContainer>
@@ -32,16 +34,7 @@ const Wrapper = styled.div`
     width: 98%;
     margin: 0 auto;
 `;
-const Container = styled.div`
-    display: flex;
-
-    overflow-x: scroll;
-`;
-const Box = styled.span`
-    border: 2px solid #000;
-    border-radius: 50%;
-    width: 30%;
-    height: 100px;
-`;
+const Container = styled.div``;
+const Box = styled.div``;
 
 export default CategoryBar;
