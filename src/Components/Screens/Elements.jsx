@@ -6,13 +6,32 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoArrowBackOutline } from "react-icons/io5";
-import Header from "../Includes/Header";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Elements({ item, setItem }) {
     const { id } = useParams();
     const [page, setPage] = useState([]);
     const [count, setCount] = useState(1);
     let navigate = useNavigate();
+
+    function buy(bought) {
+        let already = item.filter((im) => bought.id === im.id);
+        if (already.length < 1) {
+            notify();
+            setItem((prev) => [...prev, bought]);
+        }
+    }
+    const notify = () =>
+        toast.success("Added to Cart", {
+            position: "bottom-center",
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+
     useEffect(() => {
         axios
             .get(`https://fakestoreapi.com/products/${id}`)
@@ -47,6 +66,15 @@ function Elements({ item, setItem }) {
                     <BackButton onClick={back}>
                         <IoArrowBackOutline />
                     </BackButton>
+                    <ToastContainer
+                        toastStyle={{
+                            position: "absolute",
+                            bottom: "90px",
+                            left: "40px",
+                            width: "80%",
+                        }}
+                        autoClose={300}
+                    />
                 </Wrapper>
             </MainContainer>
         </>

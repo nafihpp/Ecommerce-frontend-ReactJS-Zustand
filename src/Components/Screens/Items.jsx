@@ -2,15 +2,10 @@ import React, { useCallback } from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import { Rating } from "react-simple-star-rating";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import SwiperCore, { Autoplay } from "swiper";
-import Apple from "../../assets/JumkaSlider.jpg";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
 
 function Items({ item, setItem }) {
     const [isCategory, setCategory] = useState("");
@@ -31,21 +26,8 @@ function Items({ item, setItem }) {
             });
     }, []);
 
-    //Navigate Defined
     let navigate = useNavigate();
-    //Notify On Cart Success
-    const notify = () =>
-        toast.success("Added to Cart", {
-            position: "bottom-center",
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
-    //Filtering with dependency Category
 
-    //Filtering Function for Category
     function filtering() {
         if (isCategory == "") {
             setAll(others);
@@ -54,25 +36,18 @@ function Items({ item, setItem }) {
             setAll(final);
         }
     }
+
     useEffect(() => {
         filtering();
     }, [isCategory]);
 
-    //Buy Function with one Already exist warn
-    function buy(bought) {
-        let already = item.filter((im) => bought.id === im.id);
-        if (already.length < 1) {
-            notify();
-            setItem((prev) => [...prev, bought]);
-        }
-    }
     // useCallback to optimize cart performance
-    const optimize = useCallback(
-        (bought) => {
-            buy(bought);
-        },
-        [item]
-    );
+    // const optimize = useCallback(
+    //     (bought) => {
+    //         buy(bought);
+    //     },
+    //     [item]
+    // );
     // Routing to the Description Page
     const Pagepush = (produce) => {
         navigate(`${produce.id}`);
@@ -80,14 +55,12 @@ function Items({ item, setItem }) {
     let listProducts = () => {
         return isAll.map((produc) => (
             <>
-                <Child key={produc.id}>
-                    <ImageContainer onClick={() => Pagepush(produc)}>
+                <Child key={produc.id} onClick={() => Pagepush(produc)}>
+                    <ImageContainer>
                         <ProductImg src={produc.image} alt={produc.title} />
                     </ImageContainer>
                     <Empdiv>
-                        <HeadProduct onClick={() => Pagepush(produc)}>
-                            {produc.title}
-                        </HeadProduct>
+                        <HeadProduct>{produc.title}</HeadProduct>
                         <Rating
                             initialValue={produc.rating.rate}
                             allowHover={false}
@@ -111,15 +84,6 @@ function Items({ item, setItem }) {
                                 <GrView />
                             </Links> */}
                         </MainCartContainer>
-                        <ToastContainer
-                            toastStyle={{
-                                position: "absolute",
-                                bottom: "90px",
-                                left: "40px",
-                                width: "80%",
-                            }}
-                            autoClose={300}
-                        />
                     </Empdiv>
                 </Child>
             </>

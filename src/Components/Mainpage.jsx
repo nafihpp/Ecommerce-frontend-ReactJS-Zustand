@@ -36,18 +36,6 @@ function Mainpage({
         },
 
         {
-            title: "Search",
-
-            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
-
-            activeIcon: (
-                <IoHomeOutline
-                    style={{ fontSize: "18px", background: "fff" }}
-                />
-            ),
-        },
-
-        {
             title: "Cart",
 
             icon: <AiOutlineShoppingCart style={{ fontSize: "18px" }} />,

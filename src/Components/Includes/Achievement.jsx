@@ -13,7 +13,7 @@ function Achievement() {
     return (
         <MainContainer>
             <Wrapper>
-                <Heading>Our Achievement</Heading>
+                <Heading>Our Partners</Heading>
                 <Parent>
                     <Child>
                         <img
