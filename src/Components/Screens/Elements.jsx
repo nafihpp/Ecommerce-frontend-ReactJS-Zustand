@@ -61,28 +61,33 @@ function Elements({ item, setItem }) {
     return (
         <>
             <Helmet>
-                <title>{`${page.id} | Shopping`}</title>
+                <title>{`${page.title} | Shopping`}</title>
             </Helmet>
+
             <MainContainer>
                 <Wrapper>
                     <BackButton onClick={back}>
                         <IoArrowBackOutline />
                     </BackButton>
-                    <LeftContainer>
-                        <ImageContainer>
-                            <img
-                                src={page.image}
-                                style={{ display: "block", width: "100%" }}
-                            />
-                        </ImageContainer>
-                        <Buttoncart onClick={() => console.log("hi")}>
-                            <AiOutlineShoppingCart />
-                        </Buttoncart>{" "}
-                        <Links to={`/h`}>
-                            <GrView />
-                        </Links>
-                    </LeftContainer>
-
+                    <Container>
+                        <LeftContainer>
+                            <ImageContainer>
+                                <img
+                                    src={page.image}
+                                    style={{ display: "block", width: "100%" }}
+                                />
+                            </ImageContainer>
+                        </LeftContainer>
+                        <RightContainer>
+                            <Buttoncart onClick={() => console.log("hi")}>
+                                Add to Cart <AiOutlineShoppingCart />
+                            </Buttoncart>{" "}
+                            <Links to={`/h`}>
+                                Buy Now
+                                <GrView />
+                            </Links>{" "}
+                        </RightContainer>
+                    </Container>
                     <ToastContainer
                         toastStyle={{
                             position: "absolute",
@@ -97,18 +102,29 @@ function Elements({ item, setItem }) {
         </>
     );
 }
-const ImageContainer = styled.div`
+const Container = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`;
+const RightContainer = styled.div`
     width: 50%;
+`;
+const ImageContainer = styled.div`
+    width: 30%;
 `;
 const LeftContainer = styled.div`
     width: 50%;
     margin-top: 30px;
 `;
-const Buttoncart = styled.a`
+const Buttoncart = styled.button`
+    padding: 5px 50px;
+    margin-right: 30px;
     :hover {
     }
 `;
-const Links = styled(Link)`
+const Links = styled.button`
+    padding: 5px 50px;
     :hover {
     }
 `;
@@ -119,8 +135,8 @@ const BackButton = styled.div`
     cursor: pointer;
     font-size: 34px;
     position: absolute;
-    top: -5%;
-    left: 3%;
+    /* top: -5%; */
+    left: 1%;
 `;
 const Wrapper = styled.div`
     width: 90%;
