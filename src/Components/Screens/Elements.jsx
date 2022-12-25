@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Helmet from "react-helmet";
@@ -8,6 +8,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { GrView } from "react-icons/gr";
 
 function Elements({ item, setItem }) {
     const { id } = useParams();
@@ -56,6 +57,7 @@ function Elements({ item, setItem }) {
     function back() {
         navigate("/");
     }
+    console.log(page);
     return (
         <>
             <Helmet>
@@ -66,6 +68,21 @@ function Elements({ item, setItem }) {
                     <BackButton onClick={back}>
                         <IoArrowBackOutline />
                     </BackButton>
+                    <LeftContainer>
+                        <ImageContainer>
+                            <img
+                                src={page.image}
+                                style={{ display: "block", width: "100%" }}
+                            />
+                        </ImageContainer>
+                        <Buttoncart onClick={() => console.log("hi")}>
+                            <AiOutlineShoppingCart />
+                        </Buttoncart>{" "}
+                        <Links to={`/h`}>
+                            <GrView />
+                        </Links>
+                    </LeftContainer>
+
                     <ToastContainer
                         toastStyle={{
                             position: "absolute",
@@ -80,19 +97,30 @@ function Elements({ item, setItem }) {
         </>
     );
 }
-const MainContainer = styled.div``;
+const ImageContainer = styled.div`
+    width: 50%;
+`;
+const LeftContainer = styled.div`
+    width: 50%;
+    margin-top: 30px;
+`;
+const Buttoncart = styled.a`
+    :hover {
+    }
+`;
+const Links = styled(Link)`
+    :hover {
+    }
+`;
+const MainContainer = styled.div`
+    position: relative;
+`;
 const BackButton = styled.div`
-    border: 1px solid #000;
-    padding: 5px;
     cursor: pointer;
-    width: 12%;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-left: 20px;
+    font-size: 34px;
+    position: absolute;
+    top: -5%;
+    left: 3%;
 `;
 const Wrapper = styled.div`
     width: 90%;

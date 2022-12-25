@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
 import { Rating } from "react-simple-star-rating";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -251,14 +250,7 @@ const HeadProduct = styled.h4`
     cursor: pointer;
 `;
 const PriceProduct = styled.p``;
-const Buttoncart = styled.a`
-    border-radius: 2px;
-    padding: 4px;
-    cursor: pointer;
-    :hover {
-        color: black;
-    }
-`;
+
 const Links = styled(Link)`
     margin: 8px 0;
     text-decoration: none;
