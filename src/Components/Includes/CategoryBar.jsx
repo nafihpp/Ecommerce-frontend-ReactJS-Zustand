@@ -88,7 +88,7 @@ const Child = styled.li`
     }
 `;
 const ImageContainer = styled.div`
-    width: 80%;
+    width: 100px;
     max-width: 68%;
     overflow: hidden;
     cursor: pointer;
