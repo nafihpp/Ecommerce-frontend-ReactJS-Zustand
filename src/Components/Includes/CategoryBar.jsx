@@ -69,8 +69,7 @@ const MainContainer = styled.section`
 const ParentList = styled.ul`
     display: flex;
     justify-content: space-between;
-    padding-top: 23px;
-    margin-top: -1px;
+    padding-top: 5px;
     overflow-x: scroll;
 `;
 const Child = styled.li`
