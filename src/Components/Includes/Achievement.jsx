@@ -109,7 +109,7 @@ const Child = styled.li`
     width: 100%;
     margin-top: 20px;
     @media all and (max-width: 680px) {
-        width: 20%;
+        width: 44%;
     }
 `;
 
