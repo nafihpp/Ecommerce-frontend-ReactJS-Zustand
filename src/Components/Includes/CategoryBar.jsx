@@ -73,7 +73,7 @@ const ParentList = styled.ul`
     overflow-x: scroll;
 `;
 const Child = styled.li`
-    border: 1px solid #000;
+    border: 3px solid #000;
     border-radius: 50%;
     width: 8%;
     padding: 8px;
