@@ -75,8 +75,8 @@ const ParentList = styled.ul`
 const Child = styled.li`
     border: 1px solid #000;
     border-radius: 50%;
-    width: 12%;
-    padding: 16px;
+    width: 8%;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

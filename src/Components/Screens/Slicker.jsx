@@ -35,13 +35,6 @@ function Slicker() {
                 <Wrapper>
                     <TopContainer>
                         <TopHead>Top Items!</TopHead>
-                        <TopPara>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Illo eveniet quae, ipsa sequi doloribus
-                            repudiandae iste perferendis ad debitis expedita,
-                            fugiat ipsum saepe! Natus velit, deleniti ducimus
-                            sit officiis vitae!
-                        </TopPara>
                     </TopContainer>
                     <Swiper
                         spaceBetween={50}
