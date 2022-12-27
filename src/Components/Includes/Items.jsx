@@ -66,15 +66,18 @@ function Items({ item, setItem }) {
                             readonly={true}
                             size={22}
                         />
-                        <PriceProduct
-                            style={{
-                                color: "red",
-                                textDecoration: "line-through",
-                            }}
-                        >
-                            $ {(produc.price - produc.price / 10).toFixed(2)}
-                        </PriceProduct>
-                        <PriceProduct>${produc.price}</PriceProduct>
+                        <PriceContainer>
+                            <PriceDiscountProduct
+                                style={{
+                                    color: "red",
+                                    textDecoration: "line-through",
+                                }}
+                            >
+                                ${" "}
+                                {(produc.price - produc.price / 10).toFixed(2)}
+                            </PriceDiscountProduct>
+                            <PriceProduct>${produc.price}</PriceProduct>
+                        </PriceContainer>
                         <MainCartContainer>
                             {/* <Buttoncart onClick={() => optimize(produc)}>
                                 <AiOutlineShoppingCart />
@@ -155,6 +158,9 @@ function Items({ item, setItem }) {
         </>
     );
 }
+const PriceContainer = styled.div`
+    display: flex;
+`;
 const HeadingMain = styled.h2`
     text-align: center;
     margin-bottom: 20px;
@@ -248,6 +254,10 @@ const HeadProduct = styled.h4`
     height: 1.5rem;
     overflow: hidden;
     cursor: pointer;
+`;
+const PriceDiscountProduct = styled.p`
+    font-size: 12px;
+    margin-right: 10px;
 `;
 const PriceProduct = styled.p``;
 

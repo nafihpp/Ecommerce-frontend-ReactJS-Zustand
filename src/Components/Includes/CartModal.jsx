@@ -12,7 +12,6 @@ function LoginModal({
     activeTabs,
     setActiveTabs,
 }) {
-    const location = useLocation();
     const [error, setError] = useState("");
     const [count, setCount] = useState(1);
 
@@ -51,21 +50,17 @@ function LoginModal({
                         <Quantity>Quantity</Quantity>
                         <div class="left">
                             <div
-                                href=""
-                                class="operator"
                                 style={{ textDecoration: "none" }}
-                                onClick={() => decrement()}
+                                onClick={() => decrement}
                             >
-                                -
+                                Negative
                             </div>
                             <h5>{1}</h5>
                             <div
-                                href=""
-                                class="operator"
                                 style={{ textDecoration: "none" }}
-                                onClick={() => increment()}
+                                onClick={() => increment}
                             >
-                                +
+                                Add it
                             </div>
                         </div>
                     </div>
