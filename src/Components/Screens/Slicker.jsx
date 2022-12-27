@@ -10,9 +10,24 @@ import SwiperCore, { Autoplay } from "swiper";
 import banana from "../../assets/banana.jpg";
 import apricot from "../../assets/apricot.jpg";
 import apple from "../../assets/apple.jpg";
+import { useEffect } from "react";
+import { useState } from "react";
 
-function Slicker({ item }) {
-    console.log(item, "slickitem");
+function Slicker() {
+    const [item, setItem] = useState([]);
+    console.log(item, "slick item");
+    useEffect(() => {
+        const axios = require("axios");
+        axios
+            .get("https://fakestoreapi.com/products/")
+            .then(function (response) {
+                setItem(response.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+    }, []);
     SwiperCore.use([Autoplay]);
     return (
         <>
@@ -30,22 +45,24 @@ function Slicker({ item }) {
                     </TopContainer>
                     <Swiper
                         spaceBetween={50}
-                        slidesPerView={2}
+                        slidesPerView={3}
                         onSlideChange={() => console.log("slide change")}
                         onSwiper={(swiper) => console.log(swiper)}
                         autoplay={{
                             delay: 500,
                         }}
                     >
-                        <SwiperSlide>
-                            {item.map((ite) => {
-                                <MainContainer>
-                                    <ImageContainer>
-                                        <Img src={banana} />
-                                    </ImageContainer>
-                                </MainContainer>;
-                            })}
-                        </SwiperSlide>
+                        {item.map((ite) => {
+                            return (
+                                <SwiperSlide>
+                                    <MainContainer>
+                                        <ImageContainer>
+                                            <Img src={ite.image} />
+                                        </ImageContainer>
+                                    </MainContainer>
+                                </SwiperSlide>
+                            );
+                        })}
                     </Swiper>
                 </Wrapper>
             </MainDiv>

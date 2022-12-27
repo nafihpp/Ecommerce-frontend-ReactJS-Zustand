@@ -54,11 +54,6 @@ function App() {
                             />
                         }
                     />
-                    <Route
-                        path="/cart"
-                        element={<Cart item={item} setItem={setItem} />}
-                    />
-
                     <Route path="/:id" element={<Elements />} />
                     <Route
                         path="*"
