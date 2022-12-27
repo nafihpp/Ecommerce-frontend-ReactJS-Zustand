@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import Items from "./Screens/Items";
+import Items from "../Includes/Items";
 // import Navbar from "./Includes/NavBar";
-import Header from "./Includes/Header";
-import Spotlight from "./Includes/Spotlight";
-import Achievement from "./Includes/Achievement";
-import Story from "./Includes/Story";
-import Slicker from "./Screens/Slicker";
+import Header from "../Includes/Header";
+import Spotlight from "../Includes/Spotlight";
+import Achievement from "../Includes/Achievement";
+import Story from "../Includes/Story";
+import Slicker from "../Screens/Slicker";
 import BottomNavigation from "reactjs-bottom-navigation";
 import { IoHomeOutline } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import "reactjs-bottom-navigation/dist/index.css";
 import { isMobile } from "mobile-device-detect";
-import SpotLightCarousal from "./Includes/SpotLightCarousal";
-import CategoryBar from "./Includes/CategoryBar";
+import SpotLightCarousal from "../Includes/SpotLightCarousal";
+import CategoryBar from "../Includes/CategoryBar";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 

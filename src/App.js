@@ -1,10 +1,9 @@
 import "./App.css";
-import MainPage from "./Components/Mainpage";
+import MainPage from "./Components/Screens/Mainpage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "./Components/Screens/Cart";
 import Elements from "./Components/Screens/Elements";
 import { React, useState } from "react";
-import Items from "./Components/Screens/Items";
 import Login from "./Components/Includes/Login";
 import Signup from "./Components/Includes/Signup";
 import animationData from "./loader/75400-shopping-bag.json";
@@ -59,10 +58,7 @@ function App() {
                         path="/cart"
                         element={<Cart item={item} setItem={setItem} />}
                     />
-                    <Route
-                        path="/items"
-                        element={<Items item={item} setItem={setItem} />}
-                    />
+
                     <Route path="/:id" element={<Elements />} />
                     <Route
                         path="*"

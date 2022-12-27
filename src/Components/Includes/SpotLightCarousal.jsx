@@ -16,7 +16,7 @@ function SpotLightCarousal() {
                 <Wrapper>
                     <Swiper
                         spaceBetween={50}
-                        slidesPerView={1}
+                        slidesPerView={2}
                         onSlideChange={() => console.log("slide change")}
                         onSwiper={(swiper) => console.log(swiper)}
                         autoplay={{
