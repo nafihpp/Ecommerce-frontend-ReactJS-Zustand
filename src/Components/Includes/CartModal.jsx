@@ -134,9 +134,17 @@ function LoginModal({
                                         </div>
                                     </div>
                                 ) : (
-                                    <h1 style={{ textAlign: "center" }}>
-                                        Cart is Empty
-                                    </h1>
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        <h1 style={{ textAlign: "center" }}>
+                                            Cart is Empty
+                                        </h1>
+                                    </div>
                                 )}
                             </MiddleContainer>
                         </Content>

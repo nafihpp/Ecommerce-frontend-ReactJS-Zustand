@@ -6,13 +6,26 @@ import styled from "styled-components";
 import CartModal from "./CartModal";
 import Geocode from "react-geocode";
 
-function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
+function Header({ modal, setModal, activeTabs, setActiveTabs }) {
+    const [item, setItem] = useState([]);
+    useEffect(() => {
+        const axios = require("axios");
+        axios
+            .get("https://fakestoreapi.com/products/")
+            .then(function (response) {
+                setItem(response.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+    }, []);
     const [lat, setLatitude] = useState("");
     const [lng, setLongitude] = useState("");
+
     Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
     Geocode.setLanguage("en");
     const [data, setData] = useState("");
-    const products = item;
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -47,7 +60,7 @@ function Header({ item, setItem, modal, setModal, activeTabs, setActiveTabs }) {
 
     const handleFilter = () => {
         setCurrent(
-            products.filter((item) => item.title.toLowerCase().includes(search))
+            item.filter((item) => item.title.toLowerCase().includes(search))
         );
     };
     return (

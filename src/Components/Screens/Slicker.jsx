@@ -16,18 +16,6 @@ import { useState } from "react";
 function Slicker() {
     const [item, setItem] = useState([]);
     console.log(item, "slick item");
-    useEffect(() => {
-        const axios = require("axios");
-        axios
-            .get("https://fakestoreapi.com/products/")
-            .then(function (response) {
-                setItem(response.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, []);
     SwiperCore.use([Autoplay]);
     return (
         <>
