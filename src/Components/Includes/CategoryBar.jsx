@@ -64,7 +64,7 @@ const Wrapperlist = styled.div`
 `;
 const MainContainer = styled.section`
     background: #fff;
-    padding: 57px 0;
+    padding: 10px 0;
 `;
 const ParentList = styled.ul`
     display: flex;
