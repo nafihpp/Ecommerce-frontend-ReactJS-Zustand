@@ -71,6 +71,7 @@ const ParentList = styled.ul`
     justify-content: space-between;
     padding-top: 23px;
     margin-top: -1px;
+    overflow-x: scroll;
 `;
 const Child = styled.li`
     border: 1px solid #000;
