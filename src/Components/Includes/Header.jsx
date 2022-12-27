@@ -8,6 +8,7 @@ import Geocode from "react-geocode";
 
 function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     const [item, setItem] = useState([]);
+    const [cart, setCart] = useState([]);
     useEffect(() => {
         const axios = require("axios");
         axios
@@ -149,7 +150,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                     setModal(true);
                                 }}
                             >
-                                <RoundBox>{item.length}</RoundBox>
+                                <RoundBox>{cart.length}</RoundBox>
                                 <svg
                                     width="20"
                                     height="22"
@@ -192,7 +193,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
             </MainContainer>
             {modal && (
                 <CartModal
-                    item={item}
+                    cart={cart}
                     setItem={setItem}
                     modal={modal}
                     setModal={setModal}

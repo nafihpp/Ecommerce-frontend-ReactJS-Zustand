@@ -4,8 +4,8 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import styles from "../styles/Cart.module.css";
 
-function LoginModal({
-    item,
+function CartModal({
+    cart,
     setItem,
     modal,
     setModal,
@@ -25,7 +25,7 @@ function LoginModal({
     }
 
     let sum = 0;
-    item.map((mapped) => {
+    cart.map((mapped) => {
         sum += mapped.price;
     });
     let discounted = (sum / 100) * 10;
@@ -40,7 +40,7 @@ function LoginModal({
         console.log(carted);
     };
     let cartitems = () => {
-        return item.map((cartss) => (
+        return cart.map((cartss) => (
             <>
                 <CartItems key={cartss.id}>
                     <ImageBox>
@@ -88,7 +88,7 @@ function LoginModal({
                         <Content>
                             <MiddleContainer>
                                 <>{cartitems()}</>
-                                {item.length > 0 ? (
+                                {cart.length > 0 ? (
                                     <div className={styles.right}>
                                         <div className={styles.wrapper}>
                                             <h2 className={styles.title}>
@@ -149,7 +149,7 @@ function LoginModal({
         </Container>
     );
 }
-export default LoginModal;
+export default CartModal;
 const Quantity = styled.p`
     margin-bottom: 0px !important;
 `;

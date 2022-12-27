@@ -47,13 +47,29 @@ function Slicker() {
                     >
                         {item.map((ite) => {
                             return (
-                                <SwiperSlide>
-                                    <MainContainer>
-                                        <ImageContainer>
-                                            <Img src={ite.image} />
-                                        </ImageContainer>
-                                    </MainContainer>
-                                </SwiperSlide>
+                                <>
+                                    <SwiperSlide>
+                                        <MainContainer>
+                                            <ImageContainer>
+                                                <Img src={apple} />
+                                            </ImageContainer>
+                                        </MainContainer>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <MainContainer>
+                                            <ImageContainer>
+                                                <Img src={apricot} />
+                                            </ImageContainer>
+                                        </MainContainer>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <MainContainer>
+                                            <ImageContainer>
+                                                <Img src={banana} />
+                                            </ImageContainer>
+                                        </MainContainer>
+                                    </SwiperSlide>
+                                </>
                             );
                         })}
                     </Swiper>
