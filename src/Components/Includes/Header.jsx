@@ -6,9 +6,10 @@ import styled from "styled-components";
 import CartModal from "./CartModal";
 import Geocode from "react-geocode";
 
-function Header({ modal, setModal, activeTabs, setActiveTabs }) {
+function Header({ activeTabs, setActiveTabs }) {
     const [item, setItem] = useState([]);
     const [cart, setCart] = useState([]);
+    const [modal, setModal] = useState(false);
     useEffect(() => {
         const axios = require("axios");
         axios
@@ -55,7 +56,6 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     useEffect(() => {
         if (item.length >= 1) {
             let checking = item.filter((check) => check.id == current.id);
-            setModal(!modal);
         }
     }, [item.length]);
 
@@ -64,6 +64,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
             item.filter((item) => item.title.toLowerCase().includes(search))
         );
     };
+
     return (
         <>
             <MainContainer className={modal ? "hide" : null}>

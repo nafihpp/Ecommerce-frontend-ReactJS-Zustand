@@ -16,14 +16,7 @@ import CategoryBar from "../Includes/CategoryBar";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 
-function Mainpage({
-    item,
-    setItem,
-    modal,
-    setModal,
-    activeTabs,
-    setActiveTabs,
-}) {
+function Mainpage({ modal, setModal }) {
     const [count, setCount] = useState(0);
     const bottomNavItems = [
         {
@@ -69,15 +62,7 @@ function Mainpage({
     ];
     return (
         <>
-            {/* <Navbar
-                item={item}
-                setItem={setItem}
-                modal={modal}
-                setModal={setModal}
-            /> */}
             <Header
-                item={item}
-                setItem={setItem}
                 modal={modal}
                 setModal={setModal}
                 count={count}
@@ -86,13 +71,8 @@ function Mainpage({
             {/* <Spotlight /> */}
             <SpotLightCarousal />
             <CategoryBar />
-            <Items
-                item={item}
-                setItem={setItem}
-                count={count}
-                setCount={setCount}
-            />
-            <Slicker item={item} />
+            <Items />
+            <Slicker />
             <Story />
             <Achievement />
             {isMobile && (

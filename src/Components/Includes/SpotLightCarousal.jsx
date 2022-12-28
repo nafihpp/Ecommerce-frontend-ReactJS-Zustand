@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import SwiperCore, { Autoplay } from "swiper";
 import Apple from "../../assets/JumkaSlider.jpg";
+import Christ from "../../assets/Christ.jpg";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
@@ -38,6 +39,15 @@ function SpotLightCarousal() {
                             <div>
                                 <img
                                     src={Apple}
+                                    alt="orange"
+                                    style={{ display: "block", width: "100%" }}
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div>
+                                <img
+                                    src={Christ}
                                     alt="orange"
                                     style={{ display: "block", width: "100%" }}
                                 />

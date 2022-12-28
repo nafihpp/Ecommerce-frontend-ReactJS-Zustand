@@ -9,6 +9,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GrView } from "react-icons/gr";
+import Header from "../Includes/Header";
 
 function Elements({ item, setItem }) {
     const { id } = useParams();
@@ -16,13 +17,13 @@ function Elements({ item, setItem }) {
     const [count, setCount] = useState(1);
     let navigate = useNavigate();
 
-    function buy(bought) {
-        let already = item.filter((im) => bought.id === im.id);
-        if (already.length < 1) {
-            notify();
-            setItem((prev) => [...prev, bought]);
-        }
-    }
+    // function buy(bought) {
+    //     let already = item.filter((im) => bought.id === im.id);
+    //     if (already.length < 1) {
+    //         notify();
+    //         setItem((prev) => [...prev, bought]);
+    //     }
+    // }
     const notify = () =>
         toast.success("Added to Cart", {
             position: "bottom-center",
@@ -63,7 +64,7 @@ function Elements({ item, setItem }) {
             <Helmet>
                 <title>{`${page.title} | Shopping`}</title>
             </Helmet>
-
+            <Header />
             <MainContainer>
                 <Wrapper>
                     <BackButton onClick={back}>
@@ -79,7 +80,7 @@ function Elements({ item, setItem }) {
                             </ImageContainer>
                         </LeftContainer>
                         <RightContainer>
-                            <Buttoncart onClick={() => console.log("hi")}>
+                            <Buttoncart onClick={() => notify()}>
                                 Add to Cart <AiOutlineShoppingCart />
                             </Buttoncart>{" "}
                             <Links to={`/h`}>

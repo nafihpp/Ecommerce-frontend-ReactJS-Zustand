@@ -5,34 +5,28 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useStore } from "../../store/Products/Products";
 
 function Items({ item, setItem }) {
     const [isCategory, setCategory] = useState("");
-    const [isAll, setAll] = useState([]);
-    const [others, setOthers] = useState([]);
+    const [filtered, setFiltered] = useState([]);
+    let navigate = useNavigate();
+
+    const fetch = useStore((state) => state.fetchProducts);
 
     useEffect(() => {
-        const axios = require("axios");
-        axios
-            .get("https://fakestoreapi.com/products/")
-            .then(function (response) {
-                setAll(response.data);
-                setOthers(response.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
+        fetch();
+        setFiltered(item);
     }, []);
 
-    let navigate = useNavigate();
+    const items = useStore((state) => state.Allproducts);
 
     function filtering() {
         if (isCategory == "") {
-            setAll(others);
+            setFiltered(items);
         } else {
-            const final = isAll.filter((fil) => fil.category == isCategory);
-            setAll(final);
+            const final = items?.filter((fil) => fil.category == isCategory);
+            setFiltered(final);
         }
     }
 
@@ -51,8 +45,9 @@ function Items({ item, setItem }) {
     const Pagepush = (produce) => {
         navigate(`${produce.id}`);
     };
+
     let listProducts = () => {
-        return isAll.map((produc) => (
+        return filtered?.map((produc) => (
             <>
                 <Child key={produc.id} onClick={() => Pagepush(produc)}>
                     <ImageContainer>
@@ -104,7 +99,6 @@ function Items({ item, setItem }) {
                                     : "null"
                             }
                             onClick={() => {
-                                setAll(others);
                                 setCategory("men's clothing");
                             }}
                         >
@@ -115,7 +109,6 @@ function Items({ item, setItem }) {
                                 isCategory === "jewelery" ? "active" : "null"
                             }
                             onClick={() => {
-                                setAll(others);
                                 setCategory("jewelery");
                             }}
                         >
@@ -128,7 +121,6 @@ function Items({ item, setItem }) {
                                     : "null"
                             }
                             onClick={() => {
-                                setAll(others);
                                 setCategory("women's clothing");
                             }}
                         >
@@ -139,7 +131,6 @@ function Items({ item, setItem }) {
                                 isCategory === "electronics" ? "active" : "null"
                             }
                             onClick={() => {
-                                setAll(others);
                                 setCategory("electronics");
                             }}
                         >
