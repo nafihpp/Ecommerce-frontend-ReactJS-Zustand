@@ -9,7 +9,7 @@ import Geocode from "react-geocode";
 function Header({ activeTabs, setActiveTabs }) {
     const [item, setItem] = useState([]);
     const [cart, setCart] = useState([]);
-    const [modal, setModal] = useState([]);
+    const [modal, setModal] = useState(false);
     useEffect(() => {
         const axios = require("axios");
         axios
@@ -56,7 +56,6 @@ function Header({ activeTabs, setActiveTabs }) {
     useEffect(() => {
         if (item.length >= 1) {
             let checking = item.filter((check) => check.id == current.id);
-            setModal(!modal);
         }
     }, [item.length]);
 

@@ -17,6 +17,8 @@ function Items() {
 
     useEffect(() => {
         fetch();
+        setCategory("men's clothing");
+        setCategory("");
     }, []);
 
     function filtering() {
