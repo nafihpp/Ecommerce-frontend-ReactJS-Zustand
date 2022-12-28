@@ -15,6 +15,8 @@ import SpotLightCarousal from "../Includes/SpotLightCarousal";
 import CategoryBar from "../Includes/CategoryBar";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
+import { useStore } from "zustand";
+import { useEffect } from "react";
 
 function Mainpage({ modal, setModal }) {
     const [count, setCount] = useState(0);

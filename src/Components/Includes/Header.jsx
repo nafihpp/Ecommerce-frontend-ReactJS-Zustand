@@ -6,9 +6,10 @@ import styled from "styled-components";
 import CartModal from "./CartModal";
 import Geocode from "react-geocode";
 
-function Header({ modal, setModal, activeTabs, setActiveTabs }) {
+function Header({ activeTabs, setActiveTabs }) {
     const [item, setItem] = useState([]);
     const [cart, setCart] = useState([]);
+    const [modal, setModal] = useState([]);
     useEffect(() => {
         const axios = require("axios");
         axios
