@@ -64,7 +64,12 @@ function Mainpage({ modal, setModal }) {
     ];
     return (
         <>
-            <Header count={count} setCount={setCount} />
+            <Header
+                modal={modal}
+                setModal={setModal}
+                count={count}
+                setCount={setCount}
+            />
             {/* <Spotlight /> */}
             <SpotLightCarousal />
             <CategoryBar />
