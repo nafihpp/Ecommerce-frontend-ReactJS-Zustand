@@ -27,27 +27,6 @@ function Achievement() {
                             alt="Taboola"
                         />
                     </Child>
-                    <Child>
-                        <img
-                            src={require("../../assets/Combined Shape-2.png")}
-                            alt="Bloomberg"
-                        />
-                    </Child>
-                    <Child>
-                        <img
-                            src={require("../../assets/Combined Shape-3.png")}
-                        />
-                    </Child>
-                    <Child>
-                        <img
-                            src={require("../../assets/Combined Shape-4.png")}
-                        />
-                    </Child>
-                    <Child>
-                        <img
-                            src={require("../../assets/Combined Shape-5.png")}
-                        />
-                    </Child>
                 </Parent>
             </Wrapper>
         </MainContainer>
