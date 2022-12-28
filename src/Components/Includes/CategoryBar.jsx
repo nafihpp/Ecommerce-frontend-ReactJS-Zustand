@@ -16,25 +16,21 @@ function Items({ item, setItem }) {
                 <Child>
                     <ImageContainer>
                         <ProductImg src={apricot} alt="cat" />
-                        <p>Mobile</p>
                     </ImageContainer>
                 </Child>
                 <Child>
                     <ImageContainer>
                         <ProductImg src={banana} alt="cat" />
-                        <p>Laptop</p>
                     </ImageContainer>
                 </Child>
                 <Child>
                     <ImageContainer>
                         <ProductImg src={apple} alt="cat" />
-                        <p>Fashion</p>
                     </ImageContainer>
                 </Child>
                 <Child>
                     <ImageContainer>
                         <ProductImg src={apple} alt="cat" />
-                        <p>Home Appliances</p>
                     </ImageContainer>
                 </Child>
                 <Child>
@@ -87,7 +83,8 @@ const Child = styled.li`
     align-items: center;
     justify-content: center;
     @media (max-width: 768px) {
-        width: 46%;
+        width: 21%;
+        height: 56px;
         flex-wrap: wrap;
     }
 `;

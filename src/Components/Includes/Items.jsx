@@ -7,19 +7,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useStore } from "../../store/Products/Products";
 
-function Items({ item, setItem }) {
+function Items() {
     const [isCategory, setCategory] = useState("");
     const [filtered, setFiltered] = useState([]);
     let navigate = useNavigate();
 
     const fetch = useStore((state) => state.fetchProducts);
+    const items = useStore((state) => state.Allproducts);
 
     useEffect(() => {
         fetch();
-        setFiltered(item);
     }, []);
-
-    const items = useStore((state) => state.Allproducts);
 
     function filtering() {
         if (isCategory == "") {
