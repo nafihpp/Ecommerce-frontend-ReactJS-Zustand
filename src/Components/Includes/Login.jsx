@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link, Router } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Login() {
     return (
@@ -11,23 +13,23 @@ export default function Login() {
                             <LoginContainer>
                                 <LoginHead>
                                     <LoginHeading>Login</LoginHeading>
-                                    <CrossDiv
-                                        onClick={(e) => {
-                                            console.log("close");
-                                        }}
-                                    >
-                                        <CrossImg
-                                            src="none"
-                                            alt="Cross"
-                                        ></CrossImg>
-                                    </CrossDiv>
+                                    <AiOutlineClose />
                                 </LoginHead>
                                 <LoginInfo>Enter Phone to Verify OTP</LoginInfo>
                                 <Form>
                                     <InputContainer>
                                         <TextInput
                                             type="phone"
-                                            placeholder="Phone Number"
+                                            placeholder="email"
+                                            onChange={(e) =>
+                                                console.log("none")
+                                            }
+                                        />
+                                    </InputContainer>
+                                    <InputContainer>
+                                        <TextInput
+                                            type="password"
+                                            placeholder="password"
                                             onChange={(e) =>
                                                 console.log("none")
                                             }
@@ -40,7 +42,7 @@ export default function Login() {
                                                 console.log("nothing");
                                             }}
                                         ></SignupButton>
-                                        <ForgotButton>
+                                        <ForgotButton to="/signup">
                                             Create an Account?
                                         </ForgotButton>
                                     </MainButtonContainer>
@@ -155,7 +157,7 @@ const TextInput = styled.input`
         width: 100%;
     }
 `;
-const ForgotButton = styled.a`
+const ForgotButton = styled(Link)`
     margin-bottom: 25px;
     font-size: 15px;
     text-decoration: none;

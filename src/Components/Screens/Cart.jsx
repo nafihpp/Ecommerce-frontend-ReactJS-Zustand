@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 import { useStore } from "../../store/Products/Products";
+import styles from "../styles/Cart.module.css";
 
 const Cart = ({ setModal }) => {
     const item = useStore((state) => state.Allproducts);
@@ -17,9 +19,12 @@ const Cart = ({ setModal }) => {
         <Body>
             <Header>
                 <h3>Cart</h3>
-                <AiOutlineDelete onClick={(e) => setModal(false)} />
+                <AiOutlineClose
+                    style={{ cursor: "pointer" }}
+                    onClick={(e) => setModal(false)}
+                />
             </Header>
-            {item.map((cart) => (
+            {item.slice(0, 1).map((cart) => (
                 <Content>
                     <div className="thumbnail">
                         <img
@@ -29,8 +34,9 @@ const Cart = ({ setModal }) => {
                     </div>
                     <div className="details">
                         <p>
-                            Autumn Limited Edition...
-                            <br />${cart.price} x 3 <strong>$375.00</strong>
+                            {cart.title}
+                            <br />${cart.price} x 3{" "}
+                            <strong>${cart.price * 3}</strong>
                         </p>
                     </div>
                     <div className="delete">
@@ -38,11 +44,31 @@ const Cart = ({ setModal }) => {
                     </div>
                 </Content>
             ))}
+
+            <MiddleContainer>
+                <div className={styles.right}>
+                    <div className={styles.wrapper}>
+                        <h2 className={styles.title}>CART TOTAL</h2>
+                        <div className={styles.totalText}>
+                            <b className={styles.totalTextTitle}>Subtotal:</b>$
+                            {1}
+                        </div>
+                        <div className={styles.totalText}>
+                            <b className={styles.totalTextTitle}>Discount:</b>$
+                            {2}
+                        </div>
+                        <div className={styles.totalText}>
+                            <b className={styles.totalTextTitle}>Total: {3}</b>
+                        </div>
+                    </div>
+                </div>
+            </MiddleContainer>
+
             <button>Checkout</button>
         </Body>
     );
 };
-
+const MiddleContainer = styled.div``;
 const Body = styled.div`
     width: 350px;
     border-radius: 10px;

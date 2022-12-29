@@ -145,11 +145,14 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                 />
                             </ImageBoxOne>
                             <ImageBoxTwo
+                                style={{ cursor: "pointer" }}
                                 onClick={() => {
                                     setModal(!modal);
                                 }}
                             >
-                                <RoundBox>{1}</RoundBox>
+                                <RoundBox style={{ cursor: "pointer" }}>
+                                    {1}
+                                </RoundBox>
                                 <svg
                                     width="20"
                                     height="22"

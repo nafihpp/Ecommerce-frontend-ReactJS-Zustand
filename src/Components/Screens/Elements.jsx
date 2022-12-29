@@ -11,12 +11,21 @@ import "react-toastify/dist/ReactToastify.css";
 import { AiFillThunderbolt } from "react-icons/ai";
 import Header from "../Includes/Header";
 import { Rating } from "react-simple-star-rating";
+import { useCart } from "../../store/Cart/Cart";
 
-function Elements({ item, setItem }) {
+function Elements() {
     const { id } = useParams();
     const [page, setPage] = useState([]);
     const [count, setCount] = useState(1);
+
+    const addtoCart = useCart((state) => state.addToCart);
+    const CartItems = useCart((state) => state.CartItems);
+
     let navigate = useNavigate();
+
+    useEffect(() => {
+        console.log(CartItems, "cart is showing");
+    }, [CartItems.length]);
 
     // function buy(bought) {
     //     let already = item.filter((im) => bought.id === im.id);
@@ -59,7 +68,7 @@ function Elements({ item, setItem }) {
     function back() {
         navigate("/");
     }
-    console.log(page);
+
     return (
         <>
             <Helmet>
@@ -140,7 +149,12 @@ function Elements({ item, setItem }) {
                         </LeftContainer>
                     </Container>
                     <BottomContainer>
-                        <Buttoncart onClick={() => notify()}>
+                        <Buttoncart
+                            onClick={(e) => {
+                                addtoCart(page);
+                                notify();
+                            }}
+                        >
                             Add to Cart <AiOutlineShoppingCart />
                         </Buttoncart>{" "}
                         <Links to={`/h`}>
