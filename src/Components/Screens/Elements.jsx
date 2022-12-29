@@ -19,7 +19,7 @@ function Elements() {
     const [count, setCount] = useState(1);
 
     const addtoCart = useCart((state) => state.addToCart);
-    const CartItems = useCart((state) => state.CartItems);
+    const CartItems = useCart((state) => state.cart);
 
     let navigate = useNavigate();
 
@@ -149,14 +149,18 @@ function Elements() {
                         </LeftContainer>
                     </Container>
                     <BottomContainer>
-                        <Buttoncart
-                            onClick={(e) => {
-                                addtoCart(page);
-                                notify();
-                            }}
-                        >
-                            Add to Cart <AiOutlineShoppingCart />
-                        </Buttoncart>{" "}
+                        {addtoCart !== undefined ? (
+                            <Buttoncart
+                                onClick={(e) => {
+                                    addtoCart(page);
+                                    notify();
+                                }}
+                            >
+                                Add to Cart <AiOutlineShoppingCart />
+                            </Buttoncart>
+                        ) : (
+                            <h1>Loading</h1>
+                        )}
                         <Links to={`/h`}>
                             Buy Now
                             <AiFillThunderbolt />

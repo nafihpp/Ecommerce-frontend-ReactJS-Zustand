@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartModal from "../Screens/Cart";
 import Geocode from "react-geocode";
+import { useCart } from "../../store/Cart/Cart";
 
 function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     const [item, setItem] = useState([]);
-    const [cart, setCart] = useState([]);
+    const cart = useCart((state) => state.cart);
     useEffect(() => {
         const axios = require("axios");
         axios
@@ -151,7 +152,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                 }}
                             >
                                 <RoundBox style={{ cursor: "pointer" }}>
-                                    {1}
+                                    {cart.length}
                                 </RoundBox>
                                 <svg
                                     width="20"

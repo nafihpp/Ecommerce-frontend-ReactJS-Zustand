@@ -4,10 +4,12 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import { useStore } from "../../store/Products/Products";
 import styles from "../styles/Cart.module.css";
+import { useCart } from "../../store/Cart/Cart";
 
 const Cart = ({ setModal }) => {
-    const item = useStore((state) => state.Allproducts);
+    const item = useCart((state) => state.cart);
     let sum = 0;
+
     item.map((mapped) => {
         sum += mapped.price;
     });
@@ -24,7 +26,7 @@ const Cart = ({ setModal }) => {
                     onClick={(e) => setModal(false)}
                 />
             </Header>
-            {item.slice(0, 1).map((cart) => (
+            {item?.map((cart) => (
                 <Content>
                     <div className="thumbnail">
                         <img
