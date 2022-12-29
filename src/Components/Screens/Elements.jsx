@@ -8,8 +8,9 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { GrView } from "react-icons/gr";
+import { AiFillThunderbolt } from "react-icons/ai";
 import Header from "../Includes/Header";
+import { Rating } from "react-simple-star-rating";
 
 function Elements({ item, setItem }) {
     const { id } = useParams();
@@ -64,7 +65,7 @@ function Elements({ item, setItem }) {
             <Helmet>
                 <title>{`${page.title} | Shopping`}</title>
             </Helmet>
-            <Header />
+
             <MainContainer>
                 <Wrapper>
                     <BackButton onClick={back}>
@@ -78,6 +79,14 @@ function Elements({ item, setItem }) {
                                     style={{ display: "block", width: "100%" }}
                                 />
                             </ImageContainer>
+                            <h1>{page.title}</h1>
+                            <p>{page.description}</p>
+                            <Rating
+                                initialValue={page.rating.rate}
+                                allowHover={false}
+                                readonly={true}
+                                size={22}
+                            />
                         </LeftContainer>
                         <RightContainer>
                             <Buttoncart onClick={() => notify()}>
@@ -85,7 +94,7 @@ function Elements({ item, setItem }) {
                             </Buttoncart>{" "}
                             <Links to={`/h`}>
                                 Buy Now
-                                <GrView />
+                                <AiFillThunderbolt />
                             </Links>{" "}
                         </RightContainer>
                     </Container>
@@ -104,39 +113,45 @@ function Elements({ item, setItem }) {
     );
 }
 const Container = styled.div`
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 `;
 const RightContainer = styled.div`
-    width: 50%;
+    position: absolute;
+    bottom: 20px;
 `;
 const ImageContainer = styled.div`
     width: 30%;
 `;
 const LeftContainer = styled.div`
-    width: 50%;
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 const Buttoncart = styled.button`
-    padding: 5px 50px;
-    margin-right: 30px;
+    padding: 8px 7px;
+    background: burlywood;
+    color: #fff;
+    border: none;
     :hover {
     }
 `;
 const Links = styled.button`
-    padding: 5px 50px;
+    padding: 8px 7px;
+    background: burlywood;
+    color: #fff;
+    border: none;
     :hover {
     }
 `;
-const MainContainer = styled.div`
-    position: relative;
-`;
+const MainContainer = styled.div``;
 const BackButton = styled.div`
     cursor: pointer;
     font-size: 34px;
     position: absolute;
-    /* top: -5%; */
     left: 1%;
 `;
 const Wrapper = styled.div`
