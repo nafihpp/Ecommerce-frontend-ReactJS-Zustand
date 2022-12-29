@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import CartModal from "./CartModal";
+import CartModal from "../Screens/Cart";
 import Geocode from "react-geocode";
 
 function Header({ modal, setModal, activeTabs, setActiveTabs }) {
@@ -65,7 +65,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     };
     return (
         <>
-            <MainContainer className={modal ? "hide" : null}>
+            <MainContainer>
                 <LocationContainer>
                     <LocationIcon>
                         <svg
@@ -146,7 +146,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                             </ImageBoxOne>
                             <ImageBoxTwo
                                 onClick={() => {
-                                    setModal(true);
+                                    setModal(!modal);
                                 }}
                             >
                                 <RoundBox>{1}</RoundBox>
@@ -189,17 +189,16 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                         </RightContainer>
                     </SubContainer>
                 </WrapperContainer>
+                {modal && (
+                    <CartModal
+                        cart={cart}
+                        modal={modal}
+                        setModal={setModal}
+                        activeTabs={activeTabs}
+                        setActiveTabs={setActiveTabs}
+                    />
+                )}
             </MainContainer>
-            {modal && (
-                <CartModal
-                    cart={cart}
-                    setItem={setItem}
-                    modal={modal}
-                    setModal={setModal}
-                    activeTabs={activeTabs}
-                    setActiveTabs={setActiveTabs}
-                />
-            )}
         </>
     );
 }

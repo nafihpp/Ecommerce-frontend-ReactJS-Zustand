@@ -26,7 +26,7 @@ function Elements({ item, setItem }) {
     //     }
     // }
     const notify = () =>
-        toast.success("Added to Cart", {
+        toast.success(`${count} Items Added to Cart`, {
             position: "bottom-center",
             hideProgressBar: true,
             closeOnClick: true,
@@ -72,13 +72,13 @@ function Elements({ item, setItem }) {
                         <IoArrowBackOutline />
                     </BackButton>
                     <Container>
+                        <ImageContainer>
+                            <img
+                                src={page.image}
+                                style={{ display: "block", width: "100%" }}
+                            />
+                        </ImageContainer>
                         <LeftContainer>
-                            <ImageContainer>
-                                <img
-                                    src={page.image}
-                                    style={{ display: "block", width: "100%" }}
-                                />
-                            </ImageContainer>
                             <h1>{page.title}</h1>
                             <p>{page.description}</p>
                             {page?.rating?.rate !== undefined ? (
@@ -111,17 +111,43 @@ function Elements({ item, setItem }) {
                             ) : (
                                 <h1>Loading</h1>
                             )}
+
+                            <Quantity>
+                                <div
+                                    style={{
+                                        fontSize: "30px",
+                                        cursor: "pointer",
+                                    }}
+                                    onClick={() => {
+                                        decrement();
+                                    }}
+                                >
+                                    -
+                                </div>
+                                <div>{count}</div>
+                                <div
+                                    style={{
+                                        fontSize: "30px",
+                                        cursor: "pointer",
+                                    }}
+                                    onClick={() => {
+                                        increment();
+                                    }}
+                                >
+                                    +
+                                </div>
+                            </Quantity>
                         </LeftContainer>
-                        <RightContainer>
-                            <Buttoncart onClick={() => notify()}>
-                                Add to Cart <AiOutlineShoppingCart />
-                            </Buttoncart>{" "}
-                            <Links to={`/h`}>
-                                Buy Now
-                                <AiFillThunderbolt />
-                            </Links>{" "}
-                        </RightContainer>
                     </Container>
+                    <BottomContainer>
+                        <Buttoncart onClick={() => notify()}>
+                            Add to Cart <AiOutlineShoppingCart />
+                        </Buttoncart>{" "}
+                        <Links to={`/h`}>
+                            Buy Now
+                            <AiFillThunderbolt />
+                        </Links>{" "}
+                    </BottomContainer>
                     <ToastContainer
                         toastStyle={{
                             position: "absolute",
@@ -136,6 +162,18 @@ function Elements({ item, setItem }) {
         </>
     );
 }
+const Quantity = styled.div`
+    display: flex;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(247, 248, 253);
+    height: 55px;
+    width: 160px;
+    border-radius: 10px;
+    user-select: none;
+    margin-right: 20px;
+`;
 const PriceDiscountProduct = styled.p`
     font-size: 12px;
     margin-right: 10px;
@@ -149,21 +187,25 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     padding-top: 55px;
 `;
-const RightContainer = styled.div`
+const BottomContainer = styled.div`
     position: absolute;
     bottom: 20px;
+    width: 50%;
+    margin: 0 auto;
 `;
 const ImageContainer = styled.div`
-    width: 30%;
+    width: 20%;
 `;
 const LeftContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 45%;
 `;
 const Buttoncart = styled.button`
     padding: 8px 7px;
