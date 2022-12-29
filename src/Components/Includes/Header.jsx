@@ -37,7 +37,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
 
     Geocode.fromLatLng(lat, lng).then(
         (response) => {
-            const address = response.results[1].formatted_address;
+            const address = response?.results[1].formatted_address;
             setData(address);
         },
         (error) => {
@@ -52,15 +52,15 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
         handleFilter();
     }, [search]);
 
-    useEffect(() => {
-        if (item.length >= 1) {
-            let checking = item.filter((check) => check.id == current.id);
-        }
-    }, [item.length]);
+    // useEffect(() => {
+    //     if (item?.length >= 1) {
+    //         let checking = item?.filter((check) => check.id == current.id);
+    //     }
+    // }, [item.length]);
 
     const handleFilter = () => {
         setCurrent(
-            item.filter((item) => item.title.toLowerCase().includes(search))
+            item?.filter((item) => item?.title?.toLowerCase().includes(search))
         );
     };
     return (
@@ -149,7 +149,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                     setModal(true);
                                 }}
                             >
-                                <RoundBox>{cart.length}</RoundBox>
+                                <RoundBox>{1}</RoundBox>
                                 <svg
                                     width="20"
                                     height="22"

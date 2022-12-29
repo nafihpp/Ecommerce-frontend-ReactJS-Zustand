@@ -87,8 +87,30 @@ function Elements({ item, setItem }) {
                                     allowHover={false}
                                     readonly={true}
                                     size={22}
+                                    style={{ marginTop: "20px" }}
                                 />
-                            ) : null}
+                            ) : (
+                                <h1>Loading</h1>
+                            )}
+                            {page !== undefined ? (
+                                <PriceContainer>
+                                    <PriceDiscountProduct
+                                        style={{
+                                            color: "red",
+                                            textDecoration: "line-through",
+                                        }}
+                                    >
+                                        ${" "}
+                                        {(
+                                            page?.price -
+                                            page?.price / 10
+                                        ).toFixed(2)}
+                                    </PriceDiscountProduct>
+                                    <PriceProduct>${page?.price}</PriceProduct>
+                                </PriceContainer>
+                            ) : (
+                                <h1>Loading</h1>
+                            )}
                         </LeftContainer>
                         <RightContainer>
                             <Buttoncart onClick={() => notify()}>
@@ -114,6 +136,15 @@ function Elements({ item, setItem }) {
         </>
     );
 }
+const PriceDiscountProduct = styled.p`
+    font-size: 12px;
+    margin-right: 10px;
+`;
+const PriceProduct = styled.p``;
+const PriceContainer = styled.div`
+    display: flex;
+    margin-top: 30px;
+`;
 const Container = styled.div`
     width: 100%;
     display: flex;
