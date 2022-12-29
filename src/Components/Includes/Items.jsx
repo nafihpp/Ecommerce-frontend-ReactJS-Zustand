@@ -12,7 +12,6 @@ function Items() {
     const [filtered, setFiltered] = useState([]);
     let navigate = useNavigate();
 
-    const fetch = useStore((state) => state.fetchProducts);
     const items = useStore((state) => state.Allproducts);
 
     function filtering() {
@@ -23,6 +22,10 @@ function Items() {
             setFiltered(final);
         }
     }
+
+    useEffect(() => {
+        setFiltered(items);
+    });
 
     useEffect(() => {
         filtering();
@@ -137,7 +140,11 @@ function Items() {
                             Reset
                         </MainSpan>
                     </MainCont>
-                    <ParentList>{listProducts()}</ParentList>
+                    {items.length !== 0 ? (
+                        <ParentList>{listProducts()}</ParentList>
+                    ) : (
+                        <h1 style={{ textAlign: "center" }}>Loading</h1>
+                    )}
                 </Wrapperlist>
             </MainContainer>
         </>

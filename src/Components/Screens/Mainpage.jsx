@@ -74,9 +74,9 @@ function Mainpage({ modal, setModal }) {
             {/* <Spotlight /> */}
             <SpotLightCarousal />
             <CategoryBar />
-            <Suspense fallback={<h1>Loadingeeeee</h1>}>
-                <Items />
-            </Suspense>
+
+            <Items />
+
             <Slicker />
             <Story />
             <Achievement />

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Orange from "../../assets/apple.png";
+
 function Story() {
     return (
         <MainContainer>
