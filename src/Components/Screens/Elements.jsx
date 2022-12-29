@@ -81,12 +81,14 @@ function Elements({ item, setItem }) {
                             </ImageContainer>
                             <h1>{page.title}</h1>
                             <p>{page.description}</p>
-                            <Rating
-                                initialValue={page.rating.rate}
-                                allowHover={false}
-                                readonly={true}
-                                size={22}
-                            />
+                            {page?.rating?.rate !== undefined ? (
+                                <Rating
+                                    initialValue={page.rating.rate}
+                                    allowHover={false}
+                                    readonly={true}
+                                    size={22}
+                                />
+                            ) : null}
                         </LeftContainer>
                         <RightContainer>
                             <Buttoncart onClick={() => notify()}>
@@ -117,6 +119,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 55px;
 `;
 const RightContainer = styled.div`
     position: absolute;
