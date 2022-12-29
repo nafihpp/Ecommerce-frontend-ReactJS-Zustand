@@ -99,7 +99,7 @@ function Elements() {
                             />
                         </ImageContainer>
                         <LeftContainer>
-                            <h1>{page.title}</h1>
+                            <h2>{page.title}</h2>
                             <p>{page.description}</p>
                             {page?.rating?.rate !== undefined ? (
                                 <Rating
@@ -169,7 +169,7 @@ function Elements() {
                             >
                                 Add to Cart <AiOutlineShoppingCart />
                             </Buttoncart>
-                            <Links to={`/h`}>
+                            <Links to="/login">
                                 Buy Now
                                 <AiFillThunderbolt />
                             </Links>{" "}
@@ -213,22 +213,19 @@ const PriceContainer = styled.div`
 `;
 const Container = styled.div`
     width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-top: 55px;
+    padding-top: 7px;
 `;
 const BottomContainer = styled.div`
-    position: absolute;
-    bottom: 20px;
-    width: 50%;
-    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
 `;
 const ImageContainer = styled.div`
     width: 20%;
+    margin: 0 auto;
     @media all and (max-width: 768px) {
         width: 60%;
+        margin: 0 auto;
     }
 `;
 const LeftContainer = styled.div`
@@ -236,30 +233,31 @@ const LeftContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 45%;
 `;
 const Buttoncart = styled.button`
     padding: 8px 7px;
     background: burlywood;
     color: #fff;
     border: none;
+    margin-right: 6px;
     :hover {
     }
 `;
-const Links = styled.button`
+const Links = styled(Link)`
     padding: 8px 7px;
     background: burlywood;
     color: #fff;
     border: none;
+    text-decoration: none;
     :hover {
     }
 `;
-const MainContainer = styled.div``;
+const MainContainer = styled.div`
+    position: relative;
+`;
 const BackButton = styled.div`
     cursor: pointer;
     font-size: 34px;
-    position: absolute;
-    left: 1%;
 `;
 const Wrapper = styled.div`
     width: 90%;

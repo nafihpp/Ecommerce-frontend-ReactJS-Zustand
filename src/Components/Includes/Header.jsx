@@ -108,13 +108,17 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                         <Link
                                             to={`/${items.id}`}
                                             style={{
-                                                color: "green",
+                                                color: "#000",
                                                 display: "flex",
                                                 width: "75%",
+                                                justifyContent: "space-between",
                                                 textDecoration: "none",
+                                                marginBottom: "15px",
                                             }}
                                         >
-                                            <p>{items.title}</p>
+                                            <p style={{ fontSize: "15px" }}>
+                                                {items.title.slice(0, 20)}
+                                            </p>
                                             <ImageContainer>
                                                 <img
                                                     src={items.image}
@@ -224,10 +228,13 @@ const ImageContainer = styled.span`
 
 const SearchContainer = styled.div`
     position: absolute;
-    top: 47px;
+    top: 35px;
+    left: 0px;
     background: #fff;
     z-index: 10000;
-    width: 80%;
+    width: 100%;
+    max-height: 230px;
+    overflow: scroll;
     @media all and (max-width: 480px) {
     }
 `;

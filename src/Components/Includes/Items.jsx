@@ -6,6 +6,8 @@ import { Rating } from "react-simple-star-rating";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useStore } from "../../store/Products/Products";
+import loaderData from "../../loader/132083-loading-tau.json";
+import Lottie from "react-lottie";
 
 function Items() {
     const [isCategory, setCategory] = useState("");
@@ -25,7 +27,8 @@ function Items() {
 
     useEffect(() => {
         setFiltered(items);
-    });
+        setCategory("");
+    }, []);
 
     useEffect(() => {
         filtering();
@@ -42,7 +45,14 @@ function Items() {
     const Pagepush = (produce) => {
         navigate(`${produce.id}`);
     };
-
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: loaderData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
     let listProducts = () => {
         return filtered?.map((produc) => (
             <>
@@ -143,7 +153,11 @@ function Items() {
                     {items.length !== 0 ? (
                         <ParentList>{listProducts()}</ParentList>
                     ) : (
-                        <h1 style={{ textAlign: "center" }}>Loading</h1>
+                        <Lottie
+                            options={defaultOptions}
+                            height={400}
+                            width={400}
+                        />
                     )}
                 </Wrapperlist>
             </MainContainer>

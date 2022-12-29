@@ -42,9 +42,12 @@ const Cart = ({ setModal }) => {
                     </div>
                     <div className="details">
                         <p>
-                            {cart.title}
-                            <br />${cart.price} x {cart.quantity}{" "}
-                            <strong>${cart.price * cart.quantity}</strong>
+                            {cart.title.slice(0, 25)}
+                            <br />
+                            {cart.quantity} Quantity{" "}
+                            <strong>
+                                price : ${cart.price * cart.quantity}
+                            </strong>
                         </p>
                     </div>
                     <div className="delete">
@@ -59,11 +62,11 @@ const Cart = ({ setModal }) => {
                         <h2 className={styles.title}>CART TOTAL</h2>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>Subtotal:</b>$
-                            {sum}
+                            {sum.toFixed(2)}
                         </div>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>Discount:</b>$
-                            {discounted}
+                            {discounted.toFixed(2)}
                         </div>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>
