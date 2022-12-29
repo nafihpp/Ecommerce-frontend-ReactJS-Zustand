@@ -11,12 +11,11 @@ import { useStore } from "../../store/Products/Products";
 
 function Slicker() {
     const item = useStore((state) => state.Allproducts);
-
     SwiperCore.use([Autoplay]);
     console.log(item);
     return (
         <>
-            {item !== null && (
+            {item !== undefined ? (
                 <MainDiv>
                     <Wrapper>
                         <TopContainer>
@@ -59,6 +58,8 @@ function Slicker() {
                         </Swiper>
                     </Wrapper>
                 </MainDiv>
+            ) : (
+                <h1>Loading</h1>
             )}
         </>
     );

@@ -143,7 +143,11 @@ function Items() {
                             Reset
                         </MainSpan>
                     </MainCont>
-                    <ParentList>{listProducts()}</ParentList>
+                    {items !== undefined ? (
+                        <ParentList>{listProducts()}</ParentList>
+                    ) : (
+                        <h1>Loading</h1>
+                    )}
                 </Wrapperlist>
             </MainContainer>
         </>

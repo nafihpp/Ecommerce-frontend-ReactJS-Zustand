@@ -1,15 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Slider from "react-slick";
 
 function Achievement() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
     return (
         <MainContainer>
             <Wrapper>
@@ -32,33 +24,7 @@ function Achievement() {
         </MainContainer>
     );
 }
-const MainHead = styled.h1`
-    color: #f86338;
-`;
 
-const RightContainer = styled.div`
-    width: 40%;
-`;
-const MainSliderContainer = styled.div`
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    height: 350px;
-    margin-top: 40px;
-    padding: 0px 30px;
-`;
-const BottomContainer = styled.div`
-    margin-top: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-const BottomDiv = styled.div`
-    background-color: #fff;
-    width: 80%;
-    min-height: 300px;
-`;
 const Heading = styled.h4`
     text-align: center;
     font-size: 40px;
@@ -69,6 +35,7 @@ const Heading = styled.h4`
 const MainContainer = styled.div`
     padding: 20px 0 20px 0;
     background-color: #f4f7f8;
+    padding-bottom: 100px;
 `;
 const Wrapper = styled.div`
     width: 90%;
