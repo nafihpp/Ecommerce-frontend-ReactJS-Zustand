@@ -8,14 +8,20 @@ import { useCart } from "../../store/Cart/Cart";
 
 const Cart = ({ setModal }) => {
     const item = useCart((state) => state.cart);
-    let sum = 0;
 
+    let sum = 0;
     item.map((mapped) => {
         sum += mapped.price;
     });
-    function remove(carted) {
-        console.log(carted);
-    }
+
+    let discounted = (sum / 100) * 10;
+
+    let final = sum.toFixed(2) - discounted.toFixed(2);
+
+    let formatted = new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+    }).format(final);
 
     return (
         <Body>
@@ -37,8 +43,8 @@ const Cart = ({ setModal }) => {
                     <div className="details">
                         <p>
                             {cart.title}
-                            <br />${cart.price} x 3{" "}
-                            <strong>${cart.price * 3}</strong>
+                            <br />${cart.price} x {cart.quantity}{" "}
+                            <strong>${cart.price * cart.quantity}</strong>
                         </p>
                     </div>
                     <div className="delete">
@@ -53,14 +59,16 @@ const Cart = ({ setModal }) => {
                         <h2 className={styles.title}>CART TOTAL</h2>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>Subtotal:</b>$
-                            {1}
+                            {sum}
                         </div>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>Discount:</b>$
-                            {2}
+                            {discounted}
                         </div>
                         <div className={styles.totalText}>
-                            <b className={styles.totalTextTitle}>Total: {3}</b>
+                            <b className={styles.totalTextTitle}>
+                                Total: {formatted}
+                            </b>
                         </div>
                     </div>
                 </div>

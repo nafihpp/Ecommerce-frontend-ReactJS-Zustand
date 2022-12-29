@@ -69,6 +69,17 @@ function Elements() {
         navigate("/");
     }
 
+    function buy(page) {
+        let updatedPage = {
+            id: page.id,
+            title: page.title,
+            quantity: count,
+            image: page.image,
+            price: page.price,
+        };
+        addtoCart(updatedPage);
+    }
+
     return (
         <>
             <Helmet>
@@ -148,24 +159,23 @@ function Elements() {
                             </Quantity>
                         </LeftContainer>
                     </Container>
-                    <BottomContainer>
-                        {addtoCart !== undefined ? (
+                    {page.length !== 0 ? (
+                        <BottomContainer>
                             <Buttoncart
                                 onClick={(e) => {
-                                    addtoCart(page);
+                                    buy(page);
                                     notify();
                                 }}
                             >
                                 Add to Cart <AiOutlineShoppingCart />
                             </Buttoncart>
-                        ) : (
-                            <h1>Loading</h1>
-                        )}
-                        <Links to={`/h`}>
-                            Buy Now
-                            <AiFillThunderbolt />
-                        </Links>{" "}
-                    </BottomContainer>
+                            <Links to={`/h`}>
+                                Buy Now
+                                <AiFillThunderbolt />
+                            </Links>{" "}
+                        </BottomContainer>
+                    ) : null}
+
                     <ToastContainer
                         toastStyle={{
                             position: "absolute",
