@@ -10,11 +10,10 @@ function Story() {
                         <img src={Orange} className="image" />
                     </LeftContainer>
                     <RightContainer>
-                        <Headline>Story About Our Brand</Headline>
+                        <Headline>Disclaimer About Our Brand</Headline>
                         <Para>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Sapiente enim animi beatae neque quam saepe
-                            aut aliquam architecto ducimus!
+                            Everything Shown in this Website is for the Demo
+                            Purpose , These Products and datas does not exist!
                         </Para>
                         <Button>Read Full Story</Button>
                     </RightContainer>
