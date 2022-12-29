@@ -14,14 +14,19 @@ import Lottie from "react-lottie";
 function App() {
     const [item, setItem] = useState([]);
     const [modal, setModal] = useState(false);
-    const [isLoading, setLoading] = useState(false);
+    const [inititalLoader, setInititalLoader] = useState(true);
     const [activeTabs, setActiveTabs] = useState("");
 
     const fetch = useStore((state) => state.fetchProducts);
     const items = useStore((state) => state.Allproducts);
+
     useEffect(() => {
         fetch();
     }, []);
+
+    setTimeout(function () {
+        setInititalLoader(false);
+    }, 2500);
 
     const defaultOptions = {
         loop: true,
@@ -41,7 +46,18 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            items?.length !== 0 ? (
+                            inititalLoader ? (
+                                <>
+                                    <Lottie
+                                        options={defaultOptions}
+                                        height={400}
+                                        width={400}
+                                    />
+                                    <h1 style={{ textAlign: "center" }}>
+                                        Buy Commerce
+                                    </h1>
+                                </>
+                            ) : (
                                 <MainPage
                                     item={item}
                                     setItem={setItem}
@@ -49,12 +65,6 @@ function App() {
                                     setModal={setModal}
                                     activeTabs={activeTabs}
                                     setActiveTabs={setActiveTabs}
-                                />
-                            ) : (
-                                <Lottie
-                                    options={defaultOptions}
-                                    height={400}
-                                    width={400}
                                 />
                             )
                         }

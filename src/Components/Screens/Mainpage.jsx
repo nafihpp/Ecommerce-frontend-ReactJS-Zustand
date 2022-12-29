@@ -17,6 +17,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { useStore } from "zustand";
 import { useEffect } from "react";
+import { Suspense } from "react";
 
 function Mainpage({ modal, setModal }) {
     const [count, setCount] = useState(0);
@@ -73,7 +74,9 @@ function Mainpage({ modal, setModal }) {
             {/* <Spotlight /> */}
             <SpotLightCarousal />
             <CategoryBar />
-            <Items />
+            <Suspense fallback={<h1>Loadingeeeee</h1>}>
+                <Items />
+            </Suspense>
             <Slicker />
             <Story />
             <Achievement />

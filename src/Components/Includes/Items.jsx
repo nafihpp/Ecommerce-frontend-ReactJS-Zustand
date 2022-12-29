@@ -137,11 +137,7 @@ function Items() {
                             Reset
                         </MainSpan>
                     </MainCont>
-                    {items.length !== 0 ? (
-                        <ParentList>{listProducts()}</ParentList>
-                    ) : (
-                        <h1>Loading</h1>
-                    )}
+                    <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
             </MainContainer>
         </>
