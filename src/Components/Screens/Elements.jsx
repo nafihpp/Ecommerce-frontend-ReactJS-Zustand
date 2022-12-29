@@ -227,6 +227,9 @@ const BottomContainer = styled.div`
 `;
 const ImageContainer = styled.div`
     width: 20%;
+    @media all and (max-width: 768px) {
+        width: 60%;
+    }
 `;
 const LeftContainer = styled.div`
     display: flex;
