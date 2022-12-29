@@ -15,7 +15,7 @@ function Slicker() {
     console.log(item);
     return (
         <>
-            {item !== undefined ? (
+            {item.length !== 0 ? (
                 <MainDiv>
                     <Wrapper>
                         <TopContainer>

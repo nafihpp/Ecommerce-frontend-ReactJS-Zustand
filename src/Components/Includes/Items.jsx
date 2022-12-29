@@ -15,12 +15,6 @@ function Items() {
     const fetch = useStore((state) => state.fetchProducts);
     const items = useStore((state) => state.Allproducts);
 
-    useEffect(() => {
-        fetch();
-        setCategory("men's clothing");
-        setCategory("");
-    }, []);
-
     function filtering() {
         if (isCategory == "") {
             setFiltered(items);
@@ -143,7 +137,7 @@ function Items() {
                             Reset
                         </MainSpan>
                     </MainCont>
-                    {items !== undefined ? (
+                    {items.length !== 0 ? (
                         <ParentList>{listProducts()}</ParentList>
                     ) : (
                         <h1>Loading</h1>
