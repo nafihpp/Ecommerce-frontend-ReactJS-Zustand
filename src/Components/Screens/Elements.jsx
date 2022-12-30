@@ -165,7 +165,6 @@ function Elements() {
                             <Buttoncart
                                 onClick={(e) => {
                                     buy(page);
-
                                     notify();
                                 }}
                             >
@@ -221,6 +220,7 @@ const BottomContainer = styled.div`
     margin-top: 40px;
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 `;
 const ImageContainer = styled.div`
     width: 20%;
@@ -242,6 +242,7 @@ const Buttoncart = styled.button`
     color: #fff;
     border: none;
     margin-right: 6px;
+    cursor: pointer;
     :hover {
     }
 `;

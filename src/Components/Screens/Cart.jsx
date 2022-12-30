@@ -6,17 +6,24 @@ import { useStore } from "../../store/Products/Products";
 import styles from "../styles/Cart.module.css";
 import { useCart } from "../../store/Cart/Cart";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Cart = ({ setModal }) => {
     const item = useCart((state) => state.cart);
     const [discounted, setDiscount] = useState(0);
+    const [couponCode, setCouponCode] = useState("");
+
     let sum = 0;
     item.map((mapped) => {
         sum += mapped.price * mapped.quantity;
     });
 
     function discounting() {
-        setDiscount(100);
+        if (couponCode === "10percentage") {
+            setDiscount(sum / 10);
+        } else {
+            setDiscount(0);
+        }
     }
 
     let final = sum.toFixed(2) - discounted.toFixed(2);
@@ -62,24 +69,34 @@ const Cart = ({ setModal }) => {
             <MiddleContainer>
                 <div className={styles.right}>
                     <div className={styles.wrapper}>
-                        <p>Have a Coupon code ?</p>
-                        <input
-                            type="text"
-                            placeholder="coupon code "
-                            style={{ padding: "5px", border: "none" }}
-                        />
-                        <a
-                            style={{
-                                background: "#fff",
-                                color: "#000",
-                                padding: "5px",
-                                marginTop: "4px",
-                                cursor: "pointer",
-                            }}
-                            onClick={(e) => discounting()}
-                        >
-                            Apply Coupon code
-                        </a>
+                        {item?.length >= 1 ? (
+                            <div className="coupon">
+                                <p>Have a Coupon code ?</p>
+                                <input
+                                    type="text"
+                                    style={{ padding: "5px", border: "none" }}
+                                    onChange={(e) =>
+                                        setCouponCode(e.target.value)
+                                    }
+                                />
+                                <div
+                                    style={{
+                                        background: "#fff",
+                                        color: "#000",
+                                        padding: "5px",
+                                        marginTop: "8px",
+                                        cursor: "pointer",
+                                        width: "65%",
+                                        borderRadius: "3px",
+                                        textAlign: "center",
+                                        fontWeight: "600",
+                                    }}
+                                    onClick={(e) => discounting()}
+                                >
+                                    Apply Coupon code
+                                </div>
+                            </div>
+                        ) : null}
                         <h2 className={styles.title}>CART TOTAL</h2>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>Subtotal:</b>$
@@ -99,11 +116,13 @@ const Cart = ({ setModal }) => {
                     </div>
                 </div>
             </MiddleContainer>
-
-            <button>Checkout</button>
+            <Links to="/login">
+                <button>Checkout</button>
+            </Links>
         </Body>
     );
 };
+const Links = styled(Link)``;
 const MiddleContainer = styled.div``;
 const Body = styled.div`
     width: 350px;

@@ -22,14 +22,14 @@ function Items() {
         if (isCategory == "") {
             setFiltered(items);
         } else {
-            const final = items?.filter((fil) => fil.category == isCategory);
+            const final = items?.filter((fil) => fil?.category == isCategory);
             setFiltered(final);
         }
     }
 
     useEffect(() => {
-        setFiltered(items);
         setCategory("");
+        filtering();
     }, []);
 
     useEffect(() => {
@@ -61,12 +61,12 @@ function Items() {
             <>
                 <Child key={produc.id} onClick={() => Pagepush(produc)}>
                     <ImageContainer>
-                        <ProductImg src={produc.image} alt={produc.title} />
+                        <ProductImg src={produc?.image} alt={produc?.title} />
                     </ImageContainer>
                     <Empdiv>
-                        <HeadProduct>{produc.title}</HeadProduct>
+                        <HeadProduct>{produc?.title}</HeadProduct>
                         <Rating
-                            initialValue={produc.rating.rate}
+                            initialValue={produc?.rating?.rate}
                             allowHover={false}
                             readonly={true}
                             size={22}
@@ -79,9 +79,11 @@ function Items() {
                                 }}
                             >
                                 ${" "}
-                                {(produc.price - produc.price / 10).toFixed(2)}
+                                {(produc?.price - produc?.price / 10).toFixed(
+                                    2
+                                )}
                             </PriceDiscountProduct>
-                            <PriceProduct>${produc.price}</PriceProduct>
+                            <PriceProduct>${produc?.price}</PriceProduct>
                         </PriceContainer>
 
                         <MainCartContainer>
