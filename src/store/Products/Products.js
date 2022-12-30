@@ -6,5 +6,4 @@ export const useStore = create((set) => ({
         const res = await fetch("https://fakestoreapi.com/products/");
         set({ Allproducts: await res.json() });
     },
-    increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
 }));

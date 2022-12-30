@@ -23,10 +23,6 @@ function Elements() {
 
     let navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(CartItems, "cart is showing");
-    }, [CartItems.length]);
-
     // function buy(bought) {
     //     let already = item.filter((im) => bought.id === im.id);
     //     if (already.length < 1) {
@@ -56,6 +52,11 @@ function Elements() {
                 console.log(error);
             });
     }, [id]);
+
+    useEffect(() => {
+        const already = CartItems.find((mapcart) => mapcart.id === page.id);
+        console.log(already, "cart is showing");
+    }, [CartItems.length]);
 
     function increment() {
         setCount((prev) => prev + 1);
@@ -164,6 +165,7 @@ function Elements() {
                             <Buttoncart
                                 onClick={(e) => {
                                     buy(page);
+
                                     notify();
                                 }}
                             >

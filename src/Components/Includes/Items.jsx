@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import { useStore } from "../../store/Products/Products";
 import loaderData from "../../loader/132083-loading-tau.json";
 import Lottie from "react-lottie";
+import { useCart } from "../../store/Cart/Cart";
 
 function Items() {
     const [isCategory, setCategory] = useState("");
@@ -15,6 +16,7 @@ function Items() {
     let navigate = useNavigate();
 
     const items = useStore((state) => state.Allproducts);
+    const cart = useCart((state) => state.cart);
 
     function filtering() {
         if (isCategory == "") {
@@ -53,6 +55,7 @@ function Items() {
             preserveAspectRatio: "xMidYMid slice",
         },
     };
+
     let listProducts = () => {
         return filtered?.map((produc) => (
             <>
@@ -80,6 +83,7 @@ function Items() {
                             </PriceDiscountProduct>
                             <PriceProduct>${produc.price}</PriceProduct>
                         </PriceContainer>
+
                         <MainCartContainer>
                             {/* <Buttoncart onClick={() => optimize(produc)}>
                                 <AiOutlineShoppingCart />
@@ -98,6 +102,13 @@ function Items() {
             <MainContainer>
                 <Wrapperlist>
                     <HeadingMain>Our Premium Collection</HeadingMain>
+                    <button
+                        onClick={(e) => {
+                            console.log(cart);
+                        }}
+                    >
+                        view it
+                    </button>
                     <MainCont>
                         <MainSpan
                             className={

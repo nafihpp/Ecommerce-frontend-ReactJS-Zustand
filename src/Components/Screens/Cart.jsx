@@ -5,16 +5,19 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useStore } from "../../store/Products/Products";
 import styles from "../styles/Cart.module.css";
 import { useCart } from "../../store/Cart/Cart";
+import { useState } from "react";
 
 const Cart = ({ setModal }) => {
     const item = useCart((state) => state.cart);
-
+    const [discounted, setDiscount] = useState(0);
     let sum = 0;
     item.map((mapped) => {
-        sum += mapped.price;
+        sum += mapped.price * mapped.quantity;
     });
 
-    let discounted = (sum / 100) * 10;
+    function discounting() {
+        setDiscount(100);
+    }
 
     let final = sum.toFixed(2) - discounted.toFixed(2);
 
@@ -46,7 +49,7 @@ const Cart = ({ setModal }) => {
                             <br />
                             {cart.quantity} Quantity{" "}
                             <strong>
-                                price : ${cart.price * cart.quantity}
+                                total : ${cart.price * cart.quantity}
                             </strong>
                         </p>
                     </div>
@@ -59,6 +62,22 @@ const Cart = ({ setModal }) => {
             <MiddleContainer>
                 <div className={styles.right}>
                     <div className={styles.wrapper}>
+                        <p>Have a Coupon code ?</p>
+                        <input
+                            type="text"
+                            placeholder="coupon code "
+                            style={{ padding: "5px" }}
+                        />
+                        <a
+                            style={{
+                                background: "#fff",
+                                color: "#000",
+                                padding: "5px",
+                                marginTop: "4px",
+                            }}
+                        >
+                            Apply Coupon code
+                        </a>
                         <h2 className={styles.title}>CART TOTAL</h2>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>Subtotal:</b>$
