@@ -76,6 +76,7 @@ const Cart = ({ setModal }) => {
                                 marginTop: "4px",
                                 cursor: "pointer",
                             }}
+                            onClick={(e) => discounting()}
                         >
                             Apply Coupon code
                         </a>
