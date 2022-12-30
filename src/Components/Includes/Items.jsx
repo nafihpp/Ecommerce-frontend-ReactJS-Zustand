@@ -102,13 +102,6 @@ function Items() {
             <MainContainer>
                 <Wrapperlist>
                     <HeadingMain>Our Premium Collection</HeadingMain>
-                    <button
-                        onClick={(e) => {
-                            console.log(cart);
-                        }}
-                    >
-                        view it
-                    </button>
                     <MainCont>
                         <MainSpan
                             className={
