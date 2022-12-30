@@ -15,7 +15,7 @@ export const useCart = create((set) => ({
             }
             const updatedCart = state.cart.map((item) =>
                 item.id === page.id
-                    ? { ...item, quantity: item.quantity + 1 }
+                    ? { ...item, quantity: item.quantity + page.quantity }
                     : item
             );
 

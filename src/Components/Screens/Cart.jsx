@@ -6,12 +6,13 @@ import { useStore } from "../../store/Products/Products";
 import styles from "../styles/Cart.module.css";
 import { useCart } from "../../store/Cart/Cart";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = ({ setModal }) => {
     const item = useCart((state) => state.cart);
     const [discounted, setDiscount] = useState(0);
     const [couponCode, setCouponCode] = useState("");
+    const navigate = useNavigate();
 
     let sum = 0;
     item.map((mapped) => {
@@ -116,9 +117,17 @@ const Cart = ({ setModal }) => {
                     </div>
                 </div>
             </MiddleContainer>
-            <Links to="/login">
+            <div
+                onClick={(e) => {
+                    if (item.length == 0) {
+                        alert("cart is empty");
+                    } else {
+                        navigate("/login");
+                    }
+                }}
+            >
                 <button>Checkout</button>
-            </Links>
+            </div>
         </Body>
     );
 };

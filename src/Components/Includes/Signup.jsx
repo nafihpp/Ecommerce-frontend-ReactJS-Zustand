@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Helmet from "react-helmet";
 import { AiOutlineClose } from "react-icons/ai";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { useState } from "react";
 
 export default function Signup() {
+    const navigate = useNavigate();
+    const [phone, setPhone] = useState();
     return (
         <>
             <Helmet>
@@ -17,7 +22,12 @@ export default function Signup() {
                             <LoginContainer>
                                 <LoginHead>
                                     <LoginHeading>Signup Now</LoginHeading>
-                                    <AiOutlineClose />
+                                    <AiOutlineClose
+                                        onClick={(e) => {
+                                            navigate("/");
+                                        }}
+                                        style={{ cursor: "pointer" }}
+                                    />
                                 </LoginHead>
                                 <LoginInfo>Enter Phone to Verify OTP</LoginInfo>
                                 <Form>
@@ -28,6 +38,16 @@ export default function Signup() {
                                             onChange={(e) =>
                                                 console.log("none")
                                             }
+                                        />
+                                    </InputContainer>
+                                    <InputContainer>
+                                        <PhoneInput
+                                            country={"us"}
+                                            enableSearch={true}
+                                            onChange={(e) => {
+                                                console.log(phone);
+                                                setPhone(e);
+                                            }}
                                         />
                                     </InputContainer>
                                     <InputContainer>

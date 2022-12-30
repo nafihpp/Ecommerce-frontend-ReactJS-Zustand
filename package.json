@@ -16,6 +16,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
     "react-lottie": "^1.2.3",
+    "react-phone-input-2": "^2.15.1",
+    "react-phone-number-input": "^3.2.13",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-simple-star-rating": "^4.0.5",

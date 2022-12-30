@@ -156,15 +156,7 @@ function Items() {
                             Reset
                         </MainSpan>
                     </MainCont>
-                    {items.length !== 0 ? (
-                        <ParentList>{listProducts()}</ParentList>
-                    ) : (
-                        <Lottie
-                            options={defaultOptions}
-                            height={400}
-                            width={400}
-                        />
-                    )}
+                    <ParentList>{listProducts()}</ParentList>
                 </Wrapperlist>
             </MainContainer>
         </>

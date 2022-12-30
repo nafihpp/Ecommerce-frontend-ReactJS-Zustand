@@ -167,3 +167,8 @@ div.right div.cart-items div.right a {
     background-color: #fff !important;
     color: #000 !important;
 }
+
+.react-tel-input .form-control {
+    height: 48px !important;
+    width: 292px !important;
+}

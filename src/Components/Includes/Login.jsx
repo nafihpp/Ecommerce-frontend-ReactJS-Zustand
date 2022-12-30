@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Link, Router } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate();
     return (
         <>
             <MainContainer>
@@ -13,7 +15,12 @@ export default function Login() {
                             <LoginContainer>
                                 <LoginHead>
                                     <LoginHeading>Login</LoginHeading>
-                                    <AiOutlineClose />
+                                    <AiOutlineClose
+                                        onClick={(e) => {
+                                            navigate("/");
+                                        }}
+                                        style={{ cursor: "pointer" }}
+                                    />
                                 </LoginHead>
                                 <LoginInfo>Enter Phone to Verify OTP</LoginInfo>
                                 <Form>
