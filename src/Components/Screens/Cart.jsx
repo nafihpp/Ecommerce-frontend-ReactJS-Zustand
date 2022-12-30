@@ -66,7 +66,7 @@ const Cart = ({ setModal }) => {
                         <input
                             type="text"
                             placeholder="coupon code "
-                            style={{ padding: "5px" }}
+                            style={{ padding: "5px", border: "none" }}
                         />
                         <a
                             style={{
@@ -74,6 +74,7 @@ const Cart = ({ setModal }) => {
                                 color: "#000",
                                 padding: "5px",
                                 marginTop: "4px",
+                                cursor: "pointer",
                             }}
                         >
                             Apply Coupon code
@@ -84,8 +85,10 @@ const Cart = ({ setModal }) => {
                             {sum.toFixed(2)}
                         </div>
                         <div className={styles.totalText}>
-                            <b className={styles.totalTextTitle}>Discount:</b>$
-                            {discounted.toFixed(2)}
+                            <b className={styles.totalTextTitle}>
+                                Coupon Discount:
+                            </b>
+                            ${discounted.toFixed(2)}
                         </div>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>
