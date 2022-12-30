@@ -8,52 +8,57 @@ import "swiper/css/navigation";
 import banana from "../../assets/banana.jpg";
 import apricot from "../../assets/apricot.jpg";
 import apple from "../../assets/apple.jpg";
+import axios from "axios";
 
-function Items({ item, setItem }) {
+function CategoryBar() {
+    const [category, setCategory] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        axios
+            .get("https://fakestoreapi.com/products/categories")
+            .then((response) => {
+                setCategory(response.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+    console.log(category);
+
+    const navigate = useNavigate();
     let listProducts = () => {
         return (
             <>
-                <Child>
-                    <ImageContainer>
-                        <ProductImg src={apricot} alt="cat" />
-                    </ImageContainer>
-                </Child>
-                <Child>
-                    <ImageContainer>
-                        <ProductImg src={banana} alt="cat" />
-                    </ImageContainer>
-                </Child>
-                <Child>
-                    <ImageContainer>
-                        <ProductImg src={apple} alt="cat" />
-                    </ImageContainer>
-                </Child>
-                <Child>
-                    <ImageContainer>
-                        <ProductImg src={apple} alt="cat" />
-                    </ImageContainer>
-                </Child>
-                <Child>
-                    <ImageContainer>
-                        <ProductImg src={apple} alt="cat" />
-                    </ImageContainer>
-                </Child>
-                <Child>
-                    <ImageContainer>
-                        <ProductImg src={apple} alt="cat" />
-                    </ImageContainer>
-                </Child>
+                {category.map((cat) => (
+                    <>
+                        <Child
+                            onClick={(e) => {
+                                navigate(`category/${cat}`);
+                            }}
+                        >
+                            <ImageContainer>
+                                <ProductImg src={apricot} alt="cat" />
+                            </ImageContainer>
+                            <p style={{ textAlign: "center" }}>{cat}</p>
+                        </Child>
+                    </>
+                ))}
             </>
         );
     };
     return (
         <>
-            <MainContainer>
-                <Wrapperlist>
-                    <h1 style={{ textAlign: "center" }}>Categories</h1>
-                    <ParentList>{listProducts()}</ParentList>
-                </Wrapperlist>
-            </MainContainer>
+            {loading ? (
+                <h1>Loading</h1>
+            ) : (
+                <MainContainer>
+                    <Wrapperlist>
+                        <h1 style={{ textAlign: "center" }}>Categories</h1>
+                        <ParentList>{listProducts()}</ParentList>
+                    </Wrapperlist>
+                </MainContainer>
+            )}
         </>
     );
 }
@@ -80,8 +85,10 @@ const Child = styled.li`
     padding: 8px;
     margin-right: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     @media (max-width: 768px) {
         width: 21%;
         height: 56px;
@@ -98,4 +105,4 @@ const ProductImg = styled.img`
     display: block;
     width: 100%;
 `;
-export default Items;
+export default CategoryBar;

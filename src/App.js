@@ -10,6 +10,7 @@ import animationData from "./loader/75400-shopping-bag.json";
 import { useEffect } from "react";
 import { useStore } from "./store/Products/Products";
 import Lottie from "react-lottie";
+import Category from "./Components/Includes/Category";
 
 function App() {
     const [item, setItem] = useState([]);
@@ -69,6 +70,7 @@ function App() {
                             )
                         }
                     />
+                    <Route path="category/:category" element={<Category />} />
                     <Route path="/:id" element={<Elements />} />
                     <Route
                         path="*"
