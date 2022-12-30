@@ -18,6 +18,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useStore } from "zustand";
 import { useEffect } from "react";
 import { Suspense } from "react";
+import Footer from "../Includes/Footer";
 
 function Mainpage({ modal, setModal }) {
     const [count, setCount] = useState(0);
@@ -80,6 +81,7 @@ function Mainpage({ modal, setModal }) {
             <Slicker />
             <Story />
             <Achievement />
+            <Footer />
             {isMobile && (
                 <BottomNavigation
                     items={bottomNavItems}
