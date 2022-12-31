@@ -82,13 +82,13 @@ function Mainpage({ modal, setModal }) {
             <Story />
             <Achievement />
             <Footer />
-            {/* {isMobile && ( */}
-            <BottomNavigation
-                items={bottomNavItems}
-                defaultSelected={0}
-                onItemClick={(item) => console.log(item)}
-            />
-            {/* )} */}
+            {isMobile && (
+                <BottomNavigation
+                    items={bottomNavItems}
+                    defaultSelected={0}
+                    onItemClick={(item) => console.log(item)}
+                />
+            )}
         </>
     );
 }

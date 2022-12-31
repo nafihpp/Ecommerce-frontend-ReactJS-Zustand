@@ -10,6 +10,8 @@ import { useCart } from "../../store/Cart/Cart";
 function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     const [item, setItem] = useState([]);
     const cart = useCart((state) => state.cart);
+    const [isVisible, setIsVisible] = useState(true);
+    const [height, setHeight] = useState(0);
     useEffect(() => {
         const axios = require("axios");
         axios
@@ -64,25 +66,45 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
             item?.filter((item) => item?.title?.toLowerCase().includes(search))
         );
     };
+
+    useEffect(() => {
+        window.addEventListener("scroll", listenToScroll);
+        return () => window.removeEventListener("scroll", listenToScroll);
+    }, []);
+
+    const listenToScroll = () => {
+        let heightToHideFrom = 200;
+        const winScroll =
+            document.body.scrollTop || document.documentElement.scrollTop;
+        setHeight(winScroll);
+
+        if (winScroll > heightToHideFrom) {
+            isVisible && setIsVisible(false);
+        } else {
+            setIsVisible(true);
+        }
+    };
     return (
         <>
             <MainContainer>
-                <LocationContainer>
-                    <LocationIcon>
-                        <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            stroke-width="0"
-                            viewBox="0 0 512 512"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z"></path>
-                        </svg>
-                    </LocationIcon>
-                    <span>{data}</span>
-                </LocationContainer>
+                {isVisible && (
+                    <LocationContainer>
+                        <LocationIcon>
+                            <svg
+                                stroke="currentColor"
+                                fill="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 512 512"
+                                height="1em"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z"></path>
+                            </svg>
+                        </LocationIcon>
+                        <span>{data}</span>
+                    </LocationContainer>
+                )}
                 <WrapperContainer>
                     <SubContainer>
                         <LeftContainer>
