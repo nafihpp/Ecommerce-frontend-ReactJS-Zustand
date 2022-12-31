@@ -28,8 +28,9 @@ function Items() {
     }
 
     useEffect(() => {
-        setCategory("");
-        filtering();
+        if (items?.length !== 0) {
+            filtering();
+        }
     }, []);
 
     useEffect(() => {
