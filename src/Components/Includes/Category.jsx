@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Rating } from "react-simple-star-rating";
 import { Link } from "react-router-dom";
+import { IoArrowBackOutline } from "react-icons/io5";
 
 function Category() {
     const { category } = useParams();
@@ -30,6 +31,9 @@ function Category() {
     const Pagepush = (produce) => {
         navigate(`${produce.id}`);
     };
+    function back() {
+        navigate("/");
+    }
 
     let listProducts = () => {
         return categoryItem?.map((produc) => (
@@ -81,12 +85,19 @@ function Category() {
                 <h1>Loading</h1>
             ) : (
                 <div>
+                    <BackButton onClick={back}>
+                        <IoArrowBackOutline />
+                    </BackButton>
                     <ParentList>{listProducts()}</ParentList>
                 </div>
             )}
         </>
     );
 }
+const BackButton = styled.div`
+    cursor: pointer;
+    font-size: 34px;
+`;
 
 const PriceContainer = styled.div`
     display: flex;

@@ -71,6 +71,10 @@ function App() {
                         }
                     />
                     <Route path="category/:category" element={<Category />} />
+                    <Route
+                        path="category/:category/:id"
+                        element={<Elements />}
+                    />
                     <Route path="/:id" element={<Elements />} />
                     <Route
                         path="*"
