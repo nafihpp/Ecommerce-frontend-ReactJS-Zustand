@@ -73,7 +73,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     }, []);
 
     const listenToScroll = () => {
-        let heightToHideFrom = 200;
+        let heightToHideFrom = 10;
         const winScroll =
             document.body.scrollTop || document.documentElement.scrollTop;
         setHeight(winScroll);
