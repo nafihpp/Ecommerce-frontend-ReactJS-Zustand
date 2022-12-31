@@ -12,7 +12,7 @@ import { AiFillThunderbolt } from "react-icons/ai";
 import Header from "../Includes/Header";
 import { Rating } from "react-simple-star-rating";
 import { useCart } from "../../store/Cart/Cart";
-
+import HeaderWithoutLocation from "../Includes/HeaderWithoutLocation";
 function Elements() {
     const { id } = useParams();
     const [page, setPage] = useState([]);
@@ -86,7 +86,7 @@ function Elements() {
             <Helmet>
                 <title>{`${page.title} | Shopping`}</title>
             </Helmet>
-
+            <HeaderWithoutLocation />
             <MainContainer>
                 <Wrapper>
                     <BackButton onClick={back}>
@@ -257,6 +257,7 @@ const Links = styled(Link)`
 `;
 const MainContainer = styled.div`
     position: relative;
+    padding-top: 100px;
 `;
 const BackButton = styled.div`
     cursor: pointer;
