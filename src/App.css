@@ -172,3 +172,7 @@ div.right div.cart-items div.right a {
     height: 48px !important;
     width: 292px !important;
 }
+
+.bottom-nav {
+    height: 43px !important;
+}

@@ -81,7 +81,7 @@ const ParentList = styled.ul`
 const Child = styled.li`
     border: 3px solid #000;
     border-radius: 50%;
-    width: 8%;
+    width: 9%;
     padding: 8px;
     margin-right: 10px;
     display: flex;
@@ -90,9 +90,8 @@ const Child = styled.li`
     justify-content: center;
     cursor: pointer;
     @media (max-width: 768px) {
-        width: 21%;
-        height: 56px;
-        flex-wrap: wrap;
+        width: 35%;
+        height: 110px;
     }
 `;
 const ImageContainer = styled.div`
