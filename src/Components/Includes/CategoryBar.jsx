@@ -40,7 +40,14 @@ function CategoryBar() {
                             <ImageContainer>
                                 <ProductImg src={apricot} alt="cat" />
                             </ImageContainer>
-                            <p style={{ textAlign: "center" }}>{cat}</p>
+                            <p
+                                style={{
+                                    textAlign: "center",
+                                    fontSize: "12px",
+                                }}
+                            >
+                                {cat}
+                            </p>
                         </Child>
                     </>
                 ))}
@@ -92,6 +99,7 @@ const Child = styled.li`
     @media (max-width: 768px) {
         width: 35%;
         height: 110px;
+        padding: 0px !important;
     }
 `;
 const ImageContainer = styled.div`
