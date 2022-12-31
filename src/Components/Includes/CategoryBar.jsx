@@ -9,10 +9,20 @@ import banana from "../../assets/banana.jpg";
 import apricot from "../../assets/apricot.jpg";
 import apple from "../../assets/apple.jpg";
 import axios from "axios";
+import animationData from "../../loader/9582-liquid-4-dot-loader.json";
+import Lottie from "react-lottie";
 
 function CategoryBar() {
     const [category, setCategory] = useState([]);
     const [loading, setLoading] = useState(true);
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
     useEffect(() => {
         axios
             .get("https://fakestoreapi.com/products/categories")
@@ -57,7 +67,7 @@ function CategoryBar() {
     return (
         <>
             {loading ? (
-                <h1>Loading</h1>
+                <Lottie options={defaultOptions} height={200} width={200} />
             ) : (
                 <MainContainer>
                     <Wrapperlist>

@@ -74,6 +74,7 @@ function Mainpage({ modal, setModal }) {
             />
             {/* <Spotlight /> */}
             <SpotLightCarousal />
+
             <CategoryBar />
 
             <Items />

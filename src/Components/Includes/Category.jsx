@@ -7,19 +7,31 @@ import styled from "styled-components";
 import { Rating } from "react-simple-star-rating";
 import { Link } from "react-router-dom";
 import { IoArrowBackOutline } from "react-icons/io5";
+import animationData from "../../loader/9582-liquid-4-dot-loader.json";
+import Lottie from "react-lottie";
 
 function Category() {
     const { category } = useParams();
     const [categoryItem, setCategoryItem] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
 
     useEffect(() => {
         axios
             .get(`https://fakestoreapi.com/products/category/${category}`)
             .then(function (response) {
                 setCategoryItem(response.data);
-                setLoading(false);
+                setTimeout(function () {
+                    setLoading(false);
+                }, 1000);
             })
             .catch((error) => {
                 console.log(error);
@@ -38,7 +50,7 @@ function Category() {
     let listProducts = () => {
         return categoryItem?.map((produc) => (
             <>
-                <Child key={produc.id} onClick={() => Pagepush(produc)}>
+                <Child key={produc?.id} onClick={() => Pagepush(produc)}>
                     <ImageContainer>
                         <ProductImg src={produc?.image} alt={produc?.title} />
                     </ImageContainer>
@@ -48,7 +60,7 @@ function Category() {
                             initialValue={produc?.rating?.rate}
                             allowHover={false}
                             readonly={true}
-                            size={22}
+                            size={17}
                         />
                         <PriceContainer>
                             <PriceDiscountProduct
@@ -82,7 +94,7 @@ function Category() {
     return (
         <>
             {loading ? (
-                <h1>Loading</h1>
+                <Lottie options={defaultOptions} height={400} width={400} />
             ) : (
                 <div>
                     <BackButton onClick={back}>
