@@ -6,6 +6,7 @@ import styled from "styled-components";
 import CartModal from "../Screens/Cart";
 import Geocode from "react-geocode";
 import { useCart } from "../../store/Cart/Cart";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     const [item, setItem] = useState([]);
@@ -117,7 +118,6 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                         <MiddleContainer>
                             <Input
                                 type="text"
-                                class="search-box"
                                 placeholder="Search What You Need."
                                 className="zoom"
                                 onChange={(e) => {
@@ -151,15 +151,32 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                         </Link>
                                     ))}
                             </SearchContainer>
-                            <CartContainer>
-                                <CartImg
-                                    src={
-                                        require("../../assets/search.icon.svg")
-                                            .default
-                                    }
-                                    alt="imge"
-                                />
-                            </CartContainer>
+                            {search ? (
+                                <CartContainer
+                                    style={{
+                                        cursor: "pointer",
+                                        fontSize: "20px",
+                                    }}
+                                    onClick={(e) => {
+                                        setSearch("");
+                                        document.getElementsByClassName(
+                                            "zoom"
+                                        )[0].value = "";
+                                    }}
+                                >
+                                    <AiOutlineCloseCircle />
+                                </CartContainer>
+                            ) : (
+                                <CartContainer>
+                                    <CartImg
+                                        src={
+                                            require("../../assets/search.icon.svg")
+                                                .default
+                                        }
+                                        alt="imge"
+                                    />
+                                </CartContainer>
+                            )}
                         </MiddleContainer>
                         <RightContainer>
                             <ImageBoxOne>

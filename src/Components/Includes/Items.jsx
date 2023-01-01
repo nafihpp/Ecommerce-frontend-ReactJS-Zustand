@@ -16,14 +16,22 @@ function Items() {
     let navigate = useNavigate();
 
     const items = useStore((state) => state.Allproducts);
-    const cart = useCart((state) => state.cart);
+
+    const loader = useStore((state) => state.loading);
+    console.log(loader, "now its loading inside");
 
     function filtering() {
         if (isCategory == "") {
-            setFiltered(items);
+            if (loader == false) {
+                setFiltered(items);
+            }
         } else {
-            const final = items?.filter((fil) => fil?.category == isCategory);
-            setFiltered(final);
+            if (loader == false) {
+                const final = items?.filter(
+                    (fil) => fil?.category == isCategory
+                );
+                setFiltered(final);
+            }
         }
     }
 

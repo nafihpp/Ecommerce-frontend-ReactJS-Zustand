@@ -34,7 +34,6 @@ function CategoryBar() {
                 console.log(error);
             });
     }, []);
-    console.log(category);
 
     const navigate = useNavigate();
     let listProducts = () => {

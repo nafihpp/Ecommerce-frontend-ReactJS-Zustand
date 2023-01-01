@@ -15,13 +15,16 @@ import SpotLightCarousal from "../Includes/SpotLightCarousal";
 import CategoryBar from "../Includes/CategoryBar";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-import { useStore } from "zustand";
 import { useEffect } from "react";
 import { Suspense } from "react";
 import Footer from "../Includes/Footer";
+import { useStore } from "../../store/Products/Products";
 
 function Mainpage({ modal, setModal }) {
     const [count, setCount] = useState(0);
+    const loader = useStore((state) => state.loading);
+    const item = useStore((state) => state.Allproducts);
+
     const bottomNavItems = [
         {
             title: "Home",
@@ -76,8 +79,7 @@ function Mainpage({ modal, setModal }) {
             <SpotLightCarousal />
 
             <CategoryBar />
-
-            <Items />
+            {item.length !== 0 ? <Items /> : <h1>Loading</h1>}
 
             <Slicker />
             <Story />

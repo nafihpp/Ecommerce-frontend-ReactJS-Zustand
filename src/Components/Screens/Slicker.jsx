@@ -12,55 +12,51 @@ import { useStore } from "../../store/Products/Products";
 function Slicker() {
     const item = useStore((state) => state.Allproducts);
     SwiperCore.use([Autoplay]);
-    console.log(item);
+
     return (
         <>
-            {item.length !== 0 ? (
-                <MainDiv>
-                    <Wrapper>
-                        <TopContainer>
-                            <TopHead>Top Items!</TopHead>
-                        </TopContainer>
-                        <Swiper
-                            spaceBetween={50}
-                            slidesPerView={3}
-                            autoplay={{
-                                delay: 500,
-                            }}
-                        >
-                            {item?.map((ite) => {
-                                return (
-                                    <>
-                                        <SwiperSlide>
-                                            <MainContainer>
-                                                <ImageContainer>
-                                                    <Img src={apple} />
-                                                </ImageContainer>
-                                            </MainContainer>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <MainContainer>
-                                                <ImageContainer>
-                                                    <Img src={apricot} />
-                                                </ImageContainer>
-                                            </MainContainer>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <MainContainer>
-                                                <ImageContainer>
-                                                    <Img src={banana} />
-                                                </ImageContainer>
-                                            </MainContainer>
-                                        </SwiperSlide>
-                                    </>
-                                );
-                            })}
-                        </Swiper>
-                    </Wrapper>
-                </MainDiv>
-            ) : (
-                <h1 style={{ textAlign: "center" }}>Loading</h1>
-            )}
+            <MainDiv>
+                <Wrapper>
+                    <TopContainer>
+                        <TopHead>Top Items!</TopHead>
+                    </TopContainer>
+                    <Swiper
+                        spaceBetween={50}
+                        slidesPerView={3}
+                        autoplay={{
+                            delay: 500,
+                        }}
+                    >
+                        {item?.map((ite) => {
+                            return (
+                                <>
+                                    <SwiperSlide>
+                                        <MainContainer>
+                                            <ImageContainer>
+                                                <Img src={apple} />
+                                            </ImageContainer>
+                                        </MainContainer>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <MainContainer>
+                                            <ImageContainer>
+                                                <Img src={apricot} />
+                                            </ImageContainer>
+                                        </MainContainer>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <MainContainer>
+                                            <ImageContainer>
+                                                <Img src={banana} />
+                                            </ImageContainer>
+                                        </MainContainer>
+                                    </SwiperSlide>
+                                </>
+                            );
+                        })}
+                    </Swiper>
+                </Wrapper>
+            </MainDiv>
         </>
     );
 }

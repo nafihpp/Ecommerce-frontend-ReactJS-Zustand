@@ -9,7 +9,6 @@ export const useCart = create((set) => ({
             );
             if (!isPresent) {
                 return {
-                    ...state,
                     cart: [...state.cart, page],
                 };
             }
@@ -24,4 +23,15 @@ export const useCart = create((set) => ({
                 cart: updatedCart,
             };
         }),
+
+    // removefromCart: (remItem) =>
+    //     set((state) => {
+    //         const deleting = state.cart.find(
+    //             (cartremItem) => cartremItem.id !== remItem.id
+    //         );
+
+    //         return {
+    //             cart: [...state.cart, deleting],
+    //         };
+    //     }),
 }));

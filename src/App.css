@@ -176,3 +176,10 @@ div.right div.cart-items div.right a {
 .bottom-nav {
     height: 50px !important;
 }
+
+.swiper-button-prev {
+    color: #fff !important;
+}
+.swiper-button-next {
+    color: #fff !important;
+}

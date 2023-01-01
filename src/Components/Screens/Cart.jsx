@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Cart = ({ setModal }) => {
     const item = useCart((state) => state.cart);
+    // const removeIt = useCart((state) => state.removefromCart);
     const [discounted, setDiscount] = useState(0);
     const [couponCode, setCouponCode] = useState("");
     const navigate = useNavigate();
@@ -33,6 +34,11 @@ const Cart = ({ setModal }) => {
         style: "currency",
         currency: "INR",
     }).format(final);
+
+    function del(cart) {
+        // removeIt(cart);
+        console.log(cart);
+    }
 
     return (
         <Body>
@@ -61,7 +67,7 @@ const Cart = ({ setModal }) => {
                             </strong>
                         </p>
                     </div>
-                    <div className="delete">
+                    <div className="delete" onClick={del(cart)}>
                         <AiOutlineDelete />
                     </div>
                 </Content>
