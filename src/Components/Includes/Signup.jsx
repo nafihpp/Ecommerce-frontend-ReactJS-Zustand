@@ -48,6 +48,7 @@ export default function Signup() {
                                                 console.log(phone);
                                                 setPhone(e);
                                             }}
+                                            inputMode="numeric"
                                         />
                                     </InputContainer>
                                     <InputContainer>

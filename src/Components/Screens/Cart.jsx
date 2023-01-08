@@ -8,7 +8,7 @@ import { useCart } from "../../store/Cart/Cart";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Cart = ({ setModal }) => {
+const Cart = ({ setModal, modal }) => {
     const item = useCart((state) => state.cart);
     // const removeIt = useCart((state) => state.removefromCart);
     const [discounted, setDiscount] = useState(0);
@@ -16,6 +16,7 @@ const Cart = ({ setModal }) => {
     const navigate = useNavigate();
 
     let sum = 0;
+
     item.map((mapped) => {
         sum += mapped.price * mapped.quantity;
     });
@@ -53,7 +54,7 @@ const Cart = ({ setModal }) => {
                 <Content>
                     <div className="thumbnail">
                         <img
-                            src={cart.image}
+                            src={cart?.image}
                             alt="Autumn Limited Edition Sneakers"
                         />
                     </div>
@@ -63,7 +64,8 @@ const Cart = ({ setModal }) => {
                             <br />
                             {cart.quantity} Quantity{" "}
                             <strong>
-                                total : ${cart.price * cart.quantity}
+                                total : $
+                                {cart?.price.toFixed(2) * cart?.quantity}
                             </strong>
                         </p>
                     </div>

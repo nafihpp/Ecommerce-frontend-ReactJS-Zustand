@@ -190,8 +190,8 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                             </ImageBoxOne>
                             <ImageBoxTwo
                                 style={{ cursor: "pointer" }}
-                                onClick={() => {
-                                    setModal(!modal);
+                                onClick={(e) => {
+                                    setModal(true);
                                 }}
                             >
                                 <RoundBox style={{ cursor: "pointer" }}>
