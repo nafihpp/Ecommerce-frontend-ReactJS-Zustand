@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { IoArrowBackOutline } from "react-icons/io5";
 import animationData from "../../loader/9582-liquid-4-dot-loader.json";
 import Lottie from "react-lottie";
+import Sidebar from "./Sidebar";
 
 function Category() {
     const { category } = useParams();
@@ -98,8 +99,11 @@ function Category() {
             ) : (
                 <div>
                     <BackButton onClick={back}>
-                        <IoArrowBackOutline />
+                        <IoArrowBackOutline
+                            style={{ zIndex: "100000000000" }}
+                        />
                     </BackButton>
+                    <Sidebar />
                     <ParentList>{listProducts()}</ParentList>
                 </div>
             )}
@@ -109,6 +113,7 @@ function Category() {
 const BackButton = styled.div`
     cursor: pointer;
     font-size: 34px;
+    z-index: 100000000000;
 `;
 
 const PriceContainer = styled.div`
@@ -175,6 +180,10 @@ const ParentList = styled.ul`
     padding-top: 23px;
     margin-top: -1px;
     flex-wrap: wrap;
+    margin-left: 301px;
+    @media (max-width: 480px) {
+        margin-left: 0px;
+    }
 `;
 const Child = styled.li`
     width: 23%;

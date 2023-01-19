@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useStore } from "./store/Products/Products";
 import Lottie from "react-lottie";
 import Category from "./Components/Includes/Category";
-
+import Chat from "./Components/Includes/chatproduct";
 function App() {
     const [item, setItem] = useState([]);
     const [modal, setModal] = useState(false);
@@ -42,6 +42,7 @@ function App() {
         <>
             <Router>
                 <Routes>
+                    <Route path="/chat" element={<Chat />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route

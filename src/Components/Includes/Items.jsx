@@ -9,6 +9,9 @@ import { useStore } from "../../store/Products/Products";
 import loaderData from "../../loader/132083-loading-tau.json";
 import Lottie from "react-lottie";
 import { useCart } from "../../store/Cart/Cart";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 function Items() {
     const [isCategory, setCategory] = useState("");
@@ -165,7 +168,22 @@ function Items() {
                             Reset
                         </MainSpan>
                     </MainCont>
-                    <ParentList>{listProducts()}</ParentList>
+                    <ParentList>
+                        {" "}
+                        <OwlCarousel
+                            className="owl-theme"
+                            items={5}
+                            margin={4}
+                            slideBy={1}
+                            loop
+                            animateIn={true}
+                            autoplayHoverPause={true}
+                            autoplay={true}
+                            nav={true}
+                        >
+                            {listProducts()}
+                        </OwlCarousel>
+                    </ParentList>
                 </Wrapperlist>
             </MainContainer>
         </>
@@ -237,7 +255,6 @@ const ParentList = styled.ul`
     overflow-x: scroll;
 `;
 const Child = styled.li`
-    width: 23%;
     margin-right: 20px;
     margin-bottom: 46px;
     border-radius: 4px;

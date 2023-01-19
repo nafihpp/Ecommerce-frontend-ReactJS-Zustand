@@ -183,3 +183,7 @@ div.right div.cart-items div.right a {
 .swiper-button-next {
     color: #fff !important;
 }
+.MuiSlider-root {
+    color: #3f51b5;
+    width: 67% !important;
+}

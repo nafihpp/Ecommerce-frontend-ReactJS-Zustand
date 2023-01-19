@@ -19,6 +19,8 @@ import { useEffect } from "react";
 import { Suspense } from "react";
 import Footer from "../Includes/Footer";
 import { useStore } from "../../store/Products/Products";
+import Carousal from "../Includes/Carousal";
+import Stori from "../Includes/Stori";
 
 function Mainpage({ modal, setModal }) {
     const [count, setCount] = useState(0);
@@ -75,6 +77,7 @@ function Mainpage({ modal, setModal }) {
                 count={count}
                 setCount={setCount}
             />
+            <h1>Hai Test</h1>
             {/* <Spotlight /> */}
             <SpotLightCarousal />
 
@@ -86,6 +89,8 @@ function Mainpage({ modal, setModal }) {
             )}
             <Slicker />
             <Story />
+            <Stori />
+            <Carousal />
             <Achievement />
             <Footer />
             {isMobile && (
