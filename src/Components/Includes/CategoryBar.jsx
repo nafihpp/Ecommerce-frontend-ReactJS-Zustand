@@ -65,16 +65,14 @@ function CategoryBar() {
     };
     return (
         <>
-            {loading ? (
-                <Lottie options={defaultOptions} height={200} width={200} />
-            ) : (
+            {
                 <MainContainer>
                     <Wrapperlist>
                         <h1 style={{ textAlign: "center" }}>Categories</h1>
                         <ParentList>{listProducts()}</ParentList>
                     </Wrapperlist>
                 </MainContainer>
-            )}
+            }
         </>
     );
 }
