@@ -51,8 +51,8 @@ function App() {
                                 <>
                                     <Lottie
                                         options={defaultOptions}
-                                        height={400}
-                                        width={400}
+                                        height={300}
+                                        width={300}
                                     />
                                     <h1 style={{ textAlign: "center" }}>
                                         Buy Commerce

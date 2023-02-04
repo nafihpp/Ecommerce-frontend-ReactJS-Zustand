@@ -23,6 +23,20 @@ export const useCart = create((set) => ({
                 cart: updatedCart,
             };
         }),
+    removeFromCart: (cart) => {
+        set((state) => {
+            const isPresent = state.cart.find(
+                (itemsInCart) => itemsInCart.id == cart.id
+            );
+            if (isPresent) {
+                state.cart.map((maps) => {
+                    maps.id == cart.id
+                        ? { ...maps, quantity: maps.quantity - 1 }
+                        : maps;
+                });
+            }
+        });
+    },
 
     // removefromCart: (remItem) =>
     //     set((state) => {

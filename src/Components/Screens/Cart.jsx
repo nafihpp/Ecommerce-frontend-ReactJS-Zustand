@@ -60,9 +60,9 @@ const Cart = ({ setModal, modal }) => {
                     </div>
                     <div className="details">
                         <p>
-                            {cart.title.slice(0, 25)}
+                            {cart?.title.slice(0, 25)}
                             <br />
-                            {cart.quantity} Quantity{" "}
+                            {cart?.quantity} Quantity{" "}
                             <strong>
                                 total : $
                                 {cart?.price.toFixed(2) * cart?.quantity}
