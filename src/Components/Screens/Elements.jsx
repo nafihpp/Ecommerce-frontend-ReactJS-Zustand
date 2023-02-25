@@ -86,7 +86,7 @@ function Elements() {
             <Helmet>
                 <title>{`${page.title} | Shopping`}</title>
             </Helmet>
-            <HeaderWithoutLocation />
+            {/* <HeaderWithoutLocation /> */}
             <MainContainer>
                 <Wrapper>
                     <BackButton onClick={back}>
@@ -257,7 +257,6 @@ const Links = styled(Link)`
 `;
 const MainContainer = styled.div`
     position: relative;
-    padding-top: 100px;
 `;
 const BackButton = styled.div`
     cursor: pointer;

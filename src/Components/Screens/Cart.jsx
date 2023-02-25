@@ -45,7 +45,7 @@ const Cart = ({ setModal, modal }) => {
     return (
         <Body>
             <Header>
-                <h3>Cart</h3>
+                <h3></h3>
                 <AiOutlineClose
                     style={{ cursor: "pointer" }}
                     onClick={(e) => setModal(false)}
@@ -63,7 +63,34 @@ const Cart = ({ setModal, modal }) => {
                         <p>
                             {cart?.title.slice(0, 25)}
                             <br />
-                            {cart?.quantity} Quantity{" "}
+                            <div
+                                style={{
+                                    display: "flex",
+                                    background: "grey",
+                                    borderRadius: "7px",
+                                    width: 80,
+                                    justifyContent: "center",
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        marginRight: "20px",
+                                        cursor: "pointer",
+                                    }}
+                                >
+                                    -
+                                </div>
+                                {cart?.quantity}
+                                <div
+                                    style={{
+                                        marginLeft: "20px",
+                                        cursor: "pointer",
+                                    }}
+                                    onClick={(e) => {}}
+                                >
+                                    +
+                                </div>{" "}
+                            </div>
                             <strong>
                                 total : $
                                 {cart?.price.toFixed(2) * cart?.quantity}

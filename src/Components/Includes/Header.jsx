@@ -26,29 +26,45 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                 console.log(error);
             });
     }, []);
-    const [lat, setLatitude] = useState("");
-    const [lng, setLongitude] = useState("");
-
-    Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
-    Geocode.setLanguage("en");
-    const [data, setData] = useState("");
+    const [location, setLocation] = useState("");
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
+        // Get user's location using geolocation API
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const { latitude, longitude } = position.coords;
+
+            // Call Google Maps API to convert latitude and longitude to address
+            const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Extract formatted address from response data
+            const formattedAddress = data.results[0].formatted_address;
+
+            // Set the location state with the formatted address
+            setLocation(formattedAddress);
         });
     }, []);
 
-    Geocode.fromLatLng(lat, lng).then(
-        (response) => {
-            const address = response?.results[1].formatted_address;
-            setData(address);
-        },
-        (error) => {
-            console.log(error);
-        }
-    );
+    //Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
+    //Geocode.setLanguage("en");
+
+    // useEffect(() => {
+    //     navigator.geolocation.getCurrentPosition(function (position) {
+    //         setLatitude(position.coords.latitude);
+    //         setLongitude(position.coords.longitude);
+    //     });
+    // }, []);
+
+    // Geocode.fromLatLng(lat, lng).then(
+    //     (response) => {
+    //         const address = response?.results[1].formatted_address;
+    //         setData(address);
+    //     },
+    //     (error) => {
+    //         console.log(error);
+    //     }
+    // );
 
     const [current, setCurrent] = useState([]);
     const [search, setSearch] = useState("");
@@ -105,7 +121,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                 <path d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z"></path>
                             </svg>
                         </LocationIcon>
-                        <span>{data}</span>
+                        <span>{location}</span>
                     </LocationContainer>
                 )}
                 <WrapperContainer>

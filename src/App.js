@@ -13,6 +13,7 @@ import Lottie from "react-lottie";
 import Category from "./Components/Includes/Category";
 import ProfilePage from "./Components/Screens/ProfilePage";
 import ProfileOrder from "./Components/Screens/ProfileOrder";
+import ShippingAddress from "./Components/Screens/ShippingAddress";
 
 function App() {
     const [item, setItem] = useState([]);
@@ -89,6 +90,7 @@ function App() {
                     <Route path="products/:id" element={<Elements />} />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/orders" element={<ProfileOrder />} />
+                    <Route path="/shipping" element={<ShippingAddress />} />
                     <Route
                         path="*"
                         element={<h1>404 error the Page is not found!</h1>}
