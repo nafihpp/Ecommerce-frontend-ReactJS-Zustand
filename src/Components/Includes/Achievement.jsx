@@ -9,14 +9,11 @@ function Achievement() {
                 <Parent>
                     <Child>
                         <img
-                            src={require("../../assets/Combined Shape.png")}
-                            alt="Reuters"
-                        />
-                    </Child>
-                    <Child>
-                        <img
-                            src={require("../../assets/Combined Shape-1.png")}
-                            alt="Taboola"
+                            src={
+                                require("../../assets/payment-method.svg")
+                                    .default
+                            }
+                            alt="Payment"
                         />
                     </Child>
                 </Parent>

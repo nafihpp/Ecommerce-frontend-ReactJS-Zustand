@@ -7,9 +7,10 @@ import CartModal from "../Screens/Cart";
 import Geocode from "react-geocode";
 import { useCart } from "../../store/Cart/Cart";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { debounce } from "lodash";
 
 function Header({ modal, setModal, activeTabs, setActiveTabs }) {
-    const [item, setItem] = useState([]);
+    const [items, setItem] = useState([]);
     const cart = useCart((state) => state.cart);
     const [isVisible, setIsVisible] = useState(true);
     const [height, setHeight] = useState(0);
@@ -52,21 +53,22 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
     const [current, setCurrent] = useState([]);
     const [search, setSearch] = useState("");
 
-    useEffect(() => {
+    const handleFilter = debounce(() => {
+        setCurrent(
+            items?.filter((item) => item?.title?.toLowerCase().includes(search))
+        );
+    }, 500);
+
+    const handleSearchChange = (event) => {
+        setSearch(event.target.value);
         handleFilter();
-    }, [search]);
+    };
 
     // useEffect(() => {
     //     if (item?.length >= 1) {
     //         let checking = item?.filter((check) => check.id == current.id);
     //     }
     // }, [item.length]);
-
-    const handleFilter = () => {
-        setCurrent(
-            item?.filter((item) => item?.title?.toLowerCase().includes(search))
-        );
-    };
 
     useEffect(() => {
         window.addEventListener("scroll", listenToScroll);
@@ -120,9 +122,8 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                 type="text"
                                 placeholder="Search What You Need."
                                 className="zoom"
-                                onChange={(e) => {
-                                    setSearch(e.target.value.toLowerCase());
-                                }}
+                                value={search}
+                                onChange={handleSearchChange}
                             />
                             <SearchContainer>
                                 {search &&

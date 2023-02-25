@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import Helmet from "react-helmet";
 import { AiOutlineClose } from "react-icons/ai";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+//import PhoneInput from "react-phone-input-2";
+//import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
 
 export default function Signup() {
@@ -40,7 +40,7 @@ export default function Signup() {
                                             }
                                         />
                                     </InputContainer>
-                                    <InputContainer>
+                                    {/* <InputContainer>
                                         <PhoneInput
                                             country={"us"}
                                             enableSearch={true}
@@ -50,7 +50,7 @@ export default function Signup() {
                                             }}
                                             inputMode="numeric"
                                         />
-                                    </InputContainer>
+                                    </InputContainer> */}
                                     <InputContainer>
                                         <TextInput
                                             type="mail"

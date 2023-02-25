@@ -39,6 +39,7 @@ const Cart = ({ setModal, modal }) => {
     function del(cart) {
         // removeIt(cart);
         console.log(cart);
+        console.log("deleted");
     }
 
     return (

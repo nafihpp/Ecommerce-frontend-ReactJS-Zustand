@@ -5,10 +5,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import "swiper/css";
 import "swiper/css/navigation";
-import banana from "../../assets/banana.jpg";
-import apricot from "../../assets/apricot.jpg";
-import apple from "../../assets/apple.jpg";
-import axios from "axios";
+import clothing from "../../assets/clothing.png";
+import jewellery from "../../assets/jewellery.webp";
+import mobile from "../../assets/mobile.png";
+import electronics from "../../assets/electronics.webp";
+import grocery from "../../assets/grocery.webp";
 import animationData from "../../loader/9582-liquid-4-dot-loader.json";
 import Lottie from "react-lottie";
 
@@ -23,43 +24,112 @@ function CategoryBar() {
             preserveAspectRatio: "xMidYMid slice",
         },
     };
-    useEffect(() => {
-        axios
-            .get("https://fakestoreapi.com/products/categories")
-            .then((response) => {
-                setCategory(response.data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get("https://fakestoreapi.com/products/categories")
+    //         .then((response) => {
+    //             setCategory(response.data);
+    //             setLoading(false);
+    //             console.log(category,"categories")
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // }, []);
 
     const navigate = useNavigate();
     let listProducts = () => {
         return (
             <>
-                {category.map((cat) => (
-                    <>
-                        <Child
-                            onClick={(e) => {
-                                navigate(`category/${cat}`);
+                {/* {category.map((cat) => ( */}
+                <>
+                    <Child
+                        onClick={(e) => {
+                            navigate(`category/jewellery`);
+                        }}
+                    >
+                        <ImageContainer>
+                            <ProductImg src={jewellery} alt="cat" />
+                        </ImageContainer>
+                        <p
+                            style={{
+                                textAlign: "center",
+                                fontSize: "12px",
                             }}
                         >
-                            <ImageContainer>
-                                <ProductImg src={apricot} alt="cat" />
-                            </ImageContainer>
-                            <p
-                                style={{
-                                    textAlign: "center",
-                                    fontSize: "12px",
-                                }}
-                            >
-                                {cat}
-                            </p>
-                        </Child>
-                    </>
-                ))}
+                            Jewellery
+                        </p>
+                    </Child>
+                    <Child
+                        onClick={(e) => {
+                            navigate(`category/jewellery`);
+                        }}
+                    >
+                        <ImageContainer>
+                            <ProductImg src={mobile} alt="cat" />
+                        </ImageContainer>
+                        <p
+                            style={{
+                                textAlign: "center",
+                                fontSize: "12px",
+                            }}
+                        >
+                            Mobile
+                        </p>
+                    </Child>
+                    <Child
+                        onClick={(e) => {
+                            navigate(`category/jewellery`);
+                        }}
+                    >
+                        <ImageContainer>
+                            <ProductImg src={electronics} alt="cat" />
+                        </ImageContainer>
+                        <p
+                            style={{
+                                textAlign: "center",
+                                fontSize: "12px",
+                            }}
+                        >
+                            Electronics
+                        </p>
+                    </Child>
+                    <Child
+                        onClick={(e) => {
+                            navigate(`category/clothing`);
+                        }}
+                    >
+                        <ImageContainer>
+                            <ProductImg src={clothing} alt="cat" />
+                        </ImageContainer>
+                        <p
+                            style={{
+                                textAlign: "center",
+                                fontSize: "12px",
+                            }}
+                        >
+                            Clothing
+                        </p>
+                    </Child>
+                    <Child
+                        onClick={(e) => {
+                            navigate(`category/clothing`);
+                        }}
+                    >
+                        <ImageContainer>
+                            <ProductImg src={grocery} alt="cat" />
+                        </ImageContainer>
+                        <p
+                            style={{
+                                textAlign: "center",
+                                fontSize: "12px",
+                            }}
+                        >
+                            Grocery
+                        </p>
+                    </Child>
+                </>
+                {/* ))} */}
             </>
         );
     };
@@ -68,7 +138,6 @@ function CategoryBar() {
             {
                 <MainContainer>
                     <Wrapperlist>
-                        <h1 style={{ textAlign: "center" }}>Categories</h1>
                         <ParentList>{listProducts()}</ParentList>
                     </Wrapperlist>
                 </MainContainer>
@@ -93,7 +162,6 @@ const ParentList = styled.ul`
     overflow-x: scroll;
 `;
 const Child = styled.li`
-    border: 3px solid #000;
     border-radius: 50%;
     width: 9%;
     padding: 8px;

@@ -112,7 +112,10 @@ function Items() {
         <>
             <MainContainer>
                 <Wrapperlist>
-                    <HeadingMain>Our Premium Collection</HeadingMain>
+                    <HeadingMain style={{ textAlign: "end" }}>
+                        Trending Now
+                        <hr style={{ borderTop: "3px solid red" }} />
+                    </HeadingMain>
                     <MainCont>
                         <MainSpan
                             className={

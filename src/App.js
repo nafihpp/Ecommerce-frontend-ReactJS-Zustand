@@ -49,14 +49,23 @@ function App() {
                         element={
                             inititalLoader ? (
                                 <>
-                                    <Lottie
-                                        options={defaultOptions}
-                                        height={300}
-                                        width={300}
-                                    />
-                                    <h1 style={{ textAlign: "center" }}>
-                                        Buy Commerce
-                                    </h1>
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexDirection: "column",
+                                        }}
+                                    >
+                                        <Lottie
+                                            options={defaultOptions}
+                                            height={300}
+                                            width={300}
+                                        />
+                                        <h1 style={{ textAlign: "center" }}>
+                                            Buy Commerce
+                                        </h1>
+                                    </div>
                                 </>
                             ) : (
                                 <MainPage
