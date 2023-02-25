@@ -12,6 +12,9 @@ import electronics from "../../assets/electronics.webp";
 import grocery from "../../assets/grocery.webp";
 import animationData from "../../loader/9582-liquid-4-dot-loader.json";
 import Lottie from "react-lottie";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import SwiperCore, { Autoplay } from "swiper";
 
 function CategoryBar() {
     const [category, setCategory] = useState([]);
@@ -24,6 +27,7 @@ function CategoryBar() {
             preserveAspectRatio: "xMidYMid slice",
         },
     };
+    SwiperCore.use([Autoplay]);
     // useEffect(() => {
     //     axios
     //         .get("https://fakestoreapi.com/products/categories")
@@ -43,91 +47,125 @@ function CategoryBar() {
             <>
                 {/* {category.map((cat) => ( */}
                 <>
-                    <Child
-                        onClick={(e) => {
-                            navigate(`category/jewellery`);
+                    <Swiper
+                        spaceBetween={0}
+                        slidesPerView={4}
+                        loop={true}
+                        autoplay={{
+                            delay: 2000,
                         }}
                     >
-                        <ImageContainer>
-                            <ProductImg src={jewellery} alt="cat" />
-                        </ImageContainer>
-                        <p
-                            style={{
-                                textAlign: "center",
-                                fontSize: "12px",
+                        <SwiperSlide
+                            onClick={(e) => {
+                                navigate(`category/jewellery`);
                             }}
                         >
-                            Jewellery
-                        </p>
-                    </Child>
-                    <Child
-                        onClick={(e) => {
-                            navigate(`category/jewellery`);
-                        }}
-                    >
-                        <ImageContainer>
-                            <ProductImg src={mobile} alt="cat" />
-                        </ImageContainer>
-                        <p
-                            style={{
-                                textAlign: "center",
-                                fontSize: "12px",
+                            <ImageContainer>
+                                <ProductImg src={jewellery} alt="cat" />
+                            </ImageContainer>
+                            <p
+                                style={{
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                }}
+                            >
+                                Jewellery
+                            </p>
+                            {/* </Child> */}
+                        </SwiperSlide>
+                        <SwiperSlide
+                            onClick={(e) => {
+                                navigate(`category/jewellery`);
                             }}
                         >
-                            Mobile
-                        </p>
-                    </Child>
-                    <Child
-                        onClick={(e) => {
-                            navigate(`category/jewellery`);
-                        }}
-                    >
-                        <ImageContainer>
-                            <ProductImg src={electronics} alt="cat" />
-                        </ImageContainer>
-                        <p
-                            style={{
-                                textAlign: "center",
-                                fontSize: "12px",
+                            {/* <Child
+                                onClick={(e) => {
+                                    navigate(`category/jewellery`);
+                                }}
+                            > */}
+                            <ImageContainer>
+                                <ProductImg src={mobile} alt="cat" />
+                            </ImageContainer>
+                            <p
+                                style={{
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                }}
+                            >
+                                Mobile
+                            </p>
+                            {/* </Child> */}
+                        </SwiperSlide>
+                        <SwiperSlide
+                            onClick={(e) => {
+                                navigate(`category/jewellery`);
                             }}
                         >
-                            Electronics
-                        </p>
-                    </Child>
-                    <Child
-                        onClick={(e) => {
-                            navigate(`category/clothing`);
-                        }}
-                    >
-                        <ImageContainer>
-                            <ProductImg src={clothing} alt="cat" />
-                        </ImageContainer>
-                        <p
-                            style={{
-                                textAlign: "center",
-                                fontSize: "12px",
+                            {/* <Child
+                                onClick={(e) => {
+                                    navigate(`category/jewellery`);
+                                }}
+                            > */}
+                            <ImageContainer>
+                                <ProductImg src={electronics} alt="cat" />
+                            </ImageContainer>
+                            <p
+                                style={{
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                }}
+                            >
+                                Electronics
+                            </p>
+                            {/* </Child> */}
+                        </SwiperSlide>
+                        <SwiperSlide
+                            onClick={(e) => {
+                                navigate(`category/clothing`);
                             }}
                         >
-                            Clothing
-                        </p>
-                    </Child>
-                    <Child
-                        onClick={(e) => {
-                            navigate(`category/clothing`);
-                        }}
-                    >
-                        <ImageContainer>
-                            <ProductImg src={grocery} alt="cat" />
-                        </ImageContainer>
-                        <p
-                            style={{
-                                textAlign: "center",
-                                fontSize: "12px",
+                            {/* <Child
+                                onClick={(e) => {
+                                    navigate(`category/clothing`);
+                                }}
+                            > */}
+                            <ImageContainer>
+                                <ProductImg src={clothing} alt="cat" />
+                            </ImageContainer>
+                            <p
+                                style={{
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                }}
+                            >
+                                Clothing
+                            </p>
+                            {/* </Child> */}
+                        </SwiperSlide>
+                        <SwiperSlide
+                            onClick={(e) => {
+                                navigate(`category/clothing`);
                             }}
                         >
-                            Grocery
-                        </p>
-                    </Child>
+                            {/* <Child
+                                onClick={(e) => {
+                                    navigate(`category/clothing`);
+                                }}
+                            > */}
+                            <ImageContainer>
+                                <ProductImg src={grocery} alt="cat" />
+                            </ImageContainer>
+                            <p
+                                style={{
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                }}
+                            >
+                                Grocery
+                            </p>
+                            {/* </Child> */}
+                        </SwiperSlide>
+                    </Swiper>
                 </>
                 {/* ))} */}
             </>

@@ -18,7 +18,6 @@ function Items() {
     const items = useStore((state) => state.Allproducts);
 
     const loader = useStore((state) => state.loading);
-    console.log(loader, "now its loading inside");
 
     function filtering() {
         if (isCategory == "") {
@@ -45,14 +44,6 @@ function Items() {
         filtering();
     }, [isCategory]);
 
-    // useCallback to optimize cart performance
-    // const optimize = useCallback(
-    //     (bought) => {
-    //         buy(bought);
-    //     },
-    //     [item]
-    // );
-    // Routing to the Description Page
     const Pagepush = (produce) => {
         navigate(`/products/${produce.id}`);
     };
