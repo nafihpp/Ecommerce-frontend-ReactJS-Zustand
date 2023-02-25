@@ -54,7 +54,7 @@ function Items() {
     // );
     // Routing to the Description Page
     const Pagepush = (produce) => {
-        navigate(`${produce.id}`);
+        navigate(`/products/${produce.id}`);
     };
     const defaultOptions = {
         loop: true,

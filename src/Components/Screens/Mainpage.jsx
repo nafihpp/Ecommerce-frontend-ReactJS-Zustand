@@ -15,8 +15,6 @@ import SpotLightCarousal from "../Includes/SpotLightCarousal";
 import CategoryBar from "../Includes/CategoryBar";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-import { useEffect } from "react";
-import { Suspense } from "react";
 import Footer from "../Includes/Footer";
 import { useStore } from "../../store/Products/Products";
 

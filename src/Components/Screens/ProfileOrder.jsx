@@ -83,6 +83,7 @@ function ProfileOrder() {
         <Container>
             <Sidebar>
                 <ProfilePicture src={profileImage} alt="Profile" />
+                <p>Mohammed Nafih</p>
                 <SidebarButton style={{ textDecoration: "none" }} to="/">
                     Home
                 </SidebarButton>
