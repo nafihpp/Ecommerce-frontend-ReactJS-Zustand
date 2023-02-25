@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import { useStore } from "./store/Products/Products";
 import Lottie from "react-lottie";
 import Category from "./Components/Includes/Category";
+import ProfilePage from "./Components/Screens/ProfilePage";
+import ProfileOrder from "./Components/Screens/ProfileOrder";
 
 function App() {
     const [item, setItem] = useState([]);
@@ -84,7 +86,9 @@ function App() {
                         path="category/:category/:id"
                         element={<Elements />}
                     />
-                    <Route path="/:id" element={<Elements />} />
+                    <Route path="products/:id" element={<Elements />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/orders" element={<ProfileOrder />} />
                     <Route
                         path="*"
                         element={<h1>404 error the Page is not found!</h1>}

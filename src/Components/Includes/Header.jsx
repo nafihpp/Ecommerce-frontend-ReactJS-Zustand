@@ -225,7 +225,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                     ></path>
                                 </svg>
                             </ImageBoxTwo>
-                            <ImageBoxThree to="/login">
+                            <ImageBoxThree to="/profile">
                                 <ImgThree
                                     src={
                                         require("../../assets/avatar.icon.svg")
