@@ -64,8 +64,8 @@ function App() {
                                     >
                                         <Lottie
                                             options={defaultOptions}
-                                            height={300}
-                                            width={300}
+                                            height={250}
+                                            width={250}
                                         />
                                     </div>
                                 </>
