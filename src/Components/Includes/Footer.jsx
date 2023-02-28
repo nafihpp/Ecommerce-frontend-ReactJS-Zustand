@@ -9,7 +9,7 @@ function Footer() {
                     <DivLeft>
                         <DivLogo>
                             <Img
-                                src={require("../../assets/apple.jpg").default}
+                                src={require("../../assets/Ellipse 153.png")}
                                 alt="grey-logo"
                             />
                         </DivLogo>

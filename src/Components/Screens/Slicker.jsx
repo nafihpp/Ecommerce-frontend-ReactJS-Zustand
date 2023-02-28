@@ -24,7 +24,7 @@ function Slicker() {
                         spaceBetween={50}
                         slidesPerView={3}
                         autoplay={{
-                            delay: 500,
+                            delay: 1800,
                         }}
                     >
                         {item?.map((ite) => {
