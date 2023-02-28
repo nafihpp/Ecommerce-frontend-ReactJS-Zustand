@@ -54,10 +54,12 @@ function App() {
                                 <>
                                     <div
                                         style={{
+                                            background: "#000",
+                                            width: "100%",
+                                            height: "100vh",
                                             display: "flex",
                                             justifyContent: "center",
                                             alignItems: "center",
-                                            flexDirection: "column",
                                         }}
                                     >
                                         <Lottie
@@ -65,9 +67,6 @@ function App() {
                                             height={300}
                                             width={300}
                                         />
-                                        <h1 style={{ textAlign: "center" }}>
-                                            Buy Commerce
-                                        </h1>
                                     </div>
                                 </>
                             ) : (

@@ -12,11 +12,14 @@ import { AiFillThunderbolt } from "react-icons/ai";
 import Header from "../Includes/Header";
 import { Rating } from "react-simple-star-rating";
 import { useCart } from "../../store/Cart/Cart";
-import HeaderWithoutLocation from "../Includes/HeaderWithoutLocation";
+import animationData from "../../loader/22380-e-commerce.json";
+import Lottie from "react-lottie";
+
 function Elements() {
     const { id } = useParams();
     const [page, setPage] = useState([]);
     const [count, setCount] = useState(1);
+    const [loading, setLoading] = useState(true);
 
     const addtoCart = useCart((state) => state.addToCart);
     const CartItems = useCart((state) => state.cart);
@@ -30,6 +33,16 @@ function Elements() {
     //         setItem((prev) => [...prev, bought]);
     //     }
     // }
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
+
     const notify = () =>
         toast.success(`${count} Items Added to Cart`, {
             position: "bottom-center",
@@ -39,13 +52,13 @@ function Elements() {
             draggable: true,
             progress: undefined,
         });
-
     useEffect(() => {
         axios
             .get(`https://fakestoreapi.com/products/${id}`)
             .then(function (response) {
                 // handle success
                 setPage(response.data);
+                setLoading(false);
             })
             .catch(function (error) {
                 // handle error
@@ -81,6 +94,25 @@ function Elements() {
         addtoCart(updatedPage);
     }
 
+    if (loading) {
+        return (
+            <>
+                <div
+                    style={{
+                        background: "#000",
+                        width: "100%",
+                        height: "100vh",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <Lottie options={defaultOptions} height={300} width={300} />
+                </div>
+            </>
+        );
+    }
+
     return (
         <>
             <Helmet>
@@ -110,9 +142,7 @@ function Elements() {
                                     size={22}
                                     style={{ marginTop: "20px" }}
                                 />
-                            ) : (
-                                <h1>Loading</h1>
-                            )}
+                            ) : null}
                             {page !== undefined ? (
                                 <PriceContainer>
                                     <PriceDiscountProduct
@@ -129,9 +159,7 @@ function Elements() {
                                     </PriceDiscountProduct>
                                     <PriceProduct>${page?.price}</PriceProduct>
                                 </PriceContainer>
-                            ) : (
-                                <h1>Loading</h1>
-                            )}
+                            ) : null}
 
                             <Quantity>
                                 <div

@@ -8,24 +8,28 @@ import Geocode from "react-geocode";
 import { useCart } from "../../store/Cart/Cart";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { debounce } from "lodash";
+const axios = require("axios");
 
 function Header({ modal, setModal, activeTabs, setActiveTabs }) {
+    //Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
+    //Geocode.setLanguage("en");
+
+    // useEffect(() => {
+    //     if (item?.length >= 1) {
+    //         let checking = item?.filter((check) => check.id == current.id);
+    //     }
+    // }, [item.length]);
+
+    //  setCurrent(
+    //     items?.filter((item) => item?.title?.toLowerCase().includes(search))
+    // );
+
     const [items, setItem] = useState([]);
     const cart = useCart((state) => state.cart);
     const [isVisible, setIsVisible] = useState(true);
     const [height, setHeight] = useState(0);
-    useEffect(() => {
-        const axios = require("axios");
-        axios
-            .get("https://fakestoreapi.com/products/")
-            .then(function (response) {
-                setItem(response.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, []);
+    const [current, setCurrent] = useState([]);
+    const [search, setSearch] = useState("");
     const [location, setLocation] = useState("");
 
     useEffect(() => {
@@ -46,45 +50,22 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
         });
     }, []);
 
-    //Geocode.setApiKey("AIzaSyA1Big55ZxwdB4Rr63kICLf9WdYN2yCqAc");
-    //Geocode.setLanguage("en");
-
-    // useEffect(() => {
-    //     navigator.geolocation.getCurrentPosition(function (position) {
-    //         setLatitude(position.coords.latitude);
-    //         setLongitude(position.coords.longitude);
-    //     });
-    // }, []);
-
-    // Geocode.fromLatLng(lat, lng).then(
-    //     (response) => {
-    //         const address = response?.results[1].formatted_address;
-    //         setData(address);
-    //     },
-    //     (error) => {
-    //         console.log(error);
-    //     }
-    // );
-
-    const [current, setCurrent] = useState([]);
-    const [search, setSearch] = useState("");
-
     const handleFilter = debounce(() => {
-        setCurrent(
-            items?.filter((item) => item?.title?.toLowerCase().includes(search))
-        );
+        axios
+            .get(`https://dummyjson.com/products/search?q=${search}`)
+            .then(function (response) {
+                setItem(response.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
     }, 500);
 
     const handleSearchChange = (event) => {
         setSearch(event.target.value);
         handleFilter();
     };
-
-    // useEffect(() => {
-    //     if (item?.length >= 1) {
-    //         let checking = item?.filter((check) => check.id == current.id);
-    //     }
-    // }, [item.length]);
 
     useEffect(() => {
         window.addEventListener("scroll", listenToScroll);
@@ -143,9 +124,9 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                             />
                             <SearchContainer>
                                 {search &&
-                                    current.map((items) => (
+                                    current.map((ite) => (
                                         <Link
-                                            to={`/${items.id}`}
+                                            to={`/${ite.id}`}
                                             style={{
                                                 color: "#000",
                                                 display: "flex",
@@ -156,11 +137,11 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                                             }}
                                         >
                                             <p style={{ fontSize: "15px" }}>
-                                                {items.title.slice(0, 20)}
+                                                {ite.description.slice(0, 20)}
                                             </p>
                                             <ImageContainer>
                                                 <img
-                                                    src={items.image}
+                                                    src={items.thumbnail}
                                                     alt=""
                                                     width={50}
                                                 />
