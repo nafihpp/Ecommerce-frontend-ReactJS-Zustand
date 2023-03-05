@@ -133,36 +133,13 @@ function Elements() {
                                 style={{ display: "block", width: "100%" }}
                             />
                         </ImageContainer>
-                        <LeftContainer>
-                            <h2>{page.title}</h2>
-                            <p>{page.description}</p>
-                            {page?.rating?.rate !== undefined ? (
-                                <Rating
-                                    initialValue={page.rating.rate}
-                                    allowHover={false}
-                                    readonly={true}
-                                    size={22}
-                                    style={{ marginTop: "20px" }}
-                                />
-                            ) : null}
-                            {page !== undefined ? (
-                                <PriceContainer>
-                                    <PriceDiscountProduct
-                                        style={{
-                                            color: "red",
-                                            textDecoration: "line-through",
-                                        }}
-                                    >
-                                        ${" "}
-                                        {(
-                                            page?.price -
-                                            page?.price / 10
-                                        ).toFixed(2)}
-                                    </PriceDiscountProduct>
-                                    <PriceProduct>${page?.price}</PriceProduct>
-                                </PriceContainer>
-                            ) : null}
-
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            {" "}
                             <Quantity>
                                 <div
                                     style={{
@@ -188,6 +165,38 @@ function Elements() {
                                     +
                                 </div>
                             </Quantity>
+                        </div>
+
+                        <LeftContainer>
+                            <h2>{page.title}</h2>
+                            {page?.rating?.rate !== undefined ? (
+                                <Rating
+                                    initialValue={page.rating.rate}
+                                    allowHover={false}
+                                    readonly={true}
+                                    size={22}
+                                    style={{ marginTop: "20px" }}
+                                />
+                            ) : null}
+                            <p>{page.description}</p>
+
+                            {page !== undefined ? (
+                                <PriceContainer>
+                                    <PriceDiscountProduct
+                                        style={{
+                                            color: "red",
+                                            textDecoration: "line-through",
+                                        }}
+                                    >
+                                        ${" "}
+                                        {(
+                                            page?.price -
+                                            page?.price / 10
+                                        ).toFixed(2)}
+                                    </PriceDiscountProduct>
+                                    <PriceProduct>${page?.price}</PriceProduct>
+                                </PriceContainer>
+                            ) : null}
                         </LeftContainer>
                     </Container>
                     {page.length !== 0 ? (
@@ -251,6 +260,15 @@ const BottomContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+
+    @media all and (max-width: 768px) {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+
+        background-color: white;
+    }
 `;
 const ImageContainer = styled.div`
     width: 20%;
@@ -275,6 +293,9 @@ const Buttoncart = styled.button`
     cursor: pointer;
     :hover {
     }
+    @media all and (max-width: 768px) {
+        width: 50%;
+    }
 `;
 const Links = styled(Link)`
     padding: 8px 7px;
@@ -283,6 +304,12 @@ const Links = styled(Link)`
     border: none;
     text-decoration: none;
     :hover {
+    }
+    @media all and (max-width: 768px) {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `;
 const MainContainer = styled.div`
