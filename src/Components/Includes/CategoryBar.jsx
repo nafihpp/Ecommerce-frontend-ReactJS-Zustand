@@ -28,18 +28,6 @@ function CategoryBar() {
         },
     };
     SwiperCore.use([Autoplay]);
-    // useEffect(() => {
-    //     axios
-    //         .get("https://fakestoreapi.com/products/categories")
-    //         .then((response) => {
-    //             setCategory(response.data);
-    //             setLoading(false);
-    //             console.log(category,"categories")
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }, []);
 
     const navigate = useNavigate();
     let listProducts = () => {

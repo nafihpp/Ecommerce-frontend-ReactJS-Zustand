@@ -14,7 +14,6 @@ import { Rating } from "react-simple-star-rating";
 import { useCart } from "../../store/Cart/Cart";
 import animationData from "../../loader/22380-e-commerce.json";
 import Lottie from "react-lottie";
-import ReactImageZoom from "react-image-zoom";
 
 function Elements() {
     const { id } = useParams();
@@ -118,23 +117,22 @@ function Elements() {
                     <BackButton onClick={back}>
                         <IoArrowBackOutline />
                     </BackButton>
-                    <div>
+                    {/* <div>
                         {" "}
                         <ReactImageZoom
                             zoomImage={page.image}
                             img={page.image}
                             zoomPosition="original"
                         />
-                    </div>
-
+                    </div> */}
                     <Container>
-                        {/* <ImageContainer> */}
-
-                        {/* <img
-                                src={}
+                        <ImageContainer>
+                            {" "}
+                            <img
+                                src={page.image}
                                 style={{ display: "block", width: "100%" }}
-                            /> */}
-                        {/* </ImageContainer> */}
+                            />
+                        </ImageContainer>
                         <LeftContainer>
                             <h2>{page.title}</h2>
                             <p>{page.description}</p>

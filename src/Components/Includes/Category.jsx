@@ -29,9 +29,7 @@ function Category() {
             .get(`https://fakestoreapi.com/products/category/${category}`)
             .then(function (response) {
                 setCategoryItem(response.data);
-                setTimeout(function () {
-                    setLoading(false);
-                }, 1000);
+                setLoading(false);
             })
             .catch((error) => {
                 console.log(error);
