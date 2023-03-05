@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display: flex;
@@ -100,6 +101,96 @@ const PaymentButton = styled.button`
     }
 `;
 
+const Sidebar = styled.div`
+    background-color: #f1f1f1;
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+`;
+
+const Content = styled.div`
+    margin-left: 200px;
+    padding: 20px;
+`;
+
+const TableWrapper = styled.div`
+    overflow-x: auto;
+    margin-top: 20px;
+`;
+
+const OrdersTable = styled.table`
+    border-collapse: collapse;
+    width: 100%;
+    th {
+        background-color: #f5f5f5;
+        color: #333;
+        font-weight: bold;
+        text-align: left;
+        padding: 10px;
+    }
+    td {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+`;
+
+const SidebarButton = styled(Link)`
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    &:hover {
+        background-color: #424242;
+    }
+`;
+
+const AddressList = styled.ul`
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+`;
+
+const AddressItem = styled.li`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+`;
+
+const AddressLabel = styled.span`
+    font-weight: bold;
+`;
+
+const AddressActions = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const AddressButton = styled.button`
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+`;
+
 const ShippingAddress = ({ onNext, onBack }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -129,23 +220,66 @@ const ShippingAddress = ({ onNext, onBack }) => {
             alert("all required fields to be filled");
         }
     };
+    const [addresses, setAddresses] = useState([
+        {
+            name: "nafibxfcbggbfdfdfbfbbfh",
+            address: "puthen gfbfdhbfdjhdvbfv nfd vdnfkvkxfkffb",
+        },
+        {
+            name: "nafibxfcbggbfdfdfbfbbfh",
+            address: "puthen gfbfdhbfdjhdvbfv nfd vdnfkvkxfkffb",
+        },
+    ]);
 
     return (
         <>
-            <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 1024 1024"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
-            </svg>
-
             <Container>
+                <Sidebar>
+                    <p>Mohammed Nafih</p>
+                    <SidebarButton style={{ textDecoration: "none" }} to="/">
+                        Home
+                    </SidebarButton>
+                    <SidebarButton
+                        style={{ textDecoration: "none" }}
+                        to="/orders"
+                    >
+                        Orders
+                    </SidebarButton>
+                    <SidebarButton
+                        style={{ textDecoration: "none" }}
+                        to="/profile"
+                    >
+                        Profile
+                    </SidebarButton>
+                    <SidebarButton
+                        style={{ textDecoration: "none" }}
+                        to="/shipping"
+                    >
+                        Saved Address
+                    </SidebarButton>
+                </Sidebar>
+                <AddressList>
+                    {addresses.map((item, index) => (
+                        <AddressItem key={index}>
+                            <div>
+                                <p style={{ color: "blue", cursor: "pointer" }}>
+                                    Edit
+                                </p>
+                                <AddressLabel>{item.name}</AddressLabel>
+                                <div>{item.address}</div>
+                            </div>
+                            <AddressActions>
+                                <AddressButton
+                                    onClick={() => console.log("fdsf")}
+                                >
+                                    Delete
+                                </AddressButton>
+                            </AddressActions>
+                        </AddressItem>
+                    ))}
+                </AddressList>
                 <Title>Shipping Address and Contact Details</Title>
+
                 <Form onSubmit={handleSubmit}>
                     <Input
                         type="text"
@@ -193,7 +327,7 @@ const ShippingAddress = ({ onNext, onBack }) => {
                     <Label>Additional Information</Label>
                     <TextArea rows="2" placeholder="Additional Information" />
                     <ButtonContainer>
-                        <PaymentButton>Pay Now</PaymentButton>
+                        <PaymentButton>Add Address</PaymentButton>
                     </ButtonContainer>
                 </Form>
             </Container>

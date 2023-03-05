@@ -14,6 +14,7 @@ import { Rating } from "react-simple-star-rating";
 import { useCart } from "../../store/Cart/Cart";
 import animationData from "../../loader/22380-e-commerce.json";
 import Lottie from "react-lottie";
+import ReactImageZoom from "react-image-zoom";
 
 function Elements() {
     const { id } = useParams();
@@ -24,15 +25,7 @@ function Elements() {
     const addtoCart = useCart((state) => state.addToCart);
     const CartItems = useCart((state) => state.cart);
 
-    let navigate = useNavigate();
-
-    // function buy(bought) {
-    //     let already = item.filter((im) => bought.id === im.id);
-    //     if (already.length < 1) {
-    //         notify();
-    //         setItem((prev) => [...prev, bought]);
-    //     }
-    // }
+    //let navigate = useNavigate();
 
     const defaultOptions = {
         loop: true,
@@ -80,7 +73,8 @@ function Elements() {
         }
     }
     function back() {
-        navigate("/");
+        //navigate("/");
+        window.history.back();
     }
 
     function buy(page) {
@@ -124,13 +118,23 @@ function Elements() {
                     <BackButton onClick={back}>
                         <IoArrowBackOutline />
                     </BackButton>
+                    <div>
+                        {" "}
+                        <ReactImageZoom
+                            zoomImage={page.image}
+                            img={page.image}
+                            zoomPosition="original"
+                        />
+                    </div>
+
                     <Container>
-                        <ImageContainer>
-                            <img
-                                src={page.image}
+                        {/* <ImageContainer> */}
+
+                        {/* <img
+                                src={}
                                 style={{ display: "block", width: "100%" }}
-                            />
-                        </ImageContainer>
+                            /> */}
+                        {/* </ImageContainer> */}
                         <LeftContainer>
                             <h2>{page.title}</h2>
                             <p>{page.description}</p>
@@ -296,68 +300,3 @@ const Wrapper = styled.div`
 `;
 
 export default Elements;
-
-{
-    /* <MainDiv>
-<ImageContainer>
-    <img src={page.image} alt="" className="image" />
-</ImageContainer>
-<div class="right">
-    <Headline>{page.title}</Headline>
-    <Paragra
-        style={{
-            border: "2px solid black",
-            width: "100%",
-            fontSize: "13px",
-            minHeight: "30px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: "8px",
-            marginTop: "10px",
-        }}
-    >
-        <Par>{page.category}</Par>
-    </Paragra>
-
-    <div class="prices">
-        <h1 class="new">${page.price}</h1>
-        <span>10%</span>
-    </div>
-    <div class="cart-items">
-        <Quantity>Quantity</Quantity>
-        <div class="left">
-            <div
-                href=""
-                class="operator"
-                style={{ textDecoration: "none" }}
-                onClick={() => decrement()}
-            >
-                -
-            </div>
-            <h5>{count}</h5>
-            <div
-                href=""
-                class="operator"
-                style={{ textDecoration: "none" }}
-                onClick={() => increment()}
-            >
-                +
-            </div>
-        </div>
-    </div>
-    <DivCart>
-        <a
-            style={{
-                color: "#fff",
-                textDecoration: "none",
-            }}
-            href="#"
-        >
-            {" "}
-            <AiOutlineShoppingCart /> Add to cart
-        </a>
-    </DivCart>
-</div>
-</MainDiv> */
-}

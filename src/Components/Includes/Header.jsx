@@ -109,8 +109,7 @@ function Header({ modal, setModal, activeTabs, setActiveTabs }) {
                     <SubContainer>
                         <LeftContainer>
                             <MainList>
-                                <SubList>Shop</SubList>
-                                <SubList>About</SubList>
+                                <SubList>About Us</SubList>
                                 <SubList>Blog</SubList>
                             </MainList>
                         </LeftContainer>

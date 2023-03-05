@@ -102,7 +102,7 @@ function Elements() {
                         <LeftContainer>
                             <h2>{page.title}</h2>
                             <p>{page.description}</p>
-                            {page?.rating?.rate !== undefined ? (
+                            {page?.rating?.rate !== undefined && (
                                 <Rating
                                     initialValue={page.rating.rate}
                                     allowHover={false}
@@ -110,10 +110,8 @@ function Elements() {
                                     size={22}
                                     style={{ marginTop: "20px" }}
                                 />
-                            ) : (
-                                <h1>Loading</h1>
                             )}
-                            {page !== undefined ? (
+                            {page !== undefined && (
                                 <PriceContainer>
                                     <PriceDiscountProduct
                                         style={{
@@ -129,10 +127,7 @@ function Elements() {
                                     </PriceDiscountProduct>
                                     <PriceProduct>${page?.price}</PriceProduct>
                                 </PriceContainer>
-                            ) : (
-                                <h1>Loading</h1>
                             )}
-
                             <Quantity>
                                 <div
                                     style={{

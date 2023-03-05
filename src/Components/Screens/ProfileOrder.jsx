@@ -93,6 +93,12 @@ function ProfileOrder() {
                 <SidebarButton style={{ textDecoration: "none" }} to="/profile">
                     Profile
                 </SidebarButton>
+                <SidebarButton
+                    style={{ textDecoration: "none" }}
+                    to="/shipping"
+                >
+                    Saved Address
+                </SidebarButton>
             </Sidebar>
 
             <Content>

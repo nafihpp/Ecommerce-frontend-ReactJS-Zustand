@@ -73,18 +73,14 @@ function Mainpage({ modal, setModal }) {
                 count={count}
                 setCount={setCount}
             />
-            {/* <Spotlight /> */}
             <SpotLightCarousal />
 
             <CategoryBar />
-            {item.length !== 0 ? (
-                <Items />
-            ) : (
-                <h1 style={{ textAlign: "center" }}>Loading</h1>
-            )}
+            {item.length !== 0 ? <Items /> : null}
             <Slicker />
             <Story />
             <Achievement />
+            <Spotlight />
             <Footer />
             {isMobile && (
                 <BottomNavigation

@@ -98,6 +98,12 @@ function ProfilePage() {
                 <SidebarButton to="/">Home</SidebarButton>
                 <SidebarButton to="/orders">Orders</SidebarButton>
                 <SidebarButton to="/profile">Profile</SidebarButton>
+                <SidebarButton
+                    style={{ textDecoration: "none" }}
+                    to="/shipping"
+                >
+                    Saved Address
+                </SidebarButton>
             </Sidebar>
             <Content>
                 <h1>Edit Profile</h1>

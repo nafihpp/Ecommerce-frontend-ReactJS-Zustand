@@ -109,6 +109,12 @@ function Items() {
                     </HeadingMain>
                     <MainCont>
                         <MainSpan
+                            className={isCategory === "" ? "active" : "null"}
+                            onClick={() => setCategory("")}
+                        >
+                            All
+                        </MainSpan>
+                        <MainSpan
                             className={
                                 isCategory === "men's clothing"
                                     ? "active"
@@ -151,12 +157,6 @@ function Items() {
                             }}
                         >
                             electronics
-                        </MainSpan>
-                        <MainSpan
-                            className="reset"
-                            onClick={() => setCategory("")}
-                        >
-                            Reset
                         </MainSpan>
                     </MainCont>
                     <ParentList>{listProducts()}</ParentList>

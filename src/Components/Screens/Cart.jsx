@@ -109,8 +109,9 @@ const Cart = ({ setModal, modal }) => {
                         {item?.length >= 1 ? (
                             <div className="coupon">
                                 <p>Have a Coupon code ?</p>
-                                <input
+                                <Input
                                     type="text"
+                                    className="zo"
                                     style={{ padding: "5px", border: "none" }}
                                     onChange={(e) =>
                                         setCouponCode(e.target.value)
@@ -167,6 +168,21 @@ const Cart = ({ setModal, modal }) => {
         </Body>
     );
 };
+
+const Input = styled.input`
+    outline: none;
+    border: none;
+    ::placeholder {
+        font-size: 13px;
+    }
+    &.zo {
+        @media all and (max-width: 768px) {
+            font-size: 16px;
+            transform-origin: top left;
+            transform: scale(0.75);
+        }
+    }
+`;
 const Links = styled(Link)``;
 const MiddleContainer = styled.div``;
 const Body = styled.div`
