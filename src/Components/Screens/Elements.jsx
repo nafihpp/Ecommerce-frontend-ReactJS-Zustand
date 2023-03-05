@@ -178,8 +178,6 @@ function Elements() {
                                     style={{ marginTop: "20px" }}
                                 />
                             ) : null}
-                            <p>{page.description}</p>
-
                             {page !== undefined ? (
                                 <PriceContainer>
                                     <PriceDiscountProduct
@@ -197,6 +195,9 @@ function Elements() {
                                     <PriceProduct>${page?.price}</PriceProduct>
                                 </PriceContainer>
                             ) : null}
+                            <ProductDescription>
+                                {page.description}
+                            </ProductDescription>
                         </LeftContainer>
                     </Container>
                     {page.length !== 0 ? (
@@ -230,6 +231,11 @@ function Elements() {
         </>
     );
 }
+const ProductDescription = styled.p`
+    @media all and (max-width: 768px) {
+        margin-bottom: 50px;
+    }
+`;
 const Quantity = styled.div`
     display: flex;
     justify-content: space-around;
@@ -256,17 +262,14 @@ const Container = styled.div`
     padding-top: 7px;
 `;
 const BottomContainer = styled.div`
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
-
     @media all and (max-width: 768px) {
         position: fixed;
         bottom: 0;
         width: 100%;
         display: flex;
-
         background-color: white;
     }
 `;
@@ -289,7 +292,7 @@ const Buttoncart = styled.button`
     background: burlywood;
     color: #fff;
     border: none;
-    margin-right: 6px;
+    margin-right: 2px;
     cursor: pointer;
     :hover {
     }
