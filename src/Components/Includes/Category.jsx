@@ -30,6 +30,7 @@ function Category() {
             .then(function (response) {
                 setCategoryItem(response.data);
                 setLoading(false);
+                console.log(response);
             })
             .catch((error) => {
                 console.log(error);

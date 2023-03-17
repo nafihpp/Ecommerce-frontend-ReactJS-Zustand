@@ -45,7 +45,7 @@ function CategoryBar() {
                     >
                         <SwiperSlide
                             onClick={(e) => {
-                                navigate(`category/jewellery`);
+                                navigate(`category/jewelery`);
                             }}
                         >
                             <ImageContainer>
@@ -63,7 +63,7 @@ function CategoryBar() {
                         </SwiperSlide>
                         <SwiperSlide
                             onClick={(e) => {
-                                navigate(`category/jewellery`);
+                                navigate(`category/jewelery`);
                             }}
                         >
                             {/* <Child
@@ -86,7 +86,7 @@ function CategoryBar() {
                         </SwiperSlide>
                         <SwiperSlide
                             onClick={(e) => {
-                                navigate(`category/jewellery`);
+                                navigate(`category/jewelery`);
                             }}
                         >
                             {/* <Child
