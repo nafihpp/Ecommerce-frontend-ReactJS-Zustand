@@ -22,49 +22,6 @@ function Mainpage({ modal, setModal }) {
     const [count, setCount] = useState(0);
     const loader = useStore((state) => state.loading);
     const item = useStore((state) => state.Allproducts);
-
-    const bottomNavItems = [
-        {
-            title: "Home",
-            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
-
-            activeIcon: (
-                <AiFillHome style={{ fontSize: "18px", background: "fff" }} />
-            ),
-        },
-
-        {
-            title: "Cart",
-
-            icon: <AiOutlineShoppingCart style={{ fontSize: "18px" }} />,
-
-            activeIcon: (
-                <FaShoppingCart
-                    style={{
-                        fontSize: "18px",
-                        background: "fff",
-                    }}
-                />
-            ),
-            onClick: () => {
-                setModal(true);
-            },
-        },
-
-        {
-            title: "Menu",
-
-            icon: <IoHomeOutline style={{ fontSize: "18px" }} />,
-
-            activeIcon: (
-                <IoHomeOutline
-                    style={{ fontSize: "18px", background: "fff" }}
-                />
-            ),
-
-            onClick: () => alert("menu clicked"),
-        },
-    ];
     return (
         <>
             <Header
@@ -82,13 +39,7 @@ function Mainpage({ modal, setModal }) {
             <Achievement />
             <Spotlight />
             <Footer />
-            {isMobile && (
-                <BottomNavigation
-                    items={bottomNavItems}
-                    defaultSelected={0}
-                    onItemClick={(item) => console.log(item)}
-                />
-            )}
+            {isMobile && console.log("mobile")}
         </>
     );
 }

@@ -7,8 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useStore } from "../../store/Products/Products";
 import loaderData from "../../loader/132083-loading-tau.json";
-import Lottie from "react-lottie";
-import { useCart } from "../../store/Cart/Cart";
+import { Box } from "@material-ui/core";
 
 function Items() {
     const [isCategory, setCategory] = useState("");
@@ -59,7 +58,11 @@ function Items() {
     let listProducts = () => {
         return filtered?.map((produc) => (
             <>
-                <Child key={produc.id} onClick={() => Pagepush(produc)}>
+                <StyledBox
+                    key={produc.id}
+                    onClick={() => Pagepush(produc)}
+                    width={50}
+                >
                     <ImageContainer>
                         <ProductImg src={produc?.image} alt={produc?.title} />
                     </ImageContainer>
@@ -95,7 +98,7 @@ function Items() {
                             </Links> */}
                         </MainCartContainer>
                     </Empdiv>
-                </Child>
+                </StyledBox>
             </>
         ));
     };
@@ -223,12 +226,40 @@ const MainContainer = styled.section`
     background: aliceblue;
     padding-top: 57px;
 `;
-const ParentList = styled.ul`
+const ParentList = styled.div`
     display: flex;
     justify-content: space-between;
     padding-top: 23px;
-    margin-top: -1px;
     overflow-x: scroll;
+    padding-bottom: 10px;
+`;
+
+const StyledBox = styled(Box)`
+    display: flex;
+    background: #fff;
+    padding: 20px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 16.666%;
+    border-radius: 10px;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer */
+
+    /* Hide scrollbar in Chrome/Safari/Webkit */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        width: 46%;
+        flex-wrap: wrap;
+        height: auto;
+    }
 `;
 const Child = styled.li`
     width: 23%;
@@ -241,21 +272,19 @@ const Child = styled.li`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 768px) {
-        width: 46%;
-        flex-wrap: wrap;
-    }
 `;
 const ImageContainer = styled.div`
-    width: 80%;
-    max-width: 68%;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    cursor: pointer;
 `;
 const ProductImg = styled.img`
-    display: block;
-    width: 100%;
-    border-radius: 15px;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
 `;
 const HeadProduct = styled.h4`
     height: 1.5rem;

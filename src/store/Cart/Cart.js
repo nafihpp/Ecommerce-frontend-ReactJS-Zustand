@@ -17,35 +17,34 @@ export const useCart = create((set) => ({
                     ? { ...item, quantity: item.quantity + page.quantity }
                     : item
             );
-
             return {
                 ...state,
                 cart: updatedCart,
             };
         }),
-    // removeFromCart: (cart) => {
-    //     set((state) => {
-    //         const isPresent = state.cart.find(
-    //             (itemsInCart) => itemsInCart.id == cart.id
-    //         );
-    //         if (isPresent) {
-    //             state.cart.map((maps) => {
-    //                 maps.id == cart.id
-    //                     ? { ...maps, quantity: maps.quantity - 1 }
-    //                     : maps;
-    //             });
-    //         }
-    //     });
-    // },
 
-    // removefromCart: (remItem) =>
-    //     set((state) => {
-    //         const deleting = state.cart.find(
-    //             (cartremItem) => cartremItem.id !== remItem.id
-    //         );
+    updateFromCart: (car) =>
+        set((state) => {
+            const isPresent = state.cart.find(
+                (itemsIncart) => itemsIncart.id === car.id
+            );
+            if (isPresent) {
+                const updatedCart = state.cart.map((ca) =>
+                    ca.id === car.id ? { ...ca, quantity: car.quantity } : ca
+                );
+                return {
+                    ...state,
+                    cart: updatedCart,
+                };
+            }
+            return state; // return the unmodified state if the item is not present in the cart
+        }),
 
-    //         return {
-    //             cart: [...state.cart, deleting],
-    //         };
-    //     }),
+    removeFromCart: (productId) =>
+        set((state) => {
+            const updatedCart = state.cart.filter(
+                (product) => product.id !== productId.id
+            );
+            return { ...state, cart: updatedCart };
+        }),
 }));

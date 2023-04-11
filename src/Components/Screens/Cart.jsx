@@ -10,13 +10,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Cart = ({ setModal, modal }) => {
     const item = useCart((state) => state.cart);
-    // const removeIt = useCart((state) => state.removefromCart);
+    const updateFromStore = useCart((state) => state.updateFromCart);
+    const deleteFromStore = useCart((state) => state.removeFromCart);
     const [discounted, setDiscount] = useState(0);
     const [couponCode, setCouponCode] = useState("");
     const navigate = useNavigate();
 
     let sum = 0;
-
     item.map((mapped) => {
         sum += mapped.price * mapped.quantity;
     });
@@ -36,10 +36,34 @@ const Cart = ({ setModal, modal }) => {
         currency: "INR",
     }).format(final);
 
-    function del(cart) {
-        // removeIt(cart);
-        console.log(cart);
-        console.log("deleted");
+    function AddCount(item) {
+        const updatedItem = {
+            id: item.id,
+            image: item.image,
+            price: item.price,
+            quantity: item.quantity + 1,
+            title: item.title,
+        };
+        updateFromStore(updatedItem);
+    }
+
+    function descreaseCount(item) {
+        if (item.quantity > 1) {
+            const updatedItem = {
+                id: item.id,
+                image: item.image,
+                price: item.price,
+                quantity: item.quantity - 1,
+                title: item.title,
+            };
+            updateFromStore(updatedItem);
+        } else {
+            deleteFromStore(item);
+        }
+    }
+
+    function deleteItem(item) {
+        deleteFromStore(item);
     }
 
     return (
@@ -54,10 +78,7 @@ const Cart = ({ setModal, modal }) => {
             {item?.map((cart) => (
                 <Content>
                     <div className="thumbnail">
-                        <img
-                            src={cart?.image}
-                            alt="Autumn Limited Edition Sneakers"
-                        />
+                        <img src={cart?.image} alt={cart?.title} />
                     </div>
                     <div className="details">
                         <p>
@@ -77,6 +98,9 @@ const Cart = ({ setModal, modal }) => {
                                         marginRight: "20px",
                                         cursor: "pointer",
                                     }}
+                                    onClick={(e) => {
+                                        descreaseCount(cart);
+                                    }}
                                 >
                                     -
                                 </div>
@@ -86,7 +110,9 @@ const Cart = ({ setModal, modal }) => {
                                         marginLeft: "20px",
                                         cursor: "pointer",
                                     }}
-                                    onClick={(e) => {}}
+                                    onClick={(e) => {
+                                        AddCount(cart);
+                                    }}
                                 >
                                     +
                                 </div>{" "}
@@ -97,7 +123,7 @@ const Cart = ({ setModal, modal }) => {
                             </strong>
                         </p>
                     </div>
-                    <div className="delete" onClick={del(cart)}>
+                    <div className="delete" onClick={(e) => deleteItem(cart)}>
                         <AiOutlineDelete />
                     </div>
                 </Content>
