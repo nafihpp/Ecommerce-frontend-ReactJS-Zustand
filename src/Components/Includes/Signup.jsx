@@ -6,10 +6,27 @@ import { AiOutlineClose } from "react-icons/ai";
 //import PhoneInput from "react-phone-input-2";
 //import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Signup() {
     const navigate = useNavigate();
-    const [phone, setPhone] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSignup = () => {
+        console.log("signup");
+        axios
+            .post("http://localhost:8080/signup", {
+                username: email,
+                password: password,
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
     return (
         <>
             <Helmet>
@@ -31,15 +48,6 @@ export default function Signup() {
                                 </LoginHead>
                                 <LoginInfo>Enter Phone to Verify OTP</LoginInfo>
                                 <Form>
-                                    <InputContainer>
-                                        <TextInput
-                                            type="text"
-                                            placeholder="Full Name"
-                                            onChange={(e) =>
-                                                console.log("none")
-                                            }
-                                        />
-                                    </InputContainer>
                                     {/* <InputContainer>
                                         <PhoneInput
                                             country={"us"}
@@ -56,7 +64,7 @@ export default function Signup() {
                                             type="mail"
                                             placeholder="email"
                                             onChange={(e) =>
-                                                console.log("none")
+                                                setEmail(e.target.value)
                                             }
                                         />
                                     </InputContainer>
@@ -65,23 +73,21 @@ export default function Signup() {
                                             type="password"
                                             placeholder="password"
                                             onChange={(e) =>
-                                                console.log("none")
+                                                setPassword(e.target.value)
                                             }
                                         />
                                     </InputContainer>
                                     <p></p>
                                     <MainButtonContainer>
-                                        <SignupButton
-                                            onClick={(e) => {
-                                                console.log("nothing");
-                                            }}
-                                        ></SignupButton>
+                                        <SignupButton></SignupButton>
                                         <ForgotButton to="/login">
                                             Have an Account?
                                         </ForgotButton>
                                     </MainButtonContainer>
                                     <ButtonContainer>
-                                        <SubmitButton>Register</SubmitButton>
+                                        <SubmitButton onClick={handleSignup}>
+                                            Register
+                                        </SubmitButton>
                                     </ButtonContainer>
                                 </Form>
                             </LoginContainer>

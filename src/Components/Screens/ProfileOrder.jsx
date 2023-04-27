@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import profileImage from "../../assets/mobile.png";
-// Define styled components
 const Container = styled.div`
     display: flex;
 `;
@@ -85,19 +84,19 @@ function ProfileOrder() {
                 <ProfilePicture src={profileImage} alt="Profile" />
                 <p>Mohammed Nafih</p>
                 <SidebarButton style={{ textDecoration: "none" }} to="/">
-                    Home
+                    H
                 </SidebarButton>
                 <SidebarButton style={{ textDecoration: "none" }} to="/orders">
-                    Orders
+                    O
                 </SidebarButton>
                 <SidebarButton style={{ textDecoration: "none" }} to="/profile">
-                    Profile
+                    P
                 </SidebarButton>
                 <SidebarButton
                     style={{ textDecoration: "none" }}
                     to="/shipping"
                 >
-                    Saved Address
+                    A
                 </SidebarButton>
             </Sidebar>
 
