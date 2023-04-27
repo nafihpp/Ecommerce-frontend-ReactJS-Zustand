@@ -254,9 +254,8 @@ const StyledBox = styled(Box)`
     &::-webkit-scrollbar {
         display: none;
     }
-
+    min-width: 167px !important;
     @media (max-width: 768px) {
-        width: 46%;
         flex-wrap: wrap;
         height: auto;
     }

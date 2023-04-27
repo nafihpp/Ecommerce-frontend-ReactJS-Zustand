@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { RiHomeSmile2Fill, RiUser5Fill } from "react-icons/ri";
-import { BiSearchAlt } from "react-icons/bi";
+import { RiUser5Fill } from "react-icons/ri";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { BsChatRightDotsFill } from "react-icons/bs";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";

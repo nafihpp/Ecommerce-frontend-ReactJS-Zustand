@@ -1,19 +1,17 @@
 import "./App.css";
 import MainPage from "./Components/Screens/Mainpage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cart from "./Components/Screens/Cart";
 import Elements from "./Components/Screens/Elements";
 import { React, useState } from "react";
 import Login from "./Components/Includes/Login";
 import Signup from "./Components/Includes/Signup";
-import animationData from "./loader/75400-shopping-bag.json";
 import { useEffect } from "react";
 import { useStore } from "./store/Products/Products";
-import Lottie from "react-lottie";
 import Category from "./Components/Includes/Category";
 import ProfilePage from "./Components/Screens/ProfilePage";
 import ProfileOrder from "./Components/Screens/ProfileOrder";
 import ShippingAddress from "./Components/Screens/ShippingAddress";
+import { InitialLoader } from "./Components/Includes/InitialLoader";
 
 function App() {
     const [item, setItem] = useState([]);
@@ -32,15 +30,6 @@ function App() {
         setInititalLoader(false);
     }, 2500);
 
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
-
     return (
         <>
             <Router>
@@ -51,24 +40,7 @@ function App() {
                         path="/"
                         element={
                             inititalLoader ? (
-                                <>
-                                    <div
-                                        style={{
-                                            background: "#000",
-                                            width: "100%",
-                                            height: "100vh",
-                                            display: "flex",
-                                            justifyContent: "center",
-                                            alignItems: "center",
-                                        }}
-                                    >
-                                        <Lottie
-                                            options={defaultOptions}
-                                            height={250}
-                                            width={250}
-                                        />
-                                    </div>
-                                </>
+                                <InitialLoader />
                             ) : (
                                 <MainPage
                                     item={item}
