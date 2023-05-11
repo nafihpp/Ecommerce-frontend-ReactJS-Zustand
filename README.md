@@ -8,7 +8,7 @@ yarn start
 
 ## HomePage
 
-![mobile (1)](https://github.com/nafihpp/Ecommerce-frontend-ReactJS-Zustand/assets/49452140/1201e091-549d-4174-88c3-5b7e189c2c6b)
+![mobile (1)](https://github.com/nafihpp/Ecommerce-frontend-ReactJS-Zustand/assets/49452140/605c70e5-38cb-4834-b642-8972feb82384)
 
 
 ## HomePage Shopping Items with filter option
