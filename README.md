@@ -8,7 +8,8 @@ yarn start
 
 ## HomePage
 
-![1stecom](https://user-images.githubusercontent.com/49452140/234776692-5ee90faf-02ec-41c7-902d-f95f85fb2ecd.jpg)
+![mobile (1)](https://github.com/nafihpp/Ecommerce-frontend-ReactJS-Zustand/assets/49452140/1201e091-549d-4174-88c3-5b7e189c2c6b)
+
 
 ## HomePage Shopping Items with filter option
 
